@@ -10,6 +10,9 @@
 body {
     min-height: 100vh;
     overflow-x: hidden;
+    background-image: url(https://www.zastavki.com/pictures/1440x900/2009/Nature_Sundown_Summer_evening_016409_.jpg);
+    background-size: cover;
+    background-position: center;
 }
 
 .container {
@@ -21,19 +24,47 @@ body {
 .navigation {
     position: fixed;
     width: 300px;
-    height: 100%;
-    background-color: #a42153;
-    border-left: 35px solid;
-    border-left-color: #a42153;
+    height: 600px;
+    background: transparent;
+    border-radius: 20px;
+    box-shadow: 5px 5px 8px 10px #000000;
+    backdrop-filter: blur(5px);
+    margin-top: 35px;
+    margin-left: 40px;
     transition: 0.5s;
     overflow: hidden;
 }
 
 .selection{
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 20px;
+    left: 10px;
     width: 100%;
+}
+
+.userphoto{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-left: 36px;
+}
+
+#file{
+    display: none;
+}
+
+#uploadfile{
+    position:absolute;
+    height: 30px;
+    width: 30px;
+    padding: 6px 6px;
+    border-radius: 50%;
+    cursor:pointer;
+    color: white;
+    background-color: #4a4a4a;
+    box-shadow: 2px 4px 4px #000000;
+    transform: translateX(-150%);
+    margin-top: 165px;
 }
 
 .list{
@@ -48,7 +79,7 @@ body {
 }
 
 .list:hover{
-    background-color: #ebc2d5;
+    background-color: white;
 }
 
 .list a{
@@ -57,11 +88,11 @@ body {
     width: 100%;
     display: flex;
     text-decoration: none;
-    color: #ebc2d5;
+    color: white;
 }
 
 .list:hover a{
-    color: #a42153;
+    color:black;
 }
 
 .symbol{
