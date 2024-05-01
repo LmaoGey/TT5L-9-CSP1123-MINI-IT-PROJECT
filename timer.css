@@ -1,8 +1,12 @@
-body {
+.bg {
 min-height: 100vh;
-background: url('purpleBG.jpg') no-repeat;
+background: url('placeholderpurple.jpg') no-repeat;
 background-position: center;
-background-size: cover;
+background-size: 100%;
+filter: blur(8px);
+
+
+
 
 
 
