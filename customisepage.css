@@ -1,0 +1,17 @@
+body{
+    background-image: linear-gradient(to right, rgb(92, 66, 13), rgb(123, 83, 8));
+}
+ 
+.button {
+    background-color: #7f928b; /* Grey */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin-bottom: 4px 2px;
+    cursor: pointer;
+} 
+
