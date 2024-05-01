@@ -5,33 +5,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=5.0" />
+    <script src="https://kit.fontawesome.com/4befc1f018.js" crossorigin="anonymous"></script>
     <title>Timeout!</title>
   </head>
 
   <body>
-   <h1>TIMEOUT</h1> 
-    <form action="account_handler.php" method="POST" autocomplete="on" target="_self">
-      <div>
-        <h2 id="register">Register account</h2>
-        <h2>Username:</h2>
-
-        <p><input type="text" id="username" name="username" required /><br /></p>
-
-        <h2>Email:</h2>
-
-        <p><input type="email" id="email" name="email" required /><br /></p>
-
-        <h2>Password:</h2>
-
-        <p><input type="password"id="password" name="password"required/><br /></p>
-
-        <h2>Confirm Password:</h2>
-
-        <p><input type="password"id="password" name="password"required/><br /></p>
-        <p><input type="checkbox">Remember me</p>
-        <p><input type="submit" value="Sign up" /></p>
-        <p>Already have an account?<a href="#">Login</a></p>
+    <div class="container"> 
+      <form action="account_handler.php" method="POST" autocomplete="on" target="_self">
         
+        <h3 class="welcome">Welcome to Timeout!</h3>
+        <i class="fa-solid fa-clock"></i>
+        <h4 class="getstarted">Let's get started!</h4>
+        <h2 class="register">Register account<h2>
+
+        <div class="input">
+          <input type="text" placeholder="Username" name="Username" required />
+          <i class="fa-solid fa-user-pen"></i>
+        </div>
+
+        <div class="input">
+          <input type="email" placeholder="Email" name="Email" required />
+          <i class="fa-solid fa-envelope"></i>
+        </div>
+
+        <div class="input">
+          <input type="password" placeholder="Password" name="Password" required />
+          <i class="fa-solid fa-key"></i>
+        </div>
+
+        <div class="input">
+          <input type="password" placeholder="Password" name="Password" required />
+          <i class="fa-solid fa-key"></i>
+        </div>
+
+        <div class="remember-forget">
+          <label><input type="checkbox">Remember me</label>
+          <a href="#">Forgot password?</a>
+        </div>
+
+        <div class="button"><button type="submit">Sign up</button></div>
+
+        <div class="login">
+          <p>Already have an account?<a href="#">Login</a></p>
+        </div>
       </div>
     </form>
   </body>
