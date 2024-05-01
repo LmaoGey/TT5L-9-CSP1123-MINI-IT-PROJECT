@@ -1,17 +1,19 @@
-body {
-    background-image: linear-gradient(to right, rgb(92, 66, 13), rgb(123, 83, 8));
-    text-align: left; /* Align buttons to the left */
-}
+ 
+ 
+     
+        .pill{
+            font-size:25px;
+            font-family: 'Raedex Pro',sans-serif;
+            padding: 0.5em 1em;
+            margin:0.25em 0;
+            border-radius: 1em;
+            background-color: #5f5050;
+            cursor: pointer;
+            display:block;
+            margin-bottom: 30px;
+        }
+         .pil:hover {
+            background-color:rgb(54, 214, 214);
+             
 
-.button {
-    background-color: #7f928b; /* Grey */
-    border: none;
-    color: white;
-    padding: 20px 40px; /* Adjust padding to make the button bigger */
-    text-align: center;
-    text-decoration: none;
-    display: block;
-    font-size: 20px; /* Increase font size */
-    margin-bottom: 10px; /* Adjust margin bottom */
-    cursor: pointer;
-} 
+         }
