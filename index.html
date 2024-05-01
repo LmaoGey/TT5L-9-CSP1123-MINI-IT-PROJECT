@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="loginpage.css">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=5.0" />
     <title>Timeout!</title>
   </head>
+
   <body>
    <h1>TIMEOUT</h1> 
-    <form action="account_handler.php" method="POST">
+    <form action="account_handler.php" method="POST" autocomplete="on" target="_self">
       <div>
         <h2 id="register">Register account</h2>
         <h2>Username:</h2>
@@ -27,10 +29,11 @@
 
         <p><input type="password"id="password" name="password"required/><br /></p>
         <p><input type="checkbox">Remember me</p>
-        <p><input type="submit" value="Sign in" /></p>
+        <p><input type="submit" value="Sign up" /></p>
         <p>Already have an account?<a href="#">Login</a></p>
         
       </div>
     </form>
   </body>
+  
   </html>
