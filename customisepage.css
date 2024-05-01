@@ -1,19 +1,30 @@
  
- 
+        body{
+            background-image: linear-gradient(to right, rgb(92, 66, 13), rgb(123, 83, 8));
+
+
+        }
+
      
         .pill{
             font-size:25px;
             font-family: 'Raedex Pro',sans-serif;
             padding: 0.5em 1em;
-            margin:0.25em 0;
+            margin:0.30em,0;
             border-radius: 1em;
             background-color: #5f5050;
             cursor: pointer;
             display:block;
             margin-bottom: 30px;
+            border: 2px solid #090808
         }
          .pil:hover {
             background-color:rgb(54, 214, 214);
              
+        }
 
-         }
+         .pil--selected{
+            background-color:aqua
+
+        }
+        

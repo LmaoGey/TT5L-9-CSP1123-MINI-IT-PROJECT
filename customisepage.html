@@ -6,15 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=5.0" />
     <title>Timeout!</title>
     <p><h1>Custom</h1></p>
-    <syle>
+    <style>
 
     </style>
 
     </head>
     <body>
-        <button class="pill" type="button">Study</button>
-        <button class="pill" type="button">Sleep</button>
-        <button class="pill" type="button">Gaming</button>
+        <button class="pill pill--selected" type="button">Study</button>
+        <button class="pill pill--selected" type="button">Sleep</button>
+        <button class="pill pil--selected" type="button">Gaming</button>
+    
+    <script>
+        document.querySelectorAll(".pill").forEach(pill =>{
+            pill.addEventListener("click", () => pill.classList.toggle("pill--selected"));
+        });
+
+    </script>
 
 
     </body>
