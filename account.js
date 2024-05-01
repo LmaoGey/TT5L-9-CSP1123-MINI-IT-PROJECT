@@ -1,22 +1,37 @@
 const sqlite = require('sqlite3').verbose();
-const axios = require('axios');
+
 
 let sql;
 
 
-const db = new sqlite3.Database('users.db', sqlite3.OPEN_READWRITE, (err)=>{
+const db = new sqlite.Database('users.db', sqlite.OPEN_READWRITE, (err)=>{
     if (err)return console.error(err.message)
 })
 
-
-sql = 'CREATE TABLE users(id INTEGER PRIMARY KEY, first_name, Last_name,username,password,email)';
-db.run(sql);
-// db.run("DROP TABLE users")
+    async function getData(url){
+    try{
 
 
 
-// sql= 'INSERT INTO users(first_name,last_name,username,password,email) VALUES (?,?,?,?,?)';
-// db.run(sql,["frog","poss", "tlh303", "aldygeyer", "aintnoway@gmail.com" ], (err)=>{
+    }catch (error){console.log(err)
+
+
+
+    }
+
+
+
+    }
+    getData('users.db')
+    // sql = 'CREATE TABLE users(ID INTEGER PRIMARY KEY, Username, email, password)';
+    // db.run(sql);
+    
+    // db.run("DROP TABLE users")
+
+//USERNAME, EMAIL, PASSWORD 
+
+// sql= 'INSERT INTO users(Username, email, password) VALUES (?,?,?)';
+// db.run(sql,["fred", "fred@gmail.com", "geehhehet" ], (err)=>{
 //     if (err)return console.error(err.message)
 // })
 
