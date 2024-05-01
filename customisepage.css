@@ -1,5 +1,6 @@
 body {
     background-image: linear-gradient(to right, rgb(92, 66, 13), rgb(123, 83, 8));
+    text-align: left; /* Align buttons to the left */
 }
 
 .button {
