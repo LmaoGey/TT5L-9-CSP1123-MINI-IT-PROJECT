@@ -21,10 +21,41 @@
          .pil:hover {
             background-color:rgb(54, 214, 214);
              
+         }
+
+        .dropdown.button{
+            background-color: hsl(0,0%,80%);
+            color: white;
+            padding: 10px,15px;
+            border:none;
+            cursor:pointer;
+        
+
         }
 
-         .pil--selected{
-            background-color:aqua
+        .dropdown.a{
+            display: block;
+            color:#090808;
+            text-decoration: none;
+            padding:10px,15px;
+        }
+
+        .dropdown.content{
+            display: none;
+            position:absolute;
+            background-color:hsl(0,0,95%);
+            min-width: 100px;
+            box-shadow: 2px 2px 5px hsl(0,0%,796%)
 
         }
+
+        .dropdown:hover .content{
+            display: block;
+        }
+
+        
+        .dropdown a:hover{
+            background-color:hsl(0,0%,70%)
+        }
+            
         
