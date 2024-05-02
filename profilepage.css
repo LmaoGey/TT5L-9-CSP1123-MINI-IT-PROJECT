@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    font-family: "PT Sans", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image: url(https://www.zastavki.com/pictures/1440x900/2009/Nature_Sundown_Summer_evening_016409_.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+
+}
+
+.navigation {
+    position: fixed;
+    width: 300px;
+    height: 600px;
+    background: transparent;
+    border-radius: 20px;
+    box-shadow: 5px 5px 8px 10px #000000;
+    backdrop-filter: blur(5px);
+    margin-top: 35px;
+    margin-left: 40px;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.selection{
+    position: absolute;
+    top: 35px;
+    left: 10px;
+    width: 100%;
+}
+
+.userphoto{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-left: 36px;
+}
+
+#file{
+    display: none;
+}
+
+#uploadfile{
+    position:absolute;
+    height: 30px;
+    width: 30px;
+    padding: 6px 6px;
+    border-radius: 50%;
+    cursor:pointer;
+    color: white;
+    background-color: #4a4a4a;
+    box-shadow: 2px 4px 4px #000000;
+    transform: translateX(-150%);
+    margin-top: 165px;
+}
+
+#uploadfile:hover{
+    background-color: gray;
+    color: black;
+}
+
+.list{
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 20px;
+    
+}
+
+.list:hover{
+    background-color: white;
+}
+
+.list a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: solid;
+    color: white;
+    
+}
+
+.list:hover a{
+    color:black;
+}
+
+.symbol{
+    position: relative;
+    display: block;
+    min-width: 85px;
+    height: 75px;
+    line-height: 60px;
+    text-align: center;
+}
+
+.symbol i{
+    font-size: 2.0rem;
+}
+
+.titlee{
+    font-size: 25px;
+    font-weight: bold;
+}
+
