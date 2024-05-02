@@ -20,16 +20,33 @@ body {
 
 .container{
     width: 400px;
-    height: 550px;
+    height: 570px;
     background: transparent;
     border: 2px solid;
     border-color: azure;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(40px);
     box-shadow: 1px 1px 5px 2px #000000;
-    color:aliceblue;
+    color:white;
     border-radius:20px;
     padding: 30px 40px;
 }
+
+.welcome{
+    text-align:center;
+}
+
+.icon i{
+    position:absolute;
+    left:180px;
+    transform: translateY(-105%);
+    font-size: 36px;
+}
+
+
+.getstarted{
+    text-align: center;
+}
+
 
 .register{
     font-size: 36px;
@@ -52,18 +69,18 @@ body {
     border-color: black;
     border-radius: 30px;
     font-size:18px;
-    color:white;
+    color:black;
     padding: 20px 45px 20px 20px;
 }
 
 .input input::placeholder{
-    color:white;
+    color:gray;
     font-style: italic;
 }
 
 .input i{
     position:absolute;
-    left:480px;
+    left:320px;
     transform: translateY(50%);
     font-size: 20px;
 }
@@ -76,7 +93,7 @@ body {
 }
 
 .remember-forget label input{
-    accent-color: yellow;
+    accent-color: black;
     margin-right: 3px;
 }
 
