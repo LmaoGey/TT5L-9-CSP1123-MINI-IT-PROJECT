@@ -1,11 +1,15 @@
  
         body{
             background-image: linear-gradient(to right, rgb(92, 66, 13), rgb(123, 83, 8));
+            background:url(timer1.png);
+            background-size: cover;
+
 
 
         }
 
-     
+        
+         
         .pill{
             font-size:25px;
             font-family: 'Raedex Pro',sans-serif;
@@ -23,39 +27,6 @@
              
          }
 
-        .dropdown.button{
-            background-color: hsl(0,0%,80%);
-            color: white;
-            padding: 10px,15px;
-            border:none;
-            cursor:pointer;
-        
 
-        }
-
-        .dropdown.a{
-            display: block;
-            color:#090808;
-            text-decoration: none;
-            padding:10px,15px;
-        }
-
-        .dropdown.content{
-            display: none;
-            position:absolute;
-            background-color:hsl(0,0,95%);
-            min-width: 100px;
-            box-shadow: 2px 2px 5px hsl(0,0%,796%)
-
-        }
-
-        .dropdown:hover .content{
-            display: block;
-        }
-
-        
-        .dropdown a:hover{
-            background-color:hsl(0,0%,70%)
-        }
-            
-        
+     
+    
