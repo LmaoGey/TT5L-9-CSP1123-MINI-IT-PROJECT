@@ -42,7 +42,10 @@ body {
     width: 100%;
 }
 
-.userphoto{
+.profile{
+    list-style: none;
+}
+.profile .userphoto{
     width: 200px;
     height: 200px;
     border-radius: 50%;
