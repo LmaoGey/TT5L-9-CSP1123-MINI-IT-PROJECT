@@ -20,8 +20,12 @@ body {
 
 .container{
     width: 400px;
-    height: 500px;
-    background-color: blue;
+    height: 550px;
+    background: transparent;
+    border: 2px solid;
+    border-color: azure;
+    backdrop-filter: blur(10px);
+    box-shadow: 1px 1px 5px 2px #000000;
     color:aliceblue;
     border-radius:20px;
     padding: 30px 40px;
@@ -59,7 +63,7 @@ body {
 
 .input i{
     position:absolute;
-    left:520px;
+    left:480px;
     transform: translateY(50%);
     font-size: 20px;
 }
