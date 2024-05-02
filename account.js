@@ -1,14 +1,15 @@
 const sqlite = require('sqlite3').verbose();
 
 
-function submitForm() {
-       var getData = {
-        username: document.getElementById("username").value,
-        email: document.getElementById("email").value,
-        password: document.getElementById("password").value
-    };
-}
+function getData(){
+    username = document.getElementById('username')
+    email = document.getElementById('email')
+    password = document.getElementById('password')
 
+
+
+}
+    
 let sql;
 
 
@@ -22,10 +23,10 @@ const db = new sqlite.Database('users.db', sqlite.OPEN_READWRITE, (err)=>{
 
 
     
-     sql = 'INSERT INTO users(Username, email, password) VALUES (?,?,?)';
-    db.run(sql, [getData.username, getData.email, getData.password], (err) => {
-        if (err) return console.error(err)});
-        console.log("Data inserted successfully!");
+    //  sql = 'INSERT INTO users(Username, email, password) VALUES (?,?,?)';
+    // db.run(sql, [getData.username, getData.email, getData.password], (err) => {
+    //     if (err) return console.error(err)});
+    //     console.log("Data inserted successfully!");
 
     //      sql = 'INSERT INTO users(Username, email, password) VALUES (?,?,?)';
     // db.run(sql, ["jake", "aladin@gmail.com", "password"], (err) => {
@@ -46,6 +47,6 @@ const db = new sqlite.Database('users.db', sqlite.OPEN_READWRITE, (err)=>{
         //      if (err)return console.error(err.message) }  );
 
 
-// sql = 'SELECT * FROM users'; db.all(sql, [], (err, rows)=>{if (err)return console.error(err.message)  ;
-// rows.forEach((row) => {console.log(rows);}
-// )});
+sql = 'SELECT * FROM users'; db.all(sql, [], (err, rows)=>{if (err)return console.error(err.message)  ;
+rows.forEach((row) => {console.log(rows);}
+)});
