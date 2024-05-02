@@ -45,6 +45,7 @@ body {
 .profile{
     list-style: none;
 }
+
 .profile .userphoto{
     width: 200px;
     height: 200px;
@@ -73,6 +74,11 @@ body {
 #uploadfile:hover{
     background-color: gray;
     color: black;
+}
+
+.username{
+    margin-left: 56px;
+    list-style: none;
 }
 
 .list{
