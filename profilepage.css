@@ -36,8 +36,8 @@ body {
 }
 
 .navigation.active ~ .content{
-    left:250px;
-    width:calc(100% - 250px);
+    left:350px;
+    width:calc(100% - 350px);
 }
 
 .navigation.active{
@@ -169,4 +169,21 @@ body {
 .titlee{
     font-size: 25px;
     font-weight: bold;
+}
+
+.content{
+    position:relative;
+    background-color: white;
+    min-height:100vh;
+    top:0;
+    left: 120px;
+    transition: all 0.5 ease;
+    width: calc(100% - 120px);
+    padding: 1rem;
+}
+
+
+.subject{
+    display:flex;
+    justify-content: space-between;
 }
