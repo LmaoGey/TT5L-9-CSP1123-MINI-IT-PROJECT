@@ -1,4 +1,4 @@
-/////menu bar icon
+/////activate menu bar icon
 let menubar = document.querySelector('.menubar');
 let navigation = document.querySelector('.navigation');
 
@@ -6,6 +6,8 @@ menubar.onclick = function(){
     navigation. classList.toggle('active');
 };
 
+
+/////to navigate between pages when the link is pressed
 let section = document.querySelectorAll('section');
 let navlink = document.querySelectorAll('.selection a');
 
@@ -24,3 +26,5 @@ window.onscroll = () => {
         };
     });
 };
+
+/////

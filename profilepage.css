@@ -21,6 +21,8 @@ body {
 
 }
 
+/*this is for navigation bar*/
+
 .navigation {
     position: fixed;
     width: 80px;
@@ -58,8 +60,6 @@ body {
 .navigation.active .menubar{
     left:90%;
 }
-
-
 
 .profile{
     list-style: none;
@@ -171,6 +171,8 @@ body {
     font-weight: bold;
 }
 
+/*this is for content part*/
+
 .content{
     position:relative;
     background-color: white;
@@ -182,14 +184,15 @@ body {
     padding: 1rem;
 }
 
-.subject{
-    display:flex;
-    justify-content: space-between;
-}
-
 section{
     min-height: 100vh;
     justify-content: center;
     align-items: center;
-    padding:1rem;
+    padding: 2rem;
 }
+
+.content h1{
+    font-size: 40px;
+}
+
+
