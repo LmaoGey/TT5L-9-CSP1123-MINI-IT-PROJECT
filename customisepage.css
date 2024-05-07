@@ -1,61 +1,24 @@
  
         body{
-            background-image: linear-gradient(to right, rgb(92, 66, 13), rgb(123, 83, 8));
-
+            margin:0%
 
         }
 
      
-        .pill{
-            font-size:25px;
-            font-family: 'Raedex Pro',sans-serif;
-            padding: 0.5em 1em;
-            margin:0.30em,0;
-            border-radius: 1em;
-            background-color: #5f5050;
-            cursor: pointer;
-            display:block;
-            margin-bottom: 30px;
-            border: 2px solid #090808
+        .container{
+            font-size: large;
+            font-family:"Arial Black";
+            padding:  1rem;
+           background-color: #333;
+            margin-right:1rem;
+         
         }
-         .pil:hover {
-            background-color:rgb(54, 214, 214);
+         .draggable {
+            background-color:white;
+            border: 0.5px solid black;
+            cursor: move;
              
          }
-
-        .dropdown.button{
-            background-color: hsl(0,0%,80%);
-            color: white;
-            padding: 10px,15px;
-            border:none;
-            cursor:pointer;
-        
-
+        .draggable.dragging{
+            opacity: .6;
         }
-
-        .dropdown.a{
-            display: block;
-            color:#090808;
-            text-decoration: none;
-            padding:10px,15px;
-        }
-
-        .dropdown.content{
-            display: none;
-            position:absolute;
-            background-color:hsl(0,0,95%);
-            min-width: 100px;
-            box-shadow: 2px 2px 5px hsl(0,0%,796%)
-
-        }
-
-        .dropdown:hover .content{
-            display: block;
-        }
-
-        
-        .dropdown a:hover{
-            background-color:hsl(0,0%,70%)
-        }
-            
-        
