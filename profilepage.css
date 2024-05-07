@@ -149,7 +149,7 @@ body {
     
 }
 
-.list:hover a{
+.list a:hover{
     color:black;
 }
 
@@ -185,4 +185,11 @@ body {
 .subject{
     display:flex;
     justify-content: space-between;
+}
+
+section{
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding:1rem;
 }
