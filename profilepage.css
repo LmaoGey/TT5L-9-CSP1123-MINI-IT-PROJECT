@@ -195,4 +195,36 @@ section{
     font-size: 40px;
 }
 
+/*this is for background part*/
+
+.background{
+    font-size: 25px;
+    text-decoration: none;
+    display: block;
+    padding:20px 15px;
+    width: 1000px;
+    height: 100px;
+    border-radius: 10px;
+    box-shadow: 4px 5px 5px 5px #000000;
+    background-color: white;
+    margin-top: 50px;
+    margin-left: 10px;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.background .imageicon i{
+    margin-right: 15px;
+}
+
+.background .dropdownicon i{
+    position:absolute;
+    right:10%;
+    
+    transition: 0.3 ease;
+}
+
+
+
+
 
