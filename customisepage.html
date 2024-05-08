@@ -9,17 +9,21 @@
     <title>Timeout!</title>
   </head>
   <body>
+     
+    <p class="title">Customisation</p>
+
     <div class="scroll-bg">
       <div class="scroll-div">
         <div class="scroll-object"></div>
-        
+       
+
         <button class="pill" id="studyButton" type="button">Study</button>
         <button class="pill" id="exerciseButton" type="button">Exercise</button>
         <button class="pill" id="gamingButton" type="button">Gaming</button>
         <button class="pill"id="takeabreakButton" type="button">Take a break</button>
       </div>
 
-      <div class="right-section">
+      
         
         
         <div class="container">
@@ -34,6 +38,7 @@
 
     <script type='text/javascript'>
            document.addEventListener('DOMContentLoaded', function() {
+
            function saveTime(category, timeArray){
            let timeserialized = JSON.stringify(timeArray);
            localStorage.setItem( category, timeserialized);
@@ -41,7 +46,7 @@
             }
             
 
-           
+            
 
             
 
@@ -51,15 +56,17 @@
 
          document.getElementById('exerciseButton').addEventListener('click',function() { 
           saveTime("exercisetime ",[5,20,5]);
+           
          });
 
 
          document.getElementById('gamingButton').addEventListener('click',function() {
-          saveTime("gamingtime ",[5,20,5]);
+          
          });
 
          document.getElementById('takeabreakButton').addEventListener('click',function() {
           saveTime("takeabreaktime ",[5,20,5]);
+          
         });
 
       });
