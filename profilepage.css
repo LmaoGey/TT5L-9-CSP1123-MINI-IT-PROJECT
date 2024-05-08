@@ -7,10 +7,13 @@
     box-sizing: border-box;
 }
 
+:root{
+    background-image:linear-gradient(to bottom right, lightblue, darkblue);
+}
+
 body {
     min-height: 100vh;
     overflow-x: hidden;
-    background-image: url(https://www.zastavki.com/pictures/1440x900/2009/Nature_Sundown_Summer_evening_016409_.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -175,7 +178,7 @@ body {
 
 .content{
     position:relative;
-    background-color: white;
+    background:transparent;
     min-height:100vh;
     top:0;
     left: 120px;
@@ -205,12 +208,17 @@ section{
     width: 1000px;
     height: 100px;
     border-radius: 10px;
-    box-shadow: 4px 5px 5px 5px #000000;
+    box-shadow: 2px 2px 5px 5px #000000;
     background-color: white;
     margin-top: 50px;
     margin-left: 10px;
     transition: 0.5s;
     overflow: hidden;
+}
+
+.background:hover{
+    background-color: gainsboro;
+    cursor:pointer;
 }
 
 .background .imageicon i{
@@ -220,8 +228,43 @@ section{
 .background .dropdownicon i{
     position:absolute;
     right:10%;
-    
-    transition: 0.3 ease;
+    transition: 1s;
+}
+
+.bg.active .background .dropdownicon i{
+    transform:rotate(-180deg)
+}
+
+.colour-selection{
+    position:relative;
+    padding: 20px;
+    width: 1000px;
+    height: 150px;
+    margin-top:20px;
+    margin-left:10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #000000;
+    background-color: white;
+    display:none;
+}
+
+.bg.active .colour-selection{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.colour-container{
+    margin-top:20px;
+    margin-right:500px;
+}
+
+.colour-container .colour{
+    display:inline-block;
+    height:50px;
+    width:50px;
+    border-radius: 30%;
+    margin:2px;
+    cursor:pointer;
 }
 
 

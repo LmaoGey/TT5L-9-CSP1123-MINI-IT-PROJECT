@@ -1,4 +1,4 @@
-/////activate menu bar icon
+/////menu bar icon toggle
 let menubar = document.querySelector('.menubar');
 let navigation = document.querySelector('.navigation');
 
@@ -27,4 +27,21 @@ window.onscroll = () => {
     });
 };
 
-/////
+/////background bar toggle
+let bg = document.querySelector('.bg');
+let backgroundd = document.querySelector('.background');
+
+backgroundd.onclick = function(){
+    bg. classList.toggle('active');
+};
+
+/////background colour selection
+let selectcolour = document.querySelectorAll('.colour');
+
+selectcolour.forEach(backgroundimage =>{
+
+    backgroundimage.addEventListener('click',() =>{
+        let dataImage = backgroundimage.getAttribute('data-image');
+        document.querySelector(':root').style.setProperty('background-image' , dataImage);
+    })
+})
