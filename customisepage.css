@@ -19,14 +19,16 @@
            background-color: #333;
             margin-right:5rem;
            position: absolute;
-           width:50px;
-           height:50px;
+           width:100px;
+           height:100px;
          
         }
          .draggable {
             background-color:rgb(107, 63, 63);
             border: 0.5px solid black;
             cursor: move;
+            width:100px;
+            height:100px;
             
              
          }

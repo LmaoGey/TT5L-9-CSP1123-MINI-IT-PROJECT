@@ -9,68 +9,59 @@
     <title>Timeout!</title>
   </head>
   <body>
-     
     <p class="title">Customisation</p>
 
     <div class="scroll-bg">
       <div class="scroll-div">
         <div class="scroll-object"></div>
-       
 
         <button class="pill" id="studyButton" type="button">Study</button>
         <button class="pill" id="exerciseButton" type="button">Exercise</button>
         <button class="pill" id="gamingButton" type="button">Gaming</button>
-        <button class="pill"id="takeabreakButton" type="button">Take a break</button>
+        <button class="pill" id="takeabreakButton" type="button">
+          Take a break
+        </button>
       </div>
 
-      
-        
-        
-        <div class="container">
-        
-            <p class="draggable" draggable="true">5 min</p>
-            <p class="draggable" draggable="true">20 min</p>
-            <p class="draggable" draggable="true">5 min</p>
-          </div>
-        </div>
+      <div class="container">
+        <p class="draggable" draggable="true">5 min</p>
+        <p class="draggable" draggable="true">20 min</p>
+        <p class="draggable" draggable="true">5 min</p>
       </div>
     </div>
 
-    <script type='text/javascript'>
-           document.addEventListener('DOMContentLoaded', function() {
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function () {
+        function saveTime(category, timeArray) {
+          let timeserialized = JSON.stringify(timeArray);
+          localStorage.setItem(category, timeserialized);
+          console.log(category + "timesaved:", timeserialized);
+        }
 
-           function saveTime(category, timeArray){
-           let timeserialized = JSON.stringify(timeArray);
-           localStorage.setItem( category, timeserialized);
-            console.log(category + 'timesaved:', timeserialized);
-            }
-            
+        document
+          .getElementById("studyButton")
+          .addEventListener("click", function () {
+            saveTime("studytime ", [5, 20, 5]);
+          });
 
-            
+        document
+          .getElementById("exerciseButton")
+          .addEventListener("click", function () {
+            saveTime("exercisetime ", [5, 20, 5]);
+          });
 
-            
+        document
+          .getElementById("gamingButton")
+          .addEventListener("click", function () {});
 
-         document.getElementById('studyButton').addEventListener('click', function() {
-          saveTime("studytime ",[5,20,5]);
-        });
-
-         document.getElementById('exerciseButton').addEventListener('click',function() { 
-          saveTime("exercisetime ",[5,20,5]);
-           
-         });
-
-
-         document.getElementById('gamingButton').addEventListener('click',function() {
-          
-         });
-
-         document.getElementById('takeabreakButton').addEventListener('click',function() {
-          saveTime("takeabreaktime ",[5,20,5]);
-          
-        });
-
+        document
+          .getElementById("takeabreakButton")
+          .addEventListener("click", function () {
+            saveTime("takeabreaktime ", [5, 20, 5]);
+          });
       });
-
     </script>
+
+    <div class="button">Save</div>
   </body>
 </html>
