@@ -204,9 +204,9 @@ section{
     font-size: 25px;
     text-decoration: none;
     display: block;
-    padding:20px 15px;
+    padding:15px 15px;
     width: 1000px;
-    height: 100px;
+    height: 90px;
     border-radius: 10px;
     box-shadow: 2px 2px 5px 5px #000000;
     background-color: white;
@@ -234,6 +234,11 @@ section{
 .bg.active .background .dropdownicon i{
     transform:rotate(-180deg)
 }
+
+.background h3{
+    font-size: 1.17rem;
+}
+
 
 .colour-selection{
     position:relative;
@@ -265,6 +270,47 @@ section{
     border-radius: 30%;
     margin:2px;
     cursor:pointer;
+}
+
+.colour-container .colour:hover{
+    border:#000000 3px solid;
+}
+
+/*this is for music part*/
+
+.ms{
+    font-size: 25px;
+    text-decoration: none;
+    display: block;
+    padding:15px 15px;
+    width: 1000px;
+    height: 90px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 5px #000000;
+    background-color: white;
+    margin-top: 30px;
+    margin-left: 10px;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.ms:hover{
+    background-color: gainsboro;
+    cursor:pointer;
+}
+
+.ms .musicicon i{
+    margin-right: 15px;
+}
+
+.ms .dropdownicon i{
+    position:absolute;
+    right:10%;
+    transition: 1s;
+}
+
+.ms.active .ms .dropdownicon i{
+    transform:rotate(-180deg)
 }
 
 

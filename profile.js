@@ -38,10 +38,23 @@ backgroundd.onclick = function(){
 /////background colour selection
 let selectcolour = document.querySelectorAll('.colour');
 
+let storedColour = localStorage.getItem('colour');
+if (storedColour) {
+    document.querySelector(':root').style.setProperty('background-image', storedColour);
+}
 selectcolour.forEach(backgroundimage =>{
 
     backgroundimage.addEventListener('click',() =>{
         let dataImage = backgroundimage.getAttribute('data-image');
         document.querySelector(':root').style.setProperty('background-image' , dataImage);
-    })
-})
+        localStorage.setItem('colour' , dataImage);
+    });
+});
+
+/////music bar toggle
+let ms = document.querySelector('.ms');
+let musicc = document.querySelector('.music');
+
+musicc.onclick = function(){
+    ms. classList.toggle('active');
+};
