@@ -1,52 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <link rel="stylesheet" href="customisepage.css" />
-  <link rel ="stylesheet" href="customisepage2.css" />
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=5.0" />
-    <title>Custom</title>
-    <p><h1>Custom</h1></p>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="customisepage.css" />
+    <script src="customise.js" defer></script>
+    <title>Timeout!</title>
+  </head>
+  <body>
+    <div class="scroll-bg">
+      <div class="scroll-div">
+        <div class="scroll-object"></div>
+        <!-- Navigation buttons -->
+        <button class="pill" id="studyButton" type="button">Study</button>
+        <button class="pill" id="exerciseButton" type="button">Exercise</button>
+        <button class="pill" id="gamingButton" type="button">Gaming</button>
+        <button class="pill"id="takeabreakButton" type="button">Take a break</button>
+      </div>
 
-    </head>
-    <body>
-        <button class="pill pill--selected" type="button">Study</button>
-        <button class="pill pill--selected" type="button">Sleep</button>
-        <button class="pill pil--selected" type="button">Gaming</button>
-    
-     
-
-
-    <body>
-       <div class="dropdown">
-        <button>custom</button>
-        <div class="content">
-        <a href=""> 5 min  </a>
-        <a href=""> 20 min </a>
-        <a href=""> 30 min </a>
-       
-        <button>Sleep</button>
-        <div class="content">
-        <a href=""> 5 min  </a>
-        <a href=""> 20 min </a>
-        <a href=""> 30 min </a>
-
-        <button>Study</button>
-        <div class="content">
-        <a href=""> 5 min  </a>
-        <a href=""> 20 min </a>
-        <a href=""> 30 min </a>
-
-        <button>Gaming</button>
-        <div class="content">
-        <a href=""> 5 min  </a>
-        <a href=""> 20 min </a>
-        <a href=""> 30 min </a>
-
-
+      <div class="right-section">
+        <!-- Draggable content -->
+        <div class="container">
+        
+            <p class="draggable" draggable="true">5 min</p>
+            <p class="draggable" draggable="true">20 min</p>
+            <p class="draggable" draggable="true">5 min</p>
+          </div>
         </div>
+      </div>
     </div>
-    </body>
-</html>
 
+    <script type='text/javascript'>
+           document.addEventListener('DOMContentLoaded', function() {
+           function saveTime(category, timeArray){
+           let timeserialized = JSON.stringify(timeArray);
+           localStorage.setItem( category, timeserialized);
+            console.log(category + 'timesaved:', timeserialized);
+            }
+            
+
+           
+
+            
+
+         document.getElementById('studyButton').addEventListener('click', function() {
+          saveTime("studytime ",[5,20,5]);
+        });
+
+         document.getElementById('exerciseButton').addEventListener('click',function() { 
+          saveTime("exercisetime ",[5,20,5]);
+         });
+
+
+         document.getElementById('gamingButton').addEventListener('click',function() {
+          saveTime("gamingtime ",[5,20,5]);
+         });
+
+         document.getElementById('takeabreakButton').addEventListener('click',function() {
+          saveTime("takeabreaktime ",[5,20,5]);
+        });
+
+      });
+
+    </script>
+  </body>
+</html>
