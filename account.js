@@ -1,14 +1,14 @@
 const sqlite = require('sqlite3').verbose();
 
 
-function getData(){
-    username = document.getElementById('username')
-    email = document.getElementById('email')
-    password = document.getElementById('password')
+// function getData(){
+//     username = document.getElementById('username')
+//     email = document.getElementById('email')
+//     password = document.getElementById('password')
 
 
 
-}
+// }
     
 let sql;
 
