@@ -6,6 +6,28 @@ menubar.onclick = function(){
     navigation. classList.toggle('active');
 };
 
+///to upload file as profile picture
+let profile = document.querySelector('.profile');
+let userphoto = document.querySelector('.userphoto');
+let file = document.querySelector('#file');
+let uploadfile = document.querySelector('#uploadfile');
+
+uploadfile.addEventListener('click', function() {
+    file.click();
+});
+
+file.addEventListener('change',function(){
+let filechosen = this.files[0];
+    if (filechosen){
+        let readfile = new FileReader();
+
+        readfile.addEventListener('load', function(){
+            userphoto.setAttribute('src', readfile.result); 
+        })
+    readfile.readAsDataURL (filechosen);
+    };
+});
+
 
 /////to navigate between pages when the link is pressed
 let section = document.querySelectorAll('section');
