@@ -2,7 +2,9 @@ const start = document.getElementById("startbutton") ;
 const pause = document.getElementById("pausebutton") ;
 const skip =  document.getElementById("skipbutton");
 const timething = document.getElementById("timer");
-const sound = document.getElementById("playsound")
+const focust = document.getElementById("focust")
+const breakt = document.getElementById("breakt")
+
 
 
 let interval;
@@ -18,12 +20,19 @@ let formattedtime = minutes + ":" + seconds;
 timething.innerHTML = formattedtime
 }
 
-function playsound(){
-let audio = new Audio("GitExercise\Notifsound(demo).mp3")
-;
-audio.play() 
+function updatebreaktimer(){
 
-}
+    timeleft = 300
+    let minutes =  Math.floor(timeleft / 60)     
+    let seconds = timeleft % 60
+    let formattedtime = minutes + ":" + seconds;
+    
+    
+    timething.innerHTML = formattedtime
+    }
+    
+
+
 
 function starttimer() {
 interval = setInterval(() => {
@@ -32,7 +41,7 @@ interval = setInterval(() => {
 if (timeleft === 0 ) {
     clearInterval(interval);
     alert("time is up guy");
-    timeleft = 600;
+    breaktime();
     
 }
 }, 1000)
@@ -49,8 +58,48 @@ function skiptimer(){
 
 }
 
+function breaktimer(){
+    interval = setInterval(() => {
+        timeleft--;
+        updatebreaktimer();
+    if (timeleft === 0 ) {
+        clearInterval(interval);
+        alert("time is up guy");
+        starttimer();
+        
+    }
+    }, 1000)
+    
+    }
+    
 
-sound.addEventListener("click" , playsound)
+function breaktime(){
+    clearInterval(interval);
+    document.getElementById("timer").innerHTML ="5:00";
+    breaktimer();
+
+
+
+
+}
+
+
+function focustime()
+{
+    clearInterval(interval)
+document.getElementById("timer").innerHTML = "10:00";
+starttimer();
+
+
+
+
+
+}
+
+
+
 start.addEventListener("click" , starttimer)
 pause.addEventListener("click" , pausetimer)
 skip.addEventListener("click" , skiptimer)
+breakt.addEventListener("click" , breaktimer)
+focust.addEventListener("click" , focustime)

@@ -107,3 +107,20 @@ margin : 10px;
 
 
 }
+
+
+
+
+.fbtime {
+text-align: center;
+margin: 10px;
+padding: 10px 20px;
+background-color: transparent;
+background-repeat: no-repeat;
+border: none;
+cursor:alias ;
+overflow: hidden;
+outline: none;
+
+
+}
