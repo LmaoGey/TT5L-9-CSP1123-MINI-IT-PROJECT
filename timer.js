@@ -19,7 +19,7 @@ timething.innerHTML = formattedtime
 }
 
 function playsound(){
-let audio = Audio("GitExercise\Notifsound(demo).mp3")
+let audio = new Audio("GitExercise\Notifsound(demo).mp3")
 ;
 audio.play() 
 
