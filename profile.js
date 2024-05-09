@@ -58,3 +58,11 @@ let musicc = document.querySelector('.music');
 musicc.onclick = function(){
     ms. classList.toggle('active');
 };
+
+/////alarm bar toggle
+let al = document.querySelector('.al');
+let alarmm = document.querySelector('.alarm');
+
+alarmm.onclick = function(){
+    al. classList.toggle('active');
+};

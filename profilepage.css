@@ -278,7 +278,7 @@ section{
 
 /*this is for music part*/
 
-.ms{
+.music{
     font-size: 25px;
     text-decoration: none;
     display: block;
@@ -294,26 +294,107 @@ section{
     overflow: hidden;
 }
 
-.ms:hover{
+.music:hover{
     background-color: gainsboro;
     cursor:pointer;
 }
 
-.ms .musicicon i{
+.music .musicicon i{
     margin-right: 15px;
 }
 
-.ms .dropdownicon i{
+.music .dropdownicon i{
     position:absolute;
     right:10%;
     transition: 1s;
 }
 
-.ms.active .ms .dropdownicon i{
+.ms.active .music .dropdownicon i{
     transform:rotate(-180deg)
 }
 
+.music h3{
+    font-size: 1.17rem;
+}
 
+
+.music-selection{
+    position:relative;
+    padding: 20px;
+    width: 1000px;
+    height: 150px;
+    margin-top:20px;
+    margin-left:10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #000000;
+    background-color: white;
+    display:none;
+}
+
+.ms.active .music-selection{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+/*this is for alarm part*/
+
+.alarm{
+    font-size: 25px;
+    text-decoration: none;
+    display: block;
+    padding:15px 15px;
+    width: 1000px;
+    height: 90px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 5px #000000;
+    background-color: white;
+    margin-top: 30px;
+    margin-left: 10px;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.alarm:hover{
+    background-color: gainsboro;
+    cursor:pointer;
+}
+
+.alarm .alarmicon i{
+    margin-right: 15px;
+}
+
+.alarm .dropdownicon i{
+    position:absolute;
+    right:10%;
+    transition: 1s;
+}
+
+.al.active .alarm .dropdownicon i{
+    transform:rotate(-180deg)
+}
+
+.alarm h3{
+    font-size: 1.17rem;
+}
+
+
+.alarm-selection{
+    position:relative;
+    padding: 20px;
+    width: 1000px;
+    height: 150px;
+    margin-top:20px;
+    margin-left:10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #000000;
+    background-color: white;
+    display:none;
+}
+
+.al.active .alarm-selection{
+    display:flex;
+    flex-wrap:wrap;
+}
 
 
 
