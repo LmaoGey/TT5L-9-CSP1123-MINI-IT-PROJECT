@@ -20,7 +20,6 @@ function getPhotoFromLocalStorage() {
     return localStorage.getItem('userPhoto');
 }
 
-////////////////////////////////////////////// Load the saved photo from local storage when the page loads
 window.addEventListener('DOMContentLoaded', function() {
     let savedPhoto = getPhotoFromLocalStorage();
     if (savedPhoto) {
@@ -95,6 +94,15 @@ let musicc = document.querySelector('.music');
 
 musicc.onclick = function(){
     ms.classList.toggle('active');
+};
+
+/////////////////////////////////////////music genre toggle
+let genrecontainer = document.querySelector('.genre-container');
+let selectgenre = document.querySelector('.select-genre');
+
+
+selectgenre.onclick = function(){
+    genrecontainer.classList.toggle('active');
 };
 
 //////////////////////////////////////////////////alarm bar toggle

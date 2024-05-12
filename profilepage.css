@@ -239,7 +239,6 @@ section{
     font-size: 1.17rem;
 }
 
-
 .colour-selection{
     position:relative;
     padding: 20px;
@@ -317,12 +316,11 @@ section{
     font-size: 1.17rem;
 }
 
-
 .music-selection{
     position:relative;
     padding: 20px;
     width: 1000px;
-    height: 250px;
+    height: 450px;
     margin-top:20px;
     margin-left:10px;
     border-radius: 10px;
@@ -339,14 +337,13 @@ section{
 /*****genre box********/
 .genre-container{
     width:380px;
-    margin-top:20px;
     margin-right: 250px;
 }
 
 .genre-container .select-genre{
     display: flex;
     height:50px;
-    width:400px;
+    width:950px;
     background-color: white;
     padding:20px;
     font-size:18px;
@@ -358,6 +355,49 @@ section{
     box-shadow: 1.5px 1.5px 1.5px 1.5px #000000;
 }
 
+.select-genre i{
+    transition: 0.5s;
+}
+.genre-container.active .select-genre i{
+    transform:rotate(180deg)
+}
+
+.genre-container .genre-option{
+    position:relative;
+    padding:10px;
+    width:950px;
+    margin-top:10px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 1.5px 1.5px 1.5px 1.5px #000000;
+    visibility: hidden;
+}
+
+.genre-container.active .genre-option{
+    visibility: visible;
+}
+
+
+.genre-option .option{
+    display:flex;
+    height:50px;
+    border-radius: 5px;
+    padding-left:10px;
+    padding-right:10px;
+    align-items: center;
+    background-color: white;
+    justify-content: space-between;
+    cursor: pointer;
+    font-size:18px;
+}
+
+.genre-option .option:hover{
+    background-color: #e8e9eb;
+}
+
+.genre-option .option i{
+    color:#1d63dc;
+}
 
 
 
