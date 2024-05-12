@@ -12,6 +12,23 @@ let userphoto = document.querySelector('.userphoto');
 let file = document.querySelector('#file');
 let uploadfile = document.querySelector('#uploadfile');
 
+
+function savePhotoToLocalStorage(photoData) {
+    localStorage.setItem('userPhoto', photoData);
+}
+
+function getPhotoFromLocalStorage() {
+    return localStorage.getItem('userPhoto');
+}
+
+// Load the saved photo from local storage when the page loads
+window.addEventListener('DOMContentLoaded', function() {
+    let savedPhoto = getPhotoFromLocalStorage();
+    if (savedPhoto) {
+        userphoto.setAttribute('src', savedPhoto);
+    }
+});
+
 uploadfile.addEventListener('click', function() {
     file.click();
 });
@@ -23,10 +40,12 @@ let filechosen = this.files[0];
 
         readfile.addEventListener('load', function(){
             userphoto.setAttribute('src', readfile.result); 
+            savePhotoToLocalStorage(readfile.result);
         })
     readfile.readAsDataURL (filechosen);
     };
-});
+}); 
+
 
 
 /////to navigate between pages when the link is pressed
