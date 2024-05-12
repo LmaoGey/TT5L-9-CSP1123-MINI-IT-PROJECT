@@ -24,7 +24,7 @@ body {
 
 }
 
-/*this is for navigation bar*/
+/***********************************this is for navigation bar*************************************/
 
 .navigation {
     position: fixed;
@@ -174,7 +174,7 @@ body {
     font-weight: bold;
 }
 
-/*this is for content part*/
+/****************************************this is for content part************************************/
 
 .content{
     position:relative;
@@ -198,7 +198,7 @@ section{
     font-size: 40px;
 }
 
-/*this is for background part*/
+/***************************************this is for background part*********************************/
 
 .background{
     font-size: 25px;
@@ -276,7 +276,7 @@ section{
     border:#000000 3px solid;
 }
 
-/*this is for music part*/
+/*************************************this is for music part*********************************************/
 
 .music{
     font-size: 25px;
@@ -322,7 +322,7 @@ section{
     position:relative;
     padding: 20px;
     width: 1000px;
-    height: 150px;
+    height: 250px;
     margin-top:20px;
     margin-left:10px;
     border-radius: 10px;
@@ -336,7 +336,32 @@ section{
     flex-wrap:wrap;
 }
 
-/*this is for alarm part*/
+/*****genre box********/
+.genre-container{
+    width:380px;
+    margin-top:20px;
+    margin-right: 250px;
+}
+
+.genre-container .select-genre{
+    display: flex;
+    height:50px;
+    width:400px;
+    background-color: white;
+    padding:20px;
+    font-size:18px;
+    font-weight:500;
+    border-radius: 5px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+    box-shadow: 1.5px 1.5px 1.5px 1.5px #000000;
+}
+
+
+
+
+/********************************************this is for alarm part***************************************/
 
 .alarm{
     font-size: 25px;
