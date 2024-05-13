@@ -399,6 +399,12 @@ section{
     color:#1d63dc;
 }
 
+/*****rock box********/
+.rock{
+    border: 1px solid;
+}
+
+
 
 
 /********************************************this is for alarm part***************************************/
@@ -460,6 +466,8 @@ section{
     display:flex;
     flex-wrap:wrap;
 }
+
+
 
 
 

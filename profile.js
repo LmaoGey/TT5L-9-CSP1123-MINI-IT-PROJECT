@@ -112,3 +112,17 @@ let alarmm = document.querySelector('.alarm');
 alarmm.onclick = function(){
     al.classList.toggle('active');
 };
+
+
+/////////////////////////////////song
+function playMusic(videoID) {
+
+    // Replace "player" with the ID of the div where you want to embed the player
+    var playerDiv = document.getElementById("gquGoWSpPCI");
+
+    // Construct the YouTube embed URL
+    var embedURL = "https://www.youtube.com/embed/" + videoID + "?autoplay=1&controls=0&loop=1&playlist=" + videoID;
+
+    // Embed the YouTube player
+    playerDiv.innerHTML = '<iframe width="0" height="0" src="' + embedURL + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+}
