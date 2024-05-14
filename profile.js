@@ -102,7 +102,7 @@ let selectgenre = document.querySelector('.select-genre');
 let genretext = document.querySelector('.genre-text');
 let genreoptions = document.querySelector('.genre-option');
 let optionundergenre = document.querySelectorAll('.option');
-let genreLists = document.querySelectorAll('.genre-list');
+let genrelists = document.querySelectorAll('.genre-list');
 
 selectgenre.onclick = function(){
     genrecontainer.classList.toggle('active');
@@ -114,36 +114,33 @@ optionundergenre.forEach(option => {
         genretext.textContent = selectedtext;
         genrecontainer.classList.toggle('active');
 
-        genreLists.forEach(list => {
+        genrelists.forEach(list => {
             list.classList.remove('active');
         });
 
-        let genreClass = selectedtext.toLowerCase().replace(/\s+/g, '');
-        let selectedGenreList = document.querySelector(`.${genreClass}.genre-list`);
-        if (selectedGenreList) {
-            selectedGenreList.classList.add('active');
+        let genreclass = selectedtext.toLowerCase().replace(/\s+/g, '');
+        let selectedgenrelist = document.querySelector(`.${genreclass}.genre-list`);
+        if (selectedgenrelist) {
+            selectedgenrelist.classList.add('active');
         }
     });
     
 });
 
-genreLists.forEach(list => {
+genrelists.forEach(list => {
     list.classList.remove('active');
 });
 
 
 /////////////////////////////////song player
 function playMusic(videoID) {
-
-    // Replace "player" with the ID of the div where you want to embed the player
     var playerDiv = document.getElementById("rockplayer");
-
-    // Construct the YouTube embed URL
     var embedURL = "https://www.youtube.com/embed/" + videoID + "?autoplay=1&controls=0&loop=1&playlist=" + videoID;
 
-    // Embed the YouTube player
     playerDiv.innerHTML = '<iframe width="0" height="0" src="' + embedURL + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
 }
+
+
 
 //////////////////////////////////////////////////alarm bar toggle
 let al = document.querySelector('.al');
