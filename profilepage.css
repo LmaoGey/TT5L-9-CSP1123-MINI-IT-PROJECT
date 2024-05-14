@@ -404,6 +404,13 @@ section{
     border: 1px solid;
 }
 
+.genre-list {
+    display: none;
+}
+.genre-list.active {
+    display: block;
+}
+
 
 
 
