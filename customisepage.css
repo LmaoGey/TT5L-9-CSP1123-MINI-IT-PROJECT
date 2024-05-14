@@ -1,16 +1,17 @@
  
         body{
-            
-            background-size: cover;
+             
+            overflow-x: hidden;
              background-position: center;
-             background-color: #534d61;
+             background-image: url(https://office365atwork.com/wp-content/uploads/2023/07/pexels-javier-gonzalez-1679801-scaled.jpg);
+              
         }
-        .title{
-            font-size: 8000000;
-            font-family: "PT Sans", sans-serif;
-            width: 100px;
-            height: 100px;
-        }
+ 
+    
+    
+     
+
+    
      
         .container{
             font-size: "small";
@@ -41,43 +42,26 @@
 
         .pill {
             display: inline-block;
-            background-color: #4CAF50;
-            color: white;
+            background-color: linear-gradient(orange,yellow,black);
+             
+            
             font-family:"Readax Pro" ;
             font-size: 30px;
+             
             padding: 10px 20px;
             border-radius: 25px;
             border: none;
             margin-right: 10px;
             cursor: pointer;
+            bottom:20px;
         }
         
         .pill:hover {
             background-color: #45a049;
+            
         }
         
      
 
-        .scroll.bg{
-            background: rgb(11,11,114);
-            width: 500 px;
-            margin: 60% auto;
-            padding: 60px;
-            border-radius: 60px;
-        }
-
-        .scroll-div{
-            width: 500px;
-            background: rgb(17,17,114);
-            height: 200px;
-            overflow: hidden;
-            overflow-y: scroll;
-        
-        }
-        .scroll.object{
-            color:red;
-            font-family: "Readex Pro";
-            font-size: 20px;
-            padding: 30px;
-            
-        }
+         
+    
