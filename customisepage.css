@@ -14,8 +14,10 @@
             font-size:25px;
             font-family: 'Raedex Pro',sans-serif;
             padding: 0.5em 1em;
+            left:500%;
             margin:0.30em,0;
             border-radius: 1em;
+            
             background-color: #5f5050;
             cursor: pointer;
             display:block;
