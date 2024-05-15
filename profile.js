@@ -133,12 +133,16 @@ genrelists.forEach(list => {
 
 
 /////////////////////////////////song player
+
 function playMusic(videoID) {
-    var playerDiv = document.getElementById("rockplayer");
+
+    var playerDiv = document.getElementById("music-player");
     var embedURL = "https://www.youtube.com/embed/" + videoID + "?autoplay=1&controls=0&loop=1&playlist=" + videoID;
 
     playerDiv.innerHTML = '<iframe width="0" height="0" src="' + embedURL + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
 }
+
+
 
 
 
