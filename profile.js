@@ -143,11 +143,6 @@ function playMusic(videoID) {
 }
 
 
-
-
-
-
-
 //////////////////////////////////////////////////alarm bar toggle
 let al = document.querySelector('.al');
 let alarmm = document.querySelector('.alarm');

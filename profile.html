@@ -48,6 +48,8 @@
                 <h1>Achievement</h1>
             </section>
 
+
+
             <section id="personalisation">
                 <h1>Personalisation</h1>
 
@@ -104,7 +106,8 @@
                                     <i class="fa-solid fa-circle-info"></i>
                                 </li>
                             </ul>
-                        <div>
+                        </div>
+                        <div class="bgmusic-list">
                             <ul class="rock genre-list">
                                 <li onclick="playMusic('gquGoWSpPCI')">
                                     Rockabye
@@ -165,6 +168,10 @@
                     <div class="alarm-selection">
                         <h3>Please select the audio effect of your preference</h3>
                         <div class="alarm-container">
+                            <div class="alarm-effect" onclick="playAlarm()">
+                                <label for="effect0">No Alarm</label>
+                                <input type="radio" id="effect0" name="audioEffect" value="effect0">
+                            </div>
                             <div class="alarm-effect" onclick="playAlarm('gquGoWSpPCI')">
                                 <label for="effect1">Bell</label>
                                 <input type="radio" id="effect1" name="audioEffect" value="effect1">
@@ -177,19 +184,58 @@
                                 <label for="effect3">Siren</label>
                                 <input type="radio" id="effect3" name="audioEffect" value="effect3">
                             </div>
+                            <div class="alarm-effect" onclick="playAlarm('gquGoWSpPCI')">
+                                <label for="effect4">ClockBeep</label>
+                                <input type="radio" id="effect4" name="audioEffect" value="effect4">
+                            </div>
+                            <div class="alarm-effect" onclick="playAlarm('gquGoWSpPCI')">
+                                <label for="effect5">Rooster</label>
+                                <input type="radio" id="effect5" name="audioEffect" value="effect5">
+                            </div>
+                            <div class="alarm-effect" onclick="playAlarm('gquGoWSpPCI')">
+                                <label for="effect6">Spaceship</label>
+                                <input type="radio" id="effect6" name="audioEffect" value="effect6">
+                            </div>
                             <button type="button" onclick="setAlarm()">Set as Alarm</button>
                         
-                            <span id="alarm-player"></span>
-                            
-                            
-                            
+                            <span id="alarm-player"></span> 
                         </div>
-
+                    </div>
                 </div>
+            </section>
+
+
+
 
 
             <section id="settings">
                 <h1>Settings</h1>
+
+                <div class="vlm">
+                    <div class="musicvolume">
+                        <span class="imageicon"><i class="fa-solid fa-image"></i>Music Volume</span>
+                        <span class="dropdownicon"><i class="fa-solid fa-square-caret-down"></i></span>
+                        
+                    </div>
+                    <div class="alarmvolume">
+                        <span class="imageicon"><i class="fa-solid fa-image"></i>Alarm Volume</span>
+                        <span class="dropdownicon"><i class="fa-solid fa-square-caret-down"></i></span>
+                    </div>
+                </div>
+
+                <div class="managedata">
+                    <div class="musicvolume">
+                        <span class="imageicon"><i class="fa-solid fa-image"></i>Background colour</span>
+                        <span class="dropdownicon"><i class="fa-solid fa-square-caret-down"></i></span>
+                        
+                    </div>
+
+                    <div class="alarmvolume">
+                        <span class="imageicon"><i class="fa-solid fa-image"></i>Clear My Data</span>
+                        <span class="dropdownicon"><i class="fa-solid fa-square-caret-down"></i></span>
+                        <h3>This feature allows you to delete all of your personal data from our system. By clicking 'Clear My Data,' you will permanently remove all information, including saved preferences and history. Please note that this action cannot be undone. Proceed with caution. The system will then back to default"</h3>
+                    </div>
+                </div>
             </section>
         </div>
     </div>
