@@ -10,15 +10,14 @@
   </head>
   <body>
       
-  <div class="dropdown ">
   
  
         
          <button class="pill" id="studyButton" type="button">Study</button> 
            <button class="pill" id="exerciseButton" type="button">Exercise</button> 
          <button class="pill" id="gamingButton" type="button">Gaming</button> 
-          <button class="pill" id="takeabreakButton" type="button">
-          Take a break
+          <button class="pill" id="doschoolworkButton" type="button">
+          Do school work
          </button> 
    
  
@@ -29,7 +28,6 @@
       <div class="container">
         <p class="draggable" draggable="true">5 min</p>
         <p class="draggable" draggable="true">20 min</p>
-        <p class="draggable" draggable="true">5 min</p>
       </div>
     </div>
 
@@ -44,24 +42,72 @@
         document
           .getElementById("studyButton")
           .addEventListener("click", function () {
-            saveTime("studytime ", [5, 20]);
+            let studyTimes =[];
+            if (confirm('Do you want to save 5 minutes for studying?')){
+              studyTimes.push(5);
+               
+            }
+            if(confirm("Do you want to save 20 minutes for studying")){
+              studyTimes.push(20);
+             
+            }
+            if (confirm("Do you want 5 minutes break?"))
+            studyTimes.push(5);
+
+            saveTime("studytime ", studyTimes);
           });
 
         document
           .getElementById("exerciseButton")
           .addEventListener("click", function () {
-            saveTime("exercisetime ", [5, 20]);
+            let exerciseTimes =[];
+            if (confirm('Do you want to save 5 minutes for exercise?')){
+              exerciseTimes.push(5);
+               
+            }
+            if(confirm("Do you want to save 20 minutes for exercise?")){
+              exerciseTimes.push(20);
+               
+            }
+            if (confirm("Do you want 5 minutes break?"))
+            exerciseTimes.push(5);
+
+            saveTime("exercisetime ",exerciseTimes);
           });
 
         document
           .getElementById("gamingButton")
           .addEventListener("click", function () {
-            saveTime("gamingtime", [5, 20]);
+            let gamingTimes=[];
+            if (confirm('Do you want to save 5 minutes for gaming?')){
+              gamingTimes.push(5);
+               
+            }
+            if(confirm("Do you want to save 20 minutes for gaming?")){
+             gamingTimes.push(20);
+            }
+            if(confirm("Do you want 3 minutes break?"))
+            gamingTimes.push(3);
+      
+            saveTime("gamingtime ",gamingTimes);
           });
+
         document
-          .getElementById("takeabreakButton")
+          .getElementById("doschoolworkButton")
           .addEventListener("click", function () {
-            saveTime("takeabreaktime ", [5, 20]);
+            let doschoolworkTimes =[];
+            if (confirm('Do you want to save 5 minutes for doing school work?')){
+              doschoolworkTimes.push(5);
+               
+            }
+            if(confirm("Do you want to save 20 minutes for doing school work?")){
+              doschoolworkTimes.push(20);
+              
+            }
+           if(confirm("Do you want 5 minutes break?"))
+            doschoolworkTimes.push(5);
+
+            saveTime("doschoolwork ",doschoolworkTimes);
           });
       });
     </script>
