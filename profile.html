@@ -177,12 +177,26 @@
                     <div class="alarm-selection">
                         <h3>Please select the audio effect of your preference</h3>
                         <div class="alarm-container">
-                            <ul>
-                                <li onclick="playMusic('gquGoWSpPCI')">kelly</li>
-                                <li onclick="playMusic('3SzgkuT9-Kw')">gaga</li>
-                            </ul>
+                            <div class="alarm-effect" onclick="playAlarm('gquGoWSpPCI')">
+                                <label for="effect1">Bell</label>
+                                <input type="radio" id="effect1" name="audioEffect" value="effect1">
+                            </div>
+                            <div class="alarm-effect" onclick="playAlarm('3SzgkuT9-Kw')">
+                                <label for="effect2">DingDong</label>
+                                <input type="radio" id="effect2" name="audioEffect" value="effect2">
+                            </div>
+                            <div class="alarm-effect" onclick="playAlarm('gquGoWSpPCI')">
+                                <label for="effect3">Siren</label>
+                                <input type="radio" id="effect3" name="audioEffect" value="effect3">
+                            </div>
+                            <button type="button" onclick="setAlarm()">Set as Alarm</button>
+                        
                             <span id="alarm-player"></span>
-                    </div>
+                       
+                            
+                            
+                        
+                        </div>
 
                 </div>
 

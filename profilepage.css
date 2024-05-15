@@ -469,7 +469,39 @@ section{
     flex-wrap:wrap;
 }
 
+/********alarm selection list***********/
 
 
+
+.audio-effect {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.audio-effect label {
+    flex-grow: 1;
+    text-align: left;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background: #007BFF;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+#selectedEffect {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #333;
+}
 
 

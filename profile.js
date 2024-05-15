@@ -142,6 +142,14 @@ function playMusic(videoID) {
     playerDiv.innerHTML = '<iframe width="0" height="0" src="' + embedURL + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
 }
 
+function playAlarm(videoID) {
+
+    var playerDivv = document.getElementById("alarm-player");
+    var embedURLL = "https://www.youtube.com/embed/" + videoID + "?autoplay=1&controls=0&loop=1&playlist=" + videoID;
+
+    playerDivv.innerHTML = '<iframe width="0" height="0" src="' + embedURLL + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+}
+
 
 
 
@@ -153,5 +161,28 @@ let alarmm = document.querySelector('.alarm');
 alarmm.onclick = function(){
     al.classList.toggle('active');
 };
+
+//////////////set as alarm
+function setAlarm() {
+    var selectedEffect = document.querySelector('input[name="audioEffect"]:checked');
+    if (selectedEffect) {
+        var effectValue = selectedEffect.value;
+        var videoID = selectedEffect.getAttribute('data-video-id');
+
+       
+        var playerDivvv = document.getElementById("alarm-player");
+        playerDivvv.innerHTML = '';
+
+
+        localStorage.setItem('selectedAudioEffect', effectValue);
+        localStorage.setItem('selectedVideoID', videoID);
+
+        alert('Alarm set with effect: ' + effectValue);
+    } else {
+        alert('Please select an audio effect.');
+    }
+}
+
+
 
 
