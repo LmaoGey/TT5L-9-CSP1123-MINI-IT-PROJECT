@@ -455,7 +455,7 @@ section{
     position:relative;
     padding: 20px;
     width: 1000px;
-    height: 150px;
+    height: 400px;
     margin-top:20px;
     margin-left:10px;
     border-radius: 10px;
@@ -471,37 +471,40 @@ section{
 
 /********alarm selection list***********/
 
-
-
-.audio-effect {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px 0;
-}
-
-.audio-effect label {
-    flex-grow: 1;
-    text-align: left;
-}
-
-button {
-    padding: 10px 20px;
-    border: none;
-    background: #007BFF;
-    color: #fff;
+.alarm-container{
+    margin-top:20px;
+    height:300px;
+    width:950px;
+    background-color: white;
+    padding:20px 20px;
+    font-size:18px;
+    font-weight:500;
     border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 1.5px 1.5px 1.5px 1.5px #000000;
+}
+
+
+.alarm-container .alarm-effect{
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     cursor: pointer;
 }
 
-button:hover {
-    background: #0056b3;
+.alarm-container .alarm-effect:hover{
+    background-color: #1d63dc;
 }
 
-#selectedEffect {
-    margin-top: 20px;
-    font-size: 1.2em;
-    color: #333;
+.alarm-container .alarm-effect input{
+    margin-left: 10px;
 }
+
+
+
+
 
 
