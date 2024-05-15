@@ -7,10 +7,13 @@
     box-sizing: border-box;
 }
 
+:root{
+    background-image:linear-gradient(to bottom right, lightblue, darkblue);
+}
+
 body {
     min-height: 100vh;
     overflow-x: hidden;
-    background-image: url(https://www.zastavki.com/pictures/1440x900/2009/Nature_Sundown_Summer_evening_016409_.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -21,32 +24,62 @@ body {
 
 }
 
+/*this is for navigation bar*/
+
 .navigation {
     position: fixed;
-    width: 300px;
+    width: 80px;
     height: 600px;
     background: transparent;
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 5px 5px 8px 10px #000000;
     backdrop-filter: blur(5px);
-    margin-top: 35px;
-    margin-left: 40px;
+    margin-top: 20px;
+    margin-left: 20px;
     transition: 0.5s;
     overflow: hidden;
 }
 
-.selection{
-    position: absolute;
-    top: 35px;
-    left: 10px;
-    width: 100%;
+.navigation.active ~ .content{
+    left:350px;
+    width:calc(100% - 350px);
 }
 
-.userphoto{
+.navigation.active{
+    width:300px;
+}
+
+.topbar .menubar{
+    position:absolute;
+    color: black;
+    top:0.4rem;
+    left:50%;
+    font-size:1.2rem;
+    line-height: 50px;
+    transform:translateX(-50%);
+    cursor:pointer;
+}
+
+.navigation.active .menubar{
+    left:90%;
+}
+
+.profile{
+    list-style: none;
+}
+
+.profile .userphoto{
     width: 200px;
     height: 200px;
+    border:2px solid;
+    border-color:aliceblue;
     border-radius: 50%;
-    margin-left: 36px;
+    margin-left: 50px;
+    opacity:0;
+}
+
+.navigation.active .profile .userphoto{
+    opacity:1;
 }
 
 #file{
@@ -65,11 +98,33 @@ body {
     box-shadow: 2px 4px 4px #000000;
     transform: translateX(-150%);
     margin-top: 165px;
+    opacity:0;
+}
+
+.navigation.active #uploadfile{
+    opacity:1;
 }
 
 #uploadfile:hover{
     background-color: gray;
     color: black;
+}
+
+.username{
+    margin-left: 70px;
+    list-style: none;
+    opacity:0;
+}
+
+.navigation.active .username{
+    opacity:1;
+}
+
+.selection{
+    position: absolute;
+    top: 35px;
+    margin-top: 300px;
+    width: 100%;
 }
 
 .list{
@@ -97,7 +152,7 @@ body {
     
 }
 
-.list:hover a{
+.list a:hover{
     color:black;
 }
 
@@ -105,8 +160,8 @@ body {
     position: relative;
     display: block;
     min-width: 85px;
-    height: 75px;
-    line-height: 60px;
+    height: 65px;
+    line-height: 50px;
     text-align: center;
 }
 
@@ -118,4 +173,228 @@ body {
     font-size: 25px;
     font-weight: bold;
 }
+
+/*this is for content part*/
+
+.content{
+    position:relative;
+    background:transparent;
+    min-height:100vh;
+    top:0;
+    left: 120px;
+    transition: all 0.5 ease;
+    width: calc(100% - 120px);
+    padding: 1rem;
+}
+
+section{
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.content h1{
+    font-size: 40px;
+}
+
+/*this is for background part*/
+
+.background{
+    font-size: 25px;
+    text-decoration: none;
+    display: block;
+    padding:15px 15px;
+    width: 1000px;
+    height: 90px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 5px #000000;
+    background-color: white;
+    margin-top: 50px;
+    margin-left: 10px;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.background:hover{
+    background-color: gainsboro;
+    cursor:pointer;
+}
+
+.background .imageicon i{
+    margin-right: 15px;
+}
+
+.background .dropdownicon i{
+    position:absolute;
+    right:10%;
+    transition: 1s;
+}
+
+.bg.active .background .dropdownicon i{
+    transform:rotate(-180deg)
+}
+
+.background h3{
+    font-size: 1.17rem;
+}
+
+
+.colour-selection{
+    position:relative;
+    padding: 20px;
+    width: 1000px;
+    height: 150px;
+    margin-top:20px;
+    margin-left:10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #000000;
+    background-color: white;
+    display:none;
+}
+
+.bg.active .colour-selection{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.colour-container{
+    margin-top:20px;
+    margin-right:500px;
+}
+
+.colour-container .colour{
+    display:inline-block;
+    height:50px;
+    width:50px;
+    border-radius: 30%;
+    margin:2px;
+    cursor:pointer;
+}
+
+.colour-container .colour:hover{
+    border:#000000 3px solid;
+}
+
+/*this is for music part*/
+
+.music{
+    font-size: 25px;
+    text-decoration: none;
+    display: block;
+    padding:15px 15px;
+    width: 1000px;
+    height: 90px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 5px #000000;
+    background-color: white;
+    margin-top: 30px;
+    margin-left: 10px;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.music:hover{
+    background-color: gainsboro;
+    cursor:pointer;
+}
+
+.music .musicicon i{
+    margin-right: 15px;
+}
+
+.music .dropdownicon i{
+    position:absolute;
+    right:10%;
+    transition: 1s;
+}
+
+.ms.active .music .dropdownicon i{
+    transform:rotate(-180deg)
+}
+
+.music h3{
+    font-size: 1.17rem;
+}
+
+
+.music-selection{
+    position:relative;
+    padding: 20px;
+    width: 1000px;
+    height: 150px;
+    margin-top:20px;
+    margin-left:10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #000000;
+    background-color: white;
+    display:none;
+}
+
+.ms.active .music-selection{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+/*this is for alarm part*/
+
+.alarm{
+    font-size: 25px;
+    text-decoration: none;
+    display: block;
+    padding:15px 15px;
+    width: 1000px;
+    height: 90px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 5px #000000;
+    background-color: white;
+    margin-top: 30px;
+    margin-left: 10px;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.alarm:hover{
+    background-color: gainsboro;
+    cursor:pointer;
+}
+
+.alarm .alarmicon i{
+    margin-right: 15px;
+}
+
+.alarm .dropdownicon i{
+    position:absolute;
+    right:10%;
+    transition: 1s;
+}
+
+.al.active .alarm .dropdownicon i{
+    transform:rotate(-180deg)
+}
+
+.alarm h3{
+    font-size: 1.17rem;
+}
+
+
+.alarm-selection{
+    position:relative;
+    padding: 20px;
+    width: 1000px;
+    height: 150px;
+    margin-top:20px;
+    margin-left:10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #000000;
+    background-color: white;
+    display:none;
+}
+
+.al.active .alarm-selection{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+
 

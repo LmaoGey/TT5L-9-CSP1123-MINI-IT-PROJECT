@@ -20,7 +20,7 @@ body {
 
 .container{
     width: 400px;
-    height: 450px;
+    height: 570px;
     background: transparent;
     border: 1.5px solid;
     border-color: azure;
@@ -80,7 +80,7 @@ body {
 }
 
 .input input::placeholder{
-    color:gray;
+    color:whitesmoke;
     font-style: italic;
 }
 
@@ -131,19 +131,19 @@ body {
     transform: translateY(-5px);
 }
 
-.back{
+.login{
     font-size:16px;
     text-align: center;
     margin-top: 20px;
 }
 
-.back p a{
-    color:beige;
+.login p a{
+    color:white;
     text-decoration: none;
     font-weight: bolder;
 }
 
-.back p a:hover{
+.login p a:hover{
     text-decoration: underline;
     font-style: italic;
 }
