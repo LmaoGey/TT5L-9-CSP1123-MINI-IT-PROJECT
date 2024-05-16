@@ -196,6 +196,24 @@ function setAlarm() {
     }
 }
 
+////////////data part toggle
+let mngdt = document.querySelector('.mngdt');
+let managedata = document.querySelector('.managedata');
+
+managedata.onclick = function(){
+    mngdt.classList.toggle('active');
+};
+
+//////////clear data in local storage
+document.getElementById('clearlocalstorage').addEventListener('click', function() {
+    if (confirm('Are you sure you want to clear all the stored data?')) {
+        if (confirm('This action will permanently delete all data. Are you sure?')) {
+            localStorage.clear();
+            alert('Back to Default!');
+            window.location.reload();
+        }
+    }
+});
 
 
 

@@ -533,6 +533,82 @@ section{
     overflow: hidden;
 }
 
+.alarmvolume{
+    font-size: 25px;
+    text-decoration: none;
+    display: block;
+    padding:15px 15px;
+    width: 1000px;
+    height: 90px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 5px #000000;
+    background-color: white;
+    margin-top: 20px;
+    margin-left: 10px;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+
+
+/********************************************this is for datamanaging part*******************************/
+
+.managedata{
+    font-size: 25px;
+    text-decoration: none;
+    display: block;
+    padding:15px 15px;
+    width: 1000px;
+    height: 90px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 5px #000000;
+    background-color: white;
+    margin-top: 50px;
+    margin-left: 10px;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.managedata:hover{
+    background-color: gainsboro;
+    cursor:pointer;
+}
+
+.managedata .dataicon i{
+    margin-right: 15px;
+}
+
+.managedata .dropdownicon i{
+    position:absolute;
+    right:10%;
+    transition: 1s;
+}
+
+.mngdt.active .managedata .dropdownicon i{
+    transform:rotate(-180deg)
+}
+
+.managedata h3{
+    font-size: 1.17rem;
+}
+
+.cleardata{
+    position:relative;
+    padding: 20px;
+    width: 1000px;
+    height: 450px;
+    margin-top:20px;
+    margin-left:10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #000000;
+    background-color: white;
+    display:none;
+}
+
+.mngdt.active .cleardata{
+    display:flex;
+    flex-wrap:wrap;
+}
 
 
 
