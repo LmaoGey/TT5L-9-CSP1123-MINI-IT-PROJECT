@@ -18,27 +18,25 @@
 
         </header>
     
-<div class="maintimer">
-<p id="timer">10:00</p>
-</div>
-<div class="startstop">
-
-<button class="starttimer" id="startbutton">start</button>
-
-<button class="pausetimer" id="pausebutton" >pause</button>
-
-<button class="skiptimer" id="skipbutton" >skip</button>
-</div>
-
-<div class="fbtime">
-<button class="focus" id="focust">focus</button>
-<button class="break" id="breakt">break</button>
-</div>
-
-<div class="cbutton" id="cbutton" name="cbutton"></div>
-
-
-<div class="cusbutton" id="cusbutton" name="cusbutton"></div>
+      
+        <div id="container">
+            <p id="work" class="label">Work:</p><p id="break" class="label">Break:</p><p id="cycles" class="label">Cycles:</p>
+         
+            <div id="work-timer" class="timer">
+                <p id="w_minutes">25</p><p class="semicolon">:</p><p id="w_seconds">00</p>
+            </div>
+    
+            
+            <p id="counter" class="timer">0</p>
+    
+         
+            <div id="break-timer" class="timer">
+                <p id="b_minutes">05</p><p class="semicolon">:</p><p id="b_seconds">00</p>
+            </div>
+            <button id="start" class="btn">Start</button>
+            <button id="stop" class="btn">Pause</button>
+            <button id="reset" class="btn">Reset</button>
+        </div>
 
 
 
