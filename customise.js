@@ -1,4 +1,7 @@
-const sortableList = document.querySelectorAll
-const items = sortableList
+let category = document.querySelector('.category');
+let categg = document.querySelector('.category');
 
-items.forEach(item)
+categg.onclick = function () {
+    category.classList.toggle('active');
+};
+

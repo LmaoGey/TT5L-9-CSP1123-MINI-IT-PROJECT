@@ -1,34 +1,114 @@
  
         body{
-            background-image: linear-gradient(to right, rgb(92, 66, 13), rgb(123, 83, 8));
-            background:url(timer1.png);
-            background-size: cover;
-
-
-
+             
+            overflow-x: hidden;
+             background-position: center;
+             background-image: url(https://office365atwork.com/wp-content/uploads/2023/07/pexels-javier-gonzalez-1679801-scaled.jpg);
+              
         }
+ 
+    
+    
+     
 
-        
-         
-        .pill{
-            font-size:25px;
-            font-family: 'Raedex Pro',sans-serif;
-            padding: 0.5em 1em;
-            left:500%;
-            margin:0.30em,0;
-            border-radius: 1em;
+    
+     
+        .container{
+            font-size: "small";
+            font-family:"Arial Black";
+            padding:  1rem;
+           background-color: #333;
+          
+           position: absolute;
+           width:300px;
+           height:400px;
+           left: 1055px;
+            bottom: 300px;
+        }
+         .draggable {
+            background-color:rgb(107, 63, 63);
+            border: 0.5px solid black;
+            cursor: move;
+            left:550px;
+            width:100px;
+            height:100px;
             
-            background-color: #5f5050;
-            cursor: pointer;
-            display:block;
-            margin-bottom: 30px;
-            border: 2px solid #090808
-        }
-         .pil:hover {
-            background-color:rgb(54, 214, 214);
              
          }
+        .draggable.dragging{
+            opacity: .6;
+        }
+
+
 
 
      
+         .pill {
+            display: inline-block;
+            font-family:"Readax Pro" ;
+            font-size: 30px;
+            align-items: center; 
+            top: 150px;
+            left: 350px;
+            
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: none;
+            margin-right: 10px;
+            cursor: pointer;
+            bottom:20px;
+        }  
+             
+            
+            
+        
+        .pill:hover {
+            background-color: #45a049;
+            
+        }
+        
+        
+        .cat{
+            font-size: 25px;
+            text-decoration: none;
+            display: block;
+            padding:15px 15px;
+            width: 1000px;
+            height: 90px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px 5px #000000;
+            background-color: white;
+            margin-top: 30px;
+            margin-left: 10px;
+            transition: 0.5s;
+            overflow: hidden;
+
+        }
+
+        .category:hover{
+            background-color: gainsboro;
+            cursor:pointer;
+        }
+
+    .category.dropdownicon.dropdownicon i{
+        position:relative;
+        right:10%;
+        transition:1s;
+    }
+        
     
+        .categories .dropdownicon i{
+           
+            right:10%;
+            transition: 1s;
+        }
+
+        .category.active.cat.dropdownicon i{
+            transform:rotate(-180deg)
+        }
+
+        .cat h3{
+            font-size:1.17rem ;
+        }
+
+        
