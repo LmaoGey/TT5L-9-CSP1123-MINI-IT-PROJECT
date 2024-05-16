@@ -87,6 +87,8 @@
                 <h1>Achievement</h1>
             </section>
 
+
+
             <section id="personalisation">
                 <h1>Personalisation</h1>
 
@@ -116,7 +118,81 @@
 
                     <div class="music-selection">
                         <h3>Please select the music of your preference</h3>
-                        <div class="music-container">
+                        <div class="genre-container">
+                            <div class="select-genre">
+                                <span class="genre-text">Select a genre</span>
+                                <i class="fa-solid fa-circle-chevron-down"></i>   
+                            </div>
+                            <ul class="genre-option">
+                                <li class="option">
+                                    <span class="option-text">Rock</span>
+                                    <i class="fa-solid fa-circle-info"></i>
+                                </li>
+                                <li class="option">
+                                    <span class="option-text">Ambient</span>
+                                    <i class="fa-solid fa-circle-info"></i>
+                                </li>
+                                <li class="option">
+                                    <span class="option-text">Classical</span>
+                                    <i class="fa-solid fa-circle-info"></i>
+                                </li>
+                                <li class="option">
+                                    <span class="option-text">Country</span>
+                                    <i class="fa-solid fa-circle-info"></i>
+                                </li>
+                                <li class="option">
+                                    <span class="option-text">Solo Instruments</span>
+                                    <i class="fa-solid fa-circle-info"></i>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bgmusic-list">
+                            <ul class="rock genre-list">
+                                <li onclick="playMusic('gquGoWSpPCI')">
+                                    Rockabye
+                                        
+                                </li>
+                                <li onclick="playMusic('3SzgkuT9-Kw')">
+                                    jaychou
+                                </li>
+                            </ul>
+                            <ul class="ambient genre-list">
+                                <li onclick="playMusic('gquGoWSpPCI')">
+                                    adele
+                                    
+                                </li>
+                                <li onclick="playMusic('3SzgkuT9-Kw')">
+                                    taylor
+                                </li>
+                            </ul>
+                            <ul class="classical genre-list">
+                                <li onclick="playMusic('gquGoWSpPCI')">
+                                    ben
+                                    
+                                </li>
+                                <li onclick="playMusic('3SzgkuT9-Kw')">
+                                    john
+                                </li>
+                            </ul>
+                            <ul class="country genre-list">
+                                <li onclick="playMusic('gquGoWSpPCI')">
+                                    kelly
+                                    
+                                </li>
+                                <li onclick="playMusic('3SzgkuT9-Kw')">
+                                    gaga
+                                </li>
+                            </ul>
+                            <ul class="soloinstruments genre-list">
+                                <li onclick="playMusic('gquGoWSpPCI')">
+                                    me
+                                    
+                                </li>
+                                <li onclick="playMusic('3SzgkuT9-Kw')">
+                                    you
+                                </li>
+                            </ul>
+                            <span id="music-player"></span>
                         </div>
                     </div>
                 </div>
@@ -131,14 +207,71 @@
                     <div class="alarm-selection">
                         <h3>Please select the audio effect of your preference</h3>
                         <div class="alarm-container">
-                            
+                            <div class="alarm-effect" onclick="playAlarm()">
+                                <label for="effect0">No Alarm</label>
+                                <input type="radio" id="effect0" name="audioEffect" value="effect0">
+                            </div>
+                            <div class="alarm-effect" onclick="playAlarm('S2nBbGA0Luc')">
+                                <label for="effect1">Bell</label>
+                                <input type="radio" id="effect1" name="audioEffect" value="effect1">
+                            </div>
+                            <div class="alarm-effect" onclick="playAlarm('3SzgkuT9-Kw')">
+                                <label for="effect2">DingDong</label>
+                                <input type="radio" id="effect2" name="audioEffect" value="effect2">
+                            </div>
+                            <div class="alarm-effect" onclick="playAlarm('gquGoWSpPCI')">
+                                <label for="effect3">Siren</label>
+                                <input type="radio" id="effect3" name="audioEffect" value="effect3">
+                            </div>
+                            <div class="alarm-effect" onclick="playAlarm('gquGoWSpPCI')">
+                                <label for="effect4">ClockBeep</label>
+                                <input type="radio" id="effect4" name="audioEffect" value="effect4">
+                            </div>
+                            <div class="alarm-effect" onclick="playAlarm('gquGoWSpPCI')">
+                                <label for="effect5">Rooster</label>
+                                <input type="radio" id="effect5" name="audioEffect" value="effect5">
+                            </div>
+                            <div class="alarm-effect" onclick="playAlarm('gquGoWSpPCI')">
+                                <label for="effect6">Spaceship</label>
+                                <input type="radio" id="effect6" name="audioEffect" value="effect6">
+                            </div>
+                            <button type="button" onclick="setAlarm()">Set as Alarm</button>
+                        
+                            <span id="alarm-player"></span> 
+                        </div>
                     </div>
-
                 </div>
+            </section>
+
+
+
 
 
             <section id="settings">
                 <h1>Settings</h1>
+
+                <div class="vlm">
+                    <div class="musicvolume">
+                        <span>Music Volume</span>
+                    </div>
+                    <div class="alarmvolume">
+                        <span>Alarm Volume</span>
+                    </div>
+                </div>
+
+                <div class="mngdt">
+                    <div class="managedata">
+                        <span class="dataicon"><i class="fa-solid fa-database"></i>Manage Data</span>
+                        <span class="dropdownicon"><i class="fa-solid fa-square-caret-down"></i></span>
+                        <h3>Manage your stored data and history</h3>
+                    </div>
+
+                    <div class="cleardata">
+                        <span class="clearicon"><i class="fa-solid fa-trash"></i>Clear My Data</span>
+                        <h3>This feature allows you to delete all of your personal data. By clicking 'Clear My Data,' you will permanently remove all information, including saved preferences and history. Please note that this action cannot be undone. Proceed with caution. The system will then back to default"</h3>
+                        <button id="clearlocalstorage">Clear</button>
+                    </div>
+                </div>
             </section>
         </div>
     </div>
