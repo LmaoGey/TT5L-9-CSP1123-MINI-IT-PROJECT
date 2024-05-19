@@ -67,48 +67,18 @@
             
         }
         
-        
-        .cat{
-            font-size: 25px;
-            text-decoration: none;
-            display: block;
-            padding:15px 15px;
-            width: 1000px;
-            height: 90px;
-            border-radius: 10px;
-            box-shadow: 2px 2px 5px 5px #000000;
-            background-color: white;
-            margin-top: 30px;
-            margin-left: 10px;
-            transition: 0.5s;
-            overflow: hidden;
-
-        }
-
-        .category:hover{
-            background-color: gainsboro;
-            cursor:pointer;
-        }
-
-    .category.dropdownicon.dropdownicon i{
-        position:relative;
-        right:10%;
-        transition:1s;
-    }
-        
+         
     
-        .categories .dropdownicon i{
-           
-            right:10%;
-            transition: 1s;
-        }
-
-        .category.active.cat.dropdownicon i{
-            transform:rotate(-180deg)
-        }
-
-        .cat h3{
-            font-size:1.17rem ;
-        }
-
+        .dropdown {
+            display: none;
+            margin-top: 10px;
+            transition: max-height 0.3s ease-in-out;
+            overflow: hidden;
+            max-height: 0;
+          }
+    
+          .dropdown.show {
+            display: block;
+            max-height: 200px; 
+          }
         
