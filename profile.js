@@ -132,15 +132,45 @@ genrelists.forEach(list => {
 });
 
 
-/////////////////////////////////song player
+/////////////////////////////////song player (play music, loop music, music volume)
+
+var player;
+
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('music-player', {
+        height: '0',
+        width: '0',
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+        }
+    });
+}
+
+function onPlayerReady(event) {
+    player.setVolume(100);
+}
+
 
 function playMusic(videoID) {
-
-    var playerDiv = document.getElementById("music-player");
-    var embedURL = "https://www.youtube.com/embed/" + videoID + "?autoplay=1&controls=0&loop=1&playlist=" + videoID;
-
-    playerDiv.innerHTML = '<iframe width="0" height="0" src="' + embedURL + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    if (player && player.loadVideoById) {
+        player.loadVideoById(videoID);
+        player.playVideo();
+    }
 }
+
+function setVolume(value) {
+    if (player && player.setVolume) {
+        player.setVolume(value);
+    }
+}
+
+function onPlayerStateChange(event) {
+    if (event.data === YT.PlayerState.ENDED) {
+        player.playVideo();  
+    }
+}
+
 
 
 //////////////////////////////////////////////////alarm bar toggle
