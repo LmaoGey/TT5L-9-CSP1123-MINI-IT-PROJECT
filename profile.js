@@ -133,41 +133,47 @@ genrelists.forEach(list => {
 
 
 /////////////////////////////////song player (play music, loop music, music volume)
-
-var player;
-
 function onYouTubeIframeAPIReady() {
-    player = new YT.Player('music-player', {
+    initMusicPlayer();
+    initAlarmPlayer();
+}
+var musicplayer;
+
+function initMusicPlayer() {
+    musicplayer = new YT.Player('music-player', {
         height: '0',
         width: '0',
         events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
+            'onReady': onMusicPlayerReady,
+            'onStateChange': onMusicPlayerStateChange
         }
     });
 }
 
-function onPlayerReady(event) {
-    player.setVolume(100);
+function onMusicPlayerReady(event) {
+    var musicVolume = localStorage.getItem('musicVolume') || 100;
+    musicplayer.setVolume(musicVolume);
+    document.getElementById('musicvolume-control').value = musicVolume;
 }
 
 
 function playMusic(videoID) {
-    if (player && player.loadVideoById) {
-        player.loadVideoById(videoID);
-        player.playVideo();
+    if (musicplayer && musicplayer.loadVideoById) {
+        musicplayer.loadVideoById(videoID);
+        musicplayer.playVideo();
     }
 }
 
-function setVolume(value) {
-    if (player && player.setVolume) {
-        player.setVolume(value);
+function setMusicVolume(value) {
+    if (musicplayer && musicplayer.setVolume) {
+        musicplayer.setVolume(value);
+        localStorage.setItem('musicVolume', value);
     }
 }
 
-function onPlayerStateChange(event) {
+function onMusicPlayerStateChange(event) {
     if (event.data === YT.PlayerState.ENDED) {
-        player.playVideo();  
+        musicplayer.playVideo();  
     }
 }
 
@@ -181,15 +187,49 @@ alarmm.onclick = function(){
     al.classList.toggle('active');
 };
 
-//////////////play alarm audio
+
+
+////// alarm player (play alarm, loop alarm, alarm volume)
+var alarmplayer;
+
+function initAlarmPlayer() {
+    alarmplayer = new YT.Player('alarm-player', {
+        height: '0',
+        width: '0',
+        events: {
+            'onReady': onAlarmPlayerReady,
+            'onStateChange': onAlarmPlayerStateChange
+        }
+    });
+}
+
+function onAlarmPlayerReady(event) {
+    var alarmVolume = localStorage.getItem('alarmVolume') || 100;
+    alarmplayer.setVolume(alarmVolume);
+    document.getElementById('alarmvolume-control').value = alarmVolume;
+}
+
 
 function playAlarm(videoID) {
-
-    var playerDivv = document.getElementById("alarm-player");
-    var embedURLL = "https://www.youtube.com/embed/" + videoID + "?autoplay=1&controls=0&loop=1&playlist=" + videoID;
-
-    playerDivv.innerHTML = '<iframe width="0" height="0" src="' + embedURLL + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    if (alarmplayer && alarmplayer.loadVideoById) {
+        alarmplayer.loadVideoById(videoID);
+        alarmplayer.playVideo();
+    }
 }
+
+function setAlarmVolume(value) {
+    if (alarmplayer && alarmplayer.setVolume) {
+        alarmplayer.setVolume(value);
+        localStorage.setItem('alarmVolume', value);
+    }
+}
+
+function onAlarmPlayerStateChange(event) {
+    if (event.data === YT.PlayerState.ENDED) {
+        alarmplayer.playVideo();  
+    }
+}
+
 
 //////////set as alarm
 
