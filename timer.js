@@ -1,105 +1,75 @@
-const start = document.getElementById("startbutton") ;
-const pause = document.getElementById("pausebutton") ;
-const skip =  document.getElementById("skipbutton");
-const timething = document.getElementById("timer");
-const focust = document.getElementById("focust")
-const breakt = document.getElementById("breakt")
+var start = document.getElementById('start');
+var stop = document.getElementById('stop');
+var reset = document.getElementById('reset');
+
+var wm = document.getElementById('w_minutes');
+var ws = document.getElementById('w_seconds');
+
+var bm = document.getElementById('b_minutes');
+var bs = document.getElementById('b_seconds');
 
 
+var startTimer;
 
-let interval;
-let timeleft = 600;
-
-
-function updatetimer(){
-let minutes =  Math.floor(timeleft / 60)     
-let seconds = timeleft % 60
-let formattedtime = minutes + ":" + seconds;
-
-
-timething.innerHTML = formattedtime
-}
-
-function updatebreaktimer(){
-
-    timeleft = 300
-    let minutes =  Math.floor(timeleft / 60)     
-    let seconds = timeleft % 60
-    let formattedtime = minutes + ":" + seconds;
-    
-    
-    timething.innerHTML = formattedtime
+start.addEventListener('click', function(){
+    if(startTimer === undefined){
+        startTimer = setInterval(timer, 1000)
+    } else {
+        alert("Timer is already running");
     }
-    
+})
+
+reset.addEventListener('click', function(){
+    wm.innerText = 25;
+    ws.innerText = "00";
+
+    bm.innerText = 5;
+    bs.innerText = "00";
+
+    document.getElementById('counter').innerText = 0;
+    stopInterval()
+    startTimer = undefined;
+})
+
+stop.addEventListener('click', function(){
+    stopInterval()
+    startTimer = undefined;
+})
 
 
 
-function starttimer() {
-interval = setInterval(() => {
-    timeleft--;
-    updatetimer();
-if (timeleft === 0 ) {
-    clearInterval(interval);
-    alert("time is up guy");
-    breaktime();
-    
-}
-}, 1000)
-
-}
-
-
-function pausetimer(){
-clearInterval(interval)
-
-}
-function skiptimer(){
-
-
-}
-
-function breaktimer(){
-    interval = setInterval(() => {
-        timeleft--;
-        updatebreaktimer();
-    if (timeleft === 0 ) {
-        clearInterval(interval);
-        alert("time is up guy");
-        starttimer();
-        
+function timer(){
+ 
+    if(ws.innerText != 0){
+        ws.innerText--;
+    } else if(wm.innerText != 0 && ws.innerText == 0){
+        ws.innerText = 59;
+        wm.innerText--;
     }
-    }, 1000)
-    
+
+   
+    if(wm.innerText == 0 && ws.innerText == 0){
+        if(bs.innerText != 0){
+            bs.innerText--;
+        } else if(bm.innerText != 0 && bs.innerText == 0){
+            bs.innerText = 59;
+            bm.innerText--;
+        }
     }
+
     
+    if(wm.innerText == 0 && ws.innerText == 0 && bm.innerText == 0 && bs.innerText == 0){
+        wm.innerText = 25;
+        ws.innerText = "00";
 
-function breaktime(){
-    clearInterval(interval);
-    document.getElementById("timer").innerHTML ="5:00";
-    breaktimer();
+        bm.innerText = 5;
+        bs.innerText = "00";
 
-
-
-
+        document.getElementById('counter').innerText++;
+    }
 }
 
 
-function focustime()
-{
-    clearInterval(interval)
-document.getElementById("timer").innerHTML = "10:00";
-starttimer();
-
-
-
-
-
+function stopInterval(){
+    clearInterval(startTimer);
 }
-
-
-
-start.addEventListener("click" , starttimer)
-pause.addEventListener("click" , pausetimer)
-skip.addEventListener("click" , skiptimer)
-breakt.addEventListener("click" , breaktimer)
-focust.addEventListener("click" , focustime)

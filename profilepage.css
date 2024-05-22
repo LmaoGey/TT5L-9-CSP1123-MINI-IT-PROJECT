@@ -24,7 +24,7 @@ body {
 
 }
 
-/*this is for navigation bar*/
+/***********************************this is for navigation bar*************************************/
 
 .navigation {
     position: fixed;
@@ -174,7 +174,7 @@ body {
     font-weight: bold;
 }
 
-/*this is for content part*/
+/****************************************this is for content part************************************/
 
 .content{
     position:relative;
@@ -198,7 +198,7 @@ section{
     font-size: 40px;
 }
 
-/*this is for background part*/
+/***************************************this is for background part*********************************/
 
 .background{
     font-size: 25px;
@@ -239,7 +239,6 @@ section{
     font-size: 1.17rem;
 }
 
-
 .colour-selection{
     position:relative;
     padding: 20px;
@@ -276,7 +275,7 @@ section{
     border:#000000 3px solid;
 }
 
-/*this is for music part*/
+/*************************************this is for music part*********************************************/
 
 .music{
     font-size: 25px;
@@ -317,12 +316,11 @@ section{
     font-size: 1.17rem;
 }
 
-
 .music-selection{
     position:relative;
     padding: 20px;
     width: 1000px;
-    height: 150px;
+    height: 450px;
     margin-top:20px;
     margin-left:10px;
     border-radius: 10px;
@@ -336,7 +334,89 @@ section{
     flex-wrap:wrap;
 }
 
-/*this is for alarm part*/
+/*****genre box********/
+.genre-container{
+    width:380px;
+    margin-right: 250px;
+}
+
+.genre-container .select-genre{
+    display: flex;
+    height:50px;
+    width:950px;
+    background-color: white;
+    padding:20px;
+    font-size:18px;
+    font-weight:500;
+    border-radius: 5px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+    box-shadow: 1.5px 1.5px 1.5px 1.5px #000000;
+}
+
+.select-genre i{
+    transition: 0.5s;
+}
+.genre-container.active .select-genre i{
+    transform:rotate(180deg)
+}
+
+.genre-container .genre-option{
+    position:relative;
+    padding:10px;
+    width:950px;
+    margin-top:10px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 1.5px 1.5px 1.5px 1.5px #000000;
+    visibility: hidden;
+}
+
+.genre-container.active .genre-option{
+    visibility: visible;
+}
+
+.genre-option .option{
+    display:flex;
+    height:50px;
+    border-radius: 5px;
+    padding-left:10px;
+    padding-right:10px;
+    align-items: center;
+    background-color: white;
+    justify-content: space-between;
+    cursor: pointer;
+    font-size:18px;
+}
+
+.genre-option .option:hover{
+    background-color: #e8e9eb;
+}
+
+.genre-option .option i{
+    color:#1d63dc;
+}
+
+.genre-list {
+    display: none;
+}
+.genre-list.active {
+    display: block;
+}
+
+/***********background music list*******/
+.bgmusic-list ul{
+    list-style: none;
+    box-shadow: 1.5px 1.5px 1.5px 1.5px #000000;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 75px;
+    width: 100px;
+    cursor:pointer;
+}
+
+/********************************************this is for alarm part***************************************/
 
 .alarm{
     font-size: 25px;
@@ -382,7 +462,7 @@ section{
     position:relative;
     padding: 20px;
     width: 1000px;
-    height: 150px;
+    height: 400px;
     margin-top:20px;
     margin-left:10px;
     border-radius: 10px;
@@ -392,6 +472,140 @@ section{
 }
 
 .al.active .alarm-selection{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+/********alarm selection list***********/
+
+.alarm-container{
+    margin-top:20px;
+    height:300px;
+    width:950px;
+    background-color: white;
+    padding:20px 20px;
+    font-size:18px;
+    font-weight:500;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 1.5px 1.5px 1.5px 1.5px #000000;
+    overflow: hidden;
+    overflow-y: auto; 
+    max-height: 100%;
+}
+
+.alarm-container .alarm-effect{
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.alarm-container .alarm-effect:hover{
+    background-color: #1d63dc;
+}
+
+.alarm-container .alarm-effect input{
+    margin-left: 10px;
+}
+
+.alarm-container button{
+    margin-left: 400px;
+}
+
+/********************************************this is for vlm part*******************************/
+.musicvolume{
+    font-size: 25px;
+    text-decoration: none;
+    display: block;
+    padding:15px 15px;
+    width: 1000px;
+    height: 90px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 5px #000000;
+    background-color: white;
+    margin-top: 50px;
+    margin-left: 10px;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.alarmvolume{
+    font-size: 25px;
+    text-decoration: none;
+    display: block;
+    padding:15px 15px;
+    width: 1000px;
+    height: 90px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 5px #000000;
+    background-color: white;
+    margin-top: 20px;
+    margin-left: 10px;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+
+
+/********************************************this is for datamanaging part*******************************/
+
+.managedata{
+    font-size: 25px;
+    text-decoration: none;
+    display: block;
+    padding:15px 15px;
+    width: 1000px;
+    height: 90px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 5px #000000;
+    background-color: white;
+    margin-top: 50px;
+    margin-left: 10px;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.managedata:hover{
+    background-color: gainsboro;
+    cursor:pointer;
+}
+
+.managedata .dataicon i{
+    margin-right: 15px;
+}
+
+.managedata .dropdownicon i{
+    position:absolute;
+    right:10%;
+    transition: 1s;
+}
+
+.mngdt.active .managedata .dropdownicon i{
+    transform:rotate(-180deg)
+}
+
+.managedata h3{
+    font-size: 1.17rem;
+}
+
+.cleardata{
+    position:relative;
+    padding: 20px;
+    width: 1000px;
+    height: 450px;
+    margin-top:20px;
+    margin-left:10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #000000;
+    background-color: white;
+    display:none;
+}
+
+.mngdt.active .cleardata{
     display:flex;
     flex-wrap:wrap;
 }
