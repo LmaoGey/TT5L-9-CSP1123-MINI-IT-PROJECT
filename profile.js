@@ -139,6 +139,7 @@ function onYouTubeIframeAPIReady() {
 }
 var musicplayer;
 
+
 function initMusicPlayer() {
     musicplayer = new YT.Player('music-player', {
         height: '0',
@@ -149,6 +150,14 @@ function initMusicPlayer() {
         }
     });
 }
+
+window.addEventListener('DOMContentLoaded', function() {
+    var selectedMusic = localStorage.getItem('selectedMusic');
+    if (selectedMusic) {
+        playMusic(selectedMusic);
+    }
+});
+
 
 function onMusicPlayerReady(event) {
     var musicVolume = localStorage.getItem('musicVolume') || 100;
@@ -161,6 +170,8 @@ function playMusic(videoID) {
     if (musicplayer && musicplayer.loadVideoById) {
         musicplayer.loadVideoById(videoID);
         musicplayer.playVideo();
+        localStorage.setItem('selectedMusic', videoID);
+
     }
 }
 
@@ -189,8 +200,22 @@ alarmm.onclick = function(){
 
 
 
-////// alarm player (play alarm, loop alarm, alarm volume)
+////// alarm player (play alarm, loop alarm, alarm volume， set as alarm)
 var alarmplayer;
+
+document.addEventListener("DOMContentLoaded", function() {
+    var alarmEffects = document.querySelectorAll('.alarm-effect');
+
+    alarmEffects.forEach(function(effect) {
+        effect.addEventListener('click', function() {
+            var checkbox = effect.querySelector('input[type="radio"]');
+            if (checkbox) {
+                checkbox.checked = true;
+            }
+        });
+    });
+});
+
 
 function initAlarmPlayer() {
     alarmplayer = new YT.Player('alarm-player', {
@@ -207,6 +232,7 @@ function onAlarmPlayerReady(event) {
     var alarmVolume = localStorage.getItem('alarmVolume') || 100;
     alarmplayer.setVolume(alarmVolume);
     document.getElementById('alarmvolume-control').value = alarmVolume;
+    
 }
 
 
@@ -214,6 +240,20 @@ function playAlarm(videoID) {
     if (alarmplayer && alarmplayer.loadVideoById) {
         alarmplayer.loadVideoById(videoID);
         alarmplayer.playVideo();
+    }
+}
+
+function setAlarm() {
+    var selectedEffect = document.querySelector('input[name="audioEffect"]:checked');
+    if (selectedEffect) {
+        var effectValue = selectedEffect.value;
+        alarmplayer.stopVideo();
+       
+        localStorage.setItem('selectedAudioEffect', effectValue);
+       
+        alert('Alarm set with sound effect: ' + effectValue);
+    } else {
+        alert('Please select an alarm sound effect.');
     }
 }
 
@@ -231,40 +271,8 @@ function onAlarmPlayerStateChange(event) {
 }
 
 
-//////////set as alarm
-
-document.addEventListener("DOMContentLoaded", function() {
-    var alarmEffects = document.querySelectorAll('.alarm-effect');
-
-    alarmEffects.forEach(function(effect) {
-        effect.addEventListener('click', function() {
-            var checkbox = effect.querySelector('input[type="radio"]');
-            if (checkbox) {
-                checkbox.checked = true;
-            }
-        });
-    });
-});
-
-function setAlarm() {
-    var selectedEffect = document.querySelector('input[name="audioEffect"]:checked');
-    if (selectedEffect) {
-        var effectValue = selectedEffect.value;
-        var videoID = selectedEffect.getAttribute('data-video-id');
-
-       
-        var playerDivvv = document.getElementById("alarm-player");
-        playerDivvv.innerHTML = '';
 
 
-        localStorage.setItem('selectedAudioEffect', effectValue);
-        localStorage.setItem('selectedVideoID', videoID);
-
-        alert('Alarm set with sound effect: ' + effectValue);
-    } else {
-        alert('Please select an alarm sound effect.');
-    }
-}
 
 ////////////data part toggle
 let mngdt = document.querySelector('.mngdt');
