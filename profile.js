@@ -151,14 +151,6 @@ function initMusicPlayer() {
     });
 }
 
-window.addEventListener('DOMContentLoaded', function() {
-    var selectedMusic = localStorage.getItem('selectedMusic');
-    if (selectedMusic) {
-        playMusic(selectedMusic);
-    }
-});
-
-
 function onMusicPlayerReady(event) {
     var musicVolume = localStorage.getItem('musicVolume') || 100;
     musicplayer.setVolume(musicVolume);
