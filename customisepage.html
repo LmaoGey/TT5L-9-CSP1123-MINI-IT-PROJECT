@@ -23,6 +23,8 @@
         <option value="10">10 min</option>
         <option value="20">20 min</option>
         <option value="30">30 min</option>
+        <option value="3break">3 min break</option>
+        <option value="5break">5 min break</option>
       </select>
     </div>
     <div class="container">
@@ -50,11 +52,6 @@
         function saveTime(category, time) {
           let timeArray = JSON.parse(localStorage.getItem(category)) || [];
           timeArray.push(time);
-
-          //break time
-          if (category.includes("Time")) {
-            timeArray.push(5);
-          }
 
           localStorage.setItem(category, JSON.stringify(timeArray));
           console.log(`${category} time saved:`, time);
@@ -87,7 +84,11 @@
         timeselect.addEventListener("change", function () {
           const selectedTime = this.value;
           const category = this.getAttribute("data-category");
-          saveTime(category, selectedTime);
+          if (selectedTime.includes("break")) {
+            saveTime(category, selectedTime.split("break")[0]); //savetimebreak
+          } else {
+            saveTime(category, selectedTime);
+          }
           toggleDropdown();
         });
       });
