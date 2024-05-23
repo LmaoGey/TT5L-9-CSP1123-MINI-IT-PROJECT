@@ -216,9 +216,17 @@
                 <div class="vlm">
                     <div class="musicvolume">
                         <span>Music Volume</span>
+                        <div>
+                            <label for="musicvolume-control">Volume:</label>
+                            <input type="range" id="musicvolume-control" min="0" max="100" value="100" oninput="setMusicVolume(this.value)">
+                        </div>
                     </div>
                     <div class="alarmvolume">
                         <span>Alarm Volume</span>
+                        <div>
+                            <label for="alarmvolume-control">Volume:</label>
+                            <input type="range" id="alarmvolume-control" min="0" max="100" value="100" oninput="setAlarmVolume(this.value)">
+                        </div>
                     </div>
                 </div>
 
@@ -244,5 +252,6 @@
       </a>
     
     <script src="profile.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
