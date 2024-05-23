@@ -132,15 +132,54 @@ genrelists.forEach(list => {
 });
 
 
-/////////////////////////////////song player
+/////////////////////////////////song player (play music, loop music, music volume)
+function onYouTubeIframeAPIReady() {
+    initMusicPlayer();
+    initAlarmPlayer();
+}
+var musicplayer;
+
+
+function initMusicPlayer() {
+    musicplayer = new YT.Player('music-player', {
+        height: '0',
+        width: '0',
+        events: {
+            'onReady': onMusicPlayerReady,
+            'onStateChange': onMusicPlayerStateChange
+        }
+    });
+}
+
+function onMusicPlayerReady(event) {
+    var musicVolume = localStorage.getItem('musicVolume') || 100;
+    musicplayer.setVolume(musicVolume);
+    document.getElementById('musicvolume-control').value = musicVolume;
+}
+
 
 function playMusic(videoID) {
+    if (musicplayer && musicplayer.loadVideoById) {
+        musicplayer.loadVideoById(videoID);
+        musicplayer.playVideo();
+        localStorage.setItem('selectedMusic', videoID);
 
-    var playerDiv = document.getElementById("music-player");
-    var embedURL = "https://www.youtube.com/embed/" + videoID + "?autoplay=1&controls=0&loop=1&playlist=" + videoID;
-
-    playerDiv.innerHTML = '<iframe width="0" height="0" src="' + embedURL + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    }
 }
+
+function setMusicVolume(value) {
+    if (musicplayer && musicplayer.setVolume) {
+        musicplayer.setVolume(value);
+        localStorage.setItem('musicVolume', value);
+    }
+}
+
+function onMusicPlayerStateChange(event) {
+    if (event.data === YT.PlayerState.ENDED) {
+        musicplayer.playVideo();  
+    }
+}
+
 
 
 //////////////////////////////////////////////////alarm bar toggle
@@ -151,17 +190,10 @@ alarmm.onclick = function(){
     al.classList.toggle('active');
 };
 
-//////////////play alarm audio
 
-function playAlarm(videoID) {
 
-    var playerDivv = document.getElementById("alarm-player");
-    var embedURLL = "https://www.youtube.com/embed/" + videoID + "?autoplay=1&controls=0&loop=1&playlist=" + videoID;
-
-    playerDivv.innerHTML = '<iframe width="0" height="0" src="' + embedURLL + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
-}
-
-//////////set as alarm
+////// alarm player (play alarm, loop alarm, alarm volume， set as alarm)
+var alarmplayer;
 
 document.addEventListener("DOMContentLoaded", function() {
     var alarmEffects = document.querySelectorAll('.alarm-effect');
@@ -176,25 +208,70 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+
+function initAlarmPlayer() {
+    alarmplayer = new YT.Player('alarm-player', {
+        height: '0',
+        width: '0',
+        events: {
+            'onReady': onAlarmPlayerReady,
+            'onStateChange': onAlarmPlayerStateChange
+        }
+    });
+}
+
+function onAlarmPlayerReady(event) {
+    var alarmVolume = localStorage.getItem('alarmVolume') || 100;
+    alarmplayer.setVolume(alarmVolume);
+    document.getElementById('alarmvolume-control').value = alarmVolume;
+    
+}
+
+
+function playAlarm(videoID) {
+    if (alarmplayer && alarmplayer.loadVideoById) {
+       
+        if (musicplayer.getPlayerState() === YT.PlayerState.PLAYING) {
+            musicplayer.pauseVideo();
+        }
+       
+        alarmplayer.loadVideoById(videoID);
+        alarmplayer.playVideo();
+    }
+}
+
 function setAlarm() {
     var selectedEffect = document.querySelector('input[name="audioEffect"]:checked');
     if (selectedEffect) {
         var effectValue = selectedEffect.value;
-        var videoID = selectedEffect.getAttribute('data-video-id');
-
-       
-        var playerDivvv = document.getElementById("alarm-player");
-        playerDivvv.innerHTML = '';
-
-
+        alarmplayer.stopVideo();
+      
+        if (musicplayer.getPlayerState() === YT.PlayerState.PAUSED) {
+            musicplayer.playVideo();
+        }
         localStorage.setItem('selectedAudioEffect', effectValue);
-        localStorage.setItem('selectedVideoID', videoID);
-
         alert('Alarm set with sound effect: ' + effectValue);
     } else {
         alert('Please select an alarm sound effect.');
     }
 }
+
+function setAlarmVolume(value) {
+    if (alarmplayer && alarmplayer.setVolume) {
+        alarmplayer.setVolume(value);
+        localStorage.setItem('alarmVolume', value);
+    }
+}
+
+function onAlarmPlayerStateChange(event) {
+    if (event.data === YT.PlayerState.ENDED) {
+        alarmplayer.playVideo();  
+    }
+}
+
+
+
+
 
 ////////////data part toggle
 let mngdt = document.querySelector('.mngdt');
