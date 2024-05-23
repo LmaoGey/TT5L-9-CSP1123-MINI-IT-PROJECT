@@ -230,6 +230,11 @@ function onAlarmPlayerReady(event) {
 
 function playAlarm(videoID) {
     if (alarmplayer && alarmplayer.loadVideoById) {
+       
+        if (musicplayer.getPlayerState() === YT.PlayerState.PLAYING) {
+            musicplayer.pauseVideo();
+        }
+       
         alarmplayer.loadVideoById(videoID);
         alarmplayer.playVideo();
     }
@@ -240,9 +245,11 @@ function setAlarm() {
     if (selectedEffect) {
         var effectValue = selectedEffect.value;
         alarmplayer.stopVideo();
-       
+      
+        if (musicplayer.getPlayerState() === YT.PlayerState.PAUSED) {
+            musicplayer.playVideo();
+        }
         localStorage.setItem('selectedAudioEffect', effectValue);
-       
         alert('Alarm set with sound effect: ' + effectValue);
     } else {
         alert('Please select an alarm sound effect.');
