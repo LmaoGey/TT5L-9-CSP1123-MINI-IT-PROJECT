@@ -5,10 +5,11 @@
     box-sizing: border-box;
 }
 
-
+:root{
+    background-image:url('/GitExercise/placeholderbackground.jpg') no-repeat center center / cover;;
+}
 body {
     min-height: 100vh;
-    background: url('/GitExercise/placeholderbackground.jpg') no-repeat center center / cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,7 +88,7 @@ p {
 #work { grid-area: 1 / 2 / 2 / 2; }
 #break { grid-area: 1 / 4 / 2 / 4; }
 #cycles { grid-area: 5 / 3 / 6 / 3; } 
-#counter { grid-area: 6 / 3 / 7 / 3; color: rgb(214, 190, 190); } 
+#counter { grid-area: 6 / 3 / 7 / 3; color: aliceblue; } 
 #work-timer { grid-area: 2 / 2 / 3 / 2; }
 #break-timer { grid-area: 2 / 4 / 3 / 4; }
 
@@ -185,3 +186,21 @@ button:active {
     outline: none;
     color: aliceblue;
 }
+
+.level-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: #ddd;
+    border-radius: 25px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    margin: 0 auto;
+}
+
+.level-bar {
+    width: 0;
+    height: 30px;
+    background-color: #ea8bca;
+    transition: width 0.3s;
+}
+
