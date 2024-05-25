@@ -1,102 +1,83 @@
+
+body{
+             
+    overflow-x: hidden;
+     background-position: center;
+     background-image: url(https://office365atwork.com/wp-content/uploads/2023/07/pexels-javier-gonzalez-1679801-scaled.jpg);
+      
+}
+
+
+
+
+
+
+
+.container{
+    font-size: "small";
+    font-family:"Arial Black";
+    padding:  1rem;
+   background-color: #333;
+  
+   position: absolute;
+   width:300px;
+   height:400px;
+   left: 1055px;
+    bottom: 300px;
+}
+ .draggable {
+    background-color:rgb(107, 63, 63);
+    border: 0.5px solid black;
+    cursor: move;
+    left:550px;
+    width:100px;
+    height:100px;
+    
+     
+ }
+.draggable.dragging{
+    opacity: .6;
+}
+
+
+
+
+
+ .pill {
+    display: inline-block;
+    font-family:"Readax Pro" ;
+    font-size: 30px;
+    align-items: center; 
+    top: 150px;
+    left: 350px;
+    
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    margin-right: 10px;
+    cursor: pointer;
+    bottom:20px;
+}  
+     
+    
+    
+
+.pill:hover {
+    background-color: #45a049;
+    
+}
+
  
-        body{
-             
-            overflow-x: hidden;
-             background-position: center;
-             background-image: url(https://office365atwork.com/wp-content/uploads/2023/07/pexels-javier-gonzalez-1679801-scaled.jpg);
-              
-        }
- 
-    
-    
-     
 
-    
-     
-        .container{
-            font-size: "small";
-            font-family:"Arial Black";
-            padding:  1rem;
-           background-color: #333;
-          
-           position: absolute;
-           width:300px;
-           height:400px;
-           left: 1055px;
-            bottom: 300px;
-        }
-         .draggable {
-            background-color:rgb(107, 63, 63);
-            border: 0.5px solid black;
-            cursor: move;
-            left:550px;
-            width:100px;
-            height:100px;
-            
-             
-         }
-        .draggable.dragging{
-            opacity: .6;
-        }
+.dropdown {
+    display: none;
+    margin-top: 10px;
+    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
+    max-height: 0;
+  }
 
-
-<<<<<<< HEAD
-    .button-container{
-    
-     position: center;
-     right:550px;
-
-
-     }
-         .pill {
-            display: flex;
-=======
-
-
-     
-         .pill {
-            display: inline-block;
->>>>>>> custom.page
-            font-family:"Readax Pro" ;
-            font-size: 30px;
-            align-items: center; 
-            top: 150px;
-            left: 350px;
-            
-            padding: 10px 20px;
-            border-radius: 25px;
-            border: none;
-            margin-right: 10px;
-            cursor: pointer;
-            bottom:20px;
-        }  
-             
-            
-            
-        
-        .pill:hover {
-            background-color: #45a049;
-            
-        }
-        
-         
-<<<<<<< HEAD
-
-         
-    
-=======
-    
-        .dropdown {
-            display: none;
-            margin-top: 10px;
-            transition: max-height 0.3s ease-in-out;
-            overflow: hidden;
-            max-height: 0;
-          }
-    
-          .dropdown.show {
-            display: block;
-            max-height: 200px; 
-          }
-        
->>>>>>> custom.page
+  .dropdown.show {
+    display: block;
+    max-height: 200px; 
+  }
