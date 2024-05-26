@@ -1,42 +1,84 @@
-
-.dropdown{
-    position: relative;
-    display: inline-block;
-    
-}
-
-
-
-.dropdown .button {
-    background-color: hsl(0,0%,80%);
-    color: rgb(94, 60, 60);
-    padding: 10px 15px;
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: #000;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .category {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .button-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .pill {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f0f0f0;
     border: none;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-   
-}
-
-.dropdown a {
-    display: block;
-    color: #090808;
-    text-decoration: none;
-    padding: 10px 15px;
-}
-
-.dropdown .content {
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+  
+  .pill:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .icon {
+    font-size: 24px;
+    margin-right: 15px;
+  }
+  
+  .text-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .main-text {
+    font-weight: bold;
+  }
+  
+  .sub-text {
+    font-size: 12px;
+    color: #666;
+  }
+  
+  .arrow {
+    font-size: 18px;
+    position: absolute ;
+    right:15px;
+  }
+  
+  .sub-buttons {
     display: none;
-    position: absolute;
-    background-color: hsl(0, 22%, 47%);
-    min-width: 300px;
-    box-shadow: 2px 2px 5px hsl(0,0%,796%);
-    text-align: right;
-
-}
-.dropdown:hover .content {
-    display: block;
- 
-}
-
-.dropdown a:hover {
-    background-color: hsl(0,0%,70%);
-}
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+  }
+  
+  .categ-container {
+    margin-top: 20px;
+  }
+  
+  .dropdown {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+  }
+  
+  .container {
+    margin-top: 20px
+  }
