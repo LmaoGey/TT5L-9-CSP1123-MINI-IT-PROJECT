@@ -114,8 +114,7 @@
         }
 
         function saveTime(category, time) {
-          let timeArray = JSON.parse(localStorage.getItem(category)) || [];
-          localStorage.setItem(category, timeArray);
+          localStorage.setItem(category, time); /// Save time
           console.log(`${category} time saved:`, time);
         }
 

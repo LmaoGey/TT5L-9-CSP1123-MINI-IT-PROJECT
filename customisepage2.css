@@ -4,21 +4,26 @@ body {
     color: #000;
     margin: 0;
     padding: 20px;
+    position: relative;
+    right: 350px;
   }
   
   .category {
-    display: flex;
-    flex-direction: column;
+ position: relative;
     gap: 10px;
+    left: 560px;
+
+
   }
   
   .button-wrapper {
     display: flex;
     flex-direction: column;
+   right: 150px;
   }
   
   .pill {
-    display: flex;
+  position: relative;
     align-items: center;
     justify-content: space-between;
     background-color: #f0f0f0;
@@ -70,6 +75,8 @@ body {
   
   .categ-container {
     margin-top: 20px;
+    position: relative;
+    left: 150px;
   }
   
   .dropdown {
