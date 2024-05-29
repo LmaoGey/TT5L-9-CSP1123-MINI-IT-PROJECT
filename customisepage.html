@@ -9,12 +9,21 @@
     <title>Timeout!</title>
   </head>
   <body>
+  </div>
+
+ <h1 id=mylove></h1> 
+  <label id="Mee">Me:</label>
+  <input id="input" /><br /><br />
+
+  <button id="mySet">Set</button><br></br>
+  
     <div class="category">
       <div class="button-wrapper" id="studyButton">
         <button class="pill" type="button">
           <span class="icon">&#x1F4D6;</span>
           <div class="text-content">
-            <span class="main-text">Study</span>
+           <span class="main-text">Study</span> 
+            
           </div>
           <span class="arrow">&#9662;</span>
         </button>
@@ -95,6 +104,18 @@
         <option value="30">30 min</option>
       </select>
     </div>
+    
+    
+    <script>   ////// user preferences
+      let Mee;
+
+        document.getElementById("mySet").onclick = function () {
+        Mee = document.getElementById("input").value;
+        document.getElementById('mylove').textContent =  (Mee) ;
+      };
+
+       
+    </script>
 
     <script type="text/javascript">
       document.addEventListener("DOMContentLoaded", function () {
