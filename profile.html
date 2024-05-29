@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=5.0" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
     <script
       src="https://kit.fontawesome.com/4befc1f018.js"
       crossorigin="anonymous"
@@ -48,6 +49,28 @@
         <div class="content">
             <section id="achievement">
                 <h1>Achievement</h1>
+                
+                <div class="sttt">
+                    <div>
+                        <button id="prevWeek">Previous Week</button>
+                        <button id="nextWeek">Next Week</button>
+                    </div>
+                    <canvas id="lineGraph" width="400" height="200"></canvas>
+                </div>
+
+                <div class="rw">
+                    <div class="rewards">
+                        <span class="imageicon"><i class="fa-solid fa-medal"></i>Rewards</span>
+                        <span class="dropdownicon"><i class="fa-solid fa-square-caret-down"></i></span>
+                        <h3>Level up to unlock more attractive items</h3>
+                    </div>
+                    <div class="rewards-container">
+                        <h3>Current Level: Level 1</h3>
+                        <div class="rewards-list">
+                        </div>
+                    </div>
+                </div>
+
             </section>
 
 
@@ -65,9 +88,11 @@
                     <div class="colour-selection">
                         <h3>Please select the color of your preference</h3>
                         <div class="colour-container">
-                            <span class="colour" data-image="linear-gradient(to left, yellow, red)" style="background-image:linear-gradient(to left, yellow, red)"></span>
-                            <span class="colour" data-image="linear-gradient(to left, green, blue)" style="background-image:linear-gradient(to left, green, blue)"></span>
-                            <span class="colour" data-image="linear-gradient(to left, orange, purple)" style="background-image:linear-gradient(to left, orange, purple)"></span>
+                            <span class="colour" data-image="linear-gradient(to left, #FBB03B, #D4145A)" style="background-image:linear-gradient(to left, #FBB03B, #D4145A)"></span>
+                            <span class="colour" data-image="linear-gradient(to left, #FCEE21, #009245)" style="background-image:linear-gradient(to left, #FCEE21, #009245)"></span>
+                            <span class="colour" data-image="linear-gradient(to left, #ED1E79, #662D8C)" style="background-image:linear-gradient(to left, #ED1E79, #662D8C)"></span>
+                            <span class="colour" data-image="linear-gradient(to left, #1BFFFF, #2E3192)" style="background-image:linear-gradient(to left, #1BFFFF, #2E3192)"></span>
+                            <span class="colour" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
                         </div>
                     </div>
                 </div>
@@ -253,5 +278,6 @@
     
     <script src="profile.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
+    
 </body>
 </html>

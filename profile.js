@@ -137,6 +137,7 @@ function onYouTubeIframeAPIReady() {
     initMusicPlayer();
     initAlarmPlayer();
 }
+
 var musicplayer;
 
 
@@ -288,6 +289,66 @@ document.getElementById('clearlocalstorage').addEventListener('click', function(
             localStorage.clear();
             alert('Back to Default!');
             window.location.reload();
+        }
+    }
+});
+/////////////////////rewards bar toggle
+let rw = document.querySelector('.rw');
+let rewardss = document.querySelector('.rewards');
+
+rewardss.onclick = function(){
+    rw.classList.toggle('active');
+};
+///////////line graph
+const ctx = document.getElementById('lineGraph').getContext('2d');
+const lineGraph = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
+        datasets: [{
+          label: 'Time focused',
+          data: [20,30,40,50,60,60,0],
+          fill: false,
+          backgroundColor: ['#00FFFF'],
+          borderColor: ['#0000FF'],
+          tension: 0.1
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                labels: {
+                    font: {
+                        size: 16 
+                    }
+                }
+            },
+            title: {
+                display: true,
+                text: 'Weekly Focus Time',
+                font: {
+                    size: 24 
+                }
+            }
+        },
+        scales: {
+            x: {
+                ticks: {
+                    font: {
+                        size: 16
+                    }
+                },
+                beginAtZero: true
+            },
+            y: {
+                ticks: {
+                    font: {
+                        size: 16
+                    }
+                },
+                beginAtZero: true
+            }
         }
     }
 });
