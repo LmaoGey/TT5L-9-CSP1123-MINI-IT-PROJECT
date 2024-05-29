@@ -10,13 +10,83 @@
   </head>
   <body>
     <div class="category">
-      <button class="pill" id="studyButton" type="button">Study</button>
-      <button class="pill" id="exerciseButton" type="button">Exercise</button>
-      <button class="pill" id="gamingButton" type="button">Gaming</button>
-      <button class="pill" id="doschoolworkButton" type="button">
-        Do school work
-      </button>
+      <div class="button-wrapper" id="studyButton">
+        <button class="pill" type="button">
+          <span class="icon">&#x1F4D6;</span>
+          <div class="text-content">
+            <span class="main-text">Study</span>
+          </div>
+          <span class="arrow">&#9662;</span>
+        </button>
+        <div id="studySubButtons" class="sub-buttons" style="display: none">
+          <button class="pill" id="studyFocusButton" type="button">
+            Focus
+          </button>
+          <button class="pill" id="studyBreakButton" type="button">
+            Break
+          </button>
+        </div>
+      </div>
+
+      <div class="button-wrapper" id="exerciseButton">
+        <button class="pill" type="button">
+          <span class="icon">&#x1F3CB;</span>
+          <div class="text-content">
+            <span class="main-text">Exercise</span>
+          </div>
+          <span class="arrow">&#9662;</span>
+        </button>
+        <div id="exerciseSubButtons" class="sub-buttons" style="display: none">
+          <button class="pill" id="exerciseFocusButton" type="button">
+            Focus
+          </button>
+          <button class="pill" id="exerciseBreakButton" type="button">
+            Break
+          </button>
+        </div>
+      </div>
+
+      <div class="button-wrapper" id="gamingButton">
+        <button class="pill" type="button">
+          <span class="icon">&#127918;</span>
+          <div class="text-content">
+            <span class="main-text">Gaming</span>
+          </div>
+          <span class="arrow">&#9662;</span>
+        </button>
+        <div id="gamingSubButtons" class="sub-buttons" style="display: none">
+          <button class="pill" id="gamingFocusButton" type="button">
+            Focus
+          </button>
+          <button class="pill" id="gamingBreakButton" type="button">
+            Break
+          </button>
+        </div>
+      </div>
+
+      <div class="button-wrapper" id="doschoolworkButton">
+        <button class="pill" type="button">
+          <span class="icon">&#x1F4DA;</span>
+          <div class="text-content">
+            <span class="main-text">Do school work</span>
+          </div>
+          <span class="arrow">&#9662;</span>
+        </button>
+        <div
+          id="schoolworkSubButtons"
+          class="sub-buttons"
+          style="display: none"
+        >
+          <button class="pill" id="schoolworkFocusButton" type="button">
+            Focus
+          </button>
+          <button class="pill" id="schoolworkBreakButton" type="button">
+            Break
+          </button>
+        </div>
+      </div>
     </div>
+
     <div class="categ-container">
       <select id="timeselect" class="dropdown">
         <option value="5">5 min</option>
@@ -25,34 +95,6 @@
         <option value="30">30 min</option>
       </select>
     </div>
-    <div class="container">
-      <p class="draggable" draggable="true">5 min</p>
-      <p class="draggable" draggable="true">20 min</p>
-      
-  
- 
-        
-         <button class="pill" id="studyButton" type="button">Study</button> 
-           <button class="pill" id="exerciseButton" type="button">Exercise</button> 
-         <button class="pill" id="gamingButton" type="button">Gaming</button> 
-          <button class="pill" id="doschoolworkButton" type="button">
-          Do school work
-         </button> 
-   
- 
-  </div>
-      </div>
-       
-
-      <div class="container">
-        <input class="draggable" draggable="true">5 min
-        <p class="draggable" draggable="true">20 min</p>
-      </div>
-    </div>
-    
-    <a href="/GitExercise/timer.htm" class="backbutton">
-      <p>B</p>
-    </a>
 
     <script type="text/javascript">
       document.addEventListener("DOMContentLoaded", function () {
@@ -72,49 +114,93 @@
         }
 
         function saveTime(category, time) {
-          let timeArray = JSON.parse(localStorage.getItem(category)) || [];
-          timeArray.push(time);
-
-          localStorage.setItem(category, JSON.stringify(timeArray));
+          localStorage.setItem(category, time); /// Save time
           console.log(`${category} time saved:`, time);
         }
 
-        function addBreakTime(category) {
-          const breakTime = 3;
-          saveTime(category + "break", breakTime);
+        function showSubButtons(subButtonsId) {
+          document.querySelectorAll(".sub-buttons").forEach((element) => {
+            element.style.display = "none";
+          });
+          document.getElementById(subButtonsId).style.display = "block";
         }
 
         document
           .getElementById("studyButton")
           .addEventListener("click", function () {
-            showDropdown("studyTime");
-            addBreakTime("studyTime");
+            showSubButtons("studySubButtons");
           });
 
         document
           .getElementById("exerciseButton")
           .addEventListener("click", function () {
-            showDropdown("exerciseTime");
-            addBreakTime("exerciseTime");
+            showSubButtons("exerciseSubButtons");
           });
 
         document
           .getElementById("gamingButton")
           .addEventListener("click", function () {
-            showDropdown("gamingTime");
-            addBreakTime("gamingTime");
+            showSubButtons("gamingSubButtons");
           });
 
         document
           .getElementById("doschoolworkButton")
           .addEventListener("click", function () {
-            showDropdown("doSchoolWorkTime");
-            addBreakTime("doSchoolWorkTime");
+            showSubButtons("schoolworkSubButtons");
+          });
+
+        document
+          .getElementById("studyFocusButton")
+          .addEventListener("click", function () {
+            showDropdown("studyFocusTime");
+          });
+
+        document
+          .getElementById("studyBreakButton")
+          .addEventListener("click", function () {
+            showDropdown("studyBreakTime");
+          });
+
+        document
+          .getElementById("exerciseFocusButton")
+          .addEventListener("click", function () {
+            showDropdown("exerciseFocusTime");
+          });
+
+        document
+          .getElementById("exerciseBreakButton")
+          .addEventListener("click", function () {
+            showDropdown("exerciseBreakTime");
+          });
+
+        document
+          .getElementById("gamingFocusButton")
+          .addEventListener("click", function () {
+            showDropdown("gamingFocusTime");
+          });
+
+        document
+          .getElementById("gamingBreakButton")
+          .addEventListener("click", function () {
+            showDropdown("gamingBreakTime");
+          });
+
+        document
+          .getElementById("schoolworkFocusButton")
+          .addEventListener("click", function () {
+            showDropdown("schoolworkFocusTime");
+          });
+
+        document
+          .getElementById("schoolworkBreakButton")
+          .addEventListener("click", function () {
+            showDropdown("schoolworkBreakTime");
           });
 
         timeselect.addEventListener("change", function () {
           const selectedTime = this.value;
           const category = this.getAttribute("data-category");
+
           saveTime(category, selectedTime);
           toggleDropdown();
         });
