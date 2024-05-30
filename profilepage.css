@@ -336,7 +336,7 @@ section{
 
 /*****genre box********/
 .genre-container{
-    width:380px;
+    width:950px;
     margin-right: 250px;
 }
 
@@ -411,7 +411,9 @@ section{
     background-color: yellow;
     box-shadow: 1.5px 1.5px 1.5px 1.5px #000000;
     border-radius: 5px;
-    width:300px;
+    width: 950px;
+    height:fit-content; 
+    margin-top:-270px;
     cursor:pointer;
     padding:20px 20px;
     font-size:18px;

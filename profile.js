@@ -306,12 +306,12 @@ const lineGraph = new Chart(ctx, {
     data: {
         labels: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
         datasets: [{
-          label: 'Time focused',
-          data: [20,30,40,50,60,60,0],
+          label: 'Time focused (in hour)',
+          data: [2,1.5,15,20,14,22,0],
           fill: false,
           backgroundColor: ['#00FFFF'],
           borderColor: ['#0000FF'],
-          tension: 0.1
+          tension: 0
         }]
     },
     options: {
@@ -344,10 +344,13 @@ const lineGraph = new Chart(ctx, {
             y: {
                 ticks: {
                     font: {
-                        size: 16
+                        size: 16,
+                        stepSize: 2
                     }
                 },
-                beginAtZero: true
+                beginAtZero: true,
+                min: 0, 
+                max: 25, 
             }
         }
     }
