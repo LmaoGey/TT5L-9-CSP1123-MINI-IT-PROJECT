@@ -67,53 +67,7 @@ body{
     
 }
 
-<<<<<<< HEAD
  
-=======
-     }
-         .pill {
-            display: flex;
-            font-family:"Readax Pro" ;
-            font-size: 30px;
-            align-items: center; 
-            top: 150px;
-            left: 350px;
-            
-            padding: 10px 20px;
-            border-radius: 25px;
-            border: none;
-            margin-right: 10px;
-            cursor: pointer;
-            bottom:20px;
-        }  
-             
-            
-            
-        
-        .pill:hover {
-            background-color: #45a049;
-            
-        }
-        .backbutton {
-            background: white;
-            position: fixed;
-            bottom: 16px;
-            right:32px;
-            width:50px;
-            height:50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size:32px;
-            color:#1f1f1f;
-            text-decoration: none;
-            transition: all .4s;
-          }
-        
-        
-         
->>>>>>> dbae627b73810eb12ee5136f78d0c92b0cfe5dfb
 
 .dropdown {
     display: none;
