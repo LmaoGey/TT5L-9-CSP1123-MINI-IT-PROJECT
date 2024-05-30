@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const draggables = document.querySelectorAll('.draggable');
 const containers = document.querySelectorAll('.container');
 
@@ -35,5 +36,12 @@ function getDragAfterElement(container, x) {
         }
     }, { offset: Number.NEGATIVE_INFINITY });
 }
-var jhon = 393939
-console.log(jhon)
+=======
+let category = document.querySelector('.category');
+let categg = document.querySelector('.category');
+
+categg.onclick = function () {
+    category.classList.toggle('active');
+};
+>>>>>>> custom.page
+
