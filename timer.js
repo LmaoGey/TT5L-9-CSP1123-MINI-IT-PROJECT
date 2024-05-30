@@ -130,7 +130,7 @@ function gainExperience(points) {
     if (xp >= xpMax) {
         xp -= xpMax;
         level++;
-        xpMax = Math.floor(xpMax);
+        xpMax = Math.floor(xpMax * 1.1);
         document.getElementById('level').textContent = level;
         document.getElementById('xpMax').textContent = xpMax;
     }
@@ -145,8 +145,91 @@ function updateLevelBar() {
     document.getElementById('xp').textContent = xp;
 }
 
+
+// To-do list 
+const addButton = document.querySelector('.todoitems button');
+const inputBox = document.getElementById('todoinput-box');
+const todoList = document.querySelector('.todoitems');
+
+addButton.addEventListener('click', () => {
+    const task = inputBox.value.trim();
+    if (task) {
+        addTodoItem(task);
+        inputBox.value = '';
+    }
+});
+
+function addTodoItem(task) {
+    const todoItem = document.createElement('div');
+    todoItem.classList.add('row');
+
+    const taskText = document.createElement('span');
+    taskText.textContent = task;
+
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.classList.add('btn');
+    deleteButton.addEventListener('click', () => {
+        todoList.removeChild(todoItem);
+    });
+
+    todoItem.appendChild(taskText);
+    todoItem.appendChild(deleteButton);
+    todoList.appendChild(todoItem);
+    saveTodos();
+}
+function saveTodos() {
+    const todos = [];
+    document.querySelectorAll('.todoitems .row span').forEach(todo => {
+        todos.push(todo.textContent);
+    });
+    localStorage.setItem('todos', JSON.stringify(todos));
+}
+
+function loadTodos() {
+    const savedTodos = JSON.parse(localStorage.getItem('todos'));
+    if (savedTodos) {
+        savedTodos.forEach(todo => {
+            addTodoItem(todo, false);
+        });
+    }
+}
+
+
+function addTodoItem(task, save = true) {
+    const todoItem = document.createElement('div');
+    todoItem.classList.add('row');
+
+    const taskText = document.createElement('span');
+    taskText.textContent = task;
+
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.classList.add('btn');
+    deleteButton.addEventListener('click', () => {
+        todoList.removeChild(todoItem);
+        removeTodoItemFromLocalStorage(task); 
+    });
+
+    todoItem.appendChild(taskText);
+    todoItem.appendChild(deleteButton);
+    todoList.appendChild(todoItem);
+
+    if (save) {
+        saveTodos();
+    }
+}
+
+function removeTodoItemFromLocalStorage(task) {
+    const savedTodos = JSON.parse(localStorage.getItem('todos'));
+    const updatedTodos = savedTodos.filter(todo => todo !== task);
+    localStorage.setItem('todos', JSON.stringify(updatedTodos));
+}
+
+
 window.onload = function() {
     loadProgress();
     initializeTimer();
     backgroundsetter();
+    loadTodos();
 };
