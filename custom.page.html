@@ -38,9 +38,12 @@
         </select>
       </div>
 
-      <p><a href="#" id="saveButton" class="pill-button">Save</a></p>
       <div class="save-message"></div>
+      <p>
+        <a href="#" id="saveButton" class="pill-button">Save</a>
+      </p>
     </div>
+
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const SAVING_MESSAGE = "Saving..";
@@ -84,6 +87,23 @@
             saveMessage.textContent = SAVE_FAILED_MESSAGE;
           }
         });
+
+        function AddRow(formData) {
+          const tableBody = documen.getElementById("tableBody");
+          const newRow = tableBody.insertRow();
+
+          const cell1 = newRow.insertCell();
+          const cell2 = newRow.insertCell();
+          const cell3 = newRow.insertCell();
+          const cell4 = newRow.insertCell();
+          const cell5 = newRow.insertCell();
+
+          cell1.textContent = formData.name;
+          cell1.textContent = formData.focus;
+          cell1.textContent = formData.break;
+          cell1.textContent = formData.cycles;
+          cell1.textContent = formData.category;
+        }
       });
     </script>
   </body>
