@@ -75,7 +75,7 @@
             category: category,
           };
 
-          //Saved data
+          // Save data
           localStorage.setItem(category, JSON.stringify(formData));
           try {
             console.log({ [category]: formData });
@@ -93,10 +93,14 @@
           }
         });
 
-        function displaySavedInputs(formData) {
-          const { name, focus, break: breakTime, cycles, category } = formData;
-          const savedInputsText = `Name: ${name}, Focus: ${focus}, Break: ${breakTime}, Cycles: ${cycles}, Category: ${category}`;
-          savedInputsDiv.innerHTML += `<p>${savedInputsText}</p>`;
+        function displaySavedInputs({
+          name,
+          focus,
+          break: breakTime,
+          cycles,
+          category,
+        }) {
+          savedInputsDiv.textContent = `Name: ${name}, Focus: ${focus}, Break: ${breakTime}, Cycles: ${cycles}, Category: ${category}`;
         }
       });
     </script>
