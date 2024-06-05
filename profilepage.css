@@ -652,6 +652,9 @@ canvas {
     padding: 20px;
 }
 
+.sttt #pieChart{
+    margin-top: 50px;
+}
 /********************************************this is for levelup part*******************************/
 
 .rewards{

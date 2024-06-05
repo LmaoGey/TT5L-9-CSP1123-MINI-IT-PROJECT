@@ -300,8 +300,8 @@ rewardss.onclick = function(){
     rw.classList.toggle('active');
 };
 ///////////line graph
-const ctx = document.getElementById('lineGraph').getContext('2d');
-const lineGraph = new Chart(ctx, {
+const lineGraph = document.getElementById('lineGraph').getContext('2d');
+const linegraph = new Chart(lineGraph, {
     type: 'line',
     data: {
         labels: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
@@ -356,5 +356,42 @@ const lineGraph = new Chart(ctx, {
     }
 });
 
-
-
+////////pie chart
+const pieChart = document.getElementById('pieChart').getContext('2d');
+const piechart = new Chart(pieChart, {
+    type: 'pie',
+    data: {
+        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        datasets: [{
+            label: 'Time focused (in hour)',
+            data: [2, 1.5, 15, 20, 14, 22, 0],
+            backgroundColor: [
+                '#00FFFF', '#00CED1', '#48D1CC', '#40E0D0', '#20B2AA', '#008B8B', '#5F9EA0'
+            ],
+            borderColor: '#000000',
+            borderWidth: 1,
+            radius: 200
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: true, // Maintain aspect ratio
+        aspectRatio: 2, // Higher value for a smaller height
+        plugins: {
+            legend: {
+                labels: {
+                    font: {
+                        size: 16
+                    }
+                }
+            },
+            title: {
+                display: true,
+                text: 'Task Focus Time',
+                font: {
+                    size: 24
+                }
+            }
+        }
+    }
+});
