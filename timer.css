@@ -71,7 +71,7 @@ p {
     height: 400px;
     width: 700px;
     background-color: transparent;
-    margin: 0 auto;
+    margin: 100px auto;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(6, 1fr); 
@@ -206,3 +206,30 @@ button:active {
     transition: width 0.3s;
 }
 
+.todolist {
+    width: 100%;
+    max-width: 400px;
+    background: #d49f9f;
+    position: fixed; 
+    left: 20px;
+    top: 100px; 
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+}
+
+.todotitle {
+    color: #343030;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.row{
+display:flex;
+align-items:center;
+justify-content: space-between;
+background: #c775dd;
+border-radius: 30px;
+padding-left: 20px;
+margin-bottom: 25px;
+
+}
