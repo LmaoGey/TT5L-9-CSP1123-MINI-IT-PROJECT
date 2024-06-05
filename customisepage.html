@@ -64,14 +64,14 @@
           saveButton.textcontent = messages.saving;
 
           const name = document.getElementById("name").value;
-          const focus = document.getElementById("focus").value;
+          const focusTime = document.getElementById("focus").value;
           const breakTime = document.getElementById("break").value;
           const cycles = document.getElementById("cycles").value;
           const category = document.getElementById("category").value;
 
           const formData = {
             name: name,
-            focus: focus,
+            focus: focusTime,
             break: breakTime,
             cycles: cycles,
             category: category,
@@ -95,14 +95,8 @@
           }
         });
 
-        function displaySavedInputs({
-          name,
-          focus,
-          break: breakTime,
-          cycles,
-          category,
-        }) {
-          savedInputsDiv.textContent = `Name: ${name}, Focus: ${focus}, Break: ${breakTime}, Cycles: ${cycles}, Category: ${category}`;
+        function displaySavedInputs({ name, focus, break: cycles, category }) {
+          savedInputsDiv.textContent = `Name: ${name}, Focus: ${focusTime}, Break: ${breakTime}, Cycles: ${cycles}, Category: ${category}`;
         }
       });
     </script>
