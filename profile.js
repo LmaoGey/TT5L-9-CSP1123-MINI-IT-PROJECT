@@ -64,6 +64,40 @@ window.onscroll = () => {
     });
 };
 
+/////////unlock items
+document.addEventListener('DOMContentLoaded', () => {
+    const levelvalue = parseInt(localStorage.getItem('level')) || 1;
+    const colours = document.querySelectorAll('.colour');
+    const songs = document.querySelectorAll('.song');
+
+    colours.forEach(colour => {
+        const colourLevel = parseInt(colour.dataset.level);
+
+        if (colourLevel <= levelvalue) {
+            colour.classList.add('unlocked');
+        }
+    });
+
+    songs.forEach(song => {
+        const songLevel = parseInt(song.dataset.level);
+
+        if (songLevel <= levelvalue) {
+            song.classList.add('unlocked');
+        }
+    });
+
+    // Get all achievement elements
+    const achievements = document.querySelectorAll('.unlock');
+
+    achievements.forEach(unlock => {
+        const achievementLevel = parseInt(unlock.dataset.level);
+
+        if (achievementLevel <= levelvalue) {
+            unlock.classList.add('unlocked');
+        }
+    });
+});
+
 //////////////////////////////////////////////////////////////////////////////////background bar toggle
 let bg = document.querySelector('.bg');
 let backgroundd = document.querySelector('.background');
@@ -82,6 +116,9 @@ if (storedColour) {
 selectcolour.forEach(backgroundimage =>{
 
     backgroundimage.addEventListener('click',() =>{
+        if (!backgroundimage.classList.contains('unlocked')) {
+            return; 
+        }
         let dataImage = backgroundimage.getAttribute('data-image');
         document.querySelector(':root').style.setProperty('background-image' , dataImage);
         localStorage.setItem('colour' , dataImage);
@@ -157,7 +194,6 @@ function onMusicPlayerReady(event) {
     musicplayer.setVolume(musicVolume);
     document.getElementById('musicvolume-control').value = musicVolume;
 }
-
 
 function playMusic(videoID) {
     if (musicplayer && musicplayer.loadVideoById) {
@@ -375,8 +411,8 @@ const piechart = new Chart(pieChart, {
     },
     options: {
         responsive: true,
-        maintainAspectRatio: true, // Maintain aspect ratio
-        aspectRatio: 2, // Higher value for a smaller height
+        maintainAspectRatio: true, 
+        aspectRatio: 2,
         plugins: {
             legend: {
                 labels: {
@@ -395,3 +431,4 @@ const piechart = new Chart(pieChart, {
         }
     }
 });
+
