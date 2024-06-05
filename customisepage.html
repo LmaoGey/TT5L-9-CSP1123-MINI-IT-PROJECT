@@ -47,10 +47,12 @@
     </div>
 
     <script>
-      const SAVING_MESSAGE = "Saving.....";
-      const SAVED_MESSAGE = "all changes are saved";
-      const SAVE_BUTTON_TEXT = "Save";
-      const SAVE_FAILED_MESSAGE = "Failed to save changes";
+      const messages = {
+        saving: "Saving.....",
+        saved: "All changes are saved",
+        saveButton: "Save",
+        saveFailed: "Failed to save changes",
+      };
 
       document.addEventListener("DOMContentLoaded", () => {
         const saveButton = document.getElementById("saveButton");
@@ -59,7 +61,7 @@
 
         saveButton.addEventListener("click", (event) => {
           event.preventDefault();
-          saveButton.textcontent = SAVING_MESSAGE;
+          saveButton.textcontent = messages.saving;
 
           const name = document.getElementById("name").value;
           const focus = document.getElementById("focus").value;
@@ -80,16 +82,16 @@
           try {
             console.log({ [category]: formData });
 
-            saveButton.textContent = SAVE_BUTTON_TEXT;
-            saveMessage.textContent = SAVED_MESSAGE;
+            saveButton.textContent = messages.saveButton;
+            saveMessage.textContent = messages.saved;
             displaySavedInputs(formData);
           } catch (error) {
             console.error(
               "There has been a problem with your operation:",
               error
             );
-            saveButton.textContent = SAVE_BUTTON_TEXT;
-            saveMessage.textContent = SAVE_FAILED_MESSAGE;
+            saveButton.textContent = messages.saveButton;
+            saveMessage.textContent = messages.saveFailed;
           }
         });
 
