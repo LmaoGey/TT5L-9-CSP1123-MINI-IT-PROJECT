@@ -1,0 +1,60 @@
+body{
+             
+    overflow-x: hidden;
+     background-position: center;
+     background-image: url(https://office365atwork.com/wp-content/uploads/2023/07/pexels-javier-gonzalez-1679801-scaled.jpg);
+      
+}
+
+
+
+
+#saveButton {
+    background-color: #4CAF50;  
+    border: none;  
+    color: white;  
+    padding: 15px 30px;   
+    text-align: center;  
+    text-decoration: none;  
+    display: inline-block;  
+    font-size: 16px;  
+    margin: 4px 2px;  
+    cursor: pointer;  
+    border-radius: 50px;  
+  }
+  #saveButton:focus {
+    outline: none;  }
+
+  .mnt{
+ 
+    border-radius:15px;
+    font-size: large; 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 150px;
+    width: 20%;
+    background-color:skyblue;
+    position: relative;
+    top:50px;
+    left:400px;
+
+
+
+  }
+
+  .container{
+   position: relative;
+   font-family:  "Readax Pro";
+   font-size: large;
+   top: 50px;
+   left:400px;
+   width:470px;
+   height:390px;
+  
+   border-radius: 15px;
+   background-color: palegreen;
+
+  }
+
+  .save-message{
+
+  }

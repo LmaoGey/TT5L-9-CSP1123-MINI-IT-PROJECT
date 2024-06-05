@@ -5,17 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="custom.page.css" />
-    <script src="customise.js" defer></script>
+
     <title>Timer Settings!</title>
   </head>
-  <body></body>
-</html>
+  <body>
+    <div class="mnt">
+      <h1>Custom Preset</h1>
+      <p>
+        On this page you can customize your time according to your preference.
+      </p>
+    </div>
+    <div class="container">
+      <p><label for="name">Name:</label></p>
+      <input type="text" name="name" id="name" value="" />
+      <p><label for="focus">Focus:</label></p>
+      <input type="text" name="focus" id="focus" value="" />
 
-<div class="mnt">
-  <h1>Custom Preset</h1>
-</div>
-<div class="container"></div>
-<p>On this page you can ccustomize your time according to your preference.</p>
-<label for="name">Name</label>
-<input type="text" name="name" id="name" value="dcode" autofocus data-autosave-url="http://localhost:3000/save-time">
-<label for=</label>
+      <p><label for="break">Break:</label></p>
+      <input type="text" name="break" id="break" value="" />
+
+      <p><label for="cycle">Cycles:</label></p>
+      <input type="text" name="cycles" id="cycles" value="" />
+
+      <div class="categ">
+        <p><label for="category">Category:</label></p>
+        <select id="category" name="category">
+          <option value="gaming">Gaming</option>
+          <option value="exercise">Exercise</option>
+          <option value="study">Study</option>
+          <option value="cooking">Cooking</option>
+          <option value="cleaning">House cleaning</option>
+        </select>
+      </div>
+
+      <p><a href="#" id="saveButton" class="pill-button">Save</a></p>
+      <div class="save-message"></div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const SAVING_MESSAGE = "Saving..";
+        const SAVED_MESSAGE = "All changes are saved";
+        const SAVE_BUTTON_TEXT = "Save";
+        const SAVE_FAILED_MESSAGE = "Failed to save changes";
+
+        const saveButton = document.getElementById("saveButton");
+        const saveMessage = document.querySelector(".save-message");
+
+        saveButton.addEventListener("click", (event) => {
+          event.preventDefault();
+          saveButton.textContent = SAVING_MESSAGE;
+
+          const name = document.getElementById("name").value;
+          const focus = document.getElementById("focus").value;
+          const breakTime = document.getElementById("break").value;
+          const cycles = document.getElementById("cycles").value;
+          const category = document.getElementById("category").value;
+
+          const formData = {
+            name: name,
+            focus: focus,
+            break: breakTime,
+            cycles: cycles,
+          };
+
+          // Save data
+          localStorage.setItem(category, JSON.stringify(formData));
+
+          try {
+            console.log({ [category]: formData });
+            saveButton.textContent = SAVE_BUTTON_TEXT;
+            saveMessage.textContent = SAVED_MESSAGE;
+          } catch (error) {
+            console.error(
+              "There has been a problem with your operation:",
+              error
+            );
+            saveButton.textContent = SAVE_BUTTON_TEXT;
+            saveMessage.textContent = SAVE_FAILED_MESSAGE;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
