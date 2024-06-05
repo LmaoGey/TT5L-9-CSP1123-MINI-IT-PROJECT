@@ -4,206 +4,100 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="customisepage.css" />
-    <script src="customise.js" defer></script>
-    <title>Timeout!</title>
+    <link rel="stylesheet" href="custom.page.css" />
+
+    <title>Timer Settings!</title>
   </head>
   <body>
-    <div class="category">
-      <div class="button-wrapper" id="studyButton">
-        <button class="pill" type="button">
-          <span class="icon">&#x1F4D6;</span>
-          <div class="text-content">
-            <span class="main-text">Study</span>
-          </div>
-          <span class="arrow">&#9662;</span>
-        </button>
-        <div id="studySubButtons" class="sub-buttons" style="display: none">
-          <button class="pill" id="studyFocusButton" type="button">
-            Focus
-          </button>
-          <button class="pill" id="studyBreakButton" type="button">
-            Break
-          </button>
-        </div>
+    <div class="mnt">
+      <h1>Custom Preset</h1>
+      <p>
+        On this page you can customize your time according to your preference.
+      </p>
+    </div>
+    <div class="container">
+      <p><label for="name">Name:</label></p>
+      <input type="text" name="name" id="name" value="" />
+      <p><label for="focus">Focus:</label></p>
+      <input type="text" name="focus" id="focus" value="" />
+
+      <p><label for="break">Break:</label></p>
+      <input type="text" name="break" id="break" value="" />
+
+      <p><label for="cycle">Cycles:</label></p>
+      <input type="text" name="cycles" id="cycles" value="" />
+
+      <div class="categ">
+        <p><label for="category">Category:</label></p>
+        <select id="category" name="category">
+          <option value="gaming">Gaming</option>
+          <option value="exercise">Exercise</option>
+          <option value="study">Study</option>
+          <option value="cooking">Cooking</option>
+          <option value="cleaning">House cleaning</option>
+        </select>
       </div>
 
-      <div class="button-wrapper" id="exerciseButton">
-        <button class="pill" type="button">
-          <span class="icon">&#x1F3CB;</span>
-          <div class="text-content">
-            <span class="main-text">Exercise</span>
-          </div>
-          <span class="arrow">&#9662;</span>
-        </button>
-        <div id="exerciseSubButtons" class="sub-buttons" style="display: none">
-          <button class="pill" id="exerciseFocusButton" type="button">
-            Focus
-          </button>
-          <button class="pill" id="exerciseBreakButton" type="button">
-            Break
-          </button>
-        </div>
-      </div>
+      <div class="save-message"></div>
 
-      <div class="button-wrapper" id="gamingButton">
-        <button class="pill" type="button">
-          <span class="icon">&#127918;</span>
-          <div class="text-content">
-            <span class="main-text">Gaming</span>
-          </div>
-          <span class="arrow">&#9662;</span>
-        </button>
-        <div id="gamingSubButtons" class="sub-buttons" style="display: none">
-          <button class="pill" id="gamingFocusButton" type="button">
-            Focus
-          </button>
-          <button class="pill" id="gamingBreakButton" type="button">
-            Break
-          </button>
-        </div>
-      </div>
-
-      <div class="button-wrapper" id="doschoolworkButton">
-        <button class="pill" type="button">
-          <span class="icon">&#x1F4DA;</span>
-          <div class="text-content">
-            <span class="main-text">Do school work</span>
-          </div>
-          <span class="arrow">&#9662;</span>
-        </button>
-        <div
-          id="schoolworkSubButtons"
-          class="sub-buttons"
-          style="display: none"
-        >
-          <button class="pill" id="schoolworkFocusButton" type="button">
-            Focus
-          </button>
-          <button class="pill" id="schoolworkBreakButton" type="button">
-            Break
-          </button>
-        </div>
-      </div>
+      <div id="savedInputs"></div>
+      <p>
+        <a href="#" id="saveButton" class="pill-button">Save</a>
+      </p>
     </div>
 
-    <div class="categ-container">
-      <select id="timeselect" class="dropdown">
-        <option value="5">5 min</option>
-        <option value="10">10 min</option>
-        <option value="20">20 min</option>
-        <option value="30">30 min</option>
-      </select>
-    </div>
+    <script>
+      const SAVING_MESSAGE = "Saving.....";
+      const SAVED_MESSAGE = "all changes are saved";
+      const SAVE_BUTTON_TEXT = "Save";
+      const SAVE_FAILED_MESSAGE = "Failed to save changes";
 
-    <script type="text/javascript">
-      document.addEventListener("DOMContentLoaded", function () {
-        const timeselect = document.getElementById("timeselect");
+      document.addEventListener("DOMContentLoaded", () => {
+        const saveButton = document.getElementById("saveButton");
+        const saveMessage = document.querySelector(".save-message");
+        const savedInputsDiv = document.getElementById("savedInputs");
 
-        function toggleDropdown() {
-          if (timeselect.classList.contains("show")) {
-            timeselect.classList.remove("show");
-          } else {
-            timeselect.classList.add("show");
+        saveButton.addEventListener("click", (event) => {
+          event.preventDefault();
+          saveButton.textcontent = SAVING_MESSAGE;
+
+          const name = document.getElementById("name").value;
+          const focus = document.getElementById("focus").value;
+          const breakTime = document.getElementById("break").value;
+          const cycles = document.getElementById("cycles").value;
+          const category = document.getElementById("category").value;
+
+          const formData = {
+            name: name,
+            focus: focus,
+            break: breakTime,
+            cycles: cycles,
+            category: category,
+          };
+
+          //Saved data
+          localStorage.setItem(category, JSON.stringify(formData));
+          try {
+            console.log({ [category]: formData });
+
+            saveButton.textContent = SAVE_BUTTON_TEXT;
+            saveMessage.textContent = SAVED_MESSAGE;
+            displaySavedInputs(formData);
+          } catch (error) {
+            console.error(
+              "There has been a problem with your operation:",
+              error
+            );
+            saveButton.textContent = SAVE_BUTTON_TEXT;
+            saveMessage.textContent = SAVE_FAILED_MESSAGE;
           }
-        }
-
-        function showDropdown(buttonId) {
-          timeselect.setAttribute("data-category", buttonId);
-          toggleDropdown();
-        }
-
-        function saveTime(category, time) {
-          localStorage.setItem(category, time); /// Save time
-          console.log(`${category} time saved:`, time);
-        }
-
-        function showSubButtons(subButtonsId) {
-          document.querySelectorAll(".sub-buttons").forEach((element) => {
-            element.style.display = "none";
-          });
-          document.getElementById(subButtonsId).style.display = "block";
-        }
-
-        document
-          .getElementById("studyButton")
-          .addEventListener("click", function () {
-            showSubButtons("studySubButtons");
-          });
-
-        document
-          .getElementById("exerciseButton")
-          .addEventListener("click", function () {
-            showSubButtons("exerciseSubButtons");
-          });
-
-        document
-          .getElementById("gamingButton")
-          .addEventListener("click", function () {
-            showSubButtons("gamingSubButtons");
-          });
-
-        document
-          .getElementById("doschoolworkButton")
-          .addEventListener("click", function () {
-            showSubButtons("schoolworkSubButtons");
-          });
-
-        document
-          .getElementById("studyFocusButton")
-          .addEventListener("click", function () {
-            showDropdown("studyFocusTime");
-          });
-
-        document
-          .getElementById("studyBreakButton")
-          .addEventListener("click", function () {
-            showDropdown("studyBreakTime");
-          });
-
-        document
-          .getElementById("exerciseFocusButton")
-          .addEventListener("click", function () {
-            showDropdown("exerciseFocusTime");
-          });
-
-        document
-          .getElementById("exerciseBreakButton")
-          .addEventListener("click", function () {
-            showDropdown("exerciseBreakTime");
-          });
-
-        document
-          .getElementById("gamingFocusButton")
-          .addEventListener("click", function () {
-            showDropdown("gamingFocusTime");
-          });
-
-        document
-          .getElementById("gamingBreakButton")
-          .addEventListener("click", function () {
-            showDropdown("gamingBreakTime");
-          });
-
-        document
-          .getElementById("schoolworkFocusButton")
-          .addEventListener("click", function () {
-            showDropdown("schoolworkFocusTime");
-          });
-
-        document
-          .getElementById("schoolworkBreakButton")
-          .addEventListener("click", function () {
-            showDropdown("schoolworkBreakTime");
-          });
-
-        timeselect.addEventListener("change", function () {
-          const selectedTime = this.value;
-          const category = this.getAttribute("data-category");
-
-          saveTime(category, selectedTime);
-          toggleDropdown();
         });
+
+        function displaySavedInputs(formData) {
+          const { name, focus, break: breakTime, cycles, category } = formData;
+          const savedInputsText = `Name: ${name}, Focus: ${focus}, Break: ${breakTime}, Cycles: ${cycles}, Category: ${category}`;
+          savedInputsDiv.innerHTML += `<p>${savedInputsText}</p>`;
+        }
       });
     </script>
   </body>
