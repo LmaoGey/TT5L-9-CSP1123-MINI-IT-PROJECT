@@ -44,19 +44,22 @@
       </p>
     </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const SAVING_MESSAGE = "Saving..";
-        const SAVED_MESSAGE = "All changes are saved";
-        const SAVE_BUTTON_TEXT = "Save";
-        const SAVE_FAILED_MESSAGE = "Failed to save changes";
+    <div id="savedInputs"></div>
 
+    <script>
+      const SAVING_MESSAGE = "Saving.....";
+      const SAVED_MESSAGE = "all changes are saved";
+      const SAVE_BUTTON_TEXT = "Save";
+      const SAVE_FAILED_MESSAGE = "Failed to save changes";
+
+      document.addEventListener("DOMContentLoaded", () => {
         const saveButton = document.getElementById("saveButton");
         const saveMessage = document.querySelector(".save-message");
+        const savedInputsDiv = document.getElementById("savedInputs");
 
         saveButton.addEventListener("click", (event) => {
           event.preventDefault();
-          saveButton.textContent = SAVING_MESSAGE;
+          saveButton.textcontent = SAVING_MESSAGE;
 
           const name = document.getElementById("name").value;
           const focus = document.getElementById("focus").value;
@@ -69,15 +72,17 @@
             focus: focus,
             break: breakTime,
             cycles: cycles,
+            category: category,
           };
 
-          // Save data
+          //Saved data
           localStorage.setItem(category, JSON.stringify(formData));
-
           try {
             console.log({ [category]: formData });
+
             saveButton.textContent = SAVE_BUTTON_TEXT;
             saveMessage.textContent = SAVED_MESSAGE;
+            displaySavedInputs(formData);
           } catch (error) {
             console.error(
               "There has been a problem with your operation:",
@@ -88,21 +93,10 @@
           }
         });
 
-        function AddRow(formData) {
-          const tableBody = documen.getElementById("tableBody");
-          const newRow = tableBody.insertRow();
-
-          const cell1 = newRow.insertCell();
-          const cell2 = newRow.insertCell();
-          const cell3 = newRow.insertCell();
-          const cell4 = newRow.insertCell();
-          const cell5 = newRow.insertCell();
-
-          cell1.textContent = formData.name;
-          cell1.textContent = formData.focus;
-          cell1.textContent = formData.break;
-          cell1.textContent = formData.cycles;
-          cell1.textContent = formData.category;
+        function displaySavedInputs(formData) {
+          const { name, focus, break: breakTime, cycles, category } = formData;
+          const displaySavedInputs = `Name: ${name}, Focus: ${focus}, Break: ${breakTime}, Cycles: ${cycles}, Category: ${category}`;
+          savedInputsDiv.innerHTML += `<p>${displaySavedInputs}</p>`;
         }
       });
     </script>
