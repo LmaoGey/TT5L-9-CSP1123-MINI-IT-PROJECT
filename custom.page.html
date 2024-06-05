@@ -39,12 +39,12 @@
       </div>
 
       <div class="save-message"></div>
+
+      <div id="savedInputs"></div>
       <p>
         <a href="#" id="saveButton" class="pill-button">Save</a>
       </p>
     </div>
-
-    <div id="savedInputs"></div>
 
     <script>
       const SAVING_MESSAGE = "Saving.....";
@@ -95,8 +95,8 @@
 
         function displaySavedInputs(formData) {
           const { name, focus, break: breakTime, cycles, category } = formData;
-          const displaySavedInputs = `Name: ${name}, Focus: ${focus}, Break: ${breakTime}, Cycles: ${cycles}, Category: ${category}`;
-          savedInputsDiv.innerHTML += `<p>${displaySavedInputs}</p>`;
+          const savedInputsText = `Name: ${name}, Focus: ${focus}, Break: ${breakTime}, Cycles: ${cycles}, Category: ${category}`;
+          savedInputsDiv.innerHTML += `<p>${savedInputsText}</p>`;
         }
       });
     </script>
