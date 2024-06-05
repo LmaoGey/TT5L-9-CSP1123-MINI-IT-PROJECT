@@ -277,8 +277,13 @@ section{
     opacity: 1; /* Fully visible when unlocked */
 }
 
-.colour-container .colour:hover{
+.colour-container .colour.unlocked:hover {
     border:#000000 5px solid;
+    
+}
+
+.colour-container .colour:hover{
+    border:black solid 2px;
 }
 
 /*************************************this is for music part*********************************************/
@@ -744,17 +749,59 @@ canvas {
     border-radius: 5px;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 1.5px 1.5px 1.5px 1.5px #000000;
     overflow: hidden;
     overflow-y: auto; 
     max-height: 100%;
-    line-height: 3.5;
+    list-style: none;
 }
+
 
 .unlock{
     background-color: grey; /* Locked color */
+    font-size: 20px;
+    text-decoration: none;
+    display: block;
+    padding:15px 15px;
+    width: 850px;
+    height: 90px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 5px #000000;
+    margin-top: 20px;
+    margin-left: 10px;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.5s;
+    overflow: hidden;
+    opacity: 0.3;
+}
+
+.unlock .rewardsicon i{
+    margin-right: 15px;
+}
+
+.unlock .rewardsicon{
+    font-weight: bold;
 }
 
 .unlock.unlocked {
-    background-color: green; /* Unlocked color */
+    background-color: whitesmoke; /* Unlocked color */
+    opacity: 1;
 }
+
+.unlock .colourpreview{
+    height:50px;
+    width:50px;
+    border-radius: 30%;
+    border:black solid 1px;
+    display:flex;
+    margin-left:750px;
+    margin-top: -45px;
+}
+
+.unlock .songpreview i{
+    display:flex;
+    margin-left:760px;
+    margin-top: -45px;
+    font-size: 2rem;
+}
+

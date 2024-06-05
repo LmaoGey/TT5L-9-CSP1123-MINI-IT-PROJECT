@@ -195,6 +195,14 @@ function onMusicPlayerReady(event) {
     document.getElementById('musicvolume-control').value = musicVolume;
 }
 
+function tryPlayMusic(element, videoID) {
+    if (element.classList.contains('unlocked')) {
+        playMusic(videoID);
+    } else {
+        return;
+    }
+}
+
 function playMusic(videoID) {
     if (musicplayer && musicplayer.loadVideoById) {
         musicplayer.loadVideoById(videoID);
@@ -203,6 +211,19 @@ function playMusic(videoID) {
 
     }
 }
+
+function playPreviewMusic(videoID) {
+    if (musicplayer && musicplayer.loadVideoById) {
+        musicplayer.loadVideoById(videoID);
+        musicplayer.playVideo();
+
+        setTimeout(function() {
+            musicplayer.stopVideo();
+        }, 5000);
+
+    }
+}
+
 
 function setMusicVolume(value) {
     if (musicplayer && musicplayer.setVolume) {
