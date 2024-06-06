@@ -10,17 +10,24 @@ var startTimer;
 
 // reader stuff
 function backgroundsetter(){
-let selectcolour = document.querySelectorAll('.colour');
 
 let storedColour = localStorage.getItem('colour');
 if (storedColour) {
     document.querySelector(':root').style.setProperty('background-image', storedColour);
 };}
 
+    function profilesetter() {
+        const storedPhoto = localStorage.getItem('userPhoto');
+        if (storedPhoto) {
+            const userphoto = document.getElementById('userPhoto');
+            userphoto.setAttribute('src', storedPhoto);
+        }
+    }
+
 //timer
 let workMinutes = 0;
 let breakMinutes = 0;
-let workseconds = 2;
+let workseconds = 5;
 let breakseconds = 2;
 
 function initializeTimer() {
@@ -146,7 +153,7 @@ function updateLevelBar() {
 }
 
 
-// To-do list 
+// timer reader
 const addButton = document.querySelector('.todoitems button');
 const inputBox = document.getElementById('todoinput-box');
 const todoList = document.querySelector('.todoitems');
@@ -232,4 +239,5 @@ window.onload = function() {
     initializeTimer();
     backgroundsetter();
     loadTodos();
+    profilesetter()
 };
