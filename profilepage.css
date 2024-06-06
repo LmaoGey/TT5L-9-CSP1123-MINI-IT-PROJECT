@@ -805,3 +805,8 @@ canvas {
     font-size: 2rem;
 }
 
+.unlock .songpreview i:hover{
+    cursor: pointer;
+    translate: 2px;
+}
+
