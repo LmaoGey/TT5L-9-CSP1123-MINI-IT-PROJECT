@@ -61,30 +61,22 @@
 
         saveButton.addEventListener("click", (event) => {
           event.preventDefault();
-          saveButton.textcontent = messages.saving;
-
-          const name = document.getElementById("name").value;
-          const focusTime = document.getElementById("focus").value;
-          const breakTime = document.getElementById("break").value;
-          const cycles = document.getElementById("cycles").value;
-          const category = document.getElementById("category").value;
+          saveButton.textContent = messages.saving;
 
           const formData = {
-            name: name,
-            focus: focusTime,
-            break: breakTime,
-            cycles: cycles,
-            category: category,
+            name: document.getElementById("name").value,
+            focus: document.getElementById("focus").value,
+            break: document.getElementById("break").value,
+            cycles: document.getElementById("cycles").value,
+            category: document.getElementById("category").value,
           };
 
-          // Save data
-          localStorage.setItem(category, JSON.stringify(formData));
+          localStorage.setItem(formData.category, JSON.stringify(formData));
           try {
-            console.log({ [category]: formData });
-
+            console.log({ [formData.category]: formData });
             saveButton.textContent = messages.saveButton;
             saveMessage.textContent = messages.saved;
-            displaySavedInputs(formData);
+            savedInputsDiv.textContent = `Name: ${formData.name}, Focus: ${formData.focus}, Break: ${formData.break}, Cycles: ${formData.cycles}, Category: ${formData.category}`;
           } catch (error) {
             console.error(
               "There has been a problem with your operation:",
@@ -94,10 +86,6 @@
             saveMessage.textContent = messages.saveFailed;
           }
         });
-
-        function displaySavedInputs({ name, focus, break: cycles, category }) {
-          savedInputsDiv.textContent = `Name: ${name}, Focus: ${focusTime}, Break: ${breakTime}, Cycles: ${cycles}, Category: ${category}`;
-        }
       });
     </script>
   </body>
