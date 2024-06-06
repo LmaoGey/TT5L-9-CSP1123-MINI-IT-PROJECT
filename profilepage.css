@@ -260,19 +260,30 @@ section{
 .colour-container{
     margin-top:20px;
     margin-right:500px;
+    display: flex;
 }
 
 .colour-container .colour{
-    display:inline-block;
     height:50px;
     width:50px;
     border-radius: 30%;
-    margin:2px;
+    margin:5px;
     cursor:pointer;
+    border:black solid 2px;
+    opacity: 0.3; /* Default to locked state */
+}
+
+.colour.unlocked {
+    opacity: 1; /* Fully visible when unlocked */
+}
+
+.colour-container .colour.unlocked:hover {
+    border:#000000 5px solid;
+    
 }
 
 .colour-container .colour:hover{
-    border:#000000 3px solid;
+    border:black solid 2px;
 }
 
 /*************************************this is for music part*********************************************/
@@ -334,9 +345,11 @@ section{
     flex-wrap:wrap;
 }
 
+
+
 /*****genre box********/
 .genre-container{
-    width:380px;
+    width:950px;
     margin-right: 250px;
 }
 
@@ -405,13 +418,17 @@ section{
     display: block;
 }
 
+
+
 /***********background music list*******/ /******this************/
 .bgmusic-list ul{
     list-style: none;
     background-color: yellow;
     box-shadow: 1.5px 1.5px 1.5px 1.5px #000000;
     border-radius: 5px;
-    width:300px;
+    width: 950px;
+    height:300px; 
+    margin-top:-270px;
     cursor:pointer;
     padding:20px 20px;
     font-size:18px;
@@ -420,6 +437,15 @@ section{
     justify-content: space-between;
     overflow: hidden;
     overflow-y: auto; 
+}
+
+.bgmusic-list .song{
+    opacity:0.3;
+    line-height: 3;
+}
+
+.song.unlocked {
+    opacity: 1; /* Fully visible when unlocked */
 }
 
 /********************************************this is for alarm part***************************************/
@@ -650,6 +676,9 @@ canvas {
     padding: 20px;
 }
 
+.sttt #pieChart{
+    margin-top: 50px;
+}
 /********************************************this is for levelup part*******************************/
 
 .rewards{
@@ -695,7 +724,7 @@ canvas {
     position:relative;
     padding: 20px;
     width: 1000px;
-    height: 150px;
+    height: 400px;
     margin-top:20px;
     margin-left:10px;
     border-radius: 10px;
@@ -708,3 +737,76 @@ canvas {
     display:flex;
     flex-wrap:wrap;
 }
+
+.rewards-list{
+    margin-top:20px;
+    height:300px;
+    width:950px;
+    background-color: white;
+    padding:20px 20px;
+    font-size:18px;
+    font-weight:500;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    overflow-y: auto; 
+    max-height: 100%;
+    list-style: none;
+}
+
+
+.unlock{
+    background-color: grey; /* Locked color */
+    font-size: 20px;
+    text-decoration: none;
+    display: block;
+    padding:15px 15px;
+    width: 850px;
+    height: 90px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 5px #000000;
+    margin-top: 20px;
+    margin-left: 10px;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.5s;
+    overflow: hidden;
+    opacity: 0.3;
+}
+
+.unlock .rewardsicon i{
+    margin-right: 15px;
+}
+
+.unlock .rewardsicon{
+    font-weight: bold;
+}
+
+.unlock.unlocked {
+    background-color: whitesmoke; /* Unlocked color */
+    opacity: 1;
+}
+
+.unlock .colourpreview{
+    height:50px;
+    width:50px;
+    border-radius: 30%;
+    border:black solid 1px;
+    display:flex;
+    margin-left:750px;
+    margin-top: -45px;
+}
+
+.unlock .songpreview i{
+    display:flex;
+    margin-left:760px;
+    margin-top: -45px;
+    font-size: 2rem;
+}
+
+.unlock .songpreview i:hover{
+    cursor: pointer;
+    translate: 2px;
+}
+

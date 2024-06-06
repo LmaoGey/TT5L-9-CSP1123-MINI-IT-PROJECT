@@ -56,6 +56,7 @@
                         <button id="nextWeek">Next Week</button>
                     </div>
                     <canvas id="lineGraph" width="400" height="200"></canvas>
+                    <canvas id="pieChart" width="100" height="100"></canvas>
                 </div>
 
                 <div class="rw">
@@ -66,8 +67,63 @@
                     </div>
                     <div class="rewards-container">
                         <h3>Current Level: Level 1</h3>
-                        <div class="rewards-list">
-                        </div>
+                        <ul class="rewards-list">
+                            <li class="unlock" data-level="2">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 2</span>
+                                <h3>Plum Plate Gradient</h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            </li>
+                            <li class="unlock" data-level="3">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 3</span>
+                                <h3>'Beloved' by Sakura Girl (Genre: rock)</h3>
+                                <span class="songpreview" onclick="playPreviewMusic('eKC-u-Rirwk')"><i class="fa-solid fa-circle-play"></i></span>
+                            </li>
+                            <li class="unlock" data-level="4">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 4</span>
+                                <h3>Toxic Gradient</h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #1BFFFF, #2E3192)" style="background-image:linear-gradient(to left, #1BFFFF, #2E3192)"></span>
+                            </li>
+                            <li class="unlock" data-level="5">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 5</span>
+                                <h3>Songs</h3>
+                                <span class="songpreview" onclick="playPreviewMusic('3SzgkuT9-Kw')"><i class="fa-solid fa-circle-play"></i></span>
+                            </li>
+                            <li class="unlock" data-level="6">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 6</span>
+                                <h3>Plum Plate Gradient</h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            </li>
+                            <li class="unlock" data-level="7">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 7</span>
+                                <h3>Plum Plate Gradient</h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            </li>
+                            <li class="unlock" data-level="8">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 8</span>
+                                <h3>Plum Plate Gradient</h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            </li>
+                            <li class="unlock" data-level="9">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 9</span>
+                                <h3>Plum Plate Gradient</h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            </li>
+                            <li class="unlock" data-level="10">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 10</span>
+                                <h3>Plum Plate Gradient</h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            </li>
+                            <li class="unlock" data-level="11">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 11</span>
+                                <h3>Plum Plate Gradient</h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            </li>
+                            <li class="unlock" data-level="12">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 12</span>
+                                <h3>Plum Plate Gradient</h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
@@ -88,11 +144,22 @@
                     <div class="colour-selection">
                         <h3>Please select the color of your preference</h3>
                         <div class="colour-container">
-                            <span class="colour" data-image="linear-gradient(to left, #FBB03B, #D4145A)" style="background-image:linear-gradient(to left, #FBB03B, #D4145A)"></span>
-                            <span class="colour" data-image="linear-gradient(to left, #FCEE21, #009245)" style="background-image:linear-gradient(to left, #FCEE21, #009245)"></span>
-                            <span class="colour" data-image="linear-gradient(to left, #ED1E79, #662D8C)" style="background-image:linear-gradient(to left, #ED1E79, #662D8C)"></span>
-                            <span class="colour" data-image="linear-gradient(to left, #1BFFFF, #2E3192)" style="background-image:linear-gradient(to left, #1BFFFF, #2E3192)"></span>
-                            <span class="colour" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
+                            <span class="colour" data-level="1" data-image="linear-gradient(to left, #FBB03B, #D4145A)" style="background-image:linear-gradient(to left, #FBB03B, #D4145A)"></span>
+                            <span class="colour" data-level="1" data-image="linear-gradient(to left, #FCEE21, #009245)" style="background-image:linear-gradient(to left, #FCEE21, #009245)"></span>
+                            <span class="colour" data-level="1" data-image="linear-gradient(to left, #ED1E79, #662D8C)" style="background-image:linear-gradient(to left, #ED1E79, #662D8C)"></span>
+                            <span class="colour" data-level="2" data-image="linear-gradient(to left, #1BFFFF, #2E3192)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            <span class="colour" data-level="3" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #6FD6FF, #BFF098)"></span>
+                            <span class="colour" data-level="4" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #1BFFFF, #2E3192)"></span>
+                            <span class="colour" data-level="5" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
+                            <span class="colour" data-level="6" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
+                            <span class="colour" data-level="7" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
+                            <span class="colour" data-level="8" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
+                            <span class="colour" data-level="9" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
+                            <span class="colour" data-level="10" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
+                            <span class="colour" data-level="11" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
+                            <span class="colour" data-level="12" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
+                            <span class="colour" data-level="13" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
+                            <span class="colour" data-level="14" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
                         </div>
                     </div>
                 </div>
@@ -136,48 +203,103 @@
                         </div>
                         <div class="bgmusic-list">
                             <ul class="rock genre-list">
-                                <li onclick="playMusic('gquGoWSpPCI')">
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
                                     Rockabye
-                                        
                                 </li>
-                                <li onclick="playMusic('3SzgkuT9-Kw')">
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
                                     jaychou
+                                </li>
+                                <li class="song" data-level="2" onclick="tryPlayMusic(this,'eKC-u-Rirwk')">
+                                    abc   
+                                </li>
+                                <li class="song" data-level="3" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    def   
+                                </li>
+                                <li class="song" data-level="4" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    ghi   
+                                </li>
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
                                 </li>
                             </ul>
                             <ul class="ambient genre-list">
-                                <li onclick="playMusic('gquGoWSpPCI')">
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
                                     adele
-                                    
                                 </li>
-                                <li onclick="playMusic('3SzgkuT9-Kw')">
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
                                     taylor
+                                </li>
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
+                                </li>
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
+                                </li>
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
+                                </li>
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
                                 </li>
                             </ul>
                             <ul class="classical genre-list">
-                                <li onclick="playMusic('gquGoWSpPCI')">
-                                    ben
-                                    
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
+                                    ben     
                                 </li>
-                                <li onclick="playMusic('3SzgkuT9-Kw')">
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
                                     john
+                                </li>
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
+                                </li>
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
+                                </li>
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
+                                </li>
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
                                 </li>
                             </ul>
                             <ul class="country genre-list">
-                                <li onclick="playMusic('gquGoWSpPCI')">
-                                    kelly
-                                    
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
+                                    kelly                                    
                                 </li>
-                                <li onclick="playMusic('3SzgkuT9-Kw')">
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
                                     gaga
+                                </li>
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
+                                </li>
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
+                                </li>
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
+                                </li>
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
                                 </li>
                             </ul>
                             <ul class="soloinstruments genre-list">
-                                <li onclick="playMusic('gquGoWSpPCI')">
-                                    me
-                                    
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
+                                    me                                    
                                 </li>
-                                <li onclick="playMusic('3SzgkuT9-Kw')">
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
                                     you
+                                </li>
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
+                                </li>
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
+                                </li>
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
+                                </li>
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
                                 </li>
                             </ul>
                             <span id="music-player"></span>
