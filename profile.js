@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (colourLevel <= levelvalue) {
             colour.classList.add('unlocked');
-        }
+        } 
     });
 
     songs.forEach(song => {
