@@ -642,6 +642,16 @@ section{
     flex-wrap:wrap;
 }
 
+.cleardata .clearicon{
+    padding: 5px;
+    font-size: 24px;
+}
+
+.cleardata .clearicon i{
+    margin-right: 10px;
+}
+
+/****back button****/
 .backbutton {
     background: white;
     position: fixed;
