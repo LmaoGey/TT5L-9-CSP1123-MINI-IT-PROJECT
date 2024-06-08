@@ -112,6 +112,7 @@ body {
 
 .username{
     margin-left: 70px;
+    margin-top: 20px;
     list-style: none;
     opacity:0;
 }

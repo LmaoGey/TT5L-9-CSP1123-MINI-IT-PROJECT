@@ -10,7 +10,6 @@ menubar.onclick = function(){
 let profile = document.querySelector('.profile');
 let userphoto = document.querySelector('.userphoto');
 let file = document.querySelector('#file');
-let uploadfile = document.querySelector('#uploadfile');
 
 function savePhotoToLocalStorage(photoData) {
     localStorage.setItem('userPhoto', photoData);
@@ -25,10 +24,6 @@ window.addEventListener('DOMContentLoaded', function() {
     if (savedPhoto) {
         userphoto.setAttribute('src', savedPhoto);
     }
-});
-
-uploadfile.addEventListener('click', function() {
-    file.click();
 });
 
 file.addEventListener('change',function(){
