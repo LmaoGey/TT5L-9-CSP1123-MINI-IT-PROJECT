@@ -4,11 +4,123 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="custom.page.css" />
-
+    <link rel="stylesheet" href="customisepage2.css" />
+     
     <title>Timer Settings!</title>
   </head>
   <body>
+    <!-- Study -->
+    <div class="mtts">
+      <div class="categ">
+        <span class="categicon"></i>Study</span>
+        <span class="dropdownicon"></span>
+      </div>
+      <button class="deleting-button" onClick='deleteCategory("Study")'>Delete</button>
+      <div class="categ-selection">
+        <div class="categ-container">
+          <div class="select-categ">
+            <span class="categ-text">Focus </span>
+          </div>
+          <ul class="categ-option">
+            <li class="option"><span class="option-text">10</span></li>
+        </div>
+        <div class="categ-container">
+          <div class="select-categ">
+            <span class="genre-text">Break </span>
+          </div>
+          <ul class="categ-option">
+            <li class="option"><span class="option-text">5</span></li>
+          </ul>
+        </div>
+        <div class="categ-container">
+          <div class="select-categ">
+            <span class="categ-text">Cycles </span>
+          </div>
+          <ul class="categ-option">
+            <li class="option"><span class="option-text">2</span></li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Exercise -->
+    <div class="mtts">
+      <div class="categ">
+        <span class="categicon"></i>Exercise</span>
+        <span class="dropdownicon"></span>
+     
+      </div>   
+      <button class="deleting-button" onClick='deleteCategory("Study")'>Delete</button>
+      <div class="categ-selection">
+        <div class="categ-container">
+          <div class="select-categ">
+            <span class="genre-text">Focus </span>
+          </div>
+          <ul class="categ-option">
+            <li class="option"><span class="option-text">10</span></li>
+        </div>
+        <div class="categ-container">
+          <div class="select-categ">
+            <span class="genre-text">Break </span>
+          </div>
+          <ul class="categ-option">
+            <li class="option"><span class="option-text">5</span></li>
+          </ul>
+        </div>
+        <div class="categ-container">
+          <div class="select-categ">
+            <span class="categ-text">Cycles </span>
+          </div>
+          <ul class="categ-option">
+          <li class="option" >  <span class="option-text">2</span></li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Gaming -->
+    <div class="mtts">
+      <div class="categ">
+        <span class="categicon"> </i>Gaming</span>
+        <span class="dropdownicon"></span>
+      </div>
+      <button class="deleting-button" onClick='deleteCategory("Study")'>Delete</button>
+      <div class="categ-selection">
+        <div class="categ-container">
+          <div class="select-categ">
+            <span class="categ-text">Focus </span>
+          </div>
+          <ul class="categ-option">
+            <li class="option"><span class="option-text">10</span></li>
+          </ul>
+        </div>
+        <div class="categ-container">
+          <div class="select-categ">
+            <span class="categ-text">Break </span>
+          </div>
+          <ul class="categ-option">
+            <li class="option"><span class="option-text">5</span></li>
+          </ul>
+        </div>
+        <div class="categ-container">
+          <div class="select-categ">
+            <span class="categ-text">Cycles </span>
+          </div>
+          <ul class="categ-option">
+            <li class="option"><span class="option-text">2</span></li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+
+
+ 
+
+<div class="overlay">  
+<div class="popup"> 
     <div class="mnt">
       <h1>Custom Preset</h1>
       <p>
@@ -17,26 +129,27 @@
     </div>
     <div class="container">
       <p><label for="name">Name:</label></p>
-      <input type="text" name="name" id="name" value="" />
+      <input
+        type="text"
+        name="name"
+        id="name"
+        value=""
+        placeholder="enter your name"
+      />
       <p><label for="focus">Focus:</label></p>
-      <input type="text" name="focus" id="focus" value="" />
+      <input type="text" name="focus" id="focus" value="" placeholder="min" />
 
       <p><label for="break">Break:</label></p>
-      <input type="text" name="break" id="break" value="" />
+      <input type="text" name="break" id="break" value="" placeholder="min" />
 
       <p><label for="cycle">Cycles:</label></p>
-      <input type="text" name="cycles" id="cycles" value="" />
-
-      <div class="categ">
-        <p><label for="category">Category:</label></p>
-        <select id="category" name="category">
-          <option value="gaming">Gaming</option>
-          <option value="exercise">Exercise</option>
-          <option value="study">Study</option>
-          <option value="cooking">Cooking</option>
-          <option value="cleaning">House cleaning</option>
-        </select>
-      </div>
+      <input
+        type="text"
+        name="cycles"
+        id="cycles"
+        value=""
+        placeholder="cycles"
+      />
 
       <div class="save-message"></div>
 
@@ -45,60 +158,209 @@
         <a href="#" id="saveButton" class="pill-button">Save</a>
       </p>
     </div>
+</div>
 
-    <script>
-      const SAVING_MESSAGE = "Saving.....";
-      const SAVED_MESSAGE = "all changes are saved";
-      const SAVE_BUTTON_TEXT = "Save";
-      const SAVE_FAILED_MESSAGE = "Failed to save changes";
+<div class="container">
+  <table id="Table">
+    <thead>
+      <tr>
+      <th>Name</th>
+      <th>Focus</th>
+      <th>Break</th>
+      <th>Cycle</th>
+    </tr>
+    </thead>
+    <tbody id='presetTable'></tbody>
+  </table>
+</div>
+    
+    <script> 
+ 
+//// form custom preset////
 
-      document.addEventListener("DOMContentLoaded", () => {
-        const saveButton = document.getElementById("saveButton");
-        const saveMessage = document.querySelector(".save-message");
-        const savedInputsDiv = document.getElementById("savedInputs");
 
-        saveButton.addEventListener("click", (event) => {
-          event.preventDefault();
-          saveButton.textcontent = SAVING_MESSAGE;
+document.addEventListener("DOMContentLoaded", () => {
+  const saveButton = document.getElementById("saveButton");
+  const presetTable = document.getElementById("presetTable");
+  let editingKey = null;
 
-          const name = document.getElementById("name").value;
-          const focus = document.getElementById("focus").value;
-          const breakTime = document.getElementById("break").value;
-          const cycles = document.getElementById("cycles").value;
-          const category = document.getElementById("category").value;
+  // Load presets from localStorage
+  function loadPresets() {
+    const presets = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key.startsWith('preset_')) {
+        const presetData = JSON.parse(localStorage.getItem(key));
+        presets.push(presetData);
+      }
+    }
+    return presets;
+  }
 
-          const formData = {
-            name: name,
-            focus: focus,
-            break: breakTime,
-            cycles: cycles,
-            category: category,
-          };
+  // Save preset to localStorage
+  function savePreset(formData) {
+    const presetKey = `preset_${formData.name}`;
+    localStorage.setItem(presetKey, JSON.stringify(formData));
+  }
 
-          //Saved data
-          localStorage.setItem(category, JSON.stringify(formData));
-          try {
-            console.log({ [category]: formData });
+  // Delete preset from localStorage
+  function deletePreset(key) {
+    localStorage.removeItem(key);
+  }
 
-            saveButton.textContent = SAVE_BUTTON_TEXT;
-            saveMessage.textContent = SAVED_MESSAGE;
-            displaySavedInputs(formData);
-          } catch (error) {
-            console.error(
-              "There has been a problem with your operation:",
-              error
-            );
-            saveButton.textContent = SAVE_BUTTON_TEXT;
-            saveMessage.textContent = SAVE_FAILED_MESSAGE;
-          }
-        });
+  // Render presets table
+  function renderTable() {
+    presetTable.innerHTML = '';
+    const presets = loadPresets();
 
-        function displaySavedInputs(formData) {
-          const { name, focus, break: breakTime, cycles, category } = formData;
-          const savedInputsText = `Name: ${name}, Focus: ${focus}, Break: ${breakTime}, Cycles: ${cycles}, Category: ${category}`;
-          savedInputsDiv.innerHTML += `<p>${savedInputsText}</p>`;
+    presets.forEach((preset, index) => {
+      const row = document.createElement('tr');
+
+      row.innerHTML = `
+        <td>${preset.name}</td>
+        <td>${preset.focus}</td>
+        <td>${preset.break}</td>
+        <td>${preset.cycles}</td>
+        <td>
+          <button onclick="editPreset('${preset.name}')">Edit</button>
+          <button onclick="deletePreset('preset_${preset.name}')">Delete</button>
+        </td>
+      `;
+      presetTable.appendChild(row);
+    });
+  }
+
+  // Reset form
+  function resetForm() {
+    document.getElementById('name').value = '';
+    document.getElementById('focus').value = '';
+    document.getElementById('break').value = '';
+    document.getElementById('cycles').value = '';
+  }
+
+  // Event listener for save button
+  saveButton.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const formData = {
+      name: document.getElementById("name").value,
+      focus: document.getElementById("focus").value,
+      break: document.getElementById("break").value,
+      cycles: document.getElementById("cycles").value,
+    };
+
+    savePreset(formData);
+    renderTable();
+    resetForm();
+  });
+
+  // Edit preset
+  window.editPreset = function (name) {
+    const presetData = JSON.parse(localStorage.getItem(`preset_${name}`));
+    document.getElementById("name").value = presetData.name;
+    document.getElementById("focus").value = presetData.focus;
+    document.getElementById("break").value = presetData.break;
+    document.getElementById("cycles").value = presetData.cycles;
+
+    editingKey = `preset_${name}`;
+  };
+
+  // Delete preset
+  window.deletePreset = function (key) {
+    deletePreset(key);
+    renderTable();
+  };
+
+  // Initial render of presets table
+  renderTable();
+});
+
+
+
+
+
+
+
+/////categories button////
+  
+
+ 
+  function saveSelectedTimes(section) {
+    const categIcon = section.querySelector('.categicon').textContent.trim();
+    const focusOption = section.querySelector('.categ-container:nth-child(1) .option-text').textContent.trim();
+    const breakOption = section.querySelector('.categ-container:nth-child(2) .option-text').textContent.trim();
+    const cyclesOption = section.querySelector('.categ-container:nth-child(3) .option-text').textContent.trim();
+
+    const selectedTimes = {
+      focus: focusOption,
+      break: breakOption,
+      cycles: cyclesOption,
+    };
+
+    localStorage.setItem(categIcon, JSON.stringify(selectedTimes));
+    console.log(  categIcon+ ':', selectedTimes);
+  }
+
+  function loadSelectedTimes(section) {
+    const categIcon = section.querySelector('.categicon').textContent.trim();
+    const storedTimes = localStorage.getItem(categIcon);
+
+    if (storedTimes) {
+      const { focus, break: breakTime, cycles } = JSON.parse(storedTimes);
+
+      section.querySelectorAll('.option-text').forEach(option => {
+        const text = option.textContent.trim();
+        if (text === focus || text === breakTime || text === cycles) {
+          option.closest('.categ-option').querySelector('.option').classList.add('active');
         }
       });
-    </script>
+    }
+  }
+
+  function deleteSelectedTimes(categIcon){
+    localStorage.removeItem(categIcon);
+    const categoryElement = document.querySelector('.mtts');
+    const categoryIcon=category.querySelector('.categicon').textContent.trim();
+    if (categoryElement){
+      categoryElement.remove();
+    }
+  }
+///toggle bar//
+  document.querySelectorAll('.select-categ').forEach((item) => {
+    item.addEventListener('click', function () {
+      this.parentElement.classList.toggle('active');
+    });
+  });
+
+  document.querySelectorAll('.categ').forEach((item) => {
+    item.addEventListener('click', function () {
+      this.closest('.mtts').classList.toggle('active');
+      saveSelectedTimes(this.closest('.mtts'));
+    });
+  });
+
+//loading selected times
+  document.querySelectorAll('.option').forEach((item) => {
+    item.addEventListener('click', function () {
+      this.parentElement.querySelectorAll('.option').forEach(option => option.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  document.querySelectorAll('.mtts').forEach((section) => {
+    loadSelectedTimes(section);
+  });
+
+  //Delete button
+localStorage.setItem(categIcon, JSON.stringify(selectedTimes));
+
+document.querySelectorAll('delete-button').forEach((button)=>{ button.addEventListener('click',function(){
+
+const categIcon =this.parentElement.querySelector('.categicon').textContent.trim();
+deleteSelectedTimes(categIcon);
+});
+});
+
+</script>
   </body>
 </html>

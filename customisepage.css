@@ -1,96 +1,47 @@
 body{
-             
-    overflow-x: hidden;
-     background-position: center;
-     background-image: url(https://office365atwork.com/wp-content/uploads/2023/07/pexels-javier-gonzalez-1679801-scaled.jpg);
-      
+  position: 'fit-content';        
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+  background-position: center;
+  background-image: url(https://office365atwork.com/wp-content/uploads/2023/07/pexels-javier-gonzalez-1679801-scaled.jpg);
+   
 }
 
+table{
+  width:80%;
+  margin: 40px;
+  background-color:aqua;
 
+}
 
+table.list{
+  text-align:center;
+  width:100%
+}
 
-#saveButton {
-   position:absolute;
- 
-   bottom:300px;
-   left:300px; 
-   top:80px;
-   height: 10;
-    background-color: #4CAF50;  
-    border: none;  
-    color: white;  
-    padding: 15px 30px;   
-    text-align: center;  
-    text-decoration: none;  
-    display: inline-block;  
-    font-size: large;  
-    margin: 4px 2px;  
-    cursor: pointer;  
-    border-radius: 50px;  
-  }
-  .saveButton:focus {
-    outline: none;  }
+td{
+  border:1px solid rgb(204,200,200);
+text-align:left;
+padding:15px;
+}
+ input[type='test'],input[type='number']{
+  width:80%;
+  padding:12px;
+  margin:5px;
+  display:block;
+ }
 
-  .mnt{
- 
-    border-radius:15px;
-    font-size: large; 
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    height: "fit-content";
-    width: 20%;
-    background-color:skyblue;
-    position: relative;
-    top:50px;
-    left:400px;
+ button{
+  background-color: blueviolet;
+  padding:6px;
+  margin:15px;
+  border:none;
+  border-radius: 20px;
+  font-size:large;
+  cursor:pointer;
 
-    
-
-
-
-  }
-
-  .container{
-   position: relative;
-   font-family:  "Readax Pro";
-   font-size: large;
-   top: 50px;
-   left:400px;
-   width:480px;
- 
-   height:350px;
+ }
+ button.hover{
+  background-color: aqua;
   
-   border-radius: 15px;
-   background-color: palegreen;
-
-  }
-
-#savedInputs{
-  border-radius:15px;
-  font-size: large; 
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  position: absolute;
-  color:rgb(100, 18, 18);
-  
- bottom: 300px;
-  left:500px;
-  background-color: rgb(22, 226, 226);
-  height: fit-content;
-  top:20px;
-
-
-
-}
-
-
-.categ{
-  border-radius:15px;
-  position: relative;
-  font-family:Arial, Helvetica, sans-serif;
-  background-color:rgb(33, 146, 105);
- 
-  bottom: 310px;
-  right: 400px;
-  width: 250px;
-  height: 200px;
-}
-
+ }

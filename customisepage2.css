@@ -1,91 +1,226 @@
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #6a11cb, #2575fc);
-    color: #000;
-    margin: 0;
-    padding: 20px;
-    position: relative;
-    right: 350px;
-  }
-  
-  .category {
+body{
+  position: 'fit-content';        
+ overflow-x: hidden;
+  background-position: center;
+  background-image: url(https://office365atwork.com/wp-content/uploads/2023/07/pexels-javier-gonzalez-1679801-scaled.jpg);
+   
+}
+
+
+
+
+#saveButton {
+position:absolute;
+
+bottom:300px;
+left:300px; 
+top:80px;
+height: 10;
+ background-color: #4CAF50;  
+ border: none;  
+ color: white;  
+ padding: 15px 30px;   
+ text-align: center;  
+ text-decoration: none;  
+ display: inline-block;  
+ font-size: large;  
+ margin: 4px 2px;  
+ cursor: pointer;  
+ border-radius: 50px;  
+}
+.saveButton:focus {
+ outline: none;  }
+
+.mnt{
+
+ border-radius:15px;
+ font-size: large; 
+ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ height: "fit-content";
+ width: 20%;
+ background-color:skyblue;
  position: relative;
-    gap: 10px;
-    left: 560px;
+ bottom: 300px;
+
+left: 800px;
+
+ 
 
 
-  }
-  
-  .button-wrapper {
-    display: flex;
-    flex-direction: column;
-   right: 150px;
-  }
-  
-  .pill {
-  position: relative;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #f0f0f0;
-    border: none;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    position: relative;
-  }
-  
-  .pill:hover {
-    background-color: #e0e0e0;
-  }
-  
-  .icon {
-    font-size: 24px;
-    margin-right: 15px;
-  }
-  
-  .text-content {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-  
-  .main-text {
-    font-weight: bold;
-  }
-  
-  .sub-text {
-    font-size: 12px;
-    color: #666;
-  }
-  
-  .arrow {
-    font-size: 18px;
-    position: absolute ;
-    right:15px;
-  }
-  
-  .sub-buttons {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    margin-top: 10px;
-  }
-  
-  .categ-container {
-    margin-top: 20px;
-    position: relative;
-    left: 150px;
-  }
-  
-  .dropdown {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 100%;
-  }
-  
-  .container {
-    margin-top: 20px
-  }
+
+}
+
+.container{
+position: relative;
+font-family:  "Readax Pro";
+font-size: large;
+
+bottom:300px;
+left: 750px;
+width:480px;
+
+height:350px;
+
+border-radius: 15px;
+background-color: palegreen;
+
+}
+
+#savedInputs{
+border-radius:15px;
+font-size: large; 
+font-family: Georgia, 'Times New Roman', Times, serif;
+position: absolute;
+color:rgb(100, 18, 18);
+
+bottom: 300px;
+left:500px;
+background-color: rgb(22, 226, 226);
+height: fit-content;
+top:20px;
+
+
+
+}
+
+
+.categ{
+font-size: 25px;
+text-decoration: none;
+display: block;
+padding:15px 15px;
+width: fit-content;
+height: 90px;
+border-radius: 10px;
+box-shadow: 2px 2px 5px 5px #864747;
+background-color: white;
+margin-top: 30px;
+margin-left: 10px;
+overflow: hidden;
+}
+
+.categ:hover{
+background-color: gainsboro;
+cursor:pointer;
+}
+.categ .categicon i{
+margin-right: 5px;
+}
+
+.categ .dropdownicon i{
+position:absolute;
+right: 10px;;
+transition: 1s;
+}
+
+.mtts.active .categ .dropdownicon i{
+transform:rotate(-180deg)
+}
+
+.categ h2{
+font-size: 1.17rem;
+}
+
+.categ-selection{
+position:relative;
+padding: 20px;
+width: fit-content;
+height: fit-content;
+margin-top:20px;
+margin-left:10px;
+border-radius: 10px;
+box-shadow: 2px 2px 2px 2px #000000;
+background-color: white;
+display:none;
+}
+
+.mtts.active .categ-selection{
+display:flex;
+flex-wrap:wrap;
+}
+
+
+
+.genre-container{
+ width:fit-content;
+ margin-right: "fit-content";
+}
+
+.categ-container .select-categ{
+ display: flex;
+ height:fit-content;
+ width:fit-content;
+ background-color: white;
+ padding:20px;
+ font-size:18px;
+ font-weight:500;
+ border-radius: 15px;
+ align-items: center;
+ cursor: pointer;
+
+}
+
+.select-categ i{
+ transition: 0.5s;
+}
+.categ-container.active .select-categ i{
+ transform:rotate(180deg)
+}
+
+.categ-container .categ-option {
+ position:relative;
+ padding:10px;
+ width: 90px;
+ margin-top:10px;
+ border-radius: 5px;
+ background-color: white;
+ box-shadow: 1.3px 1.3px 1.3px 1.3px #000000;
+ visibility: hidden;
+}
+
+
+.categ-container.active .categ-option{
+ visibility: visible;
+}
+
+.categ-option .option{
+ display:flex;
+ height:10px;
+ border-radius: 5px;
+ padding-left:10px;
+ padding-right:10px;
+ align-items: center;
+ background-color: white;
+ justify-content: space-between;
+ cursor: pointer;
+ font-size:20px;
+}
+
+.categ-option .option:hover{
+ background-color: #e8e9eb;
+}
+
+.categ-option .option i{
+ color:#1d63dc;
+}
+
+.categ-list {
+ display: none;
+}
+.categ-list.active {
+ display: block;
+}
+
+table{
+
+margin-top: 10px;
+ width: 500px;
+ border-collapse: collapse;
+}
+
+th,td{
+
+}
+
+
+
