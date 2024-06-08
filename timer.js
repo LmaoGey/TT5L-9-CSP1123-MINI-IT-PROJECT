@@ -170,25 +170,37 @@ function playAlarm(effect) {
             videoID = ''; // No alarm
             break;
         case 'effect1':
-            videoID = 'iysr0raKzl4'; // Bell
+            videoID = 'Buie31LDKCs'; 
             break;
         case 'effect2':
-            videoID = '3SzgkuT9-Kw'; // DingDong
+            videoID = 'XN9yJt5Bozc'; 
             break;
         case 'effect3':
-            videoID = 'gquGoWSpPCI'; // Siren
+            videoID = '1YQmodWYx-g'; 
             break;
         case 'effect4':
-            videoID = 'gquGoWSpPCI'; // ClockBeep
+            videoID = 'BmwDaNKYOaI';
             break;
         case 'effect5':
-            videoID = 'gquGoWSpPCI'; // Rooster
+            videoID = 'VrCVHaOrIs4'; 
             break;
         case 'effect6':
-            videoID = 'gquGoWSpPCI'; // Spaceship
+            videoID = '0jBGLticqgQ'; 
             break;
+        case 'effect7':
+            videoID = '0WJZVz2zShk'; 
+            break;
+        case 'effect8':
+            videoID = '78IE9xvV0a8'; 
+            break;
+        case 'effect9':
+            videoID = 'CSOsYLsU-Ko'; 
+            break;
+        case 'effect10':
+            videoID = 'hwiZoQpreDM'; 
+            break; 
         default:
-            videoID = 'iysr0raKzl4'; // Default to Bell
+            videoID = 'Buie31LDKCs'; 
             break;
     }
     if (videoID) {
