@@ -233,3 +233,49 @@ window.onload = function() {
     backgroundsetter();
     loadTodos();
 };
+
+
+///alarm
+document.addEventListener("DOMContentLoaded", function() {
+    var storedEffect = localStorage.getItem('selectedAudioEffect');
+    if (!storedEffect) {
+        localStorage.setItem('selectedAudioEffect', 'effect1'); // Default to Bell
+        storedEffect = 'effect1';
+    }
+    playAlarm(storedEffect);
+});
+
+
+function playAlarm(effect) {
+    var videoID;
+    switch (effect) {
+        case 'effect0':
+            videoID = ''; // No alarm
+            break;
+        case 'effect1':
+            videoID = 'iysr0raKzl4'; // Bell
+            break;
+        case 'effect2':
+            videoID = '3SzgkuT9-Kw'; // DingDong
+            break;
+        case 'effect3':
+            videoID = 'gquGoWSpPCI'; // Siren
+            break;
+        case 'effect4':
+            videoID = 'gquGoWSpPCI'; // ClockBeep
+            break;
+        case 'effect5':
+            videoID = 'gquGoWSpPCI'; // Rooster
+            break;
+        case 'effect6':
+            videoID = 'gquGoWSpPCI'; // Spaceship
+            break;
+        default:
+            videoID = 'iysr0raKzl4'; // Default to Bell
+            break;
+    }
+    if (videoID) {
+        alarmplayer.loadVideoById(videoID);
+        alarmplayer.playVideo();
+    }
+}

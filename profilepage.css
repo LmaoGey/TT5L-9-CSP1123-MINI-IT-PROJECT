@@ -268,22 +268,23 @@ section{
     width:50px;
     border-radius: 30%;
     margin:5px;
-    cursor:pointer;
-    border:black solid 2px;
-    opacity: 0.3; /* Default to locked state */
+    border:red solid 2px;
+    opacity: 0.1; /* Default to locked state */
 }
 
 .colour.unlocked {
+    cursor: pointer;
+    border:black solid 4px;
     opacity: 1; /* Fully visible when unlocked */
 }
 
 .colour-container .colour.unlocked:hover {
-    border:#000000 5px solid;
+    border:#000000 6px solid;
     
 }
 
 .colour-container .colour:hover{
-    border:black solid 2px;
+    border:red solid 2px;
 }
 
 /*************************************this is for music part*********************************************/
@@ -338,11 +339,13 @@ section{
     box-shadow: 2px 2px 2px 2px #000000;
     background-color: white;
     display:none;
+    z-index: 1;
 }
 
 .ms.active .music-selection{
     display:flex;
     flex-wrap:wrap;
+    z-index: 1;
 }
 
 
@@ -353,12 +356,17 @@ section{
     margin-right: 250px;
 }
 
+.genre-container.active{
+    z-index: 10;
+}
+
 .genre-container .select-genre{
     display: flex;
     height:50px;
     width:950px;
     background-color: white;
     padding:20px;
+    margin-top: 10px;
     font-size:18px;
     font-weight:500;
     border-radius: 5px;
@@ -384,6 +392,7 @@ section{
     background-color: white;
     box-shadow: 1.5px 1.5px 1.5px 1.5px #000000;
     visibility: hidden;
+    z-index: 10;
 }
 
 .genre-container.active .genre-option{
@@ -413,6 +422,7 @@ section{
 
 .genre-list {
     display: none;
+    z-index: 1;
 }
 .genre-list.active {
     display: block;
@@ -420,7 +430,7 @@ section{
 
 
 
-/***********background music list*******/ /******this************/
+/***********background music list*******/ 
 .bgmusic-list ul{
     list-style: none;
     background-color: yellow;
@@ -442,6 +452,7 @@ section{
 .bgmusic-list .song{
     opacity:0.3;
     line-height: 3;
+    z-index: 1;
 }
 
 .song.unlocked {
@@ -642,6 +653,16 @@ section{
     flex-wrap:wrap;
 }
 
+.cleardata .clearicon{
+    padding: 5px;
+    font-size: 24px;
+}
+
+.cleardata .clearicon i{
+    margin-right: 10px;
+}
+
+/****back button****/
 .backbutton {
     background: white;
     position: fixed;

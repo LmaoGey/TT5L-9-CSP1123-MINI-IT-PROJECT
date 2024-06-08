@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (colourLevel <= levelvalue) {
             colour.classList.add('unlocked');
-        }
+        } 
     });
 
     songs.forEach(song => {
@@ -256,6 +256,14 @@ var alarmplayer;
 document.addEventListener("DOMContentLoaded", function() {
     var alarmEffects = document.querySelectorAll('.alarm-effect');
 
+    var storedEffect = localStorage.getItem('selectedAudioEffect');
+    if (storedEffect) {
+        var radioButton = document.querySelector('input[name="audioEffect"][value="' + storedEffect + '"]');
+        if (radioButton) {
+            radioButton.checked = true;
+        }
+    }
+
     alarmEffects.forEach(function(effect) {
         effect.addEventListener('click', function() {
             var checkbox = effect.querySelector('input[type="radio"]');
@@ -278,12 +286,12 @@ function initAlarmPlayer() {
     });
 }
 
-function onAlarmPlayerReady(event) {
+function onAlarmPlayerReady(event) { //////////////////use this
     var alarmVolume = localStorage.getItem('alarmVolume') || 100;
     alarmplayer.setVolume(alarmVolume);
     document.getElementById('alarmvolume-control').value = alarmVolume;
-    
 }
+
 
 
 function playAlarm(videoID) {
