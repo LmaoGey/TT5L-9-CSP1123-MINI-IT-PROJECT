@@ -56,6 +56,7 @@
                         <button id="nextWeek">Next Week</button>
                     </div>
                     <canvas id="lineGraph" width="400" height="200"></canvas>
+                    <canvas id="pieChart" width="100" height="100"></canvas>
                 </div>
 
                 <div class="rw">
@@ -66,8 +67,63 @@
                     </div>
                     <div class="rewards-container">
                         <h3>Current Level: Level 1</h3>
-                        <div class="rewards-list">
-                        </div>
+                        <ul class="rewards-list">
+                            <li class="unlock" data-level="2">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 2</span>
+                                <h3>Plum Plate Gradient</h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            </li>
+                            <li class="unlock" data-level="3">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 3</span>
+                                <h3>'Beloved' by Sakura Girl (Genre: rock)</h3>
+                                <span class="songpreview" onclick="playPreviewMusic('eKC-u-Rirwk')"><i class="fa-solid fa-circle-play"></i></span>
+                            </li>
+                            <li class="unlock" data-level="4">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 4</span>
+                                <h3>Toxic Gradient</h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #1BFFFF, #2E3192)" style="background-image:linear-gradient(to left, #1BFFFF, #2E3192)"></span>
+                            </li>
+                            <li class="unlock" data-level="5">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 5</span>
+                                <h3>Songs</h3>
+                                <span class="songpreview" onclick="playPreviewMusic('3SzgkuT9-Kw')"><i class="fa-solid fa-circle-play"></i></span>
+                            </li>
+                            <li class="unlock" data-level="6">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 6</span>
+                                <h3>Plum Plate Gradient</h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            </li>
+                            <li class="unlock" data-level="7">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 7</span>
+                                <h3>Plum Plate Gradient</h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            </li>
+                            <li class="unlock" data-level="8">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 8</span>
+                                <h3>Plum Plate Gradient</h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            </li>
+                            <li class="unlock" data-level="9">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 9</span>
+                                <h3>Plum Plate Gradient</h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            </li>
+                            <li class="unlock" data-level="10">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 10</span>
+                                <h3>Plum Plate Gradient</h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            </li>
+                            <li class="unlock" data-level="11">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 11</span>
+                                <h3>Plum Plate Gradient</h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            </li>
+                            <li class="unlock" data-level="12">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 12</span>
+                                <h3>Plum Plate Gradient</h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
@@ -88,11 +144,22 @@
                     <div class="colour-selection">
                         <h3>Please select the color of your preference</h3>
                         <div class="colour-container">
-                            <span class="colour" data-image="linear-gradient(to left, #FBB03B, #D4145A)" style="background-image:linear-gradient(to left, #FBB03B, #D4145A)"></span>
-                            <span class="colour" data-image="linear-gradient(to left, #FCEE21, #009245)" style="background-image:linear-gradient(to left, #FCEE21, #009245)"></span>
-                            <span class="colour" data-image="linear-gradient(to left, #ED1E79, #662D8C)" style="background-image:linear-gradient(to left, #ED1E79, #662D8C)"></span>
-                            <span class="colour" data-image="linear-gradient(to left, #1BFFFF, #2E3192)" style="background-image:linear-gradient(to left, #1BFFFF, #2E3192)"></span>
-                            <span class="colour" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
+                            <span class="colour" data-level="1" data-image="linear-gradient(to left, #FBB03B, #D4145A)" style="background-image:linear-gradient(to left, #FBB03B, #D4145A)"></span>
+                            <span class="colour" data-level="1" data-image="linear-gradient(to left, #FCEE21, #009245)" style="background-image:linear-gradient(to left, #FCEE21, #009245)"></span>
+                            <span class="colour" data-level="1" data-image="linear-gradient(to left, #ED1E79, #662D8C)" style="background-image:linear-gradient(to left, #ED1E79, #662D8C)"></span>
+                            <span class="colour" data-level="2" data-image="linear-gradient(to left, #1BFFFF, #2E3192)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            <span class="colour" data-level="3" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #6FD6FF, #BFF098)"></span>
+                            <span class="colour" data-level="4" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #1BFFFF, #2E3192)"></span>
+                            <span class="colour" data-level="5" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
+                            <span class="colour" data-level="6" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
+                            <span class="colour" data-level="7" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
+                            <span class="colour" data-level="8" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
+                            <span class="colour" data-level="9" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
+                            <span class="colour" data-level="10" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
+                            <span class="colour" data-level="11" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
+                            <span class="colour" data-level="12" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
+                            <span class="colour" data-level="13" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
+                            <span class="colour" data-level="14" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
                         </div>
                     </div>
                 </div>
@@ -136,48 +203,103 @@
                         </div>
                         <div class="bgmusic-list">
                             <ul class="rock genre-list">
-                                <li onclick="playMusic('gquGoWSpPCI')">
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
                                     Rockabye
-                                        
                                 </li>
-                                <li onclick="playMusic('3SzgkuT9-Kw')">
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
                                     jaychou
+                                </li>
+                                <li class="song" data-level="2" onclick="tryPlayMusic(this,'eKC-u-Rirwk')">
+                                    abc   
+                                </li>
+                                <li class="song" data-level="3" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    def   
+                                </li>
+                                <li class="song" data-level="4" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    ghi   
+                                </li>
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
                                 </li>
                             </ul>
                             <ul class="ambient genre-list">
-                                <li onclick="playMusic('gquGoWSpPCI')">
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
                                     adele
-                                    
                                 </li>
-                                <li onclick="playMusic('3SzgkuT9-Kw')">
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
                                     taylor
+                                </li>
+                                <li class="song" data-level="2" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
+                                </li>
+                                <li class="song" data-level="3" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
+                                </li>
+                                <li class="song" data-level="4" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
+                                </li>
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
                                 </li>
                             </ul>
                             <ul class="classical genre-list">
-                                <li onclick="playMusic('gquGoWSpPCI')">
-                                    ben
-                                    
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
+                                    ben     
                                 </li>
-                                <li onclick="playMusic('3SzgkuT9-Kw')">
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
                                     john
+                                </li>
+                                <li class="song" data-level="2" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
+                                </li>
+                                <li class="song" data-level="3" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
+                                </li>
+                                <li class="song" data-level="4" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
+                                </li>
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
                                 </li>
                             </ul>
                             <ul class="country genre-list">
-                                <li onclick="playMusic('gquGoWSpPCI')">
-                                    kelly
-                                    
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
+                                    kelly                                    
                                 </li>
-                                <li onclick="playMusic('3SzgkuT9-Kw')">
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
                                     gaga
+                                </li>
+                                <li class="song" data-level="2" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
+                                </li>
+                                <li class="song" data-level="3" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
+                                </li>
+                                <li class="song" data-level="4" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
+                                </li>
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
                                 </li>
                             </ul>
                             <ul class="soloinstruments genre-list">
-                                <li onclick="playMusic('gquGoWSpPCI')">
-                                    me
-                                    
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
+                                    me                                    
                                 </li>
-                                <li onclick="playMusic('3SzgkuT9-Kw')">
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
                                     you
+                                </li>
+                                <li class="song" data-level="2" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
+                                </li>
+                                <li class="song" data-level="3" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
+                                </li>
+                                <li class="song" data-level="4" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
+                                </li>
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                    jkl   
                                 </li>
                             </ul>
                             <span id="music-player"></span>
@@ -199,29 +321,45 @@
                                 <label for="effect0">No Alarm</label>
                                 <input type="radio" id="effect0" name="audioEffect" value="effect0">
                             </div>
-                            <div class="alarm-effect" onclick="playAlarm('S2nBbGA0Luc')">
-                                <label for="effect1">Bell</label>
+                            <div class="alarm-effect" onclick="playAlarm('Buie31LDKCs')">
+                                <label for="effect1">Clock Beep</label>
                                 <input type="radio" id="effect1" name="audioEffect" value="effect1">
                             </div>
-                            <div class="alarm-effect" onclick="playAlarm('3SzgkuT9-Kw')">
-                                <label for="effect2">DingDong</label>
+                            <div class="alarm-effect" onclick="playAlarm('XN9yJt5Bozc')">
+                                <label for="effect2">Digital Alarm Clock</label>
                                 <input type="radio" id="effect2" name="audioEffect" value="effect2">
                             </div>
-                            <div class="alarm-effect" onclick="playAlarm('gquGoWSpPCI')">
-                                <label for="effect3">Siren</label>
+                            <div class="alarm-effect" onclick="playAlarm('1YQmodWYx-g')">
+                                <label for="effect3">Digital Alarm Clock 2</label>
                                 <input type="radio" id="effect3" name="audioEffect" value="effect3">
                             </div>
-                            <div class="alarm-effect" onclick="playAlarm('gquGoWSpPCI')">
-                                <label for="effect4">ClockBeep</label>
+                            <div class="alarm-effect" onclick="playAlarm('BmwDaNKYOaI')">
+                                <label for="effect4">Alarm Beep</label>
                                 <input type="radio" id="effect4" name="audioEffect" value="effect4">
                             </div>
-                            <div class="alarm-effect" onclick="playAlarm('gquGoWSpPCI')">
-                                <label for="effect5">Rooster</label>
+                            <div class="alarm-effect" onclick="playAlarm('VrCVHaOrIs4')">
+                                <label for="effect5">Chime Bell</label>
                                 <input type="radio" id="effect5" name="audioEffect" value="effect5">
                             </div>
-                            <div class="alarm-effect" onclick="playAlarm('gquGoWSpPCI')">
-                                <label for="effect6">Spaceship</label>
+                            <div class="alarm-effect" onclick="playAlarm('0jBGLticqgQ')">
+                                <label for="effect6">Clock Ringing</label>
                                 <input type="radio" id="effect6" name="audioEffect" value="effect6">
+                            </div>
+                            <div class="alarm-effect" onclick="playAlarm('0WJZVz2zShk')">
+                                <label for="effect7">School Bell</label>
+                                <input type="radio" id="effect7" name="audioEffect" value="effect7">
+                            </div>
+                            <div class="alarm-effect" onclick="playAlarm('78IE9xvV0a8')">
+                                <label for="effect8">Birds Chirping</label>
+                                <input type="radio" id="effect8" name="audioEffect" value="effect8">
+                            </div>
+                            <div class="alarm-effect" onclick="playAlarm('CSOsYLsU-Ko')">
+                                <label for="effect9">Rooster Crows</label>
+                                <input type="radio" id="effect9" name="audioEffect" value="effect9">
+                            </div>
+                            <div class="alarm-effect" onclick="playAlarm('hwiZoQpreDM')">
+                                <label for="effect10">Car Honks</label>
+                                <input type="radio" id="effect10" name="audioEffect" value="effect10">
                             </div>
                             <button type="button" onclick="setAlarm()">Set as Alarm</button>
                         
@@ -230,9 +368,6 @@
                     </div>
                 </div>
             </section>
-
-
-
 
 
             <section id="settings">

@@ -10,7 +10,6 @@ menubar.onclick = function(){
 let profile = document.querySelector('.profile');
 let userphoto = document.querySelector('.userphoto');
 let file = document.querySelector('#file');
-let uploadfile = document.querySelector('#uploadfile');
 
 function savePhotoToLocalStorage(photoData) {
     localStorage.setItem('userPhoto', photoData);
@@ -25,10 +24,6 @@ window.addEventListener('DOMContentLoaded', function() {
     if (savedPhoto) {
         userphoto.setAttribute('src', savedPhoto);
     }
-});
-
-uploadfile.addEventListener('click', function() {
-    file.click();
 });
 
 file.addEventListener('change',function(){
@@ -64,6 +59,40 @@ window.onscroll = () => {
     });
 };
 
+/////////unlock items
+document.addEventListener('DOMContentLoaded', () => {
+    const levelvalue = parseInt(localStorage.getItem('level')) || 1;
+    const colours = document.querySelectorAll('.colour');
+    const songs = document.querySelectorAll('.song');
+
+    colours.forEach(colour => {
+        const colourLevel = parseInt(colour.dataset.level);
+
+        if (colourLevel <= levelvalue) {
+            colour.classList.add('unlocked');
+        } 
+    });
+
+    songs.forEach(song => {
+        const songLevel = parseInt(song.dataset.level);
+
+        if (songLevel <= levelvalue) {
+            song.classList.add('unlocked');
+        }
+    });
+
+    // Get all achievement elements
+    const achievements = document.querySelectorAll('.unlock');
+
+    achievements.forEach(unlock => {
+        const achievementLevel = parseInt(unlock.dataset.level);
+
+        if (achievementLevel <= levelvalue) {
+            unlock.classList.add('unlocked');
+        }
+    });
+});
+
 //////////////////////////////////////////////////////////////////////////////////background bar toggle
 let bg = document.querySelector('.bg');
 let backgroundd = document.querySelector('.background');
@@ -82,6 +111,9 @@ if (storedColour) {
 selectcolour.forEach(backgroundimage =>{
 
     backgroundimage.addEventListener('click',() =>{
+        if (!backgroundimage.classList.contains('unlocked')) {
+            return; 
+        }
         let dataImage = backgroundimage.getAttribute('data-image');
         document.querySelector(':root').style.setProperty('background-image' , dataImage);
         localStorage.setItem('colour' , dataImage);
@@ -158,6 +190,13 @@ function onMusicPlayerReady(event) {
     document.getElementById('musicvolume-control').value = musicVolume;
 }
 
+function tryPlayMusic(element, videoID) {
+    if (element.classList.contains('unlocked')) {
+        playMusic(videoID);
+    } else {
+        return;
+    }
+}
 
 function playMusic(videoID) {
     if (musicplayer && musicplayer.loadVideoById) {
@@ -167,6 +206,19 @@ function playMusic(videoID) {
 
     }
 }
+
+function playPreviewMusic(videoID) {
+    if (musicplayer && musicplayer.loadVideoById) {
+        musicplayer.loadVideoById(videoID);
+        musicplayer.playVideo();
+
+        setTimeout(function() {
+            musicplayer.stopVideo();
+        }, 5000);
+
+    }
+}
+
 
 function setMusicVolume(value) {
     if (musicplayer && musicplayer.setVolume) {
@@ -199,6 +251,14 @@ var alarmplayer;
 document.addEventListener("DOMContentLoaded", function() {
     var alarmEffects = document.querySelectorAll('.alarm-effect');
 
+    var storedEffect = localStorage.getItem('selectedAudioEffect');
+    if (storedEffect) {
+        var radioButton = document.querySelector('input[name="audioEffect"][value="' + storedEffect + '"]');
+        if (radioButton) {
+            radioButton.checked = true;
+        }
+    }
+
     alarmEffects.forEach(function(effect) {
         effect.addEventListener('click', function() {
             var checkbox = effect.querySelector('input[type="radio"]');
@@ -221,12 +281,12 @@ function initAlarmPlayer() {
     });
 }
 
-function onAlarmPlayerReady(event) {
+function onAlarmPlayerReady(event) { //////////////////use this
     var alarmVolume = localStorage.getItem('alarmVolume') || 100;
     alarmplayer.setVolume(alarmVolume);
     document.getElementById('alarmvolume-control').value = alarmVolume;
-    
 }
+
 
 
 function playAlarm(videoID) {
@@ -300,18 +360,18 @@ rewardss.onclick = function(){
     rw.classList.toggle('active');
 };
 ///////////line graph
-const ctx = document.getElementById('lineGraph').getContext('2d');
-const lineGraph = new Chart(ctx, {
+const lineGraph = document.getElementById('lineGraph').getContext('2d');
+const linegraph = new Chart(lineGraph, {
     type: 'line',
     data: {
         labels: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
         datasets: [{
-          label: 'Time focused',
-          data: [20,30,40,50,60,60,0],
+          label: 'Time focused (in hour)',
+          data: [2,1.5,15,20,14,22,0],
           fill: false,
           backgroundColor: ['#00FFFF'],
           borderColor: ['#0000FF'],
-          tension: 0.1
+          tension: 0
         }]
     },
     options: {
@@ -344,14 +404,55 @@ const lineGraph = new Chart(ctx, {
             y: {
                 ticks: {
                     font: {
-                        size: 16
+                        size: 16,
+                        stepSize: 2
                     }
                 },
-                beginAtZero: true
+                beginAtZero: true,
+                min: 0, 
+                max: 25, 
             }
         }
     }
 });
 
-
+////////pie chart
+const pieChart = document.getElementById('pieChart').getContext('2d');
+const piechart = new Chart(pieChart, {
+    type: 'pie',
+    data: {
+        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        datasets: [{
+            label: 'Time focused (in hour)',
+            data: [2, 1.5, 15, 20, 14, 22, 0],
+            backgroundColor: [
+                '#00FFFF', '#00CED1', '#48D1CC', '#40E0D0', '#20B2AA', '#008B8B', '#5F9EA0'
+            ],
+            borderColor: '#000000',
+            borderWidth: 1,
+            radius: 200
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: true, 
+        aspectRatio: 2,
+        plugins: {
+            legend: {
+                labels: {
+                    font: {
+                        size: 16
+                    }
+                }
+            },
+            title: {
+                display: true,
+                text: 'Task Focus Time',
+                font: {
+                    size: 24
+                }
+            }
+        }
+    }
+});
 
