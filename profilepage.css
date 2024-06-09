@@ -443,6 +443,10 @@ section{
     color:#1d63dc;
 }
 
+.genre-option .option i:hover{
+    color:blue;
+}
+
 .genre-list {
     display: none;
     z-index: 1;
@@ -461,7 +465,7 @@ section{
     border-radius: 5px;
     width: 950px;
     height:300px; 
-    margin-top:-270px;
+    margin-top:-200px;
     cursor:pointer;
     padding:20px 20px;
     font-size:18px;
