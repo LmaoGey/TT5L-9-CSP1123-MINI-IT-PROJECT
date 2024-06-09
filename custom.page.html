@@ -115,11 +115,7 @@
         
       </div>
     </div>
-
-<div>
-<button class=".delete.button">Delete</button>
-</div>
-
+ 
 <div class="cusbutton"id="overlay">
 <p><button  id="customButton">Custom</button></p>
  </div>
@@ -186,40 +182,34 @@ document.addEventListener("DOMContentLoaded", () => {
   const saveButton = document.getElementById("saveButton");
   const presetTable = document.getElementById("presetTable");
   const customButton = document.getElementById("customButton");
-   const Table =document.getElementById('Table');
+  const Table = document.getElementById('Table');
   let editingKey = null;
-
-///defining overlay///
-  const overlay = document.getElementById('overlay');
-  
 
   // Load presets from localStorage
   function loadPresets() {
     const presets = [];
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
-      if (key.startsWith('preset_')) {
-        const presetData = JSON.parse(localStorage.getItem(key));
-        presets.push(presetData);
-      }
+      const presetData = JSON.parse(localStorage.getItem(key));
+      presetData.name = key; 
+      presets.push(presetData);
     }
-    console.log('Loading preset:',presets);
+    console.log('Loading presets:', presets);
     return presets;
   }
 
   // Save preset to localStorage
   function savePreset(formData) {
-    const presetKey = `preset_${formData.name}`;
-    localStorage.setItem(presetKey, JSON.stringify(formData));
-    console.log(' Saving',formData);
-
+    const presetKey = formData.name;
+    const { name, ...data } = formData;  
+    localStorage.setItem(presetKey, JSON.stringify(data));
+    console.log('Saving:', data);
   }
 
   // Delete preset from localStorage
   function deletePreset(key) {
     localStorage.removeItem(key);
-    console.log('Delete preset:',key);
-    
+    console.log('Deleted preset:', key);
   }
 
   // Render presets table
@@ -237,12 +227,12 @@ document.addEventListener("DOMContentLoaded", () => {
         <td>${preset.cycles}</td>
         <td>
           <button onclick="editPreset('${preset.name}')">Edit</button>
-          <button onclick="deletePreset('preset_${preset.name}')">Delete</button>
+          <button onclick="deletePreset('${preset.name}')">Delete</button>
         </td>
       `;
       presetTable.appendChild(row);
     });
-    console.log('render table with presets:',presets);
+    console.log('render table with presets:', presets);
   }
 
   // Reset form
@@ -272,13 +262,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Edit preset
   window.editPreset = function (name) {
-    const presetData = JSON.parse(localStorage.getItem(`preset_${name}`));
-    document.getElementById("name").value = presetData.name;
+    const presetData = JSON.parse(localStorage.getItem(name));
+    document.getElementById("name").value = name;
     document.getElementById("focus").value = presetData.focus;
     document.getElementById("break").value = presetData.break;
     document.getElementById("cycles").value = presetData.cycles;
 
-    editingKey = `preset_${name}`;
+    editingKey = name;
   };
 
   // Delete preset
@@ -287,25 +277,19 @@ document.addEventListener("DOMContentLoaded", () => {
     renderTable();
   };
 
-  //custom button show table
+  // Custom button show table
   customButton.addEventListener('click', () => {
-  if (Table.style.display === 'none' || Table.style.display === '') {
-    Table.style.display = 'block';
-  } else {
-    Table.style.display = 'none';
-  }
-  console.log('Table display',Table.style.display);
-});
-   
+    if (Table.style.display === 'none' || Table.style.display === '') {
+      Table.style.display = 'block';
+    } else {
+      Table.style.display = 'none';
+    }
+    console.log('Table display:', Table.style.display);
+  });
 
   // Initial render of presets table
   renderTable();
 });
-
-
-
-
-
 
 
 /////categories icon buttons ////
