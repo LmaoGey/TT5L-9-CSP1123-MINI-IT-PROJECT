@@ -21,8 +21,14 @@
             <div class="profile">
                 <img src ="userphoto.png" alt="profile picture" class="userphoto">
                 <input type="file" id="file">
-                <label for="file" id="uploadfile"><i class="fa-solid fa-camera"></i></label>
-                <h1 class="username">Yap Kah Jun</h1><br><br><br>
+                <label for="file" id="uploadfile" title="Click to select a photo"><i class="fa-solid fa-camera"></i></label>
+                <h1 id="displayname" title="Click to enter username">Username</h1>
+                <div class="username">
+                    <input type="text" id="inputname" placeholder="Enter your Name">
+                    <button id="setname">Set as Username</button>
+                </div>
+                    
+                    <br><br><br>
             </div>
             <ul class="selection">
                 <li class="list">
@@ -46,6 +52,8 @@
             </ul>
         </div>
 
+        
+
         <div class="content">
             <section id="achievement">
                 <h1>Achievement</h1>
@@ -66,7 +74,7 @@
                         <h3>Level up to unlock more attractive items</h3>
                     </div>
                     <div class="rewards-container">
-                        <h3>Current Level: Level 1</h3>
+                        <h3 id="level">Current Level: Level 1</h3>
                         <ul class="rewards-list">
                             <li class="unlock" data-level="2">
                                 <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 2</span>
@@ -203,42 +211,42 @@
                         </div>
                         <div class="bgmusic-list">
                             <ul class="rock genre-list">
-                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
-                                    Rockabye
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'Pgk5OLHQpfg')">
+                                    "Rise" by Punch Deck
                                 </li>
-                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
-                                    jaychou
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'o2-OPL9eS0k')">
+                                    "Forever Young" by AudioCoffee
                                 </li>
-                                <li class="song" data-level="2" onclick="tryPlayMusic(this,'eKC-u-Rirwk')">
-                                    abc   
+                                <li class="song" data-level="2" onclick="tryPlayMusic(this,'fZmTOwrq-P0')">
+                                    "Energetic Indie Rock" by LesFM
                                 </li>
-                                <li class="song" data-level="3" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
-                                    def   
+                                <li class="song" data-level="3" onclick="tryPlayMusic(this,'4xR4nd2DdKI')">
+                                    "Upbeat Forever" by Kevin MacLeod  
                                 </li>
-                                <li class="song" data-level="4" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
-                                    ghi   
+                                <li class="song" data-level="4" onclick="tryPlayMusic(this,'ajWPOxakpbY')">
+                                    "Cherry Metal" by Arthur Vyncke
                                 </li>
-                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
-                                    jkl   
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'')">
+                                    "Battle Metal" by Alexander Nakarada
                                 </li>
                             </ul>
                             <ul class="ambient genre-list">
-                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'')">
                                     adele
                                 </li>
-                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'')">
                                     taylor
                                 </li>
-                                <li class="song" data-level="2" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                <li class="song" data-level="2" onclick="tryPlayMusic(this,'')">
                                     jkl   
                                 </li>
-                                <li class="song" data-level="3" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                <li class="song" data-level="3" onclick="tryPlayMusic(this,'')">
                                     jkl   
                                 </li>
-                                <li class="song" data-level="4" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                <li class="song" data-level="4" onclick="tryPlayMusic(this,'')">
                                     jkl   
                                 </li>
-                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'')">
                                     jkl   
                                 </li>
                             </ul>
@@ -309,7 +317,7 @@
 
                 <div class="al">
                     <div class="alarm">
-                        <span class="alarmicon"><i class="fa-solid fa-bell"></i></i>Alarm</span>
+                        <span class="alarmicon"><i class="fa-solid fa-bell"></i>Alarm</span>
                         <span class="dropdownicon"><i class="fa-solid fa-square-caret-down"></i></span>
                         <h3>The chosen audio effect will be used as alarm</h3>
                     </div>
@@ -399,7 +407,7 @@
 
                     <div class="cleardata">
                         <span class="clearicon"><i class="fa-solid fa-trash"></i>Clear My Data</span>
-                        <h3>This feature allows you to delete all of your personal data. By clicking 'Clear My Data,' you will permanently remove all information, including saved preferences and history. Please note that this action cannot be undone. Proceed with caution. The system will then back to default"</h3>
+                        <h3>This feature allows you to delete all of your personal data. By clicking 'Clear' you will permanently remove all information, including saved preferences and history. Please note that this action cannot be undone. Proceed with caution. The system will then back to default.</h3>
                         <button id="clearlocalstorage">Clear</button>
                     </div>
                 </div>

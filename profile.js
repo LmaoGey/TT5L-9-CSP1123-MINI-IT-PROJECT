@@ -39,6 +39,32 @@ let filechosen = this.files[0];
     };
 }); 
 
+///////////////////////////////set username
+
+const displayname = document.getElementById('displayname');
+const usernamebox = document.querySelector('.username');
+const inputname = document.getElementById('inputname');
+const setname = document.getElementById('setname');
+
+window.onload = () => {
+    const savedUsername = localStorage.getItem('username');
+    if (savedUsername) {
+        displayname.textContent = savedUsername;
+    }
+};
+
+displayname.addEventListener('click', () => {
+    usernamebox.style.display = 'block';
+    inputname.value = displayname.textContent;
+    inputname.focus();
+});
+
+setname.addEventListener('click', () => {
+    displayname.textContent = inputname.value;
+    localStorage.setItem('username', inputname.value); // Save to local storage
+    usernamebox.style.display = 'none';
+});
+
 /////////////////////////////////////////////////to navigate between pages when the link is pressed
 let section = document.querySelectorAll('section');
 let navlink = document.querySelectorAll('.selection a');
@@ -81,7 +107,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Get all achievement elements
+    // Get all rewards elements
+
+    if (levelvalue) {
+        document.getElementById('level').textContent = `Current Level: Level ${levelvalue}`;
+    }
+
     const achievements = document.querySelectorAll('.unlock');
 
     achievements.forEach(unlock => {
