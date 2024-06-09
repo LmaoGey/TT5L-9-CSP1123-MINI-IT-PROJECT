@@ -15,7 +15,7 @@
         <span class="categicon"></i>Study</span>
         <span class="dropdownicon"></span>
       </div>
-      <button class="deleting-button" onClick='deleteCategory("Study")'>Delete</button>
+      
       <div class="categ-selection">
         <div class="categ-container">
           <div class="select-categ">
@@ -51,7 +51,7 @@
         <span class="dropdownicon"></span>
      
       </div>   
-      <button class="deleting-button" onClick='deleteCategory("Study")'>Delete</button>
+       
       <div class="categ-selection">
         <div class="categ-container">
           <div class="select-categ">
@@ -86,7 +86,7 @@
         <span class="categicon"> </i>Gaming</span>
         <span class="dropdownicon"></span>
       </div>
-      <button class="deleting-button" onClick='deleteCategory("Study")'>Delete</button>
+       
       <div class="categ-selection">
         <div class="categ-container">
           <div class="select-categ">
@@ -116,11 +116,14 @@
       </div>
     </div>
 
+<div>
+<button class=".delete.button">Delete</button>
+</div>
 
- 
-
-<div class="overlay">  
-<div class="popup"> 
+<div class="cusbutton"id="overlay">
+<p><button  id="customButton">Custom</button></p>
+ </div>
+  
     <div class="mnt">
       <h1>Custom Preset</h1>
       <p>
@@ -155,12 +158,12 @@
 
       <div id="savedInputs"></div>
       <p>
-        <a href="#" id="saveButton" class="pill-button">Save</a>
+        <a href="#" id="saveButton" class="pill-button">Add</a>
       </p>
     </div>
 </div>
 
-<div class="container">
+<div class="breakbox">
   <table id="Table">
     <thead>
       <tr>
@@ -182,7 +185,13 @@
 document.addEventListener("DOMContentLoaded", () => {
   const saveButton = document.getElementById("saveButton");
   const presetTable = document.getElementById("presetTable");
+  const customButton = document.getElementById("customButton");
+   const Table =document.getElementById('Table');
   let editingKey = null;
+
+///defining overlay///
+  const overlay = document.getElementById('overlay');
+  
 
   // Load presets from localStorage
   function loadPresets() {
@@ -194,6 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
         presets.push(presetData);
       }
     }
+    console.log('Loading preset:',presets);
     return presets;
   }
 
@@ -201,11 +211,15 @@ document.addEventListener("DOMContentLoaded", () => {
   function savePreset(formData) {
     const presetKey = `preset_${formData.name}`;
     localStorage.setItem(presetKey, JSON.stringify(formData));
+    console.log(' Saving',formData);
+
   }
 
   // Delete preset from localStorage
   function deletePreset(key) {
     localStorage.removeItem(key);
+    console.log('Delete preset:',key);
+    
   }
 
   // Render presets table
@@ -228,6 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
       presetTable.appendChild(row);
     });
+    console.log('render table with presets:',presets);
   }
 
   // Reset form
@@ -236,6 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('focus').value = '';
     document.getElementById('break').value = '';
     document.getElementById('cycles').value = '';
+    console.log('Form reset');
   }
 
   // Event listener for save button
@@ -271,6 +287,17 @@ document.addEventListener("DOMContentLoaded", () => {
     renderTable();
   };
 
+  //custom button show table
+  customButton.addEventListener('click', () => {
+  if (Table.style.display === 'none' || Table.style.display === '') {
+    Table.style.display = 'block';
+  } else {
+    Table.style.display = 'none';
+  }
+  console.log('Table display',Table.style.display);
+});
+   
+
   // Initial render of presets table
   renderTable();
 });
@@ -281,10 +308,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-/////categories button////
+/////categories icon buttons ////
   
 
  
+document.addEventListener("DOMContentLoaded", () => {
   function saveSelectedTimes(section) {
     const categIcon = section.querySelector('.categicon').textContent.trim();
     const focusOption = section.querySelector('.categ-container:nth-child(1) .option-text').textContent.trim();
@@ -298,7 +326,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     localStorage.setItem(categIcon, JSON.stringify(selectedTimes));
-    console.log(  categIcon+ ':', selectedTimes);
+    console.log(categIcon + ':', selectedTimes);
   }
 
   function loadSelectedTimes(section) {
@@ -317,15 +345,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function deleteSelectedTimes(categIcon){
+  function deleteSelectedTimes(categIcon) {
     localStorage.removeItem(categIcon);
-    const categoryElement = document.querySelector('.mtts');
-    const categoryIcon=category.querySelector('.categicon').textContent.trim();
-    if (categoryElement){
-      categoryElement.remove();
-    }
+    document.querySelectorAll('.mtts').forEach(section => {
+      const sectionIcon = section.querySelector('.categicon').textContent.trim();
+      if (sectionIcon === categIcon) {
+        section.remove();
+      }
+    });
   }
-///toggle bar//
+///toggle bar ////
   document.querySelectorAll('.select-categ').forEach((item) => {
     item.addEventListener('click', function () {
       this.parentElement.classList.toggle('active');
@@ -339,7 +368,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-//loading selected times
   document.querySelectorAll('.option').forEach((item) => {
     item.addEventListener('click', function () {
       this.parentElement.querySelectorAll('.option').forEach(option => option.classList.remove('active'));
@@ -351,15 +379,15 @@ document.addEventListener("DOMContentLoaded", () => {
     loadSelectedTimes(section);
   });
 
-  //Delete button
-localStorage.setItem(categIcon, JSON.stringify(selectedTimes));
-
-document.querySelectorAll('delete-button').forEach((button)=>{ button.addEventListener('click',function(){
-
-const categIcon =this.parentElement.querySelector('.categicon').textContent.trim();
-deleteSelectedTimes(categIcon);
+  document.querySelectorAll('.delete-button').forEach((button) => {
+    button.addEventListener('click', function () {
+      const categIcon = this.closest('.mtts').querySelector('.categicon').textContent.trim();
+      deleteSelectedTimes(categIcon);
+    });
+  });
 });
-});
+
+
 
 </script>
   </body>

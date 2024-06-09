@@ -82,7 +82,29 @@ top:20px;
 
 
 }
+.breakbox{
+  position: relative;
+  background-color: aqua;
+   bottom: 500px;
+   padding:10px;
 
+   border-radius: 50px; 
+    
+   width:fit-content;
+   margin-top: 20px;
+}
+
+
+.cusbutton{
+  position: relative;
+  background-color: rgb(44, 134, 12);
+ 
+  padding:10px;
+   border-radius: 50px; 
+  width:fit-content;
+  margin-top: 10px;
+   
+}
 
 .categ{
 font-size: 25px;
@@ -92,7 +114,7 @@ padding:15px 15px;
 width: fit-content;
 height: 90px;
 border-radius: 10px;
-box-shadow: 2px 2px 5px 5px #864747;
+ 
 background-color: white;
 margin-top: 30px;
 margin-left: 10px;
@@ -174,7 +196,7 @@ flex-wrap:wrap;
  margin-top:10px;
  border-radius: 5px;
  background-color: white;
- box-shadow: 1.3px 1.3px 1.3px 1.3px #000000;
+ box-shadow: 1.3px #000000;
  visibility: hidden;
 }
 
