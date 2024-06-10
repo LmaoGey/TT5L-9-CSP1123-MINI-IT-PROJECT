@@ -10,7 +10,6 @@ menubar.onclick = function(){
 let profile = document.querySelector('.profile');
 let userphoto = document.querySelector('.userphoto');
 let file = document.querySelector('#file');
-let uploadfile = document.querySelector('#uploadfile');
 
 function savePhotoToLocalStorage(photoData) {
     localStorage.setItem('userPhoto', photoData);
@@ -27,10 +26,6 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-uploadfile.addEventListener('click', function() {
-    file.click();
-});
-
 file.addEventListener('change',function(){
 let filechosen = this.files[0];
     if (filechosen){
@@ -43,6 +38,32 @@ let filechosen = this.files[0];
     readfile.readAsDataURL (filechosen);
     };
 }); 
+
+///////////////////////////////set username
+
+const displayname = document.getElementById('displayname');
+const usernamebox = document.querySelector('.username');
+const inputname = document.getElementById('inputname');
+const setname = document.getElementById('setname');
+
+window.onload = () => {
+    const savedUsername = localStorage.getItem('username');
+    if (savedUsername) {
+        displayname.textContent = savedUsername;
+    }
+};
+
+displayname.addEventListener('click', () => {
+    usernamebox.style.display = 'block';
+    inputname.value = displayname.textContent;
+    inputname.focus();
+});
+
+setname.addEventListener('click', () => {
+    displayname.textContent = inputname.value;
+    localStorage.setItem('username', inputname.value); // Save to local storage
+    usernamebox.style.display = 'none';
+});
 
 /////////////////////////////////////////////////to navigate between pages when the link is pressed
 let section = document.querySelectorAll('section');
@@ -58,7 +79,7 @@ window.onscroll = () => {
         if (top >= offset && top < offset + height) {
             navlink.forEach(links => {
                 links.classList.remove('active');
-                document.querySelector('.selection a [href*=' + id + ']').classList.add ('active');
+                document.querySelector('.selection a[href*=' + id + ']').classList.add ('active');
             });
         };
     });
@@ -75,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (colourLevel <= levelvalue) {
             colour.classList.add('unlocked');
-        }
+        } 
     });
 
     songs.forEach(song => {
@@ -86,7 +107,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Get all achievement elements
+    // Get all rewards elements
+
+    if (levelvalue) {
+        document.getElementById('level').textContent = `Current Level: Level ${levelvalue}`;
+    }
+
     const achievements = document.querySelectorAll('.unlock');
 
     achievements.forEach(unlock => {
@@ -256,6 +282,14 @@ var alarmplayer;
 document.addEventListener("DOMContentLoaded", function() {
     var alarmEffects = document.querySelectorAll('.alarm-effect');
 
+    var storedEffect = localStorage.getItem('selectedAudioEffect');
+    if (storedEffect) {
+        var radioButton = document.querySelector('input[name="audioEffect"][value="' + storedEffect + '"]');
+        if (radioButton) {
+            radioButton.checked = true;
+        }
+    }
+
     alarmEffects.forEach(function(effect) {
         effect.addEventListener('click', function() {
             var checkbox = effect.querySelector('input[type="radio"]');
@@ -278,12 +312,12 @@ function initAlarmPlayer() {
     });
 }
 
-function onAlarmPlayerReady(event) {
+function onAlarmPlayerReady(event) { //////////////////use this
     var alarmVolume = localStorage.getItem('alarmVolume') || 100;
     alarmplayer.setVolume(alarmVolume);
     document.getElementById('alarmvolume-control').value = alarmVolume;
-    
 }
+
 
 
 function playAlarm(videoID) {
