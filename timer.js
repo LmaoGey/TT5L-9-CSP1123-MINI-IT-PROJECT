@@ -6,16 +6,69 @@ var ws = document.getElementById('w_seconds');
 var bm = document.getElementById('b_minutes');
 var bs = document.getElementById('b_seconds');
 var counter = document.getElementById('counter');
+
 var startTimer;
 
 // reader stuff
 function backgroundsetter(){
-let selectcolour = document.querySelectorAll('.colour');
 
 let storedColour = localStorage.getItem('colour');
 if (storedColour) {
     document.querySelector(':root').style.setProperty('background-image', storedColour);
 };}
+
+    function profilesetter() {
+        const storedPhoto = localStorage.getItem('userPhoto');
+        if (storedPhoto) {
+            const userphoto = document.getElementById('userPhoto');
+            userphoto.setAttribute('src', storedPhoto);
+        }
+    }
+    //for the alarm
+    var videoID = localStorage.getItem("selectedAudioEffect");
+    
+    function onYouTubeIframeAPIReady() {
+        initAlarmPlayer();
+        }
+    var alarmplayer;
+    
+    function initAlarmPlayer() {
+        alarmplayer = new YT.Player('alarm-player', {
+            height: '0',
+            width: '0',
+            events: {
+                'onReady': onAlarmPlayerReady,
+                'onStateChange': onAlarmPlayerStateChange
+            }
+        });
+    }
+    
+    function onAlarmPlayerReady(event) {
+        var alarmVolume = localStorage.getItem('alarmVolume') || 100;
+        alarmplayer.setVolume(alarmVolume);
+        document.getElementById('alarmvolume-control').value = alarmVolume;
+        
+    }
+    
+    
+    function playAlarm(videoID) {
+        if (alarmplayer && alarmplayer.loadVideoById) {
+           
+            if (musicplayer.getPlayerState() === YT.PlayerState.PLAYING) {
+                musicplayer.pauseVideo();
+            }
+           
+            alarmplayer.loadVideoById(videoID);
+            alarmplayer.playVideo();
+        }
+    }
+    function onAlarmPlayerStateChange(event) {
+    if (event.data === YT.PlayerState.ENDED) {
+        alarmplayer.playVideo();  
+    }
+}
+
+    
 
 //timer
 let workMinutes = 0;
@@ -85,11 +138,14 @@ function timer() {
         bm.innerText = formatTime(breakMinutes);
         bs.innerText = formatTime(breakseconds);
         counter.innerText = parseInt(counter.innerText) + 1;
+        
 
         if (parseInt(counter.innerText) % 2 === 0) {
             gainExperience(20);
+            initAlarmPlayer();
         }
     }
+    
 }
 
 function stopInterval() {
@@ -146,7 +202,7 @@ function updateLevelBar() {
 }
 
 
-// To-do list 
+// timer reader
 const addButton = document.querySelector('.todoitems button');
 const inputBox = document.getElementById('todoinput-box');
 const todoList = document.querySelector('.todoitems');
@@ -232,4 +288,6 @@ window.onload = function() {
     initializeTimer();
     backgroundsetter();
     loadTodos();
+    profilesetter();
+    onYouTubeIframeAPIReady();
 };
