@@ -60,6 +60,10 @@ body {
     cursor:pointer;
 }
 
+.topbar .menubar i:hover{
+    translate: 1.5px -1.5px;
+}
+
 .navigation.active .menubar{
     left:90%;
 }
@@ -72,7 +76,7 @@ body {
     width: 200px;
     height: 200px;
     border:2px solid;
-    border-color:aliceblue;
+    border-color:black;
     border-radius: 50%;
     margin-left: 50px;
     opacity:0;
@@ -128,6 +132,7 @@ body {
 
 #displayname:hover{
     cursor:pointer;
+    translate: 2px;
 }
 
 .navigation.active #displayname{
@@ -167,7 +172,9 @@ body {
 }
 
 .list:hover{
-    background-color: white;
+    background-color: #e8e9eb;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    translate: 2px 2px;
 }
 
 .list a{
@@ -296,8 +303,8 @@ section{
     width:50px;
     border-radius: 30%;
     margin:5px;
-    border:red solid 2px;
-    opacity: 0.1; /* Default to locked state */
+    border:red solid 3px;
+    opacity: 0.3; /* Default to locked state */
 }
 
 .colour.unlocked {
@@ -308,12 +315,34 @@ section{
 
 .colour-container .colour.unlocked:hover {
     border:#000000 6px solid;
-    
+    translate: 2px;
 }
 
 .colour-container .colour:hover{
-    border:red solid 2px;
+    border:red solid 3px;
 }
+
+.colour-container .colour i{
+    margin-left: 14px;
+    margin-top:2px;
+    opacity:1;
+}
+
+.colour-container .colour.unlocked i{
+    opacity: 0;
+}
+
+.colour-container .colour div{
+    text-align: center;
+    font-weight: bold;
+    opacity: 1;
+}
+
+.colour-container .colour.unlocked div{
+    opacity:0;
+}
+
+
 
 /*************************************this is for music part*********************************************/
 
@@ -404,6 +433,10 @@ section{
     box-shadow: 1.5px 1.5px 1.5px 1.5px #000000;
 }
 
+.genre-container .select-genre:hover{
+    background-color: gainsboro;
+}
+
 .select-genre i{
     transition: 0.5s;
 }
@@ -465,14 +498,9 @@ section{
 /***********background music list*******/ 
 .bgmusic-list ul{
     list-style: none;
-    background-color: yellow;
-    box-shadow: 1.5px 1.5px 1.5px 1.5px #000000;
-    border-radius: 5px;
     width: 950px;
     height:300px; 
     margin-top:-200px;
-    cursor:pointer;
-    padding:20px 20px;
     font-size:18px;
     font-weight:500;
     align-items: center;
@@ -483,12 +511,35 @@ section{
 
 .bgmusic-list .song{
     opacity:0.3;
-    line-height: 3;
+    line-height: 3.5;
+    padding-left: 15px;
     z-index: 1;
 }
 
 .song.unlocked {
+    transition: transform 0.3s ease;
     opacity: 1; /* Fully visible when unlocked */
+}
+
+.song.unlocked:hover{
+    background-color: #a5bfee;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 20px;
+    translate: 2px;
+    transform: translateX(20px);
+}
+
+.bgmusic-list .song i{
+    margin-left: 10px;
+    opacity:1;
+}
+
+.bgmusic-list .song.unlocked i{
+    opacity:0;
 }
 
 /********************************************this is for alarm part***************************************/
@@ -902,6 +953,15 @@ canvas {
     opacity: 1;
 }
 
+.unlock h3 i{
+    margin-left: 5px;
+    opacity:1;
+}
+
+.unlock.unlocked h3 i{
+    opacity:0;
+}
+
 .unlock .colourpreview{
     height:50px;
     width:50px;
@@ -909,7 +969,7 @@ canvas {
     border:black solid 1px;
     display:flex;
     margin-left:750px;
-    margin-top: -45px;
+    margin-top: -50px;
 }
 
 .unlock .songpreview i{
@@ -924,3 +984,6 @@ canvas {
     translate: 2px;
 }
 
+.colourandsongpreview .colourpreview{
+    margin-left: 680px;
+}
