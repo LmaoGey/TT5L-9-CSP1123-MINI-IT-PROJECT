@@ -9,7 +9,7 @@
       crossorigin="anonymous"
     ></script>
     <title>Profile</title>
-    <link rel="stylesheet" href="profilepage.css" />
+    <link rel="stylesheet" href="profilepage.css"/>
   </head>
 
   <body>
@@ -360,16 +360,15 @@
 
                 <div class="vlm">
                     <div class="musicvolume">
-                        <span>Music Volume</span>
-                        <div>
-                            <label for="musicvolume-control">Volume:</label>
+                        <div class="slider-container">
+                            <label for="musicvolume-control">Music Volume:</label>
                             <input type="range" id="musicvolume-control" min="0" max="100" value="100" oninput="setMusicVolume(this.value)">
+                            <div class="progress"></div>
                         </div>
                     </div>
                     <div class="alarmvolume">
-                        <span>Alarm Volume</span>
-                        <div>
-                            <label for="alarmvolume-control">Volume:</label>
+                        <div class="slider-container">
+                            <label for="alarmvolume-control">Alarm Volume:</label>
                             <input type="range" id="alarmvolume-control" min="0" max="100" value="100" oninput="setAlarmVolume(this.value)">
                         </div>
                     </div>

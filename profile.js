@@ -79,7 +79,7 @@ window.onscroll = () => {
         if (top >= offset && top < offset + height) {
             navlink.forEach(links => {
                 links.classList.remove('active');
-                document.querySelector('.selection a [href*=' + id + ']').classList.add ('active');
+                document.querySelector('.selection a[href*=' + id + ']').classList.add ('active');
             });
         };
     });
