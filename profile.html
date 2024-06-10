@@ -9,7 +9,7 @@
       crossorigin="anonymous"
     ></script>
     <title>Profile</title>
-    <link rel="stylesheet" href="profilepage.css" />
+    <link rel="stylesheet" href="profilepage.css"/>
   </head>
 
   <body>
@@ -21,8 +21,14 @@
             <div class="profile">
                 <img src ="userphoto.png" alt="profile picture" class="userphoto">
                 <input type="file" id="file">
-                <label for="file" id="uploadfile"><i class="fa-solid fa-camera"></i></label>
-                <h1 class="username">Yap Kah Jun</h1><br><br><br>
+                <label for="file" id="uploadfile" title="Click to select a photo"><i class="fa-solid fa-camera"></i></label>
+                <h1 id="displayname" title="Click to enter username">Username</h1>
+                <div class="username">
+                    <input type="text" id="inputname" placeholder="Enter your Name">
+                    <button id="setname">Set as Username</button>
+                </div>
+                    
+                    <br><br><br>
             </div>
             <ul class="selection">
                 <li class="list">
@@ -46,6 +52,8 @@
             </ul>
         </div>
 
+        
+
         <div class="content">
             <section id="achievement">
                 <h1>Achievement</h1>
@@ -66,7 +74,7 @@
                         <h3>Level up to unlock more attractive items</h3>
                     </div>
                     <div class="rewards-container">
-                        <h3>Current Level: Level 1</h3>
+                        <h3 id="level">Current Level: Level 1</h3>
                         <ul class="rewards-list">
                             <li class="unlock" data-level="2">
                                 <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 2</span>
@@ -181,125 +189,102 @@
                             <ul class="genre-option">
                                 <li class="option">
                                     <span class="option-text">Rock</span>
-                                    <i class="fa-solid fa-circle-info"></i>
+                                    <i class="fa-solid fa-circle-info" title="Suggested for workout/exercise"></i>
                                 </li>
                                 <li class="option">
                                     <span class="option-text">Ambient</span>
-                                    <i class="fa-solid fa-circle-info"></i>
+                                    <i class="fa-solid fa-circle-info" title="Suggested for study/gaming"></i>
                                 </li>
                                 <li class="option">
                                     <span class="option-text">Classical</span>
-                                    <i class="fa-solid fa-circle-info"></i>
+                                    <i class="fa-solid fa-circle-info" title="Suggested for gaming/study"></i>
                                 </li>
                                 <li class="option">
-                                    <span class="option-text">Country</span>
-                                    <i class="fa-solid fa-circle-info"></i>
-                                </li>
-                                <li class="option">
-                                    <span class="option-text">Solo Instruments</span>
-                                    <i class="fa-solid fa-circle-info"></i>
+                                    <span class="option-text">Instrumental</span>
+                                    <i class="fa-solid fa-circle-info" title="Suggested for study/gaming"></i>
                                 </li>
                             </ul>
                         </div>
                         <div class="bgmusic-list">
                             <ul class="rock genre-list">
-                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
-                                    Rockabye
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'Pgk5OLHQpfg')">
+                                    "Rise" by Punch Deck
                                 </li>
-                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
-                                    jaychou
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'o2-OPL9eS0k')">
+                                    "Forever Young" by AudioCoffee
                                 </li>
-                                <li class="song" data-level="2" onclick="tryPlayMusic(this,'eKC-u-Rirwk')">
-                                    abc   
+                                <li class="song" data-level="2" onclick="tryPlayMusic(this,'fZmTOwrq-P0')">
+                                    "Energetic Indie Rock" by LesFM
                                 </li>
-                                <li class="song" data-level="3" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
-                                    def   
+                                <li class="song" data-level="3" onclick="tryPlayMusic(this,'4xR4nd2DdKI')">
+                                    "Upbeat Forever" by Kevin MacLeod  
                                 </li>
-                                <li class="song" data-level="4" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
-                                    ghi   
+                                <li class="song" data-level="4" onclick="tryPlayMusic(this,'ajWPOxakpbY')">
+                                    "Cherry Metal" by Arthur Vyncke
                                 </li>
-                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
-                                    jkl   
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'9JvGEwj8Cj8')">
+                                    "Battle Metal" by Alexander Nakarada
                                 </li>
                             </ul>
                             <ul class="ambient genre-list">
-                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
-                                    adele
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'OkxgmKBphUg')">
+                                    "Permafrost" by Scott Buckley
                                 </li>
-                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
-                                    taylor
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'DxIEjU66Mmw')">
+                                    "Sweet Dreams" by BatchBug
                                 </li>
-                                <li class="song" data-level="2" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
-                                    jkl   
+                                <li class="song" data-level="2" onclick="tryPlayMusic(this,'ye2e7oy6DtY')">
+                                    "Relaxing Chill" by Alex-Productions   
                                 </li>
-                                <li class="song" data-level="3" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
-                                    jkl   
+                                <li class="song" data-level="3" onclick="tryPlayMusic(this,'FCCkjdX7TK0')">
+                                    "MANTRA" by Alex-Productions
                                 </li>
-                                <li class="song" data-level="4" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
-                                    jkl   
+                                <li class="song" data-level="4" onclick="tryPlayMusic(this,'Elao5ErSrao')">
+                                    "Silent Wood" by Purrple Cat
                                 </li>
-                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
-                                    jkl   
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'T-h28bFdh9w')">
+                                    "Embrace" by Sappheiros  
                                 </li>
                             </ul>
                             <ul class="classical genre-list">
-                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
-                                    ben     
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'c1ospGkfp7M')">
+                                    "Under The Sun" by Keys of Moon    
                                 </li>
-                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
-                                    john
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'vPF_GZjofow')">
+                                    "The Great Sea" by Scott Buckley
                                 </li>
-                                <li class="song" data-level="2" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
-                                    jkl   
+                                <li class="song" data-level="2" onclick="tryPlayMusic(this,'Ji8DsvsN-Bs')">
+                                    "Autumn Scene" by Keys of Moon   
                                 </li>
-                                <li class="song" data-level="3" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
-                                    jkl   
+                                <li class="song" data-level="3" onclick="tryPlayMusic(this,'LHH3nKpTtpo')">
+                                    "One Love" by Keys of Moon   
                                 </li>
-                                <li class="song" data-level="4" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
-                                    jkl   
+                                <li class="song" data-level="4" onclick="tryPlayMusic(this,'lkiM6YcUwKY')">
+                                    "Pachelbel: Canon In D Major" by Kevin MacLeod   
                                 </li>
-                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
-                                    jkl   
-                                </li>
-                            </ul>
-                            <ul class="country genre-list">
-                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
-                                    kelly                                    
-                                </li>
-                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
-                                    gaga
-                                </li>
-                                <li class="song" data-level="2" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
-                                    jkl   
-                                </li>
-                                <li class="song" data-level="3" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
-                                    jkl   
-                                </li>
-                                <li class="song" data-level="4" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
-                                    jkl   
-                                </li>
-                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
-                                    jkl   
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'sT2UnDDRyno')">
+                                    "Mozart: Symphony No. 40 In G Minor, K. 550 – I. Molto Allegro" by Musopen Symphony  
                                 </li>
                             </ul>
-                            <ul class="soloinstruments genre-list">
-                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
-                                    me                                    
+
+                            <ul class="instrumental genre-list">
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'q2nPfX-c6yY')">
+                                    "Almost Bliss" by Kevin MacLeod                                    
                                 </li>
-                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'3SzgkuT9-Kw')">
-                                    you
+                                <li class="song" data-level="1" onclick="tryPlayMusic(this,'VBaQxYFCAr8')">
+                                    "Happy Commercial" by MaxKoMusic
                                 </li>
-                                <li class="song" data-level="2" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
-                                    jkl   
+                                <li class="song" data-level="2" onclick="tryPlayMusic(this,'T6ptnbKJWuM')">
+                                    "Walking Home" by Alex-Productions   
                                 </li>
-                                <li class="song" data-level="3" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
-                                    jkl   
+                                <li class="song" data-level="3" onclick="tryPlayMusic(this,'3twJYF1c7xY')">
+                                    "Beauty" by MaxKoMusic   
                                 </li>
-                                <li class="song" data-level="4" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
-                                    jkl   
+                                <li class="song" data-level="4" onclick="tryPlayMusic(this,'LH31E_e_0sE')">
+                                    "Moon Dock" by Verbovets   
                                 </li>
-                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'gquGoWSpPCI')">
-                                    jkl   
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'L__pbqrIk-0')">
+                                    "Inspiring Dreams" by Keys of Moon   
                                 </li>
                             </ul>
                             <span id="music-player"></span>
@@ -309,7 +294,7 @@
 
                 <div class="al">
                     <div class="alarm">
-                        <span class="alarmicon"><i class="fa-solid fa-bell"></i></i>Alarm</span>
+                        <span class="alarmicon"><i class="fa-solid fa-bell"></i>Alarm</span>
                         <span class="dropdownicon"><i class="fa-solid fa-square-caret-down"></i></span>
                         <h3>The chosen audio effect will be used as alarm</h3>
                     </div>
@@ -375,16 +360,15 @@
 
                 <div class="vlm">
                     <div class="musicvolume">
-                        <span>Music Volume</span>
-                        <div>
-                            <label for="musicvolume-control">Volume:</label>
+                        <div class="slider-container">
+                            <label for="musicvolume-control">Music Volume:</label>
                             <input type="range" id="musicvolume-control" min="0" max="100" value="100" oninput="setMusicVolume(this.value)">
+                            <div class="progress"></div>
                         </div>
                     </div>
                     <div class="alarmvolume">
-                        <span>Alarm Volume</span>
-                        <div>
-                            <label for="alarmvolume-control">Volume:</label>
+                        <div class="slider-container">
+                            <label for="alarmvolume-control">Alarm Volume:</label>
                             <input type="range" id="alarmvolume-control" min="0" max="100" value="100" oninput="setAlarmVolume(this.value)">
                         </div>
                     </div>
@@ -399,7 +383,7 @@
 
                     <div class="cleardata">
                         <span class="clearicon"><i class="fa-solid fa-trash"></i>Clear My Data</span>
-                        <h3>This feature allows you to delete all of your personal data. By clicking 'Clear My Data,' you will permanently remove all information, including saved preferences and history. Please note that this action cannot be undone. Proceed with caution. The system will then back to default"</h3>
+                        <h3>This feature allows you to delete all of your personal data. By clicking 'Clear' you will permanently remove all information, including saved preferences and history. Please note that this action cannot be undone. Proceed with caution. The system will then back to default.</h3>
                         <button id="clearlocalstorage">Clear</button>
                     </div>
                 </div>

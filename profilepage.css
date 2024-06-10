@@ -110,16 +110,43 @@ body {
     color: black;
 }
 
-.username{
-    margin-left: 70px;
+/*************username***************/
+
+#displayname{
+    display: flex;
+    margin-left: 5px;
     margin-top: 20px;
     list-style: none;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    opacity:0;
+    max-width: 285px;
+    width:100%;
+}
+
+#displayname:hover{
+    cursor:pointer;
+}
+
+.navigation.active #displayname{
+    opacity:1;
+}
+
+.username{
+    display: none;
+    margin-top: 10px;
+    margin-left: 18px;
+    justify-content: space-between;
     opacity:0;
 }
 
 .navigation.active .username{
     opacity:1;
 }
+
+/****************selection**********/
 
 .selection{
     position: absolute;
@@ -421,6 +448,10 @@ section{
     color:#1d63dc;
 }
 
+.genre-option .option i:hover{
+    translate: 2px;
+}
+
 .genre-list {
     display: none;
     z-index: 1;
@@ -439,7 +470,7 @@ section{
     border-radius: 5px;
     width: 950px;
     height:300px; 
-    margin-top:-270px;
+    margin-top:-200px;
     cursor:pointer;
     padding:20px 20px;
     font-size:18px;
@@ -527,13 +558,12 @@ section{
     height:300px;
     width:950px;
     background-color: white;
-    padding:20px 20px;
+    padding-left: 18px;
+    padding-right:20px;
     font-size:18px;
     font-weight:500;
-    border-radius: 5px;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 1.5px 1.5px 1.5px 1.5px #000000;
     overflow: hidden;
     overflow-y: auto; 
     max-height: 100%;
@@ -546,10 +576,27 @@ section{
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
+    border: #000000 1px solid;
+    border-radius: 20px;
+}
+
+.alarm-effect label {
+    display: inline-block;
+    padding-left: 20px;
+    transition: transform 0.3s ease;
 }
 
 .alarm-container .alarm-effect:hover{
-    background-color: #1d63dc;
+    background-color: #a5bfee;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.alarm-container .alarm-effect:hover label{
+    translate: 3px;
+    transform: translateX(20px);
+    cursor: pointer;
+
 }
 
 .alarm-container .alarm-effect input{
@@ -557,7 +604,36 @@ section{
 }
 
 .alarm-container button{
-    margin-left: 400px;
+    margin-left: 380px;
+    height: 30px;
+    width: 120px;
+    font-weight: bold;
+    font-size: medium;
+    border-radius: 10px;
+}
+
+.alarm-container button:hover{
+    cursor: pointer;
+    translate: 2px;
+}
+
+.alarm-container::-webkit-scrollbar {
+    width: 15px;
+}
+
+.alarm-container::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 10px;
+}
+
+.alarm-container::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+    border: 3px solid #f1f1f1;
+}
+
+.alarm-container::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
 }
 
 /********************************************this is for vlm part*******************************/
@@ -592,6 +668,7 @@ section{
     transition: 0.5s;
     overflow: hidden;
 }
+
 
 
 
@@ -640,7 +717,7 @@ section{
     position:relative;
     padding: 20px;
     width: 1000px;
-    height: 450px;
+    height: 200px;
     margin-top:20px;
     margin-left:10px;
     border-radius: 10px;
@@ -654,13 +731,28 @@ section{
     flex-wrap:wrap;
 }
 
-.cleardata .clearicon{
-    padding: 5px;
-    font-size: 24px;
-}
-
 .cleardata .clearicon i{
     margin-right: 10px;
+}
+
+.cleardata .clearicon{
+    padding: 5px;
+    font-size: 23px;
+}
+
+.cleardata #clearlocalstorage{
+    margin-top: 20px;
+    height: 30px;
+    width: 100px;
+    font-weight: bold;
+    font-size: larger;
+    margin-left: 400px;
+    border-radius: 10px;
+}
+
+.cleardata #clearlocalstorage:hover{
+    cursor: pointer;
+    translate: 2px;
 }
 
 /****back button****/
