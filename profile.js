@@ -6,6 +6,8 @@ menubar.onclick = function(){
     navigation.classList.toggle('active');
 };
 
+
+
 ////////////////////////////////////////////////////to upload file as profile picture
 let profile = document.querySelector('.profile');
 let userphoto = document.querySelector('.userphoto');
@@ -203,7 +205,6 @@ function onYouTubeIframeAPIReady() {
 
 var musicplayer;
 
-
 function initMusicPlayer() {
     musicplayer = new YT.Player('music-player', {
         height: '0',
@@ -221,13 +222,33 @@ function onMusicPlayerReady(event) {
     document.getElementById('musicvolume-control').value = musicVolume;
 }
 
+
 function tryPlayMusic(element, videoID) {
     if (element.classList.contains('unlocked')) {
         playMusic(videoID);
     } else {
         return;
     }
+    
+    var highlightedSong = document.querySelectorAll('.song-text.blue-song');
+    highlightedSong.forEach(function(song) {
+        song.classList.remove('blue-song');
+    });
+
+    
+    element.querySelector('.song-text').classList.add('blue-song');
+    localStorage.setItem('clickedSong', videoID);
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    var clickedSongID = localStorage.getItem('clickedSong');
+    if (clickedSongID) {
+        var clickedSongElement = document.querySelector(`li.song[onclick*="'${clickedSongID}'"]`);
+        if (clickedSongElement) {
+            clickedSongElement.querySelector('.song-text').classList.add('blue-song');
+        }
+    }
+});
 
 function playMusic(videoID) {
     if (musicplayer && musicplayer.loadVideoById) {
@@ -452,10 +473,10 @@ const pieChart = document.getElementById('pieChart').getContext('2d');
 const piechart = new Chart(pieChart, {
     type: 'pie',
     data: {
-        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        labels: ['Study', 'Exercise', 'Gaming', 'House Chores', 'Others'],
         datasets: [{
             label: 'Time focused (in hour)',
-            data: [2, 1.5, 15, 20, 14, 22, 0],
+            data: [2, 1.5, 15, 20, 14],
             backgroundColor: [
                 '#00FFFF', '#00CED1', '#48D1CC', '#40E0D0', '#20B2AA', '#008B8B', '#5F9EA0'
             ],
