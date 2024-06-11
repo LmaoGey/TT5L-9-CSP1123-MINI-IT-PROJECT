@@ -1,9 +1,9 @@
 body{
   position: 'fit-content';        
- overflow-x: hidden;
+  
   background-position: center;
   background-image: url(https://office365atwork.com/wp-content/uploads/2023/07/pexels-javier-gonzalez-1679801-scaled.jpg);
-   
+  background-size: cover;
 }
 
 
@@ -22,27 +22,27 @@ height: 10;
  padding: 15px 30px;   
  text-align: center;  
  text-decoration: none;  
- display: inline-block;  
+  
  font-size: large;  
  margin: 4px 2px;  
  cursor: pointer;  
  border-radius: 50px;  
 }
-.saveButton:focus {
- outline: none;  }
-
+ 
 .mnt{
-
+  background-size: cover;
  border-radius:15px;
+ outline: #0c0f0c solid 3px;
  font-size: large; 
  font-family: 'Gill Sans', 'Gill Sans MT',  'Trebuchet MS', sans-serif;
  height: "fit-content";
  width: 20%;
  background-color:skyblue;
  position: relative;
- bottom: 300px;
-
-left: 800px;
+ bottom: 700px;
+ left: 600px;
+ 
+ 
 
  
 
@@ -54,8 +54,11 @@ left: 800px;
 position: relative;
 font-family:  "Readax Pro";
 font-size: large;
+color:rgba(16, 69, 116, 0.65);
 display: none;
-bottom:300px;
+outline: #0c0f0c solid 3px;
+bottom:700px;
+right: 100px;
 left: 750px;
 width:480px;
 
@@ -66,43 +69,37 @@ background-color: palegreen;
 
 }
 
-#savedInputs{
-border-radius:15px;
-font-size: large; 
-font-family: Georgia, 'Times New Roman', Times, serif;
-position: absolute;
-color:rgb(100, 18, 18);
-
-bottom: 300px;
-left:500px;
-background-color: rgb(22, 226, 226);
-height: fit-content;
-top:20px;
+ 
 
 
 
-}
+
 .breakbox{
   position: relative;
   background-color: aqua;
-   bottom: 500px;
+  outline: #0c0f0c solid 3px;
+  bottom: 150px;
    padding:10px;
-
    border-radius: 50px; 
-    
    width:fit-content;
-   margin-top: 20px;
+   margin-top: 30px;
 }
 
 
 .cusbutton{
   position: relative;
-  background-color: rgb(44, 134, 12);
- 
-  padding:10px;
-   border-radius: 50px; 
+  padding:15px 30px;
+  border-radius: 50px; 
   width:fit-content;
   margin-top: 10px;
+  background-color: #4CAF50;  
+  border: none;  
+  color: white;  
+  padding: 15px 30px;   
+  text-align: center;  
+  text-decoration: none;  
+  display: inline-block;  
+  font-size: large; 
    
 }
 
@@ -123,10 +120,12 @@ overflow: hidden;
 
 .categ:hover{
 background-color: gainsboro;
+outline: #101610 solid 3px;
 cursor:pointer;
 }
 .categ .categicon i{
 margin-right: 5px;
+ 
 }
 
 .categ .dropdownicon i{
@@ -135,13 +134,9 @@ right: 10px;;
 transition: 1s;
 }
 
-.mtts.active .categ .dropdownicon i{
-transform:rotate(-180deg)
-}
+ 
 
-.categ h2{
-font-size: 1.17rem;
-}
+ 
 
 .categ-selection{
 position:relative;
@@ -152,7 +147,7 @@ margin-top:20px;
 margin-left:10px;
 border-radius: 10px;
 box-shadow: 2px 2px 2px 2px #000000;
-background-color: white;
+background-color: rgba(104, 23, 23, 0.37);
 display:none;
 }
 
@@ -163,7 +158,7 @@ flex-wrap:wrap;
 
 
 
-.genre-container{
+.categ-container{
  width:fit-content;
  margin-right: "fit-content";
 }
@@ -177,7 +172,6 @@ flex-wrap:wrap;
  font-size:18px;
  font-weight:500;
  border-radius: 15px;
- align-items: center;
  cursor: pointer;
 
 }
@@ -185,9 +179,7 @@ flex-wrap:wrap;
 .select-categ i{
  transition: 0.5s;
 }
-.categ-container.active .select-categ i{
- transform:rotate(180deg)
-}
+ 
 
 .categ-container .categ-option {
  position:relative;
@@ -197,14 +189,11 @@ flex-wrap:wrap;
  border-radius: 5px;
  background-color: white;
  box-shadow: 1.3px #000000;
- visibility: hidden;
+ 
 }
 
 
-.categ-container.active .categ-option{
- visibility: visible;
-}
-
+ 
 .categ-option .option{
  display:flex;
  height:10px;
@@ -218,20 +207,9 @@ flex-wrap:wrap;
  font-size:20px;
 }
 
-.categ-option .option:hover{
- background-color: #e8e9eb;
-}
+ 
 
-.categ-option .option i{
- color:#1d63dc;
-}
-
-.categ-list {
- display: none;
-}
-.categ-list.active {
- display: block;
-}
+ 
 
 table{
 
