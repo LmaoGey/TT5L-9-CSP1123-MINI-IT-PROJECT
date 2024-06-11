@@ -162,7 +162,7 @@
         On this page you can customize your time according to your preference.
       </p>
     </div>
-    <div class="container">
+    <div class="container" id="containercustom">
       <p><label for="name">Name:</label></p>
       <input
         type="text"
@@ -219,6 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const presetTable = document.getElementById("presetTable");
   const customButton = document.getElementById("customButton");
   const Table = document.getElementById('Table');
+  const containercustom = document.getElementById("containercustom")
   let editingKey = null;
 
   // Load presets from localStorage
@@ -321,6 +322,16 @@ document.addEventListener("DOMContentLoaded", () => {
       Table.style.display = 'none';
     }
     console.log('Table display:', Table.style.display);
+  });
+
+  // Custom button show table
+  customButton.addEventListener('click', () => {
+    if (containercustom.style.display === 'none' || containercustom.style.display === '') {
+      containercustom.style.display = 'block';
+    } else {
+      containercustom.style.display = 'none';
+    }
+    console.log('Table display:', containercustom.style.display);
   });
 
   // Initial render of presets table

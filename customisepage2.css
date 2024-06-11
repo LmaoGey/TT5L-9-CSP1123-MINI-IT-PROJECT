@@ -54,7 +54,7 @@ left: 800px;
 position: relative;
 font-family:  "Readax Pro";
 font-size: large;
-
+display: none;
 bottom:300px;
 left: 750px;
 width:480px;
