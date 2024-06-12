@@ -292,7 +292,6 @@ window.onload = function() {
     onYouTubeIframeAPIReady();
 };
 
-
 ///alarm
 document.addEventListener("DOMContentLoaded", function() {
     var storedEffect = localStorage.getItem('selectedAudioEffect');
