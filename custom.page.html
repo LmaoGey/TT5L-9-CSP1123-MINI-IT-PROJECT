@@ -220,6 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const customButton = document.getElementById("customButton");
   const Table = document.getElementById('Table');
   const containercustom = document.getElementById("containercustom")
+   
   let editingKey = null;
 
   // Load presets from localStorage
@@ -227,10 +228,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const presets = [];
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
-      const presetData = JSON.parse(localStorage.getItem(key));
-      presetData.name = key; 
-      presets.push(presetData);
+      if (key !== 'colour' && key !== 'selectedAudioEffect') { // Exclude specific keys
+        const presetData = JSON.parse(localStorage.getItem(key));
+        presetData.name = key; 
+        presets.push(presetData);
+      }
     }
+  
     console.log('Loading presets:', presets);
     return presets;
   }
@@ -269,7 +273,7 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
       presetTable.appendChild(row);
     });
-    console.log('render table with presets:', presets);
+    console.log('Render table with presets:', presets);
   }
 
   // Reset form
@@ -291,6 +295,11 @@ document.addEventListener("DOMContentLoaded", () => {
       break: document.getElementById("break").value,
       cycles: document.getElementById("cycles").value,
     };
+
+    if (!formData.name || !formData.focus || !formData.break || !formData.cycles) {
+      alert("Please fill up! ");
+      return;
+    }
 
     savePreset(formData);
     renderTable();
@@ -324,14 +333,14 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log('Table display:', Table.style.display);
   });
 
-  // Custom button show table
+  // Custom button show form
   customButton.addEventListener('click', () => {
     if (containercustom.style.display === 'none' || containercustom.style.display === '') {
       containercustom.style.display = 'block';
     } else {
       containercustom.style.display = 'none';
     }
-    console.log('Table display:', containercustom.style.display);
+    console.log('Form display:', containercustom.style.display);
   });
 
   // Initial render of presets table
@@ -417,7 +426,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+// reader stuff
+function backgroundsetter(){
 
+let storedColour = localStorage.getItem('colour');
+if (storedColour) {
+    document.querySelector('body').style.setProperty('background-image', storedColour);
+};}
+
+    function profilesetter() {
+        const storedPhoto = localStorage.getItem('userPhoto');
+        if (storedPhoto) {
+            const userphoto = document.getElementById('userPhoto');
+            userphoto.setAttribute('src', storedPhoto);
+        }
+    }
+
+    window.onload = function(){
+      backgroundsetter();
+
+
+    }
 
 
 </script>

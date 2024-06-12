@@ -28,6 +28,13 @@ height: 10;
  cursor: pointer;  
  border-radius: 50px;  
 }
+
+saveButton.hover {
+background-color: gainsboro;
+outline: #101610 solid 3px;
+cursor:pointer;
+}
+
  
 .mnt{
   background-size: cover;
@@ -75,7 +82,7 @@ background-color: palegreen;
 
 
 .breakbox{
-  position: relative;
+  float:right;
   background-color: aqua;
   outline: #0c0f0c solid 3px;
   bottom: 150px;
@@ -102,6 +109,13 @@ background-color: palegreen;
   font-size: large; 
    
 }
+
+.cusbutton:hover{
+background-color: gainsboro;
+outline: #101610 solid 3px;
+cursor:pointer;
+}
+
 
 .categ{
 font-size: 25px;
