@@ -4,6 +4,11 @@ body{
   background-position: center;
   background-image: url(https://office365atwork.com/wp-content/uploads/2023/07/pexels-javier-gonzalez-1679801-scaled.jpg);
   background-size: cover;
+  color:rgb(18, 13, 13);
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
 
@@ -27,9 +32,11 @@ height: 10;
  margin: 4px 2px;  
  cursor: pointer;  
  border-radius: 50px;  
+ transition: background-color 0.3s, outline 0.3s;
+
 }
 
-saveButton.hover {
+.saveButton.hover {
 background-color: gainsboro;
 outline: #101610 solid 3px;
 cursor:pointer;
@@ -45,7 +52,7 @@ cursor:pointer;
  height: "fit-content";
  width: 20%;
  background-color:skyblue;
- position: relative;
+ position: abs;
  bottom: 700px;
  left: 600px;
  
@@ -57,39 +64,38 @@ cursor:pointer;
 
 }
 
-.container{
-position: relative;
-font-family:  "Readax Pro";
-font-size: large;
-color:rgba(16, 69, 116, 0.65);
-display: none;
-outline: #0c0f0c solid 3px;
-bottom:700px;
-right: 100px;
-left: 750px;
-width:480px;
-
-height:350px;
-
-border-radius: 15px;
-background-color: palegreen;
-
+.container {
+  position: relative;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: large;
+  color: rgba(16, 69, 116, 0.65);
+  outline: #0c0f0c solid 3px;
+  width: 480px;
+  height: 350px;
+  border-radius: 15px;
+  background-color: palegreen;
+   
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
-
  
 
 
 
 
 .breakbox{
-  float:right;
+ position:relative;
   background-color: aqua;
-  outline: #0c0f0c solid 3px;
-  bottom: 150px;
-   padding:10px;
-   border-radius: 50px; 
-   width:fit-content;
+ 
+  width:fit-content;
+   bottom: 100px;
    margin-top: 30px;
+border-radius: 15px;
+  
 }
 
 
