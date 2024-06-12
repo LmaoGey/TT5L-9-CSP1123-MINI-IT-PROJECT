@@ -9,49 +9,30 @@
       crossorigin="anonymous"
     ></script>
     <title>Profile</title>
-    <link rel="stylesheet" href="profilepage.css"/>
+    <link rel="stylesheet" href="profilepage.css" />
   </head>
 
   <body>
     <div class="container">
-        <div class="navigation">
-            <div class="topbar">
-                <span class="menubar"><i class="fa-solid fa-bars"></i></span><br>
-            </div>
-            <div class="profile">
-                <img src ="userphoto.png" alt="profile picture" class="userphoto">
-                <input type="file" id="file">
-                <label for="file" id="uploadfile" title="Click to select a photo"><i class="fa-solid fa-camera"></i></label>
-                <h1 id="displayname" title="Click to enter username">Username</h1>
-                <div class="username">
-                    <input type="text" id="inputname" placeholder="Enter your Name">
-                    <button id="setname">Set as Username</button>
-                </div>
-                    
-                    <br><br><br>
-            </div>
-            <ul class="selection">
-                <li class="list">
-                    <a href="#achievement" class="t-achievement">
-                        <span class="symbol"><i class="fa-solid fa-trophy"></i></span>
-                        <span class="titlee">Achievement</span>
-                    </a>
-                </li>
-                <li class="list">
-                    <a href="#personalisation" class="t-personalisation">
-                        <span class="symbol"><i class="fa-solid fa-palette"></i></span>
-                        <span class="titlee">Personalisation</span>
-                    </a>
-                </li>
-                <li class="list">
-                    <a href="#settings" class="t-settings">
-                        <span class="symbol"><i class="fa-solid fa-gears"></i></span>
-                        <span class="titlee">Settings</span>
-                    </a>
-                </li>
-            </ul>
+      <div class="navigation">
+        <div class="topbar">
+          <span class="menubar"><i class="fa-solid fa-bars"></i></span><br />
         </div>
+        <div class="profile">
+          <img src="userphoto.png" alt="profile picture" class="userphoto" />
+          <input type="file" id="file" />
+          <label for="file" id="uploadfile" title="Click to select a photo"
+            ><i class="fa-solid fa-camera"></i
+          ></label>
+          <h1 id="displayname" title="Click to enter username">Username</h1>
+          <div class="username">
+            <input type="text" id="inputname" placeholder="Enter your Name" />
+            <button id="setname">Set as Username</button>
+          </div>
 
+<<<<<<< HEAD
+          <br /><br /><br />
+=======
         
 
         <div class="content">
@@ -78,57 +59,170 @@
                         <ul class="rewards-list">
                             <li class="unlock" data-level="2">
                                 <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 2</span>
-                                <h3>Plum Plate Gradient</h3>
-                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                                <h3>
+                                    <i class="fa-solid fa-lock"><span> lvl 2</span></i>
+                                </h3>
+                                <span class="colourandsongpreview">
+                                    <span class=colourpreview data-image="linear-gradient(to left, #1BFFFF, #2E3192)" style="background-image:linear-gradient(to left, #1BFFFF, #2E3192)"></span>
+                                    <span class="songpreview" title="Click to preview music"><i class="fa-solid fa-circle-play" onclick="playPreviewMusic('eKC-u-Rirwk')"></i></span>
+                                </span>
                             </li>
                             <li class="unlock" data-level="3">
                                 <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 3</span>
-                                <h3>'Beloved' by Sakura Girl (Genre: rock)</h3>
-                                <span class="songpreview" onclick="playPreviewMusic('eKC-u-Rirwk')"><i class="fa-solid fa-circle-play"></i></span>
+                                <h3>'Beloved' by Sakura Girl (Genre: rock)
+                                    <i class="fa-solid fa-lock"><span> lvl 3</span></i>
+                                </h3>
+                                <span class="colourandsongpreview">
+                                    <span class=colourpreview data-image="linear-gradient(to left, #1BFFFF, #2E3192)" style="background-image:linear-gradient(to left, #1BFFFF, #2E3192)"></span>
+                                    <span class="songpreview" title="Click to preview music"><i class="fa-solid fa-circle-play" onclick="playPreviewMusic('eKC-u-Rirwk')"></i></span>
+                                </span>
                             </li>
                             <li class="unlock" data-level="4">
                                 <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 4</span>
-                                <h3>Toxic Gradient</h3>
-                                <span class=colourpreview data-image="linear-gradient(to left, #1BFFFF, #2E3192)" style="background-image:linear-gradient(to left, #1BFFFF, #2E3192)"></span>
+                                <h3>Toxic Gradient
+                                    <i class="fa-solid fa-lock"><span> lvl 4</span></i>
+                                </h3>
+                                <span class="colourandsongpreview">
+                                    <span class=colourpreview data-image="linear-gradient(to left, #1BFFFF, #2E3192)" style="background-image:linear-gradient(to left, #1BFFFF, #2E3192)"></span>
+                                    <span class="songpreview" title="Click to preview music"><i class="fa-solid fa-circle-play" onclick="playPreviewMusic('eKC-u-Rirwk')"></i></span>
+                                </span>
                             </li>
                             <li class="unlock" data-level="5">
                                 <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 5</span>
-                                <h3>Songs</h3>
-                                <span class="songpreview" onclick="playPreviewMusic('3SzgkuT9-Kw')"><i class="fa-solid fa-circle-play"></i></span>
+                                <h3>Songs
+                                    <i class="fa-solid fa-lock"><span> lvl 5</span></i>
+                                </h3>
+                                <span class="colourandsongpreview">
+                                    <span class=colourpreview data-image="linear-gradient(to left, #1BFFFF, #2E3192)" style="background-image:linear-gradient(to left, #1BFFFF, #2E3192)"></span>
+                                    <span class="songpreview" title="Click to preview music"><i class="fa-solid fa-circle-play" onclick="playPreviewMusic('eKC-u-Rirwk')"></i></span>
+                                </span>
                             </li>
                             <li class="unlock" data-level="6">
                                 <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 6</span>
-                                <h3>Plum Plate Gradient</h3>
+                                <h3>Plum Plate Gradient
+                                    <i class="fa-solid fa-lock"><span> lvl 6</span></i>
+                                </h3>
                                 <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
                             </li>
                             <li class="unlock" data-level="7">
                                 <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 7</span>
-                                <h3>Plum Plate Gradient</h3>
+                                <h3>Plum Plate Gradient
+                                    <i class="fa-solid fa-lock"><span> lvl 7</span></i>
+                                </h3>
                                 <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
                             </li>
                             <li class="unlock" data-level="8">
                                 <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 8</span>
-                                <h3>Plum Plate Gradient</h3>
+                                <h3>Plum Plate Gradient
+                                    <i class="fa-solid fa-lock"><span> lvl 8</span></i>
+                                </h3>
                                 <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
                             </li>
                             <li class="unlock" data-level="9">
                                 <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 9</span>
-                                <h3>Plum Plate Gradient</h3>
+                                <h3>Plum Plate Gradient
+                                    <i class="fa-solid fa-lock"><span> lvl 9</span></i>
+                                </h3>
                                 <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
                             </li>
                             <li class="unlock" data-level="10">
                                 <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 10</span>
-                                <h3>Plum Plate Gradient</h3>
-                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                                <h3>Plum Plate Gradient
+                                    <i class="fa-solid fa-lock"><span> lvl 10</span></i>
+                                </h3>
+                                <span class="colourandsongpreview">
+                                    <span class=colourpreview data-image="linear-gradient(to left, #1BFFFF, #2E3192)" style="background-image:linear-gradient(to left, #1BFFFF, #2E3192)"></span>
+                                    <span class="songpreview" title="Click to preview music"><i class="fa-solid fa-circle-play" onclick="playPreviewMusic('eKC-u-Rirwk')"></i></span>
+                                </span>
                             </li>
                             <li class="unlock" data-level="11">
                                 <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 11</span>
-                                <h3>Plum Plate Gradient</h3>
+                                <h3>Plum Plate Gradient
+                                    <i class="fa-solid fa-lock"><span> lvl 11</span></i>
+                                </h3>
                                 <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
                             </li>
                             <li class="unlock" data-level="12">
                                 <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 12</span>
-                                <h3>Plum Plate Gradient</h3>
+                                <h3>Plum Plate Gradient
+                                    <i class="fa-solid fa-lock"><span> lvl 12</span></i>
+                                </h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            </li>
+                            <li class="unlock" data-level="13">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 13</span>
+                                <h3>Plum Plate Gradient
+                                    <i class="fa-solid fa-lock"><span> lvl 13</span></i>
+                                </h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            </li>
+                            <li class="unlock" data-level="14">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 14</span>
+                                <h3>Plum Plate Gradient
+                                    <i class="fa-solid fa-lock"><span> lvl 14</span></i>
+                                </h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            </li>
+                            <li class="unlock" data-level="15">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 15</span>
+                                <h3>Plum Plate Gradient
+                                    <i class="fa-solid fa-lock"><span> lvl 15</span></i>
+                                </h3>
+                                <span class="colourandsongpreview">
+                                    <span class=colourpreview data-image="linear-gradient(to left, #1BFFFF, #2E3192)" style="background-image:linear-gradient(to left, #1BFFFF, #2E3192)"></span>
+                                    <span class="songpreview" title="Click to preview music"><i class="fa-solid fa-circle-play" onclick="playPreviewMusic('eKC-u-Rirwk')"></i></span>
+                                </span>
+                            </li>
+                            <li class="unlock" data-level="16">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 16</span>
+                                <h3>Plum Plate Gradient
+                                    <i class="fa-solid fa-lock"><span> lvl 16</span></i>
+                                </h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            </li>
+                            <li class="unlock" data-level="17">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 17</span>
+                                <h3>Plum Plate Gradient
+                                    <i class="fa-solid fa-lock"><span> lvl 17</span></i>
+                                </h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            </li>
+                            <li class="unlock" data-level="18">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 18</span>
+                                <h3>Plum Plate Gradient
+                                    <i class="fa-solid fa-lock"><span> lvl 18</span></i>
+                                </h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            </li>
+                            <li class="unlock" data-level="19">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 19</span>
+                                <h3>Plum Plate Gradient
+                                    <i class="fa-solid fa-lock"><span> lvl 19</span></i>
+                                </h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            </li>
+                            <li class="unlock" data-level="20">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 20</span>
+                                <h3>Plum Plate Gradient
+                                    <i class="fa-solid fa-lock"><span> lvl 20</span></i>
+                                </h3>
+                                <span class="colourandsongpreview">
+                                    <span class=colourpreview data-image="linear-gradient(to left, #1BFFFF, #2E3192)" style="background-image:linear-gradient(to left, #1BFFFF, #2E3192)"></span>
+                                    <span class="songpreview" title="Click to preview music"><i class="fa-solid fa-circle-play" onclick="playPreviewMusic('eKC-u-Rirwk')"></i></span>
+                                </span>
+                            </li>
+                            <li class="unlock" data-level="21">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 21</span>
+                                <h3>Plum Plate Gradient
+                                    <i class="fa-solid fa-lock"><span> lvl 21</span></i>
+                                </h3>
+                                <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
+                            </li>
+                            <li class="unlock" data-level="22">
+                                <span class="rewardsicon"><i class="fa-solid fa-award"></i>Level 22</span>
+                                <h3>Plum Plate Gradient
+                                    <i class="fa-solid fa-lock"><span> lvl 22</span></i>
+                                </h3>
                                 <span class=colourpreview data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
                             </li>
                         </ul>
@@ -155,19 +249,19 @@
                             <span class="colour" data-level="1" data-image="linear-gradient(to left, #FBB03B, #D4145A)" style="background-image:linear-gradient(to left, #FBB03B, #D4145A)"></span>
                             <span class="colour" data-level="1" data-image="linear-gradient(to left, #FCEE21, #009245)" style="background-image:linear-gradient(to left, #FCEE21, #009245)"></span>
                             <span class="colour" data-level="1" data-image="linear-gradient(to left, #ED1E79, #662D8C)" style="background-image:linear-gradient(to left, #ED1E79, #662D8C)"></span>
-                            <span class="colour" data-level="2" data-image="linear-gradient(to left, #1BFFFF, #2E3192)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"></span>
-                            <span class="colour" data-level="3" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #6FD6FF, #BFF098)"></span>
-                            <span class="colour" data-level="4" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #1BFFFF, #2E3192)"></span>
-                            <span class="colour" data-level="5" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
-                            <span class="colour" data-level="6" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
-                            <span class="colour" data-level="7" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
-                            <span class="colour" data-level="8" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
-                            <span class="colour" data-level="9" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
-                            <span class="colour" data-level="10" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
-                            <span class="colour" data-level="11" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
-                            <span class="colour" data-level="12" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
-                            <span class="colour" data-level="13" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
-                            <span class="colour" data-level="14" data-image="linear-gradient(to left, #FFDDE1, #EE9CA7)" style="background-image:linear-gradient(to left, #FFDDE1, #EE9CA7)"></span>
+                            <span class="colour" data-level="2" data-image="linear-gradient(to left, #667EEA, #764BA2)" style="background-image:linear-gradient(to left, #667EEA, #764BA2)"><i class="fa-solid fa-lock"></i><div>lvl 2</div></span>
+                            <span class="colour" data-level="3" data-image="linear-gradient(to left, #6FD6FF, #BFF098)" style="background-image:linear-gradient(to left, #6FD6FF, #BFF098)"><i class="fa-solid fa-lock"></i><div>lvl 3</div></span>
+                            <span class="colour" data-level="4" data-image="linear-gradient(to left, #FFECD2, #FCB69F)" style="background-image:linear-gradient(to left, #FFECD2, #FCB69F)"><i class="fa-solid fa-lock"></i><div>lvl 4</div></span>
+                            <span class="colour" data-level="5" data-image="linear-gradient(to left, #E4EfE9, #93A5CF)" style="background-image:linear-gradient(to left, #E4EfE9, #93A5CF)"><i class="fa-solid fa-lock"></i><div>lvl 5</div></span>
+                            <span class="colour" data-level="7" data-image="linear-gradient(to left, #A9F1DF, #FFBBBB)" style="background-image:linear-gradient(to left, #A9F1DF, #FFBBBB)"><i class="fa-solid fa-lock"></i><div>lvl 7</div></span>
+                            <span class="colour" data-level="10" data-image="linear-gradient(to left, #92EFFD, #4E65FF)" style="background-image:linear-gradient(to left, #92EFFD, #4E65FF)"><i class="fa-solid fa-lock"></i><div>lvl 10</div></span>
+                            <span class="colour" data-level="12" data-image="linear-gradient(to left, #FF61D2, #FE9090)" style="background-image:linear-gradient(to left, #FF61D2, #FE9090)"><i class="fa-solid fa-lock"></i><div>lvl 12</div></span>
+                            <span class="colour" data-level="13" data-image="linear-gradient(to left, #D8B5FF, #1EAE98)" style="background-image:linear-gradient(to left, #D8B5FF, #1EAE98)"><i class="fa-solid fa-lock"></i><div>lvl 13</div></span>
+                            <span class="colour" data-level="15" data-image="linear-gradient(to left, #EA8D8D, #A890FE)" style="background-image:linear-gradient(to left, #EA8D8D, #A890FE)"><i class="fa-solid fa-lock"></i><div>lvl 15</div></span>
+                            <span class="colour" data-level="17" data-image="linear-gradient(to left, #38EF7D, #11998E)" style="background-image:linear-gradient(to left, #38EF7D, #11998E)"><i class="fa-solid fa-lock"></i><div>lvl 17</div></span>
+                            <span class="colour" data-level="18" data-image="linear-gradient(to left, #FFC371, #FF5F6D)" style="background-image:linear-gradient(to left, #FFC371, #FF5F6D)"><i class="fa-solid fa-lock"></i><div>lvl 18</div></span>
+                            <span class="colour" data-level="20" data-image="linear-gradient(to left, #1BFFFF, #2E3192)" style="background-image:linear-gradient(to left, #1BFFFF, #2E3192)"><i class="fa-solid fa-lock"></i><div>lvl 20</div></span>
+                            <span class="colour" data-level="22" data-image="linear-gradient(to left, #00CDAC, #02AABD)" style="background-image:linear-gradient(to left, #00CDAC, #02AABD)"><i class="fa-solid fa-lock"></i><div>lvl 22</div></span>
                         </div>
                     </div>
                 </div>
@@ -189,7 +283,7 @@
                             <ul class="genre-option">
                                 <li class="option">
                                     <span class="option-text">Rock</span>
-                                    <i class="fa-solid fa-circle-info" title="Suggested for workout/exercise"></i>
+                                    <i class="fa-solid fa-circle-info" title="Suggested for exercise/house chores"></i>
                                 </li>
                                 <li class="option">
                                     <span class="option-text">Ambient</span>
@@ -197,7 +291,7 @@
                                 </li>
                                 <li class="option">
                                     <span class="option-text">Classical</span>
-                                    <i class="fa-solid fa-circle-info" title="Suggested for gaming/study"></i>
+                                    <i class="fa-solid fa-circle-info" title="Suggested for study/house chores"></i>
                                 </li>
                                 <li class="option">
                                     <span class="option-text">Instrumental</span>
@@ -208,83 +302,115 @@
                         <div class="bgmusic-list">
                             <ul class="rock genre-list">
                                 <li class="song" data-level="1" onclick="tryPlayMusic(this,'Pgk5OLHQpfg')">
-                                    "Rise" by Punch Deck
+                                    <span class="song-text">"Rise" by Punch Deck</span>
                                 </li>
                                 <li class="song" data-level="1" onclick="tryPlayMusic(this,'o2-OPL9eS0k')">
-                                    "Forever Young" by AudioCoffee
+                                    <span class="song-text">"Forever Young" by AudioCoffee</span>
                                 </li>
-                                <li class="song" data-level="2" onclick="tryPlayMusic(this,'fZmTOwrq-P0')">
-                                    "Energetic Indie Rock" by LesFM
+                                <li class="song" data-level="3" onclick="tryPlayMusic(this,'fZmTOwrq-P0')">
+                                    <span class="song-text">"Energetic Indie Rock" by LesFM
+                                        <i class="fa-solid fa-lock"><span> lvl 3</span></i>
+                                    </span>
                                 </li>
-                                <li class="song" data-level="3" onclick="tryPlayMusic(this,'4xR4nd2DdKI')">
-                                    "Upbeat Forever" by Kevin MacLeod  
+                                <li class="song" data-level="8" onclick="tryPlayMusic(this,'4xR4nd2DdKI')">
+                                    <span class="song-text">"Upbeat Forever" by Kevin MacLeod
+                                        <i class="fa-solid fa-lock"><span> lvl 8</span></i>
+                                    </span>
                                 </li>
-                                <li class="song" data-level="4" onclick="tryPlayMusic(this,'ajWPOxakpbY')">
-                                    "Cherry Metal" by Arthur Vyncke
+                                <li class="song" data-level="14" onclick="tryPlayMusic(this,'ajWPOxakpbY')">
+                                    <span class="song-text">"Cherry Metal" by Arthur Vyncke
+                                        <i class="fa-solid fa-lock"><span> lvl 14</span></i>
+                                    </span>
                                 </li>
-                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'9JvGEwj8Cj8')">
-                                    "Battle Metal" by Alexander Nakarada
+                                <li class="song" data-level="20" onclick="tryPlayMusic(this,'9JvGEwj8Cj8')">
+                                    <span class="song-text">"Battle Metal" by Alexander Nakarada
+                                        <i class="fa-solid fa-lock"><span> lvl 20</span></i>
+                                    </span>
                                 </li>
                             </ul>
                             <ul class="ambient genre-list">
                                 <li class="song" data-level="1" onclick="tryPlayMusic(this,'OkxgmKBphUg')">
-                                    "Permafrost" by Scott Buckley
+                                    <span class="song-text">"Permafrost" by Scott Buckley</span>
                                 </li>
                                 <li class="song" data-level="1" onclick="tryPlayMusic(this,'DxIEjU66Mmw')">
-                                    "Sweet Dreams" by BatchBug
+                                    <span class="song-text">"Sweet Dreams" by BatchBug</span>
                                 </li>
                                 <li class="song" data-level="2" onclick="tryPlayMusic(this,'ye2e7oy6DtY')">
-                                    "Relaxing Chill" by Alex-Productions   
+                                    <span class="song-text">"Relaxing Chill" by Alex-Productions
+                                        <i class="fa-solid fa-lock"><span> lvl 2</span></i>
+                                    </span>   
                                 </li>
-                                <li class="song" data-level="3" onclick="tryPlayMusic(this,'FCCkjdX7TK0')">
-                                    "MANTRA" by Alex-Productions
+                                <li class="song" data-level="6" onclick="tryPlayMusic(this,'FCCkjdX7TK0')">
+                                    <span class="song-text">"MANTRA" by Alex-Productions
+                                        <i class="fa-solid fa-lock"><span> lvl 6</span></i>
+                                    </span>
                                 </li>
-                                <li class="song" data-level="4" onclick="tryPlayMusic(this,'Elao5ErSrao')">
-                                    "Silent Wood" by Purrple Cat
+                                <li class="song" data-level="11" onclick="tryPlayMusic(this,'Elao5ErSrao')">
+                                    <span class="song-text">"Silent Wood" by Purrple Cat
+                                        <i class="fa-solid fa-lock"><span> lvl 11</span></i>
+                                    </span>
                                 </li>
-                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'T-h28bFdh9w')">
-                                    "Embrace" by Sappheiros  
+                                <li class="song" data-level="19" onclick="tryPlayMusic(this,'T-h28bFdh9w')">
+                                    <span class="song-text">"Embrace" by Sappheiros
+                                        <i class="fa-solid fa-lock"><span> lvl 19</span></i>
+                                    </span>  
                                 </li>
                             </ul>
                             <ul class="classical genre-list">
                                 <li class="song" data-level="1" onclick="tryPlayMusic(this,'c1ospGkfp7M')">
-                                    "Under The Sun" by Keys of Moon    
+                                    <span class="song-text">"Under The Sun" by Keys of Moon</span>    
                                 </li>
                                 <li class="song" data-level="1" onclick="tryPlayMusic(this,'vPF_GZjofow')">
-                                    "The Great Sea" by Scott Buckley
+                                    <span class="song-text">"The Great Sea" by Scott Buckley</span>
                                 </li>
-                                <li class="song" data-level="2" onclick="tryPlayMusic(this,'Ji8DsvsN-Bs')">
-                                    "Autumn Scene" by Keys of Moon   
+                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'Ji8DsvsN-Bs')">
+                                    <span class="song-text">"Autumn Scene" by Keys of Moon
+                                        <i class="fa-solid fa-lock"><span> lvl 5</span></i>
+                                    </span>   
                                 </li>
-                                <li class="song" data-level="3" onclick="tryPlayMusic(this,'LHH3nKpTtpo')">
-                                    "One Love" by Keys of Moon   
+                                <li class="song" data-level="10" onclick="tryPlayMusic(this,'LHH3nKpTtpo')">
+                                    <span class="song-text">"One Love" by Keys of Moon
+                                        <i class="fa-solid fa-lock"><span> lvl 10</span></i>
+                                    </span>   
                                 </li>
-                                <li class="song" data-level="4" onclick="tryPlayMusic(this,'lkiM6YcUwKY')">
-                                    "Pachelbel: Canon In D Major" by Kevin MacLeod   
+                                <li class="song" data-level="16" onclick="tryPlayMusic(this,'lkiM6YcUwKY')">
+                                    <span class="song-text">"Pachelbel: Canon In D Major" by Kevin MacLeod
+                                        <i class="fa-solid fa-lock"><span> lvl 16</span></i>
+                                    </span>  
                                 </li>
-                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'sT2UnDDRyno')">
-                                    "Mozart: Symphony No. 40 In G Minor, K. 550 – I. Molto Allegro" by Musopen Symphony  
+                                <li class="song" data-level="22" onclick="tryPlayMusic(this,'sT2UnDDRyno')">
+                                    <span class="song-text">"Mozart: Symphony No. 40 In G Minor, K. 550 – I. Molto Allegro" by Musopen Symphony
+                                        <i class="fa-solid fa-lock"><span> lvl 22</span></i>
+                                    </span>  
                                 </li>
                             </ul>
 
                             <ul class="instrumental genre-list">
                                 <li class="song" data-level="1" onclick="tryPlayMusic(this,'q2nPfX-c6yY')">
-                                    "Almost Bliss" by Kevin MacLeod                                    
+                                    <span class="song-text">"Almost Bliss" by Kevin MacLeod</span>                                    
                                 </li>
                                 <li class="song" data-level="1" onclick="tryPlayMusic(this,'VBaQxYFCAr8')">
-                                    "Happy Commercial" by MaxKoMusic
+                                    <span class="song-text">"Happy Commercial" by MaxKoMusic</span>
                                 </li>
-                                <li class="song" data-level="2" onclick="tryPlayMusic(this,'T6ptnbKJWuM')">
-                                    "Walking Home" by Alex-Productions   
+                                <li class="song" data-level="4" onclick="tryPlayMusic(this,'T6ptnbKJWuM')">
+                                    <span class="song-text">"Walking Home" by Alex-Productions
+                                        <i class="fa-solid fa-lock"><span> lvl 4</span></i>
+                                    </span>   
                                 </li>
-                                <li class="song" data-level="3" onclick="tryPlayMusic(this,'3twJYF1c7xY')">
-                                    "Beauty" by MaxKoMusic   
+                                <li class="song" data-level="9" onclick="tryPlayMusic(this,'3twJYF1c7xY')">
+                                    <span class="song-text">"Beauty" by MaxKoMusic
+                                        <i class="fa-solid fa-lock"><span> lvl 9</span></i>
+                                    </span>   
                                 </li>
-                                <li class="song" data-level="4" onclick="tryPlayMusic(this,'LH31E_e_0sE')">
-                                    "Moon Dock" by Verbovets   
+                                <li class="song" data-level="15" onclick="tryPlayMusic(this,'LH31E_e_0sE')">
+                                    <span class="song-text">"Moon Dock" by Verbovets
+                                        <i class="fa-solid fa-lock"><span> lvl 15</span></i>
+                                    </span>   
                                 </li>
-                                <li class="song" data-level="5" onclick="tryPlayMusic(this,'L__pbqrIk-0')">
-                                    "Inspiring Dreams" by Keys of Moon   
+                                <li class="song" data-level="21" onclick="tryPlayMusic(this,'L__pbqrIk-0')">
+                                    <span class="song-text">"Inspiring Dreams" by Keys of Moon
+                                        <i class="fa-solid fa-lock"><span> lvl 21</span></i>
+                                    </span>   
                                 </li>
                             </ul>
                             <span id="music-player"></span>
@@ -388,15 +514,1254 @@
                     </div>
                 </div>
             </section>
+>>>>>>> ec2b86117419f3b87b5defe4463ae9262949f89e
         </div>
+        <ul class="selection">
+          <li class="list">
+            <a href="#achievement" class="t-achievement">
+              <span class="symbol"><i class="fa-solid fa-trophy"></i></span>
+              <span class="titlee">Achievement</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#personalisation" class="t-personalisation">
+              <span class="symbol"><i class="fa-solid fa-palette"></i></span>
+              <span class="titlee">Personalisation</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#settings" class="t-settings">
+              <span class="symbol"><i class="fa-solid fa-gears"></i></span>
+              <span class="titlee">Settings</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="content">
+        <section id="achievement">
+          <h1>Achievement</h1>
+
+          <div class="sttt">
+            <div>
+              <button id="prevWeek">Previous Week</button>
+              <button id="nextWeek">Next Week</button>
+            </div>
+            <canvas id="lineGraph" width="400" height="200"></canvas>
+            <canvas id="pieChart" width="100" height="100"></canvas>
+          </div>
+
+          <div class="rw">
+            <div class="rewards">
+              <span class="imageicon"
+                ><i class="fa-solid fa-medal"></i>Rewards</span
+              >
+              <span class="dropdownicon"
+                ><i class="fa-solid fa-square-caret-down"></i
+              ></span>
+              <h3>Level up to unlock more attractive items</h3>
+            </div>
+            <div class="rewards-container">
+              <h3 id="level">Current Level: Level 1</h3>
+              <ul class="rewards-list">
+                <li class="unlock" data-level="2">
+                  <span class="rewardsicon"
+                    ><i class="fa-solid fa-award"></i>Level 2</span
+                  >
+                  <h3>
+                    <i class="fa-solid fa-lock"><span> lvl 2</span></i>
+                  </h3>
+                  <span class="colourandsongpreview">
+                    <span
+                      class="colourpreview"
+                      data-image="linear-gradient(to left, #1BFFFF, #2E3192)"
+                      style="
+                        background-image: linear-gradient(
+                          to left,
+                          #1bffff,
+                          #2e3192
+                        );
+                      "
+                    ></span>
+                    <span class="songpreview" title="Click to preview music"
+                      ><i
+                        class="fa-solid fa-circle-play"
+                        onclick="playPreviewMusic('eKC-u-Rirwk')"
+                      ></i
+                    ></span>
+                  </span>
+                </li>
+                <li class="unlock" data-level="3">
+                  <span class="rewardsicon"
+                    ><i class="fa-solid fa-award"></i>Level 3</span
+                  >
+                  <h3>
+                    'Beloved' by Sakura Girl (Genre: rock)
+                    <i class="fa-solid fa-lock"><span> lvl 3</span></i>
+                  </h3>
+                  <span class="colourandsongpreview">
+                    <span
+                      class="colourpreview"
+                      data-image="linear-gradient(to left, #1BFFFF, #2E3192)"
+                      style="
+                        background-image: linear-gradient(
+                          to left,
+                          #1bffff,
+                          #2e3192
+                        );
+                      "
+                    ></span>
+                    <span class="songpreview" title="Click to preview music"
+                      ><i
+                        class="fa-solid fa-circle-play"
+                        onclick="playPreviewMusic('eKC-u-Rirwk')"
+                      ></i
+                    ></span>
+                  </span>
+                </li>
+                <li class="unlock" data-level="4">
+                  <span class="rewardsicon"
+                    ><i class="fa-solid fa-award"></i>Level 4</span
+                  >
+                  <h3>
+                    Toxic Gradient
+                    <i class="fa-solid fa-lock"><span> lvl 4</span></i>
+                  </h3>
+                  <span class="colourandsongpreview">
+                    <span
+                      class="colourpreview"
+                      data-image="linear-gradient(to left, #1BFFFF, #2E3192)"
+                      style="
+                        background-image: linear-gradient(
+                          to left,
+                          #1bffff,
+                          #2e3192
+                        );
+                      "
+                    ></span>
+                    <span class="songpreview" title="Click to preview music"
+                      ><i
+                        class="fa-solid fa-circle-play"
+                        onclick="playPreviewMusic('eKC-u-Rirwk')"
+                      ></i
+                    ></span>
+                  </span>
+                </li>
+                <li class="unlock" data-level="5">
+                  <span class="rewardsicon"
+                    ><i class="fa-solid fa-award"></i>Level 5</span
+                  >
+                  <h3>
+                    Songs
+                    <i class="fa-solid fa-lock"><span> lvl 5</span></i>
+                  </h3>
+                  <span class="colourandsongpreview">
+                    <span
+                      class="colourpreview"
+                      data-image="linear-gradient(to left, #1BFFFF, #2E3192)"
+                      style="
+                        background-image: linear-gradient(
+                          to left,
+                          #1bffff,
+                          #2e3192
+                        );
+                      "
+                    ></span>
+                    <span class="songpreview" title="Click to preview music"
+                      ><i
+                        class="fa-solid fa-circle-play"
+                        onclick="playPreviewMusic('eKC-u-Rirwk')"
+                      ></i
+                    ></span>
+                  </span>
+                </li>
+                <li class="unlock" data-level="6">
+                  <span class="rewardsicon"
+                    ><i class="fa-solid fa-award"></i>Level 6</span
+                  >
+                  <h3>
+                    Plum Plate Gradient
+                    <i class="fa-solid fa-lock"><span> lvl 6</span></i>
+                  </h3>
+                  <span
+                    class="colourpreview"
+                    data-image="linear-gradient(to left, #667EEA, #764BA2)"
+                    style="
+                      background-image: linear-gradient(
+                        to left,
+                        #667eea,
+                        #764ba2
+                      );
+                    "
+                  ></span>
+                </li>
+                <li class="unlock" data-level="7">
+                  <span class="rewardsicon"
+                    ><i class="fa-solid fa-award"></i>Level 7</span
+                  >
+                  <h3>
+                    Plum Plate Gradient
+                    <i class="fa-solid fa-lock"><span> lvl 7</span></i>
+                  </h3>
+                  <span
+                    class="colourpreview"
+                    data-image="linear-gradient(to left, #667EEA, #764BA2)"
+                    style="
+                      background-image: linear-gradient(
+                        to left,
+                        #667eea,
+                        #764ba2
+                      );
+                    "
+                  ></span>
+                </li>
+                <li class="unlock" data-level="8">
+                  <span class="rewardsicon"
+                    ><i class="fa-solid fa-award"></i>Level 8</span
+                  >
+                  <h3>
+                    Plum Plate Gradient
+                    <i class="fa-solid fa-lock"><span> lvl 8</span></i>
+                  </h3>
+                  <span
+                    class="colourpreview"
+                    data-image="linear-gradient(to left, #667EEA, #764BA2)"
+                    style="
+                      background-image: linear-gradient(
+                        to left,
+                        #667eea,
+                        #764ba2
+                      );
+                    "
+                  ></span>
+                </li>
+                <li class="unlock" data-level="9">
+                  <span class="rewardsicon"
+                    ><i class="fa-solid fa-award"></i>Level 9</span
+                  >
+                  <h3>
+                    Plum Plate Gradient
+                    <i class="fa-solid fa-lock"><span> lvl 9</span></i>
+                  </h3>
+                  <span
+                    class="colourpreview"
+                    data-image="linear-gradient(to left, #667EEA, #764BA2)"
+                    style="
+                      background-image: linear-gradient(
+                        to left,
+                        #667eea,
+                        #764ba2
+                      );
+                    "
+                  ></span>
+                </li>
+                <li class="unlock" data-level="10">
+                  <span class="rewardsicon"
+                    ><i class="fa-solid fa-award"></i>Level 10</span
+                  >
+                  <h3>
+                    Plum Plate Gradient
+                    <i class="fa-solid fa-lock"><span> lvl 10</span></i>
+                  </h3>
+                  <span class="colourandsongpreview">
+                    <span
+                      class="colourpreview"
+                      data-image="linear-gradient(to left, #1BFFFF, #2E3192)"
+                      style="
+                        background-image: linear-gradient(
+                          to left,
+                          #1bffff,
+                          #2e3192
+                        );
+                      "
+                    ></span>
+                    <span class="songpreview" title="Click to preview music"
+                      ><i
+                        class="fa-solid fa-circle-play"
+                        onclick="playPreviewMusic('eKC-u-Rirwk')"
+                      ></i
+                    ></span>
+                  </span>
+                </li>
+                <li class="unlock" data-level="11">
+                  <span class="rewardsicon"
+                    ><i class="fa-solid fa-award"></i>Level 11</span
+                  >
+                  <h3>
+                    Plum Plate Gradient
+                    <i class="fa-solid fa-lock"><span> lvl 11</span></i>
+                  </h3>
+                  <span
+                    class="colourpreview"
+                    data-image="linear-gradient(to left, #667EEA, #764BA2)"
+                    style="
+                      background-image: linear-gradient(
+                        to left,
+                        #667eea,
+                        #764ba2
+                      );
+                    "
+                  ></span>
+                </li>
+                <li class="unlock" data-level="12">
+                  <span class="rewardsicon"
+                    ><i class="fa-solid fa-award"></i>Level 12</span
+                  >
+                  <h3>
+                    Plum Plate Gradient
+                    <i class="fa-solid fa-lock"><span> lvl 12</span></i>
+                  </h3>
+                  <span
+                    class="colourpreview"
+                    data-image="linear-gradient(to left, #667EEA, #764BA2)"
+                    style="
+                      background-image: linear-gradient(
+                        to left,
+                        #667eea,
+                        #764ba2
+                      );
+                    "
+                  ></span>
+                </li>
+                <li class="unlock" data-level="13">
+                  <span class="rewardsicon"
+                    ><i class="fa-solid fa-award"></i>Level 13</span
+                  >
+                  <h3>
+                    Plum Plate Gradient
+                    <i class="fa-solid fa-lock"><span> lvl 13</span></i>
+                  </h3>
+                  <span
+                    class="colourpreview"
+                    data-image="linear-gradient(to left, #667EEA, #764BA2)"
+                    style="
+                      background-image: linear-gradient(
+                        to left,
+                        #667eea,
+                        #764ba2
+                      );
+                    "
+                  ></span>
+                </li>
+                <li class="unlock" data-level="14">
+                  <span class="rewardsicon"
+                    ><i class="fa-solid fa-award"></i>Level 14</span
+                  >
+                  <h3>
+                    Plum Plate Gradient
+                    <i class="fa-solid fa-lock"><span> lvl 14</span></i>
+                  </h3>
+                  <span
+                    class="colourpreview"
+                    data-image="linear-gradient(to left, #667EEA, #764BA2)"
+                    style="
+                      background-image: linear-gradient(
+                        to left,
+                        #667eea,
+                        #764ba2
+                      );
+                    "
+                  ></span>
+                </li>
+                <li class="unlock" data-level="15">
+                  <span class="rewardsicon"
+                    ><i class="fa-solid fa-award"></i>Level 15</span
+                  >
+                  <h3>
+                    Plum Plate Gradient
+                    <i class="fa-solid fa-lock"><span> lvl 15</span></i>
+                  </h3>
+                  <span class="colourandsongpreview">
+                    <span
+                      class="colourpreview"
+                      data-image="linear-gradient(to left, #1BFFFF, #2E3192)"
+                      style="
+                        background-image: linear-gradient(
+                          to left,
+                          #1bffff,
+                          #2e3192
+                        );
+                      "
+                    ></span>
+                    <span class="songpreview" title="Click to preview music"
+                      ><i
+                        class="fa-solid fa-circle-play"
+                        onclick="playPreviewMusic('eKC-u-Rirwk')"
+                      ></i
+                    ></span>
+                  </span>
+                </li>
+                <li class="unlock" data-level="16">
+                  <span class="rewardsicon"
+                    ><i class="fa-solid fa-award"></i>Level 16</span
+                  >
+                  <h3>
+                    Plum Plate Gradient
+                    <i class="fa-solid fa-lock"><span> lvl 16</span></i>
+                  </h3>
+                  <span
+                    class="colourpreview"
+                    data-image="linear-gradient(to left, #667EEA, #764BA2)"
+                    style="
+                      background-image: linear-gradient(
+                        to left,
+                        #667eea,
+                        #764ba2
+                      );
+                    "
+                  ></span>
+                </li>
+                <li class="unlock" data-level="17">
+                  <span class="rewardsicon"
+                    ><i class="fa-solid fa-award"></i>Level 17</span
+                  >
+                  <h3>
+                    Plum Plate Gradient
+                    <i class="fa-solid fa-lock"><span> lvl 17</span></i>
+                  </h3>
+                  <span
+                    class="colourpreview"
+                    data-image="linear-gradient(to left, #667EEA, #764BA2)"
+                    style="
+                      background-image: linear-gradient(
+                        to left,
+                        #667eea,
+                        #764ba2
+                      );
+                    "
+                  ></span>
+                </li>
+                <li class="unlock" data-level="18">
+                  <span class="rewardsicon"
+                    ><i class="fa-solid fa-award"></i>Level 18</span
+                  >
+                  <h3>
+                    Plum Plate Gradient
+                    <i class="fa-solid fa-lock"><span> lvl 18</span></i>
+                  </h3>
+                  <span
+                    class="colourpreview"
+                    data-image="linear-gradient(to left, #667EEA, #764BA2)"
+                    style="
+                      background-image: linear-gradient(
+                        to left,
+                        #667eea,
+                        #764ba2
+                      );
+                    "
+                  ></span>
+                </li>
+                <li class="unlock" data-level="19">
+                  <span class="rewardsicon"
+                    ><i class="fa-solid fa-award"></i>Level 19</span
+                  >
+                  <h3>
+                    Plum Plate Gradient
+                    <i class="fa-solid fa-lock"><span> lvl 19</span></i>
+                  </h3>
+                  <span
+                    class="colourpreview"
+                    data-image="linear-gradient(to left, #667EEA, #764BA2)"
+                    style="
+                      background-image: linear-gradient(
+                        to left,
+                        #667eea,
+                        #764ba2
+                      );
+                    "
+                  ></span>
+                </li>
+                <li class="unlock" data-level="20">
+                  <span class="rewardsicon"
+                    ><i class="fa-solid fa-award"></i>Level 20</span
+                  >
+                  <h3>
+                    Plum Plate Gradient
+                    <i class="fa-solid fa-lock"><span> lvl 20</span></i>
+                  </h3>
+                  <span class="colourandsongpreview">
+                    <span
+                      class="colourpreview"
+                      data-image="linear-gradient(to left, #1BFFFF, #2E3192)"
+                      style="
+                        background-image: linear-gradient(
+                          to left,
+                          #1bffff,
+                          #2e3192
+                        );
+                      "
+                    ></span>
+                    <span class="songpreview" title="Click to preview music"
+                      ><i
+                        class="fa-solid fa-circle-play"
+                        onclick="playPreviewMusic('eKC-u-Rirwk')"
+                      ></i
+                    ></span>
+                  </span>
+                </li>
+                <li class="unlock" data-level="21">
+                  <span class="rewardsicon"
+                    ><i class="fa-solid fa-award"></i>Level 21</span
+                  >
+                  <h3>
+                    Plum Plate Gradient
+                    <i class="fa-solid fa-lock"><span> lvl 21</span></i>
+                  </h3>
+                  <span
+                    class="colourpreview"
+                    data-image="linear-gradient(to left, #667EEA, #764BA2)"
+                    style="
+                      background-image: linear-gradient(
+                        to left,
+                        #667eea,
+                        #764ba2
+                      );
+                    "
+                  ></span>
+                </li>
+                <li class="unlock" data-level="22">
+                  <span class="rewardsicon"
+                    ><i class="fa-solid fa-award"></i>Level 22</span
+                  >
+                  <h3>
+                    Plum Plate Gradient
+                    <i class="fa-solid fa-lock"><span> lvl 22</span></i>
+                  </h3>
+                  <span
+                    class="colourpreview"
+                    data-image="linear-gradient(to left, #667EEA, #764BA2)"
+                    style="
+                      background-image: linear-gradient(
+                        to left,
+                        #667eea,
+                        #764ba2
+                      );
+                    "
+                  ></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="personalisation">
+          <h1>Personalisation</h1>
+
+          <div class="bg">
+            <div class="background">
+              <span class="imageicon"
+                ><i class="fa-solid fa-image"></i>Background colour</span
+              >
+              <span class="dropdownicon"
+                ><i class="fa-solid fa-square-caret-down"></i
+              ></span>
+              <h3>The selected colour will be applied to the background</h3>
+            </div>
+
+            <div class="colour-selection">
+              <h3>Please select the color of your preference</h3>
+              <div class="colour-container">
+                <span
+                  class="colour"
+                  data-level="1"
+                  data-image="linear-gradient(to left, #FBB03B, #D4145A)"
+                  style="
+                    background-image: linear-gradient(
+                      to left,
+                      #fbb03b,
+                      #d4145a
+                    );
+                  "
+                ></span>
+                <span
+                  class="colour"
+                  data-level="1"
+                  data-image="linear-gradient(to left, #FCEE21, #009245)"
+                  style="
+                    background-image: linear-gradient(
+                      to left,
+                      #fcee21,
+                      #009245
+                    );
+                  "
+                ></span>
+                <span
+                  class="colour"
+                  data-level="1"
+                  data-image="linear-gradient(to left, #ED1E79, #662D8C)"
+                  style="
+                    background-image: linear-gradient(
+                      to left,
+                      #ed1e79,
+                      #662d8c
+                    );
+                  "
+                ></span>
+                <span
+                  class="colour"
+                  data-level="2"
+                  data-image="linear-gradient(to left, #667EEA, #764BA2)"
+                  style="
+                    background-image: linear-gradient(
+                      to left,
+                      #667eea,
+                      #764ba2
+                    );
+                  "
+                  ><i class="fa-solid fa-lock"></i>
+                  <div>lvl 2</div></span
+                >
+                <span
+                  class="colour"
+                  data-level="3"
+                  data-image="linear-gradient(to left, #6FD6FF, #BFF098)"
+                  style="
+                    background-image: linear-gradient(
+                      to left,
+                      #6fd6ff,
+                      #bff098
+                    );
+                  "
+                  ><i class="fa-solid fa-lock"></i>
+                  <div>lvl 3</div></span
+                >
+                <span
+                  class="colour"
+                  data-level="4"
+                  data-image="linear-gradient(to left, #FFECD2, #FCB69F)"
+                  style="
+                    background-image: linear-gradient(
+                      to left,
+                      #ffecd2,
+                      #fcb69f
+                    );
+                  "
+                  ><i class="fa-solid fa-lock"></i>
+                  <div>lvl 4</div></span
+                >
+                <span
+                  class="colour"
+                  data-level="5"
+                  data-image="linear-gradient(to left, #E4EfE9, #93A5CF)"
+                  style="
+                    background-image: linear-gradient(
+                      to left,
+                      #e4efe9,
+                      #93a5cf
+                    );
+                  "
+                  ><i class="fa-solid fa-lock"></i>
+                  <div>lvl 5</div></span
+                >
+                <span
+                  class="colour"
+                  data-level="7"
+                  data-image="linear-gradient(to left, #A9F1DF, #FFBBBB)"
+                  style="
+                    background-image: linear-gradient(
+                      to left,
+                      #a9f1df,
+                      #ffbbbb
+                    );
+                  "
+                  ><i class="fa-solid fa-lock"></i>
+                  <div>lvl 7</div></span
+                >
+                <span
+                  class="colour"
+                  data-level="10"
+                  data-image="linear-gradient(to left, #92EFFD, #4E65FF)"
+                  style="
+                    background-image: linear-gradient(
+                      to left,
+                      #92effd,
+                      #4e65ff
+                    );
+                  "
+                  ><i class="fa-solid fa-lock"></i>
+                  <div>lvl 10</div></span
+                >
+                <span
+                  class="colour"
+                  data-level="12"
+                  data-image="linear-gradient(to left, #FF61D2, #FE9090)"
+                  style="
+                    background-image: linear-gradient(
+                      to left,
+                      #ff61d2,
+                      #fe9090
+                    );
+                  "
+                  ><i class="fa-solid fa-lock"></i>
+                  <div>lvl 12</div></span
+                >
+                <span
+                  class="colour"
+                  data-level="13"
+                  data-image="linear-gradient(to left, #D8B5FF, #1EAE98)"
+                  style="
+                    background-image: linear-gradient(
+                      to left,
+                      #d8b5ff,
+                      #1eae98
+                    );
+                  "
+                  ><i class="fa-solid fa-lock"></i>
+                  <div>lvl 13</div></span
+                >
+                <span
+                  class="colour"
+                  data-level="15"
+                  data-image="linear-gradient(to left, #EA8D8D, #A890FE)"
+                  style="
+                    background-image: linear-gradient(
+                      to left,
+                      #ea8d8d,
+                      #a890fe
+                    );
+                  "
+                  ><i class="fa-solid fa-lock"></i>
+                  <div>lvl 15</div></span
+                >
+                <span
+                  class="colour"
+                  data-level="17"
+                  data-image="linear-gradient(to left, #38EF7D, #11998E)"
+                  style="
+                    background-image: linear-gradient(
+                      to left,
+                      #38ef7d,
+                      #11998e
+                    );
+                  "
+                  ><i class="fa-solid fa-lock"></i>
+                  <div>lvl 17</div></span
+                >
+                <span
+                  class="colour"
+                  data-level="18"
+                  data-image="linear-gradient(to left, #FFC371, #FF5F6D)"
+                  style="
+                    background-image: linear-gradient(
+                      to left,
+                      #ffc371,
+                      #ff5f6d
+                    );
+                  "
+                  ><i class="fa-solid fa-lock"></i>
+                  <div>lvl 18</div></span
+                >
+                <span
+                  class="colour"
+                  data-level="20"
+                  data-image="linear-gradient(to left, #1BFFFF, #2E3192)"
+                  style="
+                    background-image: linear-gradient(
+                      to left,
+                      #1bffff,
+                      #2e3192
+                    );
+                  "
+                  ><i class="fa-solid fa-lock"></i>
+                  <div>lvl 20</div></span
+                >
+                <span
+                  class="colour"
+                  data-level="22"
+                  data-image="linear-gradient(to left, #00CDAC, #02AABD)"
+                  style="
+                    background-image: linear-gradient(
+                      to left,
+                      #00cdac,
+                      #02aabd
+                    );
+                  "
+                  ><i class="fa-solid fa-lock"></i>
+                  <div>lvl 22</div></span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="ms">
+            <div class="music">
+              <span class="musicicon"
+                ><i class="fa-solid fa-music"></i>Background music</span
+              >
+              <span class="dropdownicon"
+                ><i class="fa-solid fa-square-caret-down"></i
+              ></span>
+              <h3>The chosen song will be used as background music</h3>
+            </div>
+
+            <div class="music-selection">
+              <h3>Please select the music of your preference</h3>
+              <div class="genre-container">
+                <div class="select-genre">
+                  <span class="genre-text">Select a genre</span>
+                  <i class="fa-solid fa-circle-chevron-down"></i>
+                </div>
+                <ul class="genre-option">
+                  <li class="option">
+                    <span class="option-text">Rock</span>
+                    <i
+                      class="fa-solid fa-circle-info"
+                      title="Suggested for workout/exercise"
+                    ></i>
+                  </li>
+                  <li class="option">
+                    <span class="option-text">Ambient</span>
+                    <i
+                      class="fa-solid fa-circle-info"
+                      title="Suggested for study/gaming"
+                    ></i>
+                  </li>
+                  <li class="option">
+                    <span class="option-text">Classical</span>
+                    <i
+                      class="fa-solid fa-circle-info"
+                      title="Suggested for gaming/study"
+                    ></i>
+                  </li>
+                  <li class="option">
+                    <span class="option-text">Instrumental</span>
+                    <i
+                      class="fa-solid fa-circle-info"
+                      title="Suggested for study/gaming"
+                    ></i>
+                  </li>
+                </ul>
+              </div>
+              <div class="bgmusic-list">
+                <ul class="rock genre-list">
+                  <li
+                    class="song"
+                    data-level="1"
+                    onclick="tryPlayMusic(this,'Pgk5OLHQpfg')"
+                  >
+                    <span class="song-text">"Rise" by Punch Deck</span>
+                  </li>
+                  <li
+                    class="song"
+                    data-level="1"
+                    onclick="tryPlayMusic(this,'o2-OPL9eS0k')"
+                  >
+                    <span class="song-text"
+                      >"Forever Young" by AudioCoffee</span
+                    >
+                  </li>
+                  <li
+                    class="song"
+                    data-level="3"
+                    onclick="tryPlayMusic(this,'fZmTOwrq-P0')"
+                  >
+                    <span class="song-text"
+                      >"Energetic Indie Rock" by LesFM
+                      <i class="fa-solid fa-lock"><span> lvl 3</span></i>
+                    </span>
+                  </li>
+                  <li
+                    class="song"
+                    data-level="8"
+                    onclick="tryPlayMusic(this,'4xR4nd2DdKI')"
+                  >
+                    <span class="song-text"
+                      >"Upbeat Forever" by Kevin MacLeod
+                      <i class="fa-solid fa-lock"><span> lvl 8</span></i>
+                    </span>
+                  </li>
+                  <li
+                    class="song"
+                    data-level="14"
+                    onclick="tryPlayMusic(this,'ajWPOxakpbY')"
+                  >
+                    <span class="song-text"
+                      >"Cherry Metal" by Arthur Vyncke
+                      <i class="fa-solid fa-lock"><span> lvl 14</span></i>
+                    </span>
+                  </li>
+                  <li
+                    class="song"
+                    data-level="20"
+                    onclick="tryPlayMusic(this,'9JvGEwj8Cj8')"
+                  >
+                    <span class="song-text"
+                      >"Battle Metal" by Alexander Nakarada
+                      <i class="fa-solid fa-lock"><span> lvl 20</span></i>
+                    </span>
+                  </li>
+                </ul>
+                <ul class="ambient genre-list">
+                  <li
+                    class="song"
+                    data-level="1"
+                    onclick="tryPlayMusic(this,'OkxgmKBphUg')"
+                  >
+                    <span class="song-text">"Permafrost" by Scott Buckley</span>
+                  </li>
+                  <li
+                    class="song"
+                    data-level="1"
+                    onclick="tryPlayMusic(this,'DxIEjU66Mmw')"
+                  >
+                    <span class="song-text">"Sweet Dreams" by BatchBug</span>
+                  </li>
+                  <li
+                    class="song"
+                    data-level="2"
+                    onclick="tryPlayMusic(this,'ye2e7oy6DtY')"
+                  >
+                    <span class="song-text"
+                      >"Relaxing Chill" by Alex-Productions
+                      <i class="fa-solid fa-lock"><span> lvl 2</span></i>
+                    </span>
+                  </li>
+                  <li
+                    class="song"
+                    data-level="6"
+                    onclick="tryPlayMusic(this,'FCCkjdX7TK0')"
+                  >
+                    <span class="song-text"
+                      >"MANTRA" by Alex-Productions
+                      <i class="fa-solid fa-lock"><span> lvl 6</span></i>
+                    </span>
+                  </li>
+                  <li
+                    class="song"
+                    data-level="11"
+                    onclick="tryPlayMusic(this,'Elao5ErSrao')"
+                  >
+                    <span class="song-text"
+                      >"Silent Wood" by Purrple Cat
+                      <i class="fa-solid fa-lock"><span> lvl 11</span></i>
+                    </span>
+                  </li>
+                  <li
+                    class="song"
+                    data-level="19"
+                    onclick="tryPlayMusic(this,'T-h28bFdh9w')"
+                  >
+                    <span class="song-text"
+                      >"Embrace" by Sappheiros
+                      <i class="fa-solid fa-lock"><span> lvl 19</span></i>
+                    </span>
+                  </li>
+                </ul>
+                <ul class="classical genre-list">
+                  <li
+                    class="song"
+                    data-level="1"
+                    onclick="tryPlayMusic(this,'c1ospGkfp7M')"
+                  >
+                    <span class="song-text"
+                      >"Under The Sun" by Keys of Moon</span
+                    >
+                  </li>
+                  <li
+                    class="song"
+                    data-level="1"
+                    onclick="tryPlayMusic(this,'vPF_GZjofow')"
+                  >
+                    <span class="song-text"
+                      >"The Great Sea" by Scott Buckley</span
+                    >
+                  </li>
+                  <li
+                    class="song"
+                    data-level="5"
+                    onclick="tryPlayMusic(this,'Ji8DsvsN-Bs')"
+                  >
+                    <span class="song-text"
+                      >"Autumn Scene" by Keys of Moon
+                      <i class="fa-solid fa-lock"><span> lvl 5</span></i>
+                    </span>
+                  </li>
+                  <li
+                    class="song"
+                    data-level="10"
+                    onclick="tryPlayMusic(this,'LHH3nKpTtpo')"
+                  >
+                    <span class="song-text"
+                      >"One Love" by Keys of Moon
+                      <i class="fa-solid fa-lock"><span> lvl 10</span></i>
+                    </span>
+                  </li>
+                  <li
+                    class="song"
+                    data-level="16"
+                    onclick="tryPlayMusic(this,'lkiM6YcUwKY')"
+                  >
+                    <span class="song-text"
+                      >"Pachelbel: Canon In D Major" by Kevin MacLeod
+                      <i class="fa-solid fa-lock"><span> lvl 16</span></i>
+                    </span>
+                  </li>
+                  <li
+                    class="song"
+                    data-level="22"
+                    onclick="tryPlayMusic(this,'sT2UnDDRyno')"
+                  >
+                    <span class="song-text"
+                      >"Mozart: Symphony No. 40 In G Minor, K. 550 – I. Molto
+                      Allegro" by Musopen Symphony
+                      <i class="fa-solid fa-lock"><span> lvl 22</span></i>
+                    </span>
+                  </li>
+                </ul>
+
+                <ul class="instrumental genre-list">
+                  <li
+                    class="song"
+                    data-level="1"
+                    onclick="tryPlayMusic(this,'q2nPfX-c6yY')"
+                  >
+                    <span class="song-text"
+                      >"Almost Bliss" by Kevin MacLeod</span
+                    >
+                  </li>
+                  <li
+                    class="song"
+                    data-level="1"
+                    onclick="tryPlayMusic(this,'VBaQxYFCAr8')"
+                  >
+                    <span class="song-text"
+                      >"Happy Commercial" by MaxKoMusic</span
+                    >
+                  </li>
+                  <li
+                    class="song"
+                    data-level="4"
+                    onclick="tryPlayMusic(this,'T6ptnbKJWuM')"
+                  >
+                    <span class="song-text"
+                      >"Walking Home" by Alex-Productions
+                      <i class="fa-solid fa-lock"><span> lvl 4</span></i>
+                    </span>
+                  </li>
+                  <li
+                    class="song"
+                    data-level="9"
+                    onclick="tryPlayMusic(this,'3twJYF1c7xY')"
+                  >
+                    <span class="song-text"
+                      >"Beauty" by MaxKoMusic
+                      <i class="fa-solid fa-lock"><span> lvl 9</span></i>
+                    </span>
+                  </li>
+                  <li
+                    class="song"
+                    data-level="15"
+                    onclick="tryPlayMusic(this,'LH31E_e_0sE')"
+                  >
+                    <span class="song-text"
+                      >"Moon Dock" by Verbovets
+                      <i class="fa-solid fa-lock"><span> lvl 15</span></i>
+                    </span>
+                  </li>
+                  <li
+                    class="song"
+                    data-level="21"
+                    onclick="tryPlayMusic(this,'L__pbqrIk-0')"
+                  >
+                    <span class="song-text"
+                      >"Inspiring Dreams" by Keys of Moon
+                      <i class="fa-solid fa-lock"><span> lvl 21</span></i>
+                    </span>
+                  </li>
+                </ul>
+                <span id="music-player"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="al">
+            <div class="alarm">
+              <span class="alarmicon"
+                ><i class="fa-solid fa-bell"></i>Alarm</span
+              >
+              <span class="dropdownicon"
+                ><i class="fa-solid fa-square-caret-down"></i
+              ></span>
+              <h3>The chosen audio effect will be used as alarm</h3>
+            </div>
+
+            <div class="alarm-selection">
+              <h3>Please select the audio effect of your preference</h3>
+              <div class="alarm-container">
+                <div class="alarm-effect" onclick="playAlarm()">
+                  <label for="effect0">No Alarm</label>
+                  <input
+                    type="radio"
+                    id="effect0"
+                    name="audioEffect"
+                    value="effect0"
+                  />
+                </div>
+                <div class="alarm-effect" onclick="playAlarm('Buie31LDKCs')">
+                  <label for="effect1">Clock Beep</label>
+                  <input
+                    type="radio"
+                    id="effect1"
+                    name="audioEffect"
+                    value="effect1"
+                  />
+                </div>
+                <div class="alarm-effect" onclick="playAlarm('XN9yJt5Bozc')">
+                  <label for="effect2">Digital Alarm Clock</label>
+                  <input
+                    type="radio"
+                    id="effect2"
+                    name="audioEffect"
+                    value="effect2"
+                  />
+                </div>
+                <div class="alarm-effect" onclick="playAlarm('1YQmodWYx-g')">
+                  <label for="effect3">Digital Alarm Clock 2</label>
+                  <input
+                    type="radio"
+                    id="effect3"
+                    name="audioEffect"
+                    value="effect3"
+                  />
+                </div>
+                <div class="alarm-effect" onclick="playAlarm('BmwDaNKYOaI')">
+                  <label for="effect4">Alarm Beep</label>
+                  <input
+                    type="radio"
+                    id="effect4"
+                    name="audioEffect"
+                    value="effect4"
+                  />
+                </div>
+                <div class="alarm-effect" onclick="playAlarm('VrCVHaOrIs4')">
+                  <label for="effect5">Chime Bell</label>
+                  <input
+                    type="radio"
+                    id="effect5"
+                    name="audioEffect"
+                    value="effect5"
+                  />
+                </div>
+                <div class="alarm-effect" onclick="playAlarm('0jBGLticqgQ')">
+                  <label for="effect6">Clock Ringing</label>
+                  <input
+                    type="radio"
+                    id="effect6"
+                    name="audioEffect"
+                    value="effect6"
+                  />
+                </div>
+                <div class="alarm-effect" onclick="playAlarm('0WJZVz2zShk')">
+                  <label for="effect7">School Bell</label>
+                  <input
+                    type="radio"
+                    id="effect7"
+                    name="audioEffect"
+                    value="effect7"
+                  />
+                </div>
+                <div class="alarm-effect" onclick="playAlarm('78IE9xvV0a8')">
+                  <label for="effect8">Birds Chirping</label>
+                  <input
+                    type="radio"
+                    id="effect8"
+                    name="audioEffect"
+                    value="effect8"
+                  />
+                </div>
+                <div class="alarm-effect" onclick="playAlarm('CSOsYLsU-Ko')">
+                  <label for="effect9">Rooster Crows</label>
+                  <input
+                    type="radio"
+                    id="effect9"
+                    name="audioEffect"
+                    value="effect9"
+                  />
+                </div>
+                <div class="alarm-effect" onclick="playAlarm('hwiZoQpreDM')">
+                  <label for="effect10">Car Honks</label>
+                  <input
+                    type="radio"
+                    id="effect10"
+                    name="audioEffect"
+                    value="effect10"
+                  />
+                </div>
+                <button type="button" onclick="setAlarm()">Set as Alarm</button>
+
+                <span id="alarm-player"></span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="settings">
+          <h1>Settings</h1>
+
+          <div class="vlm">
+            <div class="musicvolume">
+              <div class="slider-container">
+                <label for="musicvolume-control">Music Volume:</label>
+                <input
+                  type="range"
+                  id="musicvolume-control"
+                  min="0"
+                  max="100"
+                  value="100"
+                  oninput="setMusicVolume(this.value)"
+                />
+                <div class="progress"></div>
+              </div>
+            </div>
+            <div class="alarmvolume">
+              <div class="slider-container">
+                <label for="alarmvolume-control">Alarm Volume:</label>
+                <input
+                  type="range"
+                  id="alarmvolume-control"
+                  min="0"
+                  max="100"
+                  value="100"
+                  oninput="setAlarmVolume(this.value)"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="mngdt">
+            <div class="managedata">
+              <span class="dataicon"
+                ><i class="fa-solid fa-database"></i>Manage Data</span
+              >
+              <span class="dropdownicon"
+                ><i class="fa-solid fa-square-caret-down"></i
+              ></span>
+              <h3>Manage your stored data and history</h3>
+            </div>
+
+            <div class="cleardata">
+              <span class="clearicon"
+                ><i class="fa-solid fa-trash"></i>Clear My Data</span
+              >
+              <h3>
+                This feature allows you to delete all of your personal data. By
+                clicking 'Clear' you will permanently remove all information,
+                including saved preferences and history. Please note that this
+                action cannot be undone. Proceed with caution. The system will
+                then back to default.
+              </h3>
+              <button id="clearlocalstorage">Clear</button>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
 
-    <a href="/GitExercise/timer.htm" class="backbutton">
-        <p>B</p>
-      </a>
-    
+    <a href="timer.htm" class="backbutton">
+      <p>B</p>
+    </a>
+
     <script src="profile.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
-    
-</body>
+  </body>
 </html>
