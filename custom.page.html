@@ -177,7 +177,7 @@
       <p><label for="break">Break:</label></p>
       <input type="text" name="break" id="break" value="" placeholder="min" />
 
-      <p><label for="cycle">Cyclses:</label></p>
+      <p><label for="cycle">Cycles:</label></p>
       <input
         type="text"
         name="cycles"
@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const presets = [];
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
-      if (key !== 'colour' && key !== 'selectedAudioEffect') { 
+      if (key !== 'colour' && key !== 'selectedAudioEffect'&&key !== 'xp'&&key!='xpMax'&&key !== 'level') { 
         const presetData = JSON.parse(localStorage.getItem(key));
         presetData.name = key; 
         presets.push(presetData);
