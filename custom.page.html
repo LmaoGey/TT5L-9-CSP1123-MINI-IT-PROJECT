@@ -152,64 +152,46 @@
       </div>
     </div>
 
-<div id="overlay">
-<p><button class="cusbutton" id="customButton">Custom</button></p>
- </div>
-  
+    <div id="overlay">
+      <p><button class="cusbutton" id="customButton">Custom</button></p>
+    </div>
+    
     <div class="mnt">
       <h1>Custom Preset</h1>
-      <p>
-        On this page you can customize your time according to your preference.
-      </p>
+      <p>On this page you can customize your time according to your preference.</p>
     </div>
     <div class="container" id="containercustom">
       <p><label for="name">Name:</label></p>
-      <input
-        type="text"
-        name="name"
-        id="name"
-        value=""
-        placeholder="enter your name"
-      />
+      <input type="text" name="name" id="name" value="" placeholder="enter your name" />
+    
       <p><label for="focus">Focus:</label></p>
-      <input type="text" name="focus" id="focus" value="" placeholder="min" />
-
+      <input type="number" name="focus" id="focus" value="" placeholder="min" min="1" max="30" />
+    
       <p><label for="break">Break:</label></p>
-      <input type="text" name="break" id="break" value="" placeholder="min" />
-
+      <input type="number" name="break" id="break" value="" placeholder="min" min="1" max="30" />
+    
       <p><label for="cycle">Cycles:</label></p>
-      <input
-        type="text"
-        name="cycles"
-        id="cycles"
-        value=""
-        placeholder="cycles"
-      />
-
+      <input type="number" name="cycles" id="cycles" value="" placeholder="cycles" min="1" max="30" />
+    
       <div class="save-message"></div>
-
       <div id="savedInputs"></div>
-      <p>
-        <a href="#" id="saveButton" class="pill-button">Add</a>
-      </p>
+    
+      <p><a href="#" id="saveButton" class="pill-button">Add</a></p>
     </div>
-</div>
-
-<div class="breakbox">
-  <table id="Table">
-    <thead>
-      <tr>
-      <th>Name</th>
-      <th>Focus</th>
-      <th>Break</th>
-      <th>Cycle</th>
-    </tr>
-    </thead>
-    <tbody id='presetTable'></tbody>
-  </table>
-</div>
-
- 
+    
+    <div class="breakbox">
+      <table id="Table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Focus</th>
+            <th>Break</th>
+            <th>Cycle</th>
+          </tr>
+        </thead>
+        <tbody id='presetTable'></tbody>
+      </table>
+    </div>
     
     <script> 
  
@@ -220,12 +202,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const presetTable = document.getElementById("presetTable");
   const customButton = document.getElementById("customButton");
   const Table = document.getElementById('Table');
-  const containercustom = document.getElementById("containercustom")
+  const containercustom = document.getElementById("containercustom");
   
-   
   let editingKey = null;
 
-   
   // Load presets from localStorage
   function loadPresets() {
     const presets = [];
@@ -235,13 +215,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (excludeCategories.includes(key)) {
         continue;
       }
-      if (key !== 'colour' && key !== 'selectedAudioEffect'&&key !== 'xp'&&key!='xpMax'&&key !== 'level') { 
+      if (key !== 'colour' && key !== 'selectedAudioEffect' && key !== 'xp' && key !== 'xpMax' && key !== 'level') { 
         const presetData = JSON.parse(localStorage.getItem(key));
         presetData.name = key; 
         presets.push(presetData);
       }
     }
-  
     console.log('Loading presets:', presets);
     return presets;
   }
@@ -292,19 +271,24 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log('Form reset');
   }
 
+  // Validate input values
+  function isValidInput(value) {
+    return value >= 1 && value <= 30;
+  }
+
   // Event listener for save button
   saveButton.addEventListener('click', (event) => {
     event.preventDefault();
 
     const formData = {
       name: document.getElementById("name").value,
-      focus: document.getElementById("focus").value,
-      break: document.getElementById("break").value,
-      cycles: document.getElementById("cycles").value,
+      focus: parseInt(document.getElementById("focus").value),
+      break: parseInt(document.getElementById("break").value),
+      cycles: parseInt(document.getElementById("cycles").value),
     };
 
-    if (!formData.name || !formData.focus || !formData.break || !formData.cycles) {
-      alert("Please fill up! ");
+    if (!formData.name || !isValidInput(formData.focus) || !isValidInput(formData.break) || !isValidInput(formData.cycles)) {
+      alert("Please enter valid values for all fields (1-30)!");
       return;
     }
 
@@ -354,8 +338,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderTable();
 });
 
-/////categories icon buttons ////
-
+// Categories icon buttons
 document.addEventListener("DOMContentLoaded", () => {
   function saveSelectedTimes(section) {
     const categIcon = section.querySelector('.categicon').textContent.trim();
@@ -398,7 +381,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-  ///toggle bar ////
+
+  // Toggle bar
   document.querySelectorAll('.select-categ').forEach((item) => {
     item.addEventListener('click', function () {
       this.parentElement.classList.toggle('active');
@@ -416,13 +400,16 @@ document.addEventListener("DOMContentLoaded", () => {
     loadSelectedTimes(section);
   });
 
+  // Render category table on load
+  renderCategoryTable();
 });
-// reader stuff
+
+// Background and profile image settings
 function backgroundsetter(){
   let storedColour = localStorage.getItem('colour');
   if (storedColour) {
     document.querySelector('body').style.setProperty('background-image', storedColour);
-  };
+  }
 }
 
 function profilesetter() {
@@ -436,7 +423,6 @@ function profilesetter() {
 window.onload = function(){
   backgroundsetter();
 }
-
 
 </script>
   </body>
