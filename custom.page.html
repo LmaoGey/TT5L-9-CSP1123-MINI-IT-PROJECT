@@ -117,7 +117,7 @@
     </div>
  
      <!-- House chores -->
-     <div class="mtts" data-category="House chores">
+     <div class="mtts" data-category="House chore">
       <div class="categ">
         <span class="categicon"> </i>House chores</span>
         <span class="dropdownicon"></span>
@@ -341,7 +341,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Categories icon buttons
 document.addEventListener("DOMContentLoaded", () => {
   function saveSelectedTimes(section) {
-    const category = section.dataset.category;
+    const categIcon = section.querySelector('.categicon').textContent.trim();
     const focusOption = section.querySelector('.categ-container:nth-child(1) .option-text').textContent.trim();
     const breakOption = section.querySelector('.categ-container:nth-child(2) .option-text').textContent.trim();
     const cyclesOption = section.querySelector('.categ-container:nth-child(3) .option-text').textContent.trim();
@@ -352,13 +352,13 @@ document.addEventListener("DOMContentLoaded", () => {
       cycles: cyclesOption,
     };
 
-    localStorage.setItem(category, JSON.stringify(selectedTimes));
-    console.log(category + ':', selectedTimes);
+    localStorage.setItem(categIcon, JSON.stringify(selectedTimes));
+    console.log(categIcon + ':', selectedTimes);
   }
 
   function loadSelectedTimes(section) {
-    const category = section.dataset.category;
-    const storedTimes = localStorage.getItem(category);
+    const categIcon = section.querySelector('.categicon').textContent.trim();
+    const storedTimes = localStorage.getItem(categIcon);
 
     if (storedTimes) {
       const { focus, break: breakTime, cycles } = JSON.parse(storedTimes);
@@ -371,7 +371,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   }
-
+ 
+    
+  // Toggle bar
   document.querySelectorAll('.select-categ').forEach((item) => {
     item.addEventListener('click', function () {
       this.parentElement.classList.toggle('active');
@@ -389,26 +391,30 @@ document.addEventListener("DOMContentLoaded", () => {
     loadSelectedTimes(section);
   });
 
-  function backgroundsetter(){
-    let storedColour = localStorage.getItem('colour');
-    if (storedColour) {
-      document.querySelector('body').style.setProperty('background-image', storedColour);
-    }
-  }
-
-  function profilesetter() {
-    const storedPhoto = localStorage.getItem('userPhoto');
-    if (storedPhoto) {
-      const userphoto = document.getElementById('userPhoto');
-      userphoto.setAttribute('src', storedPhoto);
-    }
-  }
-
-  window.onload = function(){
-    backgroundsetter();
-    profilesetter();
-  }
+  // Render category table on load
+  renderCategoryTable();
 });
+
+// Background and profile image settings
+function backgroundsetter(){
+  let storedColour = localStorage.getItem('colour');
+  if (storedColour) {
+    document.querySelector('body').style.setProperty('background-image', storedColour);
+  }
+}
+
+function profilesetter() {
+  const storedPhoto = localStorage.getItem('userPhoto');
+  if (storedPhoto) {
+    const userphoto = document.getElementById('userPhoto');
+    userphoto.setAttribute('src', storedPhoto);
+  }
+}
+
+window.onload = function(){
+  backgroundsetter();
+}
+
 
 
 </script>
