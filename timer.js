@@ -25,37 +25,37 @@ if (storedColour) {
         }
     }
     //for the alarm
-    var videoID = localStorage.getItem("selectedAudioEffect");
+//     var videoID = localStorage.getItem("selectedAudioEffect");
     
-    function onYouTubeIframeAPIReady() {
-        initAlarmPlayer();
-        }
-    var alarmplayer;
+//     function onYouTubeIframeAPIReady() {
+//         initAlarmPlayer();
+//         }
+//     var alarmplayer;
     
-    function initAlarmPlayer() {
-        alarmplayer = new YT.Player('alarm-player', {
-            height: '0',
-            width: '0',
-            events: {
-                'onReady': onAlarmPlayerReady,
-                'onStateChange': onAlarmPlayerStateChange
-            }
-        });
-    }
+//     function initAlarmPlayer() {
+//         alarmplayer = new YT.Player('alarm-player', {
+//             height: '0',
+//             width: '0',
+//             events: {
+//                 'onReady': onAlarmPlayerReady,
+//                 'onStateChange': onAlarmPlayerStateChange
+//             }
+//         });
+//     }
     
-    function onAlarmPlayerReady(event) {
-        var alarmVolume = localStorage.getItem('alarmVolume') || 100;
-        alarmplayer.setVolume(alarmVolume);
-        document.getElementById('alarmvolume-control').value = alarmVolume;
+//     function onAlarmPlayerReady(event) {
+//         var alarmVolume = localStorage.getItem('alarmVolume') || 100;
+//         alarmplayer.setVolume(alarmVolume);
+//         document.getElementById('alarmvolume-control').value = alarmVolume;
         
-    }
+//     }
     
     
-    function onAlarmPlayerStateChange(event) {
-    if (event.data === YT.PlayerState.ENDED) {
-        alarmplayer.playVideo();  
-    }
-}
+//     function onAlarmPlayerStateChange(event) {
+//     if (event.data === YT.PlayerState.ENDED) {
+//         alarmplayer.playVideo();  
+//     }
+// }
 
     
 
@@ -132,7 +132,7 @@ function timer() {
 
         if (parseInt(counter.innerText) % 2 === 0) {
             gainExperience(20);
-            initAlarmPlayer();
+            onYouTubeIframeAPIReady();
         }
     }
     
@@ -250,7 +250,7 @@ function addTodoItem(task, save = true) {
     taskText.textContent = task;
 
     const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
+    deleteButton.textContent = 'add';
     deleteButton.classList.add('btn');
     deleteButton.addEventListener('click', () => {
         todoList.removeChild(todoItem);
@@ -331,6 +331,8 @@ function playAlarm(effect) {
                                         }
 }
 
+
+
 window.onload = function() {
     loadProgress();
     initializeTimer();
@@ -338,4 +340,5 @@ window.onload = function() {
     loadTodos();
     profilesetter();
     onYouTubeIframeAPIReady();
+    ;
 };
