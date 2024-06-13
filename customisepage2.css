@@ -24,11 +24,11 @@ height: 10;
  background-color: #4CAF50;  
  border: none;  
  color: white;  
- padding: 15px 30px;   
+ padding:  30px;   
  text-align: center;  
  text-decoration: none;  
   
- font-size: large;  
+ font-size: 20px;  
  margin: 4px 2px;  
  cursor: pointer;  
  border-radius: 50px;  
@@ -38,7 +38,7 @@ height: 10;
 
 .saveButton.hover {
 background-color: gainsboro;
-outline: #101610 solid 3px;
+outline: #d9ddd9 solid 3px;
 cursor:pointer;
 }
 
@@ -46,13 +46,13 @@ cursor:pointer;
 .mnt{
   background-size: cover;
  border-radius:15px;
- outline: #0c0f0c solid 3px;
- font-size: large; 
+ outline: #cfd7cf solid 3px;
+ font-size: 20px; 
  font-family: 'Gill Sans', 'Gill Sans MT',  'Trebuchet MS', sans-serif;
  height: "fit-content";
  width: 20%;
  background-color:skyblue;
- position: abs;
+ 
  bottom: 700px;
  left: 600px;
  
@@ -69,9 +69,9 @@ cursor:pointer;
   bottom: 100px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: large;
+  font-size: 20px;
   color: rgba(16, 69, 116, 0.65);
-  outline: #0c0f0c solid 3px;
+  outline: #ebf8eb solid 3px;
   width: 480px;
   height: 350px;
   border-radius: 15px;
@@ -80,7 +80,7 @@ cursor:pointer;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 5px 8px 10px rgba(49, 47, 47, 0.1);
 }
  
 
@@ -90,7 +90,8 @@ cursor:pointer;
 .breakbox{
  position:relative;
   background-color: aqua;
- 
+  outline: #ebf8eb solid 3px;
+  width: 480px;
   width:fit-content;
   padding:3px;
    bottom: 100px;
@@ -237,6 +238,7 @@ table{
 margin-top: 10px;
  width: 500px;
  border-collapse: collapse;
+ 
 }
 
 

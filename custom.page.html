@@ -10,7 +10,7 @@
   </head>
   <body>
     <!-- Study -->
-    <div class="mtts">
+    <div class="mtts" data-category="Study">
       <div class="categ">
         <span class="categicon"></i>Study</span>
         <span class="dropdownicon"></span>
@@ -45,7 +45,7 @@
     </div>
 
     <!-- Exercise -->
-    <div class="mtts">
+    <div class="mtts" data-category="Exercise">
       <div class="categ">
         <span class="categicon"></i>Exercise</span>
         <span class="dropdownicon"></span>
@@ -81,7 +81,7 @@
     </div>
 
     <!-- Gaming -->
-    <div class="mtts">
+    <div class="mtts" data-category="Gaming">
       <div class="categ">
         <span class="categicon"> </i>Gaming</span>
         <span class="dropdownicon"></span>
@@ -117,7 +117,7 @@
     </div>
  
      <!-- House chores -->
-     <div class="mtts">
+     <div class="mtts" data-category="House chores">
       <div class="categ">
         <span class="categicon"> </i>House chores</span>
         <span class="dropdownicon"></span>
@@ -341,7 +341,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Categories icon buttons
 document.addEventListener("DOMContentLoaded", () => {
   function saveSelectedTimes(section) {
-    const categIcon = section.querySelector('.categicon').textContent.trim();
+    const category = section.dataset.category;
     const focusOption = section.querySelector('.categ-container:nth-child(1) .option-text').textContent.trim();
     const breakOption = section.querySelector('.categ-container:nth-child(2) .option-text').textContent.trim();
     const cyclesOption = section.querySelector('.categ-container:nth-child(3) .option-text').textContent.trim();
@@ -352,13 +352,13 @@ document.addEventListener("DOMContentLoaded", () => {
       cycles: cyclesOption,
     };
 
-    localStorage.setItem(categIcon, JSON.stringify(selectedTimes));
-    console.log(categIcon + ':', selectedTimes);
+    localStorage.setItem(category, JSON.stringify(selectedTimes));
+    console.log(category + ':', selectedTimes);
   }
 
   function loadSelectedTimes(section) {
-    const categIcon = section.querySelector('.categicon').textContent.trim();
-    const storedTimes = localStorage.getItem(categIcon);
+    const category = section.dataset.category;
+    const storedTimes = localStorage.getItem(category);
 
     if (storedTimes) {
       const { focus, break: breakTime, cycles } = JSON.parse(storedTimes);
@@ -372,17 +372,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function deleteSelectedTimes(categIcon) {
-    localStorage.removeItem(categIcon);
-    document.querySelectorAll('.mtts').forEach(section => {
-      const sectionIcon = section.querySelector('.categicon').textContent.trim();
-      if (sectionIcon === categIcon) {
-        section.remove();
-      }
-    });
-  }
-
-  // Toggle bar
   document.querySelectorAll('.select-categ').forEach((item) => {
     item.addEventListener('click', function () {
       this.parentElement.classList.toggle('active');
@@ -400,173 +389,26 @@ document.addEventListener("DOMContentLoaded", () => {
     loadSelectedTimes(section);
   });
 
-  // Render category table on load
-  renderCategoryTable();
-});
-
-// Background and profile image settings
-function backgroundsetter(){
-  let storedColour = localStorage.getItem('colour');
-  if (storedColour) {
-    document.querySelector('body').style.setProperty('background-image', storedColour);
+  function backgroundsetter(){
+    let storedColour = localStorage.getItem('colour');
+    if (storedColour) {
+      document.querySelector('body').style.setProperty('background-image', storedColour);
+    }
   }
-}
 
-function profilesetter() {
-  const storedPhoto = localStorage.getItem('userPhoto');
-  if (storedPhoto) {
-    const userphoto = document.getElementById('userPhoto');
-    userphoto.setAttribute('src', storedPhoto);
+  function profilesetter() {
+    const storedPhoto = localStorage.getItem('userPhoto');
+    if (storedPhoto) {
+      const userphoto = document.getElementById('userPhoto');
+      userphoto.setAttribute('src', storedPhoto);
+    }
   }
-}
 
-window.onload = function(){
-  backgroundsetter();
-}
-
-// Timer Initialization with Local Storage Data
-function initializeTimer() {
-    let presetData = getStoredPresetData();
-
-    if (presetData) {
-        wm.innerText = presetData.focus < 10 ? '0' + presetData.focus : presetData.focus;
-        ws.innerText = '00';
-        bm.innerText = presetData.break < 10 ? '0' + presetData.break : presetData.break;
-        bs.innerText = '00';
-    } else {
-        wm.innerText = workMinutes < 10 ? '0' + workMinutes : workMinutes;
-        ws.innerText = workseconds < 10 ? '0' + workseconds : workseconds;
-        bm.innerText = breakMinutes < 10 ? '0' + breakMinutes : breakMinutes;
-        bs.innerText = breakseconds < 10 ? '0' + breakseconds : breakseconds;
-    }
-
-    counter.innerText = 0;
-}
-
-// Fetch Stored Preset Data from Local Storage
-function getStoredPresetData() {
-    const presetKey = localStorage.getItem('currentPreset');
-    if (presetKey) {
-        return JSON.parse(localStorage.getItem(presetKey));
-    }
-    return null;
-}
-
-// Set Preset Data to Local Storage (e.g., when user selects a preset)
-function setCurrentPreset(presetName) {
-    localStorage.setItem('currentPreset', presetName);
-}
-
-// Event Listener for Save Button to save the preset data and set it as current
-saveButton.addEventListener('click', (event) => {
-    event.preventDefault();
-
-    const formData = {
-        name: document.getElementById("name").value,
-        focus: parseInt(document.getElementById("focus").value),
-        break: parseInt(document.getElementById("break").value),
-        cycles: parseInt(document.getElementById("cycles").value),
-    };
-
-    if (!formData.name || !isValidInput(formData.focus) || !isValidInput(formData.break) || !isValidInput(formData.cycles)) {
-        alert("Please enter valid values for all fields (1-30)!");
-        return;
-    }
-
-    savePreset(formData);
-    setCurrentPreset(formData.name); // Set the current preset
-    renderTable();
-    resetForm();
+  window.onload = function(){
+    backgroundsetter();
+    profilesetter();
+  }
 });
-
-// Ensure to initialize the timer with stored data on page load
-window.onload = function() {
-    loadProgress();
-    initializeTimer();
-    backgroundsetter();
-    loadTodos();
-    profilesetter();
-    onYouTubeIframeAPIReady();
-};
-
-// Existing Timer Code for Start, Stop, Reset Functions (No Changes Required)
-start.addEventListener('click', startTimerFunction);
-reset.addEventListener('click', resetTimer);
-stop.addEventListener('click', stopTimer);
-
-function startTimerFunction() {
-    if (startTimer === undefined) {
-        startTimer = setInterval(timer, 1000);
-    } else {
-        alert("Timer is already running");
-    }
-}
-
-function resetTimer() {
-    wm.innerText = workMinutes < 10 ? '0' + workMinutes : workMinutes;
-    ws.innerText = workseconds < 10 ? '0' + workseconds : workseconds;
-    bm.innerText = breakMinutes < 10 ? '0' + breakMinutes : breakMinutes;
-    bs.innerText = breakseconds < 10 ? '0' + breakseconds : breakseconds;
-    counter.innerText = 0;
-    stopInterval();
-    startTimer = undefined;
-}
-
-function stopTimer() {
-    stopInterval();
-    startTimer = undefined;
-}
-
-function formatTime(value) {
-    return value < 10 ? '0' + value : value;
-}
-
-function timer() {
-    if (ws.innerText != 0) {
-        ws.innerText = formatTime(parseInt(ws.innerText) - 1);
-    } else if (wm.innerText != 0 && ws.innerText == 0) {
-        ws.innerText = 59;
-        wm.innerText = formatTime(parseInt(wm.innerText) - 1);
-    }
-
-    if (wm.innerText == 0 && ws.innerText == 0) {
-        if (bs.innerText != 0) {
-            bs.innerText = formatTime(parseInt(bs.innerText) - 1);
-        } else if (bm.innerText != 0 && bs.innerText == 0) {
-            bs.innerText = 59;
-            bm.innerText = formatTime(parseInt(bm.innerText) - 1);
-        }
-    }
-
-    if (wm.innerText == 0 && ws.innerText == 0 && bm.innerText == 0 && bs.innerText == 0) {
-        wm.innerText = formatTime(workMinutes);
-        ws.innerText = formatTime(workseconds);
-        bm.innerText = formatTime(breakMinutes);
-        bs.innerText = formatTime(breakseconds);
-        counter.innerText = parseInt(counter.innerText) + 1;
-
-        if (parseInt(counter.innerText) % 2 === 0) {
-            gainExperience(20);
-            onYouTubeIframeAPIReady();
-        }
-    }
-}
-
-function stopInterval() {
-    clearInterval(startTimer);
-    startTimer = undefined;
-}
-
-// Add rest of the code as per original script
-
-window.onload = function() {
-    loadProgress();
-    initializeTimer();
-    backgroundsetter();
-    loadTodos();
-    profilesetter();
-    onYouTubeIframeAPIReady();
-};
 
 
 </script>
