@@ -419,12 +419,8 @@ document.addEventListener("DOMContentLoaded", () => {
     loadSelectedTimes(section);
   });
 
-  document.querySelectorAll('.delete-button').forEach((button) => {
-    button.addEventListener('click', function () {
-      const categIcon = this.closest('.mtts').querySelector('.categicon').textContent.trim();
-      deleteSelectedTimes(categIcon);
-    });
-  });
+ 
+
 });
 // reader stuff
 function backgroundsetter(){
