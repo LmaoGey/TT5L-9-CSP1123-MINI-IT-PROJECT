@@ -153,6 +153,18 @@ body {
     opacity:1;
 }
 
+.username #setname{
+    height: 20px;
+    width: 100px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.username #setname:hover{
+    translate: 2px;
+    cursor: pointer;
+}
+
 /****************selection**********/
 
 .selection{
@@ -162,10 +174,11 @@ body {
     width: 100%;
 }
 
-.list{
+.selection .list{
     position: relative;
     width: 100%;
     list-style: none;
+    margin-top:4px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 30px;
     border-top-right-radius: 30px;
@@ -173,13 +186,22 @@ body {
     transition: translate 0.5s ease;
 }
 
-.list:hover{
+.selection .list:hover{
     background-color: #e8e9eb;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
     translate: 10px;
 }
 
-.list a{
+.selection .list.selected {
+    background-color: #e8e9eb;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.selection .list.selected a{
+    color:black;
+}
+
+.selection .list a{
     position: relative;
     display: block;
     width: 100%;
@@ -189,7 +211,7 @@ body {
     
 }
 
-.list a:hover{
+.selection .list a:hover{
     color:black;
 }
 
@@ -372,20 +394,32 @@ section{
     opacity:0;
 }
 
+.unlock h3{
+    font-size: 1.3rem ;
+    margin-top: 5px;
+}
+
 .unlock .colourpreview{
     height:50px;
     width:50px;
     border-radius: 30%;
     border:black solid 1px;
     display:flex;
-    margin-left:750px;
-    margin-top: -50px;
+    margin-left:810px;
+    margin-top: -52px;
 }
 
 .unlock .songpreview i{
     display:flex;
-    margin-left:760px;
-    margin-top: -45px;
+    margin-left:820px;
+    margin-top: -42px;
+    font-size: 2rem;
+}
+
+.colourandsongpreview .songpreview i{
+    display:flex;
+    margin-left:830px;
+    margin-top: -42px;
     font-size: 2rem;
 }
 
@@ -395,7 +429,7 @@ section{
 }
 
 .colourandsongpreview .colourpreview{
-    margin-left: 680px;
+    margin-left: 760px;
 }
 
 /***************************************this is for background part*********************************/

@@ -177,7 +177,7 @@
       <p><label for="break">Break:</label></p>
       <input type="text" name="break" id="break" value="" placeholder="min" />
 
-      <p><label for="cycle">Cycles:</label></p>
+      <p><label for="cycle">Cyclses:</label></p>
       <input
         type="text"
         name="cycles"
@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const presets = [];
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
-      if (key !== 'colour' && key !== 'selectedAudioEffect') { // Exclude specific keys
+      if (key !== 'colour' && key !== 'selectedAudioEffect') { 
         const presetData = JSON.parse(localStorage.getItem(key));
         presetData.name = key; 
         presets.push(presetData);
@@ -408,23 +408,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  document.querySelectorAll('.option').forEach((item) => {
-    item.addEventListener('click', function () {
-      this.parentElement.querySelectorAll('.option').forEach(option => option.classList.remove('active'));
-      this.classList.add('active');
-    });
-  });
+  
 
   document.querySelectorAll('.mtts').forEach((section) => {
     loadSelectedTimes(section);
   });
 
-  document.querySelectorAll('.delete-button').forEach((button) => {
-    button.addEventListener('click', function () {
-      const categIcon = this.closest('.mtts').querySelector('.categicon').textContent.trim();
-      deleteSelectedTimes(categIcon);
-    });
-  });
+ 
+
 });
 // reader stuff
 function backgroundsetter(){

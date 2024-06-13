@@ -87,6 +87,20 @@ window.onscroll = () => {
     });
 };
 
+document.addEventListener('DOMContentLoaded', () => {
+    const listItems = document.querySelectorAll('.selection .list');
+
+    listItems.forEach(item => {
+        item.addEventListener('click', () => {
+            // Remove 'selected' class from all items
+            listItems.forEach(el => el.classList.remove('selected'));
+
+            // Add 'selected' class to the clicked item
+            item.classList.add('selected');
+        });
+    });
+});
+
 /////////unlock items
 document.addEventListener('DOMContentLoaded', () => {
     const levelvalue = parseInt(localStorage.getItem('level')) || 1;
@@ -266,7 +280,7 @@ function playPreviewMusic(videoID) {
 
         setTimeout(function() {
             musicplayer.stopVideo();
-        }, 5000);
+        }, 10000);
 
     }
 }
