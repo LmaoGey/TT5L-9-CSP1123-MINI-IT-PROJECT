@@ -162,10 +162,11 @@ body {
     width: 100%;
 }
 
-.list{
+.selection .list{
     position: relative;
     width: 100%;
     list-style: none;
+    margin-top:4px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 30px;
     border-top-right-radius: 30px;
@@ -173,13 +174,22 @@ body {
     transition: translate 0.5s ease;
 }
 
-.list:hover{
+.selection .list:hover{
     background-color: #e8e9eb;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
     translate: 10px;
 }
 
-.list a{
+.selection .list.selected {
+    background-color: #e8e9eb;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.selection .list.selected a{
+    color:black;
+}
+
+.selection .list a{
     position: relative;
     display: block;
     width: 100%;
@@ -189,7 +199,7 @@ body {
     
 }
 
-.list a:hover{
+.selection .list a:hover{
     color:black;
 }
 
