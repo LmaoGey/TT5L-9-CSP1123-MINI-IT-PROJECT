@@ -6,7 +6,7 @@
 }
 
 :root{
-    background-image:url(/GitExercise/placeholderbackground.jpg);
+    background-image:url(./placeholderbackground.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -252,4 +252,17 @@ button:active {
 
 .row:focus {
     outline: 2px solid #a0a6af; 
+}
+
+#levelup {
+position: static;
+display: block;
+background-color: #3a5276;
+color: #f8f8f8;
+border-radius: 5px;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+
+
 }
