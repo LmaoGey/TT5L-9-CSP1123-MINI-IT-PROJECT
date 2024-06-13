@@ -343,20 +343,4 @@ window.onload = function() {
     ;
 };
 
-///Custom timer////
-function loadCustomTimes(category) {
-    const storedTimes = JSON.parse(localStorage.getItem(category));
-    if (storedTimes) {
-      workMinutes = parseInt(storedTimes.focus.split(':')[0]);
-      workseconds = parseInt(storedTimes.focus.split(':')[1]);
-      breakMinutes = parseInt(storedTimes.break.split(':')[0]);
-      breakseconds = parseInt(storedTimes.break.split(':')[1]);
-      initializeTimer();
-    }
-  }
-  
-  document.querySelectorAll('.category-button').forEach(button => {
-    button.addEventListener('click', () => {
-      loadCustomTimes(button.dataset.category);
-    });
-  });
+ 
