@@ -192,7 +192,7 @@ flex-wrap:wrap;
  font-size:18px;
  font-weight:500;
  border-radius: 15px;
- cursor: pointer;
+
 
 }
 
@@ -223,7 +223,7 @@ flex-wrap:wrap;
  align-items: center;
  background-color: white;
  justify-content: space-between;
- cursor: pointer;
+ 
  font-size:20px;
 }
 
