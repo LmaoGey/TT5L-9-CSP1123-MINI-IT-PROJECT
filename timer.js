@@ -144,6 +144,7 @@ function stopInterval() {
 }
 
 
+
 //levelbar
 let level = 1;
 let xp = 0;
