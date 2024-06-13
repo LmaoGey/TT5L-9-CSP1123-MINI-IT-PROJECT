@@ -208,11 +208,12 @@
     <tbody id='presetTable'></tbody>
   </table>
 </div>
+
+ 
     
     <script> 
  
 //// form custom preset////
-
 
 document.addEventListener("DOMContentLoaded", () => {
   const saveButton = document.getElementById("saveButton");
@@ -220,14 +221,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const customButton = document.getElementById("customButton");
   const Table = document.getElementById('Table');
   const containercustom = document.getElementById("containercustom")
+  
    
   let editingKey = null;
 
+   
   // Load presets from localStorage
   function loadPresets() {
     const presets = [];
+    const excludeCategories = ["Gaming", "Exercise", "House chores", "Study"];
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
+      if (excludeCategories.includes(key)) {
+        continue;
+      }
       if (key !== 'colour' && key !== 'selectedAudioEffect'&&key !== 'xp'&&key!='xpMax'&&key !== 'level') { 
         const presetData = JSON.parse(localStorage.getItem(key));
         presetData.name = key; 
@@ -347,11 +354,8 @@ document.addEventListener("DOMContentLoaded", () => {
   renderTable();
 });
 
-
 /////categories icon buttons ////
-  
 
- 
 document.addEventListener("DOMContentLoaded", () => {
   function saveSelectedTimes(section) {
     const categIcon = section.querySelector('.categicon').textContent.trim();
@@ -394,7 +398,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-///toggle bar ////
+  ///toggle bar ////
   document.querySelectorAll('.select-categ').forEach((item) => {
     item.addEventListener('click', function () {
       this.parentElement.classList.toggle('active');
@@ -408,36 +412,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  
-
   document.querySelectorAll('.mtts').forEach((section) => {
     loadSelectedTimes(section);
   });
 
- 
-
 });
 // reader stuff
 function backgroundsetter(){
-
-let storedColour = localStorage.getItem('colour');
-if (storedColour) {
+  let storedColour = localStorage.getItem('colour');
+  if (storedColour) {
     document.querySelector('body').style.setProperty('background-image', storedColour);
-};}
+  };
+}
 
-    function profilesetter() {
-        const storedPhoto = localStorage.getItem('userPhoto');
-        if (storedPhoto) {
-            const userphoto = document.getElementById('userPhoto');
-            userphoto.setAttribute('src', storedPhoto);
-        }
-    }
+function profilesetter() {
+  const storedPhoto = localStorage.getItem('userPhoto');
+  if (storedPhoto) {
+    const userphoto = document.getElementById('userPhoto');
+    userphoto.setAttribute('src', storedPhoto);
+  }
+}
 
-    window.onload = function(){
-      backgroundsetter();
-
-
-    }
+window.onload = function(){
+  backgroundsetter();
+}
 
 
 </script>
