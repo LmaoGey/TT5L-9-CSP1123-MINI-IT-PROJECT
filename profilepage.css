@@ -153,6 +153,18 @@ body {
     opacity:1;
 }
 
+.username #setname{
+    height: 20px;
+    width: 100px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.username #setname:hover{
+    translate: 2px;
+    cursor: pointer;
+}
+
 /****************selection**********/
 
 .selection{
@@ -382,20 +394,32 @@ section{
     opacity:0;
 }
 
+.unlock h3{
+    font-size: 1.3rem ;
+    margin-top: 5px;
+}
+
 .unlock .colourpreview{
     height:50px;
     width:50px;
     border-radius: 30%;
     border:black solid 1px;
     display:flex;
-    margin-left:750px;
-    margin-top: -50px;
+    margin-left:810px;
+    margin-top: -52px;
 }
 
 .unlock .songpreview i{
     display:flex;
-    margin-left:760px;
-    margin-top: -45px;
+    margin-left:820px;
+    margin-top: -42px;
+    font-size: 2rem;
+}
+
+.colourandsongpreview .songpreview i{
+    display:flex;
+    margin-left:830px;
+    margin-top: -42px;
     font-size: 2rem;
 }
 
@@ -405,7 +429,7 @@ section{
 }
 
 .colourandsongpreview .colourpreview{
-    margin-left: 680px;
+    margin-left: 760px;
 }
 
 /***************************************this is for background part*********************************/
