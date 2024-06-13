@@ -51,17 +51,6 @@ if (storedColour) {
     }
     
     
-    function playAlarm(videoID) {
-        if (alarmplayer && alarmplayer.loadVideoById) {
-           
-            if (musicplayer.getPlayerState() === YT.PlayerState.PLAYING) {
-                musicplayer.pauseVideo();
-            }
-           
-            alarmplayer.loadVideoById(videoID);
-            alarmplayer.playVideo();
-        }
-    }
     function onAlarmPlayerStateChange(event) {
     if (event.data === YT.PlayerState.ENDED) {
         alarmplayer.playVideo();  
@@ -95,6 +84,7 @@ function startTimerFunction() {
         alert("Timer is already running");
     }
 }
+
 
 function resetTimer() {
     wm.innerText = workMinutes < 10 ? '0' + workMinutes : workMinutes;
@@ -283,6 +273,64 @@ function removeTodoItemFromLocalStorage(task) {
 }
 
 
+
+///alarm
+document.addEventListener("DOMContentLoaded", function() {
+    var storedEffect = localStorage.getItem('selectedAudioEffect');
+    if (!storedEffect) {
+        localStorage.setItem('selectedAudioEffect', 'effect1'); // Default to Bell
+        storedEffect = 'effect1';
+        }
+        playAlarm(storedEffect);
+        });
+        
+
+function playAlarm(effect) {
+    var videoID;
+    switch (effect) {
+        case 'effect0':
+            videoID = ''; // No alarm
+            break;
+            case 'effect1':
+                videoID = 'Buie31LDKCs'; 
+                break;
+                case 'effect2':
+                    videoID = 'XN9yJt5Bozc'; 
+                    break;
+                    case 'effect3':
+                        videoID = '1YQmodWYx-g'; 
+                        break;
+                        case 'effect4':
+                            videoID = 'BmwDaNKYOaI';
+                            break;
+                            case 'effect5':
+                                videoID = 'VrCVHaOrIs4'; 
+            break;
+            case 'effect6':
+                videoID = '0jBGLticqgQ'; 
+                break;
+                case 'effect7':
+                    videoID = '0WJZVz2zShk'; 
+                    break;
+                    case 'effect8':
+                        videoID = '78IE9xvV0a8'; 
+                        break;
+                        case 'effect9':
+                            videoID = 'CSOsYLsU-Ko'; 
+                            break;
+                            case 'effect10':
+                                videoID = 'hwiZoQpreDM'; 
+                                break; 
+                                default:
+                                    videoID = 'Buie31LDKCs'; 
+                                    break;
+                                    }
+                                    if (videoID) {
+                                        alarmplayer.loadVideoById(videoID);
+                                        alarmplayer.playVideo();
+                                        }
+}
+
 window.onload = function() {
     loadProgress();
     initializeTimer();
@@ -291,60 +339,3 @@ window.onload = function() {
     profilesetter();
     onYouTubeIframeAPIReady();
 };
-
-///alarm
-document.addEventListener("DOMContentLoaded", function() {
-    var storedEffect = localStorage.getItem('selectedAudioEffect');
-    if (!storedEffect) {
-        localStorage.setItem('selectedAudioEffect', 'effect1'); // Default to Bell
-        storedEffect = 'effect1';
-    }
-    playAlarm(storedEffect);
-});
-
-
-function playAlarm(effect) {
-    var videoID;
-    switch (effect) {
-        case 'effect0':
-            videoID = ''; // No alarm
-            break;
-        case 'effect1':
-            videoID = 'Buie31LDKCs'; 
-            break;
-        case 'effect2':
-            videoID = 'XN9yJt5Bozc'; 
-            break;
-        case 'effect3':
-            videoID = '1YQmodWYx-g'; 
-            break;
-        case 'effect4':
-            videoID = 'BmwDaNKYOaI';
-            break;
-        case 'effect5':
-            videoID = 'VrCVHaOrIs4'; 
-            break;
-        case 'effect6':
-            videoID = '0jBGLticqgQ'; 
-            break;
-        case 'effect7':
-            videoID = '0WJZVz2zShk'; 
-            break;
-        case 'effect8':
-            videoID = '78IE9xvV0a8'; 
-            break;
-        case 'effect9':
-            videoID = 'CSOsYLsU-Ko'; 
-            break;
-        case 'effect10':
-            videoID = 'hwiZoQpreDM'; 
-            break; 
-        default:
-            videoID = 'Buie31LDKCs'; 
-            break;
-    }
-    if (videoID) {
-        alarmplayer.loadVideoById(videoID);
-        alarmplayer.playVideo();
-    }
-}
