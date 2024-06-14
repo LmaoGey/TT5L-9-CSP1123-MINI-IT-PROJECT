@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const customButton = document.getElementById("customButton");
   const Table = document.getElementById('Table');
   const containercustom = document.getElementById("containercustom");
-  
+
   let editingKey = null;
 
   // Load presets from localStorage
@@ -212,12 +212,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const excludeCategories = ["Gaming", "Exercise", "House chores", "Study"];
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
-      if (excludeCategories.includes(key)) {
-        continue;
-      }
-      if (key !== 'colour' && key !== 'selectedAudioEffect' && key !== 'xp' && key !== 'xpMax' && key !== 'level'&& key !=='todos' ) { 
+      if (excludeCategories.includes(key) || key.startsWith('custom')) {
         const presetData = JSON.parse(localStorage.getItem(key));
-        presetData.name = key; 
+        presetData.key = key; // Store the key in presetData
         presets.push(presetData);
       }
     }
@@ -227,10 +224,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Save preset to localStorage
   function savePreset(formData) {
-    const presetKey = formData.name;
-    const { name, ...data } = formData;  
-    localStorage.setItem(presetKey, JSON.stringify(data));
-    console.log('Saving:', data);
+    const presets = loadPresets();
+    const presetNumber = presets.length + 1;
+    const presetKey = `custom${presetNumber}`;
+    localStorage.setItem(presetKey, JSON.stringify(formData));
+    console.log('Saving:', formData);
   }
 
   // Delete preset from localStorage
@@ -253,8 +251,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <td>${preset.break}</td>
         <td>${preset.cycles}</td>
         <td>
-          <button onclick="editPreset('${preset.name}')">Edit</button>
-          <button onclick="deletePreset('${preset.name}')">Delete</button>
+          <button onclick="editPreset('${preset.key}')">Edit</button>
+          <button onclick="deletePreset('${preset.key}')">Delete</button>
         </td>
       `;
       presetTable.appendChild(row);
@@ -298,14 +296,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Edit preset
-  window.editPreset = function (name) {
-    const presetData = JSON.parse(localStorage.getItem(name));
-    document.getElementById("name").value = name;
+  window.editPreset = function (key) {
+    const presetData = JSON.parse(localStorage.getItem(key));
+    document.getElementById("name").value = presetData.name;
     document.getElementById("focus").value = presetData.focus;
     document.getElementById("break").value = presetData.break;
     document.getElementById("cycles").value = presetData.cycles;
 
-    editingKey = name;
+    editingKey = key;
   };
 
   // Delete preset
@@ -337,7 +335,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initial render of presets table
   renderTable();
 });
-
 // Categories icon buttons
 document.addEventListener("DOMContentLoaded", () => {
   function saveSelectedTimes(section) {
@@ -391,10 +388,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadSelectedTimes(section);
   });
 
-  // Render category table on load
-  renderCategoryTable();
 });
-
 // Background and profile image settings
 function backgroundsetter(){
   let storedColour = localStorage.getItem('colour');
