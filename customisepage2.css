@@ -1,250 +1,203 @@
-body{
-  position: 'fit-content';        
-  
-  background-position: center;
-  background-image: url(https://office365atwork.com/wp-content/uploads/2023/07/pexels-javier-gonzalez-1679801-scaled.jpg);
+body { 
+  background: url('https://office365atwork.com/wp-content/uploads/2023/07/pexels-javier-gonzalez-1679801-scaled.jpg') center/cover no-repeat;
   background-size: cover;
-  color:rgb(18, 13, 13);
-  padding:0;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
 }
-
-
 
 
 #saveButton {
-position:absolute;
-
-bottom:300px;
-left:300px; 
-top:80px;
-height: 10;
- background-color: #4CAF50;  
- border: none;  
- color: white;  
- padding:  30px;   
- text-align: center;  
- text-decoration: none;  
+  position: relative;
+  bottom: 50px;
+  right:9px;
+  left: 200px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  font-size: large;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s, outline 0.3s;
   
- font-size: 20px;  
- margin: 4px 2px;  
- cursor: pointer;  
- border-radius: 50px;  
- transition: background-color 0.3s, outline 0.3s;
-
 }
 
-.saveButton.hover {
-background-color: gainsboro;
-outline: #d9ddd9 solid 3px;
-cursor:pointer;
+#saveButton:hover {
+  background-color: gainsboro;
+  outline: #101610 solid 3px;
 }
 
+.mnt {
+  background-color: skyblue;
+  border-radius: 15px;
+  outline: #0c0f0c solid 2px;
+  font-size: large;
+  width: 20%;
+  padding: 20px;
+  position: relative;
+  right:200px;
+  box-shadow: 2px 4px 8px rgba(253, 253, 253, 0.882);
+  
  
-.mnt{
-  background-size: cover;
- border-radius:15px;
- outline: #cfd7cf solid 3px;
- font-size: 20px; 
- font-family: 'Gill Sans', 'Gill Sans MT',  'Trebuchet MS', sans-serif;
- height: "fit-content";
- width: 20%;
- background-color:skyblue;
- 
- bottom: 700px;
- left: 600px;
- 
- 
-
- 
-
-
 
 }
 
 .container {
   position: relative;
-  bottom: 100px;
-  left: 50%;
   transform: translateX(-50%);
-  font-size: 20px;
+   
   color: rgba(16, 69, 116, 0.65);
-  outline: #ebf8eb solid 3px;
-  width: 480px;
-  height: 350px;
+  outline: #0c0f0c solid 3px;
+  right: 30px;
+  margin-top: 20px;
+  width: 300px;
+  height: 348px;
   border-radius: 15px;
   background-color: palegreen;
-   
-  justify-content: center;
+ 
+ 
+  display: none;
   align-items: center;
   padding: 20px;
-  box-shadow: 5px 5px 8px 10px rgba(49, 47, 47, 0.1);
+  box-shadow: 2px 4px 8px rgba(253, 253, 253, 0.882);
 }
- 
 
+.container input[type="text"],
+.container input[type="number"] {
+  width: 150px;  
+  height: 30px;
+  padding: 5px;  
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 10px;  
+  box-sizing: border-box;
+}
 
-
-
-.breakbox{
- position:relative;
+.breakbox {
+  position: relative;
+  left:300px;
+  bottom: 100px;
   background-color: aqua;
-  outline: #ebf8eb solid 3px;
-  width: 480px;
-  width:fit-content;
-  padding:3px;
-   bottom: 100px;
-   margin-top: 30px;
-border-radius: 15px;
+  padding: 10px;
+  border-radius: 15px;
+  margin-top: 30px;
+  
+  outline: #101610 solid 3px;
+  box-shadow: 2px 4px 8px rgba(253, 253, 253, 0.882);
+}
+
+.cusbutton {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: large;
+  border-radius: 50px;
+  margin-top: 10px;
+  transition: background-color 0.3s, outline 0.3s;
   
 }
 
-
-.cusbutton{
-  position: relative;
-  padding:15px 30px;
-  border-radius: 50px; 
-  width:fit-content;
-  margin-top: 10px;
-  background-color: #4CAF50;  
-  border: none;  
-  color: white;  
-  padding: 15px 30px;   
-  text-align: center;  
-  text-decoration: none;  
-  display: inline-block;  
-  font-size: large; 
-   
+.cusbutton:hover {
+  background-color: gainsboro;
+  outline: #101610 solid 3px;
 }
 
-.cusbutton:hover{
-background-color: gainsboro;
-outline: #101610 solid 3px;
-cursor:pointer;
+.categ {
+  font-size: 25px;
+  text-decoration: none;
+  
+  padding: 15px;
+  border-radius: 10px;
+  background-color: white;
+  margin-top: 30px;
+  overflow: hidden;
+  transition: background-color 0.3s, outline 0.3s;
 }
 
-
-.categ{
-font-size: 25px;
-text-decoration: none;
-display: block;
-padding:15px 15px;
-width: fit-content;
-height: 90px;
-border-radius: 10px;
- 
-background-color: white;
-margin-top: 30px;
-margin-left: 10px;
-overflow: hidden;
+.categ:hover {
+  background-color: gainsboro;
+  outline: #101610 solid 3px;
 }
 
-.categ:hover{
-background-color: gainsboro;
-outline: #101610 solid 3px;
-cursor:pointer;
-}
-.categ .categicon i{
-margin-right: 5px;
- 
+.categ .categicon i {
+  margin-right: 5px;
 }
 
-.categ .dropdownicon i{
-position:absolute;
-right: 10px;;
-transition: 1s;
+.categ .dropdownicon i {
+  position: absolute;
+  right: 10px;
+  transition: 1s;
 }
 
- 
-
- 
-
-.categ-selection{
-position:relative;
-padding: 20px;
-width: fit-content;
-height: fit-content;
-margin-top:20px;
-margin-left:10px;
-border-radius: 10px;
-box-shadow: 2px 2px 2px 2px #000000;
-background-color: rgba(104, 23, 23, 0.37);
-display:none;
+.categ-selection {
+  padding: 9px;
+  margin-top: 2px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px #000000;
+  background-color: rgba(104, 23, 23, 0.37);
+  display: none;
 }
 
 .mtts.active .categ-selection{
-display:flex;
-flex-wrap:wrap;
+  display:flex;
+  flex-wrap:wrap;
+  }
+  
+.categ-container {
+  width: fit-content;
+  margin-right: auto;
 }
 
-
-
-.categ-container{
- width:fit-content;
- margin-right: "fit-content";
+.categ-container .select-categ {
+  display: flex;
+  background-color: white;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 15px;
 }
 
-.categ-container .select-categ{
- display: flex;
- height:fit-content;
- width:fit-content;
- background-color: white;
- padding:20px;
- font-size:18px;
- font-weight:500;
- border-radius: 15px;
-
-
+.select-categ i {
+  transition: 0.5s;
 }
-
-.select-categ i{
- transition: 0.5s;
-}
- 
 
 .categ-container .categ-option {
- position:relative;
- padding:10px;
- width: 90px;
- margin-top:10px;
- border-radius: 5px;
- background-color: white;
- box-shadow: 1.3px #000000;
- 
+  position: relative;
+  padding: 10px;
+  width: 90px;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 1.3px #000000;
 }
 
-
- 
-.categ-option .option{
- display:flex;
- height:10px;
- border-radius: 5px;
- padding-left:10px;
- padding-right:10px;
- align-items: center;
- background-color: white;
- justify-content: space-between;
- 
- font-size:20px;
+.categ-option .option {
+  display: flex;
+  border-radius: 5px;
+  padding: 10px;
+  align-items: center;
+  background-color: white;
+  justify-content: space-between;
+  font-size: 20px;
 }
 
- 
-
- 
-
-table{
-
-margin-top: 10px;
- width: 500px;
- border-collapse: collapse;
- 
+table {
+  margin-top: 10px;
+  width: 500px;
+  border-collapse: collapse;
 }
 
-
-td{
+td {
   border: 1px solid rgb(64, 33, 33);
-  text-align:left;
-  padding:8px 15px;
+  text-align: left;
+  padding: 8px 15px;
 }
-
