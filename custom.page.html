@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (excludeCategories.includes(key)) {
         continue;
       }
-      if (key !== 'colour' && key !== 'selectedAudioEffect' && key !== 'xp' && key !== 'xpMax' && key !== 'level'&& key !=='todos') { 
+      if (key !== 'colour' && key !== 'selectedAudioEffect' && key !== 'xp' && key !== 'xpMax' && key !== 'level'&& key !=='todos' ) { 
         const presetData = JSON.parse(localStorage.getItem(key));
         presetData.name = key; 
         presets.push(presetData);
