@@ -297,8 +297,20 @@ function playAlarm(effect) {
                                         }
 }
  
-
-
+////statictics focus time////
+function savePreset(formData) {
+    const presets = loadPresets();
+    const presetNumber = presets.length + 1;
+    const presetKey = `custom${presetNumber}`;
+    localStorage.setItem(presetKey, JSON.stringify(formData));
+    console.log('Saving:', formData);
+  
+    // Update statistics with focus time data
+    const focusTime = formData.focus;
+    const linegraph = JSON.parse(localStorage.getItem('linegraph')) || { focusData: [] };
+    linegraph.focusData.push(focusTime);
+    localStorage.setItem('linegraph', JSON.stringify(linegraph));
+  }
 
 window.onload = function() {
     loadProgress();
