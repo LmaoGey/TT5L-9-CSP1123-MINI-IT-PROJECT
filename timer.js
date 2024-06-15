@@ -71,10 +71,10 @@ function playMusic(videoID) {
     
 
 //timer
-let workMinutes = 6;
-let breakMinutes = 6;
-let workseconds = 2;
-let breakseconds = 2;
+let workMinutes = 25;
+let breakMinutes = 5;
+let workseconds = 0;
+let breakseconds = 0;
 
 function initializeTimer() {
     wm.innerText = workMinutes < 10 ? '0' + workMinutes : workMinutes;
@@ -247,7 +247,19 @@ function getPresetsFromLocalStorage() {
 }
 
  
- 
+var timerModeDisplay = document.getElementById('timerMode');
+
+// Function to update the timer mode display
+function updateTimerModeDisplay() {
+    if (cyclesCountUp) {
+        timerModeDisplay.textContent = "Timer Mode: Count Up";
+    } else {
+        timerModeDisplay.textContent = "Timer Mode: Count Down";
+    }
+}
+
+// Call the function initially to set the initial state
+updateTimerModeDisplay();
 
  
 
@@ -338,13 +350,17 @@ function playAlarm(effect) {
 function toggleCycleMode() {
     cyclesCountUp = !cyclesCountUp;
     if (!cyclesCountUp) {
-        initialCycles = parseInt(prompt("Enter the number of cycles:", "5")) || 5;
+        const presets = getPresetsFromLocalStorage();
+        const defaultPreset = presets.length > 0 ? presets[0] : null;
+        initialCycles = defaultPreset ? defaultPreset.cycles : 5;
     }
+    counter.innerText = cyclesCountUp ? 0 : initialCycles;
     resetTimer();
+    updateTimerModeDisplay();
 }
-function updateTimer(focusMinutes, breakMinutes, cycles) {
+function updateTimer(focusMinutes, breakMinutesParam, cycles) {
     workMinutes = focusMinutes;
-    restMinutes = breakMinutes;
+    breakMinutes = breakMinutesParam; 
     initialCycles = cycles;
 
     wm.innerText = focusMinutes < 10 ? '0' + focusMinutes : focusMinutes;

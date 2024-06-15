@@ -6,9 +6,8 @@
 }
 
 :root{
-    background-image:url(./placeholderbackground.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image:linear-gradient(to bottom right, lightblue, darkblue);
+
 }
 body {
     min-height: 100vh;
@@ -336,4 +335,23 @@ td button {
 
 td button:hover {
     background-color: #0056b3;
+}
+#timerMode {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+.teller{
+    position: fixed;
+    top: 0%;
+    background-color: rgba(12, 32, 41, 0.793); 
+    text-align: center;
+
+
+}
+
+#timerMode{
+    color: #d1d8de;
 }
