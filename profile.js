@@ -543,8 +543,8 @@ function getFocusTimeData() {
 
     // Aggregate focus time data by day
     presets.forEach(preset => {
-        if (focusTimeData.hasOwnProperty(preset.day)) {
-            focusTimeData[preset.day] += preset.focus;
+        if (focusTimeData.hasOwnProperty()) {
+            focusTimeData[daysOfWeek] += preset.focus;
         }
     });
 
@@ -574,7 +574,11 @@ function getPresetsFromLocalStorage() {
  
 
  // Function to save preset data to localStorage
-function savePreset(focus, day) {
+function savePreset(focus) {
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const d = new Date();
+    let day = daysOfWeek[d.getDay()]; 
+
     const presetData = {
         focus: focus,
         day: day,
