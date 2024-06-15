@@ -165,13 +165,13 @@
       <input type="text" name="name" id="name" value="" placeholder="enter your name" />
     
       <p><label for="focus">Focus:</label></p>
-      <input type="number" name="focus" id="focus" value="" placeholder="min" min="1" max="30" />
+      <input type="number" name="focus" id="focus" value="" placeholder="min" min="1" max="25" />
     
       <p><label for="break">Break:</label></p>
-      <input type="number" name="break" id="break" value="" placeholder="min" min="1" max="30" />
+      <input type="number" name="break" id="break" value="" placeholder="min" min="1" max="25" />
     
       <p><label for="cycle">Cycles:</label></p>
-      <input type="number" name="cycles" id="cycles" value="" placeholder="cycles" min="1" max="30" />
+      <input type="number" name="cycles" id="cycles" value="" placeholder="cycles" min="1" max="25" />
     
       <div class="save-message"></div>
       <div id="savedInputs"></div>
@@ -277,7 +277,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Validate input values
   function isValidInput(value) {
-    return value >= 1 && value <= 30;
+    return value >= 1 && value <= 25;
   }
 
   // Event listener for save button
@@ -292,7 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     if (!formData.name || !isValidInput(formData.focus) || !isValidInput(formData.break) || !isValidInput(formData.cycles)) {
-      alert("Please enter valid values for all fields (1-30)!");
+      alert("Please enter valid values for all fields (1-25)!");
       return;
     }
 
