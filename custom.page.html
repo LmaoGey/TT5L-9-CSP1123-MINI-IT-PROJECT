@@ -192,6 +192,11 @@
         <tbody id='presetTable'></tbody>
       </table>
     </div>
+
+
+    <div>
+      <button class="pill-button" id='timer'>Timer page</button>
+    </div>
     
     <script> 
  
@@ -203,6 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const customButton = document.getElementById("customButton");
    
   const containercustom = document.getElementById("containercustom");
+  const timer =document.getElementById("timer");
 
   let editingKey = null;
 
@@ -324,6 +330,13 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log('Form display:', containercustom.style.display);
   });
 
+  // brings to timer page///
+timer.addEventListener('click', () => {
+ window.location.href='timer.htm';
+ 
+
+});
+
   // Initial render of presets table
   renderTable();
 });
@@ -380,8 +393,12 @@ document.addEventListener("DOMContentLoaded", () => {
     loadSelectedTimes(section);
   });
 
+ 
+ 
+ 
+
 });
-// Background and profile image settings
+// Background color and profile image settings
 function backgroundsetter(){
   let storedColour = localStorage.getItem('colour');
   if (storedColour) {
