@@ -266,3 +266,60 @@ transform: translate(-50%, -50%);
 
 
 }
+#presets-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Soft shadow effect */
+}
+
+#presets-table th,
+#presets-table td {
+    padding: 10px;
+    text-align: center;
+}
+
+#presets-table th {
+    background-color: rgba(0, 0, 0, 0.3); /* Transparent black background for headers */
+    color: white; /* White text color for headers */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Blur effect */
+    opacity: 0.8; /* Adjust transparency */
+}
+
+#presets-table td {
+    border: 1px solid #ddd; /* Light gray border for cells */
+}
+
+#presets-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Alternate row background color */
+}
+
+#presets-table tbody tr:hover {
+    background-color: #e0e0e0; /* Hover effect for rows */
+}
+
+#welcome-message {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1000; 
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.4); 
+    text-align: center;
+    border: 3px solid #f1f1f1;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#welcome-message h1 {
+    font-size: 3rem; 
+    color: #ece8e8; 
+    font-family: Arial, sans-serif; 
+    text-align: center;
+    top: 60%;
+    left: 50%;
+    
+}
