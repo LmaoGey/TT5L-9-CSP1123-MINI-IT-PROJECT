@@ -572,24 +572,7 @@ function getPresetsFromLocalStorage() {
  
 
  
-// Function to save preset data to localStorage
-function savePreset(focus) {
-    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const d = new Date();
-    let day = daysOfWeek[d.getDay()]; 
 
-    // Check if focus is valid
-    if (focus >= 1 && focus <= 25) {
-        const presetData = {
-            focus: focus,
-            day: day,
-        };
-        const key = 'custom_' + day; // Ensure each day has a unique key
-        localStorage.setItem(key, JSON.stringify(presetData.focus));
-        console.log('Preset saved for', day, 'with focus:', focus);
-    } else {
-        console.error('Focus value is not valid. Focus should be between 1 and 25.');
-    }
-}
+
 
  

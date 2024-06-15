@@ -71,8 +71,8 @@ function playMusic(videoID) {
     
 
 //timer
-let workMinutes = 0;
-let breakMinutes = 0;
+let workMinutes = 6;
+let breakMinutes = 6;
 let workseconds = 2;
 let breakseconds = 2;
 
@@ -118,6 +118,7 @@ function formatTime(value) {
 
 function timer() {
     if (ws.innerText != 0) {
+        accumulateTimerValues();
         ws.innerText = formatTime(parseInt(ws.innerText) - 1);
     } else if (wm.innerText != 0 && ws.innerText == 0) {
         ws.innerText = 59;
@@ -126,6 +127,7 @@ function timer() {
 
     if (wm.innerText == 0 && ws.innerText == 0) {
         playAlarm(videoID);
+        accumulateTimerValues();
         if (bs.innerText != 0) {
             bs.innerText = formatTime(parseInt(bs.innerText) - 1);
         } else if (bm.innerText != 0 && bs.innerText == 0) {
@@ -222,9 +224,11 @@ function loadPresets() {
             <td>${preset.focus}</td>
             <td>${preset.break}</td>
             <td>${preset.cycles}</td>
+                <td><button onclick="updateTimer(${preset.focus}, ${preset.break}, ${preset.cycles})">Set Timer</button></td>
         `;
         presetsTableBody.appendChild(row);
     });
+    
 }
 function getPresetsFromLocalStorage() {
     const presets = [];
@@ -256,8 +260,14 @@ if (!username) {
 }
 document.getElementById('userup').textContent = username;
 
+//for the day
 
 
+const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+const d = new Date();
+let day = weekday[d.getDay()];
+document.getElementById("day").innerHTML = day;
 
 
 
@@ -317,7 +327,10 @@ function playAlarm(effect) {
                                     if (videoID) {
                                         alarmplayer.loadVideoById(videoID);
                                         alarmplayer.playVideo();
-                                        }
+                                        }    setTimeout(function() {
+                                            alarmplayer.stopVideo();
+                                        }, 4000); // 5000 milliseconds = 5 seconds
+                                    
 }
 
 //cycle countdown
@@ -329,17 +342,70 @@ function toggleCycleMode() {
     }
     resetTimer();
 }
- 
- 
-  
+function updateTimer(focusMinutes, breakMinutes, cycles) {
+    workMinutes = focusMinutes;
+    restMinutes = breakMinutes;
+    initialCycles = cycles;
 
-function toggleCycleMode() {
-    cyclesCountUp = !cyclesCountUp;
-    if (!cyclesCountUp) {
-        initialCycles = parseInt(prompt("Enter the number of cycles:", "5")) || 5;
-    }
+    wm.innerText = focusMinutes < 10 ? '0' + focusMinutes : focusMinutes;
+    bm.innerText = breakMinutes < 10 ? '0' + breakMinutes : breakMinutes;
+    ws.innerText = '00';
+    bs.innerText = '00';
+    counter.innerText = cyclesCountUp ? 0 : cycles;
+
     resetTimer();
 }
+
+
+
+function accumulateTimerValues() {
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const d = new Date();
+    const day = daysOfWeek[d.getDay()];
+
+    let timerData = loadTimerData(day);
+
+   
+    const currentWorkMinutes = parseInt(wm.innerText);
+    const currentWorkSeconds = parseInt(ws.innerText);
+    timerData.workSeconds = (timerData.workSeconds || 0) + 1;
+
+    
+    saveOrUpdateTimerData(day, timerData);
+
+    
+    if (currentWorkMinutes === 0 && currentWorkSeconds === 0) {
+        const currentBreakMinutes = parseInt(bm.innerText);
+        const currentBreakSeconds = parseInt(bs.innerText);
+
+        timerData = loadTimerData(day); 
+
+        timerData.breakMinutes = (timerData.breakMinutes || 0) + currentBreakMinutes;
+        timerData.breakSeconds = (timerData.breakSeconds || 0) + currentBreakSeconds;
+
+   
+        saveOrUpdateTimerData(day, timerData);
+    }
+}
+
+function saveOrUpdateTimerData(day, data) {
+    let timerData = loadTimerData(day);
+    timerData = { ...timerData, ...data };
+    localStorage.setItem(`timerData_${day}`, JSON.stringify(timerData));
+}
+
+function loadTimerData(day) {
+    const storedData = localStorage.getItem(`timerData_${day}`);
+    return storedData ? JSON.parse(storedData) : {};
+}
+
+
+
+
+
+
+
+ 
 
 window.onload = function () {
     loadPresets();
@@ -348,5 +414,4 @@ window.onload = function () {
     backgroundsetter();
     profilesetter();
 };
- 
  
