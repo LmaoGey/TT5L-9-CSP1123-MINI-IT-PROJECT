@@ -76,18 +76,7 @@ let breakMinutes = 0;
 let workseconds = 0;
 let breakseconds = 0;
 
- 
-
-// Initialize timer using preset data
 function initializeTimer() {
-    const presets = getPresetsFromLocalStorage(); // Get presets from localStorage
-    const defaultPreset = presets.length > 0 ? presets[0] : null; // Assuming the first preset as default
-
-    // Set workMinutes and breakMinutes from the default preset or default values
-    workMinutes = defaultPreset ? defaultPreset.focus : 25; // Default work minutes or preset focus
-    breakMinutes = defaultPreset ? defaultPreset.break : 5; // Default break minutes or preset break
-
-    // Set initial timer display
     wm.innerText = workMinutes < 10 ? '0' + workMinutes : workMinutes;
     ws.innerText = workseconds < 10 ? '0' + workseconds : workseconds;
     bm.innerText = breakMinutes < 10 ? '0' + breakMinutes : breakMinutes;
@@ -107,6 +96,7 @@ function startTimerFunction() {
         alert("Timer is already running");
     }
 }
+
 function resetTimer() {
     wm.innerText = workMinutes < 10 ? '0' + workMinutes : workMinutes;
     ws.innerText = workseconds < 10 ? '0' + workseconds : workseconds;
@@ -115,7 +105,7 @@ function resetTimer() {
     counter.innerText = cyclesCountUp ? 0 : initialCycles;
     stopInterval();
     startTimer = undefined;
-    }
+}
 
 function stopTimer() {
     stopInterval();
@@ -128,6 +118,7 @@ function formatTime(value) {
 
 function timer() {
     if (ws.innerText != 0) {
+        accumulateTimerValues();
         ws.innerText = formatTime(parseInt(ws.innerText) - 1);
     } else if (wm.innerText != 0 && ws.innerText == 0) {
         ws.innerText = 59;
@@ -136,6 +127,7 @@ function timer() {
 
     if (wm.innerText == 0 && ws.innerText == 0) {
         playAlarm(videoID);
+        accumulateTimerValues();
         if (bs.innerText != 0) {
             bs.innerText = formatTime(parseInt(bs.innerText) - 1);
         } else if (bm.innerText != 0 && bs.innerText == 0) {
@@ -225,55 +217,34 @@ const presetsTableBody = document.getElementById('presets-body');
 // Function to load presets from localStorage
 function loadPresets() {
     const presets = getPresetsFromLocalStorage();
-    presets.forEach((preset, index) => {  // Add index as the second parameter in forEach
+    presets.forEach(preset => {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${preset.name}</td>
             <td>${preset.focus}</td>
             <td>${preset.break}</td>
             <td>${preset.cycles}</td>
-            <td>
-                <button class="set-timer" data-index="${index}">Set Timer</button>
-            </td>
+                <td><button onclick="updateTimer(${preset.focus}, ${preset.break}, ${preset.cycles})">Set Timer</button></td>
         `;
         presetsTableBody.appendChild(row);
     });
-    // Add event listeners for "Set Timer" buttons
-    document.querySelectorAll('.set-timer').forEach(button => {
-        button.addEventListener('click', (event) => {
-            const index = event.target.getAttribute('data-index');
-            setTimerValues(presets[index]);
-        });
-    });
+    
 }
-
-// Function to get presets from localStorage
 function getPresetsFromLocalStorage() {
     const presets = [];
     for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
         if (key.startsWith('custom')) {
             const presetData = JSON.parse(localStorage.getItem(key));
+            
+            presetData.focus = parseInt(presetData.focus);
+            presetData.break = parseInt(presetData.break);
+            presetData.cycles = parseInt(presetData.cycles);
             presets.push(presetData);
         }
-    }
+    };
     return presets;
 }
-
-// Function to set timer values based on the selected preset
-function setTimerValues(preset) {
-    document.getElementById("name").value = preset.name;
-    document.getElementById("focus").value = preset.focus;
-    document.getElementById("break").value = preset.break;
-    document.getElementById("cycles").value = preset.cycles;
-    alert(`Timer set to: Focus ${preset.focus}, Break ${preset.break}, Cycles ${preset.cycles}`);
-}
-
-// Load presets when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', () => {
-    loadPresets();
-});
-
 
  
  
@@ -289,8 +260,14 @@ if (!username) {
 }
 document.getElementById('userup').textContent = username;
 
+//for the day
 
 
+const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+const d = new Date();
+let day = weekday[d.getDay()];
+document.getElementById("day").innerHTML = day;
 
 
 
@@ -350,7 +327,10 @@ function playAlarm(effect) {
                                     if (videoID) {
                                         alarmplayer.loadVideoById(videoID);
                                         alarmplayer.playVideo();
-                                        }
+                                        }    setTimeout(function() {
+                                            alarmplayer.stopVideo();
+                                        }, 4000); // 5000 milliseconds = 5 seconds
+                                    
 }
 
 //cycle countdown
@@ -360,13 +340,85 @@ function toggleCycleMode() {
     if (!cyclesCountUp) {
         const presets = getPresetsFromLocalStorage();
         const defaultPreset = presets.length > 0 ? presets[0] : null;
-        initialCycles =defaultPreset ? defaultPreset.cycles : 5; ;
+        initialCycles = defaultPreset ? defaultPreset.cycles : 5;
     }
+    counter.innerText = cyclesCountUp ? 0 : initialCycles;
     resetTimer();
 }
- 
- 
-  
+function updateTimer(focusMinutes, breakMinutesParam, cycles) {
+    workMinutes = focusMinutes;
+    breakMinutes = breakMinutesParam; 
+    initialCycles = cycles;
+
+    wm.innerText = focusMinutes < 10 ? '0' + focusMinutes : focusMinutes;
+    bm.innerText = breakMinutes < 10 ? '0' + breakMinutes : breakMinutes;
+    ws.innerText = '00';
+    bs.innerText = '00';
+    counter.innerText = cyclesCountUp ? 0 : cycles;
+
+    resetTimer();
+}
+
+
+
+function accumulateTimerValues() {
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const d = new Date();
+    const day = daysOfWeek[d.getDay()];
+
+    let timerData = loadTimerData(day);
+
+   
+    const currentWorkMinutes = parseInt(wm.innerText);
+    const currentWorkSeconds = parseInt(ws.innerText);
+    timerData.workSeconds = (timerData.workSeconds || 0) + 1;
+
+    
+    saveOrUpdateTimerData(day, timerData);
+
+    
+    if (currentWorkMinutes === 0 && currentWorkSeconds === 0) {
+        const currentBreakMinutes = parseInt(bm.innerText);
+        const currentBreakSeconds = parseInt(bs.innerText);
+
+        timerData = loadTimerData(day); 
+
+        timerData.breakMinutes = (timerData.breakMinutes || 0) + currentBreakMinutes;
+        timerData.breakSeconds = (timerData.breakSeconds || 0) + currentBreakSeconds;
+
+   
+        saveOrUpdateTimerData(day, timerData);
+    }
+}
+
+function saveOrUpdateTimerData(day, data) {
+    let timerData = loadTimerData(day);
+    timerData = { ...timerData, ...data };
+    localStorage.setItem('timerData_${day}', JSON.stringify(timerData));
+}
+
+function loadTimerData(day) {
+    const storedData = localStorage.getItem(timerData_${day});
+    return storedData ? JSON.parse(storedData) : {};
+}
+
+function toggleCycleMode() {
+    cyclesCountUp = !cyclesCountUp;
+    if (!cyclesCountUp) {
+        const presets = getPresetsFromLocalStorage();
+        const defaultPreset = presets.length > 0 ? presets[0] : null;
+        initialCycles = defaultPreset ? defaultPreset.cycles : 5;
+    }
+    counter.innerText = cyclesCountUp ? 0 : initialCycles;
+    resetTimer();
+    updateTimerModeDisplay();
+}
+
+
+
+
+
+
  
 
 window.onload = function () {
@@ -376,5 +428,3 @@ window.onload = function () {
     backgroundsetter();
     profilesetter();
 };
- 
- 
