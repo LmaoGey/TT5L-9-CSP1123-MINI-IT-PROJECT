@@ -538,7 +538,9 @@ function getFocusTimeData() {
         Thursday: 0,
         Friday: 0,
         Saturday: 0,
-        Sunday: 0
+        Sunday: 0,
+
+        
     };
 
     // Aggregate focus time data by day
