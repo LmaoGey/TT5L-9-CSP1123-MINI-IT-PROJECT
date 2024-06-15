@@ -177,6 +177,7 @@
       <div id="savedInputs"></div>
     
       <p><a href="#" id="saveButton" class="pill-button">Add</a></p>
+      <p><a href="#" id="applyNextPreset" class="pill-button">Apply Next Preset</a></p>
     </div>
     
     <div class="breakbox">
@@ -208,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const saveButton = document.getElementById("saveButton");
   const presetTable = document.getElementById("presetTable");
   const customButton = document.getElementById("customButton");
-   
+  
   const containercustom = document.getElementById("containercustom");
   const timer =document.getElementById("timer");
 
@@ -302,6 +303,8 @@ document.addEventListener("DOMContentLoaded", () => {
     renderTable();
     resetForm();
   });
+
+ 
 
   // Edit preset
   window.editPreset = function (key) {
