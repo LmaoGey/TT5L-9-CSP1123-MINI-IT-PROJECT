@@ -1,5 +1,5 @@
 body { 
-  background: url('https://office365atwork.com/wp-content/uploads/2023/07/pexels-javier-gonzalez-1679801-scaled.jpg') ;
+  background:linear-gradient(to bottom right, lightblue, darkblue) ;
   background-size: cover;
   
   display: flex;
