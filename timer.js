@@ -216,8 +216,6 @@ function loadPresets() {
         presetsTableBody.appendChild(row);
     });
 }
-
-// Function to retrieve presets from localStorage
 function getPresetsFromLocalStorage() {
     const presets = [];
     for (let i = 0; i < localStorage.length; i++) {
@@ -231,9 +229,15 @@ function getPresetsFromLocalStorage() {
             presets.push(presetData);
         }
     };
-    return presets;
+    return presets;
 }
 
+ 
+ 
+
+ 
+
+ 
 
 //for the username
 let username = localStorage.getItem('username');
@@ -306,29 +310,17 @@ function playAlarm(effect) {
                                         }
 }
  
-////statictics focus time////
-function savePreset(formData) {
-    const presets = loadPresets();
-    const presetNumber = presets.length + 1;
-    const presetKey = `custom${presetNumber}`;
-    localStorage.setItem(presetKey, JSON.stringify(formData));
-    console.log('Saving:', formData);
+ 
   
-    // Update statistics with focus time data
-    const focusTime = formData.focus;
-    const linegraph = JSON.parse(localStorage.getItem('linegraph')) || { focusData: [] };
-    linegraph.focusData.push(focusTime);
-    localStorage.setItem('linegraph', JSON.stringify(linegraph));
-  }
 
-window.onload = function() {
+window.onload = function () {
+    loadPresets();
     loadProgress();
     initializeTimer();
     backgroundsetter();
     profilesetter();
-    loadPresets();
     userchange();
-    onYouTubeIframeAPIReady();
+    //onYouTubeIframeAPIReady();
 };
 
  

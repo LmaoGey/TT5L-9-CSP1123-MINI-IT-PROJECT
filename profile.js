@@ -427,13 +427,14 @@ rewardss.onclick = function(){
 };
 ///////////line graph
 const lineGraph = document.getElementById('lineGraph').getContext('2d');
+const focusTimeData = getFocusTimeData();
 const linegraph = new Chart(lineGraph, {
     type: 'line',
     data: {
         labels: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
         datasets: [{
           label: 'Time focused (in hour)',
-          data: [2,1.5,15,20,14,22,0],
+          data: focusTimeData,
           fill: false,
           backgroundColor: ['#00FFFF'],
           borderColor: ['#0000FF'],
@@ -478,8 +479,8 @@ const linegraph = new Chart(lineGraph, {
                 min: 0, 
                 max: 25, 
             }
-        }
-    }
+}
+}
 });
 
 ////////pie chart
@@ -522,3 +523,60 @@ const piechart = new Chart(pieChart, {
     }
 });
 
+///statictics line graph///
+
+
+// Get focus time data from presets and categorize by day
+function getFocusTimeData() {
+    const presets = getPresetsFromLocalStorage();
+    const focusTimeData = {
+        Monday: 0,
+        Tuesday: 0,
+        Wednesday: 0,
+        Thursday: 0,
+        Friday: 0,
+        Saturday: 0,
+        Sunday: 0
+    };
+
+    // Aggregate focus time data by day
+    presets.forEach(preset => {
+        if (focusTimeData.hasOwnProperty(preset.day)) {
+            focusTimeData[preset.day] += preset.focus;
+        }
+    });
+
+    // Return an array of focus times for each day
+    return Object.values(focusTimeData).map(minutes => minutes / 60);
+}
+
+
+// Function to retrieve presets from localStorage //line graph///
+function getPresetsFromLocalStorage() {
+    const presets = [];
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key.startsWith('custom')) {
+            const presetData = JSON.parse(localStorage.getItem(key));
+            presetData.focus = parseInt(presetData.focus);
+            presetData.break = parseInt(presetData.break);
+            presetData.cycles = parseInt(presetData.cycles);
+            presets.push(presetData);
+        }
+    }
+    return presets;
+}
+
+ 
+
+ 
+
+ // Function to save preset data to localStorage
+function savePreset(focus, day) {
+    const presetData = {
+        focus: focus,
+        day: day,
+    };
+    const key = 'custom_' + day; // Ensure each day has a unique key
+    localStorage.setItem(key, JSON.stringify(presetData.focus));
+}
