@@ -194,84 +194,49 @@ function updateLevelBar() {
 
 
 // timer reader
-const addButton = document.querySelector('.todoitems button');
-const inputBox = document.getElementById('todoinput-box');
-const todoList = document.querySelector('.todoitems');
+const presetsTableBody = document.getElementById('presets-body');
 
-addButton.addEventListener('click', () => {
-    const task = inputBox.value.trim();
-    if (task) {
-        addTodoItem(task);
-        inputBox.value = '';
-    }
-});
-
-function addTodoItem(task) {
-    const todoItem = document.createElement('div');
-    todoItem.classList.add('row');
-
-    const taskText = document.createElement('span');
-    taskText.textContent = task;
-
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
-    deleteButton.classList.add('btn');
-    deleteButton.addEventListener('click', () => {
-        todoList.removeChild(todoItem);
+// Function to load presets from localStorage
+function loadPresets() {
+    const presets = getPresetsFromLocalStorage();
+    presets.forEach(preset => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${preset.name}</td>
+            <td>${preset.focus}</td>
+            <td>${preset.break}</td>
+            <td>${preset.cycles}</td>
+        `;
+        presetsTableBody.appendChild(row);
     });
-
-    todoItem.appendChild(taskText);
-    todoItem.appendChild(deleteButton);
-    todoList.appendChild(todoItem);
-    saveTodos();
-}
-function saveTodos() {
-    const todos = [];
-    document.querySelectorAll('.todoitems .row span').forEach(todo => {
-        todos.push(todo.textContent);
-    });
-    localStorage.setItem('todos', JSON.stringify(todos));
 }
 
-function loadTodos() {
-    const savedTodos = JSON.parse(localStorage.getItem('todos'));
-    if (savedTodos) {
-        savedTodos.forEach(todo => {
-            addTodoItem(todo, false);
-        });
+// Function to retrieve presets from localStorage
+function getPresetsFromLocalStorage() {
+    const presets = [];
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key.startsWith('custom')) {
+            const presetData = JSON.parse(localStorage.getItem(key));
+            presets.push(presetData);
+        }
     }
+    console.log(presets);
+    return presets;
 }
 
 
-function addTodoItem(task, save = true) {
-    const todoItem = document.createElement('div');
-    todoItem.classList.add('row');
-
-    const taskText = document.createElement('span');
-    taskText.textContent = task;
-
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'add';
-    deleteButton.classList.add('btn');
-    deleteButton.addEventListener('click', () => {
-        todoList.removeChild(todoItem);
-        removeTodoItemFromLocalStorage(task); 
-    });
-
-    todoItem.appendChild(taskText);
-    todoItem.appendChild(deleteButton);
-    todoList.appendChild(todoItem);
-
-    if (save) {
-        saveTodos();
-    }
+//for the username
+let username = localStorage.getItem('username');
+if (!username) {
+    username = 'user'; 
 }
+document.getElementById('userup').textContent = username;
 
-function removeTodoItemFromLocalStorage(task) {
-    const savedTodos = JSON.parse(localStorage.getItem('todos'));
-    const updatedTodos = savedTodos.filter(todo => todo !== task);
-    localStorage.setItem('todos', JSON.stringify(updatedTodos));
-}
+
+
+
+
 
 
 
@@ -339,10 +304,10 @@ window.onload = function() {
     loadProgress();
     initializeTimer();
     backgroundsetter();
-    loadTodos();
     profilesetter();
     onYouTubeIframeAPIReady();
-    ;
+    loadPresets();
+    userchange();
 };
 
  
