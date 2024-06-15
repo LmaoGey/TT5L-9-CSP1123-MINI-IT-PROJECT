@@ -31,11 +31,12 @@ if (storedColour) {
         initAlarmPlayer();
         }
     var alarmplayer;
-    
+
     function initAlarmPlayer() {
         alarmplayer = new YT.Player('alarm-player', {
             height: '0',
             width: '0',
+            videoID: '', 
             events: {
                 'onReady': onAlarmPlayerReady,
                 'onStateChange': onAlarmPlayerStateChange
@@ -46,7 +47,6 @@ if (storedColour) {
     function onAlarmPlayerReady(event) {
         var alarmVolume = localStorage.getItem('alarmVolume') || 100;
         alarmplayer.setVolume(alarmVolume);
-        document.getElementById('alarmvolume-control').value = alarmVolume;
         
     }
     
@@ -56,12 +56,14 @@ if (storedColour) {
         alarmplayer.playVideo();  
     }
 }
-function onAlarmPlayerReady(event) { 
-    var alarmVolume = localStorage.getItem('alarmVolume') || 100;
-    alarmplayer.setVolume(alarmVolume);
-    document.getElementById('alarmvolume-control').value = alarmVolume;
-}
+function playMusic(videoID) {
+    if (musicplayer && musicplayer.loadVideoById) {
+        musicplayer.loadVideoById(videoID);
+        musicplayer.playVideo();
+        localStorage.setItem('selectedMusic', videoID);
 
+    }
+}
 
     
 
@@ -120,8 +122,10 @@ function timer() {
     }
 
     if (wm.innerText == 0 && ws.innerText == 0) {
+        playAlarm(videoID);
         if (bs.innerText != 0) {
             bs.innerText = formatTime(parseInt(bs.innerText) - 1);
+            playAlarm(videoID);
         } else if (bm.innerText != 0 && bs.innerText == 0) {
             bs.innerText = 59;
             bm.innerText = formatTime(parseInt(bm.innerText) - 1);
@@ -138,7 +142,7 @@ function timer() {
 
         if (parseInt(counter.innerText) % 2 === 0) {
             gainExperience(20);
-            onYouTubeIframeAPIReady();
+;
         }
     }
     
@@ -255,7 +259,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (!storedEffect) {
         localStorage.setItem('selectedAudioEffect', 'effect1'); // Default to Bell
         storedEffect = 'effect1';
-        }
+        };
         playAlarm(storedEffect);
         });
         
@@ -299,7 +303,7 @@ function playAlarm(effect) {
                                 default:
                                     videoID = 'Buie31LDKCs'; 
                                     break;
-                                    }
+                                    };
                                     if (videoID) {
                                         alarmplayer.loadVideoById(videoID);
                                         alarmplayer.playVideo();
@@ -315,7 +319,6 @@ window.onload = function() {
     backgroundsetter();
     profilesetter();
     loadPresets();
-    userchange();
     onYouTubeIframeAPIReady();
 };
 
