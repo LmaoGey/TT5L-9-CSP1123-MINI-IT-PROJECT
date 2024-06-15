@@ -485,13 +485,14 @@ const linegraph = new Chart(lineGraph, {
 
 ////////pie chart
 const pieChart = document.getElementById('pieChart').getContext('2d');
+
 const piechart = new Chart(pieChart, {
     type: 'pie',
     data: {
         labels: ['Study', 'Exercise', 'Gaming', 'House Chores', 'Others'],
         datasets: [{
             label: 'Time focused (in hour)',
-            data: [2, 1.5, 15, 20, 14],
+            data: focusTimeData,
             backgroundColor: [
                 '#00FFFF', '#00CED1', '#48D1CC', '#40E0D0', '#20B2AA', '#008B8B', '#5F9EA0'
             ],
@@ -529,6 +530,7 @@ const piechart = new Chart(pieChart, {
 // Get focus time data from presets and categorize by day
 function getFocusTimeData() {
     const presets = getPresetsFromLocalStorage();
+    
     const focusTimeData = {
         Monday: 0,
         Tuesday: 0,
@@ -579,4 +581,6 @@ function savePreset(focus, day) {
     };
     const key = 'custom_' + day; // Ensure each day has a unique key
     localStorage.setItem(key, JSON.stringify(presetData.focus));
-}
+ }  //line graph///
+
+ 
