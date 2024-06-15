@@ -269,6 +269,9 @@ transform: translate(-50%, -50%);
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    overflow-y:scroll;
+    height:100px;
+    display:block;
 }
 
 #presets-table th,
