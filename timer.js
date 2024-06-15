@@ -24,38 +24,44 @@ if (storedColour) {
             userphoto.setAttribute('src', storedPhoto);
         }
     }
-    //for the alarm
-//     var videoID = localStorage.getItem("selectedAudioEffect");
+    // for the alarm
+    var videoID = localStorage.getItem("selectedAudioEffect");
     
-//     function onYouTubeIframeAPIReady() {
-//         initAlarmPlayer();
-//         }
-//     var alarmplayer;
+    function onYouTubeIframeAPIReady() {
+        initAlarmPlayer();
+        }
+    var alarmplayer;
     
-//     function initAlarmPlayer() {
-//         alarmplayer = new YT.Player('alarm-player', {
-//             height: '0',
-//             width: '0',
-//             events: {
-//                 'onReady': onAlarmPlayerReady,
-//                 'onStateChange': onAlarmPlayerStateChange
-//             }
-//         });
-//     }
+    function initAlarmPlayer() {
+        alarmplayer = new YT.Player('alarm-player', {
+            height: '0',
+            width: '0',
+            events: {
+                'onReady': onAlarmPlayerReady,
+                'onStateChange': onAlarmPlayerStateChange
+            }
+        });
+    }
     
-//     function onAlarmPlayerReady(event) {
-//         var alarmVolume = localStorage.getItem('alarmVolume') || 100;
-//         alarmplayer.setVolume(alarmVolume);
-//         document.getElementById('alarmvolume-control').value = alarmVolume;
+    function onAlarmPlayerReady(event) {
+        var alarmVolume = localStorage.getItem('alarmVolume') || 100;
+        alarmplayer.setVolume(alarmVolume);
+        document.getElementById('alarmvolume-control').value = alarmVolume;
         
-//     }
+    }
     
     
-//     function onAlarmPlayerStateChange(event) {
-//     if (event.data === YT.PlayerState.ENDED) {
-//         alarmplayer.playVideo();  
-//     }
-// }
+    function onAlarmPlayerStateChange(event) {
+    if (event.data === YT.PlayerState.ENDED) {
+        alarmplayer.playVideo();  
+    }
+}
+function onAlarmPlayerReady(event) { 
+    var alarmVolume = localStorage.getItem('alarmVolume') || 100;
+    alarmplayer.setVolume(alarmVolume);
+    document.getElementById('alarmvolume-control').value = alarmVolume;
+}
+
 
     
 
@@ -218,10 +224,13 @@ function getPresetsFromLocalStorage() {
         const key = localStorage.key(i);
         if (key.startsWith('custom')) {
             const presetData = JSON.parse(localStorage.getItem(key));
+            
+            presetData.focus = parseInt(presetData.focus);
+            presetData.break = parseInt(presetData.break);
+            presetData.cycles = parseInt(presetData.cycles);
             presets.push(presetData);
         }
-    }
-    console.log(presets);
+    };
     return presets;
 }
 
@@ -317,9 +326,9 @@ window.onload = function() {
     initializeTimer();
     backgroundsetter();
     profilesetter();
-    onYouTubeIframeAPIReady();
     loadPresets();
     userchange();
+    onYouTubeIframeAPIReady();
 };
 
  
