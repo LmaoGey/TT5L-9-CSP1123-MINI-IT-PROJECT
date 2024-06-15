@@ -563,9 +563,7 @@ function getPresetsFromLocalStorage() {
         if (key.startsWith('custom')) {
             const presetData = JSON.parse(localStorage.getItem(key));
             presetData.focus = parseInt(presetData.focus);
-            presetData.break = parseInt(presetData.break);
-            presetData.cycles = parseInt(presetData.cycles);
-            presets.push(presetData);
+             presets.push(presetData);
         }
     }
     return presets;
@@ -574,19 +572,24 @@ function getPresetsFromLocalStorage() {
  
 
  
-
- // Function to save preset data to localStorage
+// Function to save preset data to localStorage
 function savePreset(focus) {
     const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const d = new Date();
     let day = daysOfWeek[d.getDay()]; 
 
-    const presetData = {
-        focus: focus,
-        day: day,
-    };
-    const key = 'custom_' + day; // Ensure each day has a unique key
-    localStorage.setItem(key, JSON.stringify(presetData.focus));
- }  //line graph///
+    // Check if focus is valid
+    if (focus >= 1 && focus <= 25) {
+        const presetData = {
+            focus: focus,
+            day: day,
+        };
+        const key = 'custom_' + day; // Ensure each day has a unique key
+        localStorage.setItem(key, JSON.stringify(presetData.focus));
+        console.log('Preset saved for', day, 'with focus:', focus);
+    } else {
+        console.error('Focus value is not valid. Focus should be between 1 and 25.');
+    }
+}
 
  
