@@ -323,13 +323,8 @@ window.onload = function () {
     initializeTimer();
     backgroundsetter();
     profilesetter();
-<<<<<<< HEAD
     userchange();
     //onYouTubeIframeAPIReady();
-=======
-    loadPresets();
-    onYouTubeIframeAPIReady();
->>>>>>> 2302eb211f72d5509a7bf4f31672d74c854163c6
 };
 
  
