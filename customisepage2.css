@@ -79,9 +79,9 @@ body {
 }
 
 .breakbox {
-  position: relative;
-  left:300px;
-  bottom: 100px;
+  position:  absolute;
+  top: 700px;
+  right: 20px;
   background-color: aqua;
   padding: 10px;
   border-radius: 15px;
@@ -200,4 +200,22 @@ td {
   border: 1px solid rgb(64, 33, 33);
   text-align: left;
   padding: 8px 15px;
+}
+
+.pill-button{
+  position: absolute;
+  bottom:700px;
+   right: 300px;
+  background-color: rgb(107, 48, 48);
+  border-radius: 15px;
+  padding: 10px;
+  font-size: 20px;
+
+
+}
+.pill-button:hover{
+  background-color: gainsboro;
+  outline: #101610 solid 3px;
+  transition: 1s;
+  box-shadow :1.3px #ccc;
 }
