@@ -3,78 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>timer</title>
+    <title>Timer</title>
     <link rel="stylesheet" href="timer.css">
 </head>
 <body>
-    <!--navbar    :L-->
- <header class="header">
-    <a href="" class="logo">logo</a>
-    <nav class="navbar">
-        <a href="./custom.page.html">customize</a>
-        <a href="./profile.html"><img src="./placeholderlogo.png" class="profile" id="userPhoto"></a>
+    <!-- Navbar -->
+    <header class="header">
+        <a href="#" class="logo">Logo</a>
+        <nav class="navbar">
+            <a href="./custom.page.html">Customize</a>
+            <a href="./profile.html"><img src="./placeholderlogo.png" class="profile" id="userPhoto" alt="Profile"></a>
+        </nav>
+    </header>
 
-    </nav>
-
-
-    
-</header>
-
-<!--timer :)-->
-      
-        <div id="container">
-            <p id="work" class="label">Focus:</p><p id="break" class="label">Break:</p><p id="cycles" class="label">Cycles:</p>
-         
-            <div id="work-timer" class="timer">
-                <p id="w_minutes">0</p><p class="semicolon">:</p><p id="w_seconds">02</p>
-            </div>
-    
-            
-            <p id="counter" class="timer">0</p>
-    
-         
-            <div id="break-timer" class="timer">
-                <p id="b_minutes">0</p><p class="semicolon">:</p><p id="b_seconds">02</p>
-            </div>
-            <button id="start" class="btn" >Start</button>
-            <button id="stop" class="btn">Pause</button>
-            <button id="reset" class="btn">Reset</button>
+    <!-- Timer -->
+    <div id="container">
+        <div id="work" class="label">Focus:</div>
+        <div id="work-timer" class="timer">
+            <span id="w_minutes">00</span>:<span id="w_seconds">02</span>
         </div>
-        <span id="alarm-player"></span> 
-
-
-        <!--level bar :3-->
-        <div class="level-container">
-            <div class="level-bar" id="levelBar"></div>
-        
+        <div id="break" class="label">Break:</div>
+        <div id="break-timer" class="timer">
+            <span id="b_minutes">00</span>:<span id="b_seconds">02</span>
         </div>
-        <p>Level: <span id="level" >1</span></p>
-        <p>EXP: <span id="xp">0</span>/<span id="xpMax">100</span></p>
-
-    <div class="todolist">
-        <h2 class="todotitle">To do :</h2>
-        <div class="todoitems">
-            <input type="text" id="todoinput-box" placeholder="things here"><button>add</button>
-
-
-
-
-        </div>
-
-        </div>
+        <div id="cycles" class="label">Cycles:</div>
+        <div id="counter" class="timer">0</div>
+        <button id="start" class="btn">Start</button>
+        <button id="stop" class="btn">Pause</button>
+        <button id="reset" class="btn">Reset</button>
     </div>
-    
-    
+    <div id="alarm-player"></div>
+    <!--welcome message-->
+    <div id="welcome-message">
+        <h1 id="">Welcome back! <span id="userup">Username</span></h1>
+    </div>
 
+    <!-- Level Bar -->
+    <div class="level-container">
+        <div class="level-bar" id="levelBar"></div>
+    </div>
+    <p>Level: <span id="level">1</span></p>
+    <p>EXP: <span id="xp">0</span>/<span id="xpMax">100</span></p>
 
+    <div>
+        <h2>Presets</h2>
+        <table id="presets-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Focus Minutes</th>
+                    <th>Break Minutes</th>
+                    <th>Cycles</th>
+                </tr>
+            </thead>
+            <tbody id="presets-body">
+               
+            </tbody>
+        </table>
+    </div>
 
-
-
-
-
-    <script src = timer.js></script>
+    <script src="timer.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
-   
 </body>
-    
 </html>
