@@ -6,7 +6,10 @@ var ws = document.getElementById('w_seconds');
 var bm = document.getElementById('b_minutes');
 var bs = document.getElementById('b_seconds');
 var counter = document.getElementById('counter');
+var toggleMode = document.getElementById('toggle-mode');
 
+var cyclesCountUp = true; 
+var initialCycles = 0;
 var startTimer;
 
 // reader stuff
@@ -78,12 +81,13 @@ function initializeTimer() {
     ws.innerText = workseconds < 10 ? '0' + workseconds : workseconds;
     bm.innerText = breakMinutes < 10 ? '0' + breakMinutes : breakMinutes;
     bs.innerText = breakseconds < 10 ? '0' + breakseconds : breakseconds;
-    counter.innerText = 0;
+    counter.innerText = cyclesCountUp ? 0 : initialCycles;
 }
 
 start.addEventListener('click', startTimerFunction);
 reset.addEventListener('click', resetTimer);
 stop.addEventListener('click', stopTimer);
+toggleMode.addEventListener('click', toggleCycleMode);
 
 function startTimerFunction() {
     if (startTimer === undefined) {
@@ -93,13 +97,12 @@ function startTimerFunction() {
     }
 }
 
-
 function resetTimer() {
     wm.innerText = workMinutes < 10 ? '0' + workMinutes : workMinutes;
     ws.innerText = workseconds < 10 ? '0' + workseconds : workseconds;
     bm.innerText = breakMinutes < 10 ? '0' + breakMinutes : breakMinutes;
     bs.innerText = breakseconds < 10 ? '0' + breakseconds : breakseconds;
-    counter.innerText = 0;
+    counter.innerText = cyclesCountUp ? 0 : initialCycles;
     stopInterval();
     startTimer = undefined;
 }
@@ -125,7 +128,6 @@ function timer() {
         playAlarm(videoID);
         if (bs.innerText != 0) {
             bs.innerText = formatTime(parseInt(bs.innerText) - 1);
-            playAlarm(videoID);
         } else if (bm.innerText != 0 && bs.innerText == 0) {
             bs.innerText = 59;
             bm.innerText = formatTime(parseInt(bm.innerText) - 1);
@@ -137,22 +139,26 @@ function timer() {
         ws.innerText = formatTime(workseconds);
         bm.innerText = formatTime(breakMinutes);
         bs.innerText = formatTime(breakseconds);
-        counter.innerText = parseInt(counter.innerText) + 1;
-        
+
+        if (cyclesCountUp) {
+            counter.innerText = parseInt(counter.innerText) + 1;
+        } else {
+            counter.innerText = parseInt(counter.innerText) - 1;
+            if (parseInt(counter.innerText) <= 0) {
+                stopTimer();
+            }
+        }
 
         if (parseInt(counter.innerText) % 2 === 0) {
             gainExperience(20);
-;
         }
     }
-    
 }
 
 function stopInterval() {
     clearInterval(startTimer);
     startTimer = undefined;
 }
-
 
 
 //levelbar
@@ -313,9 +319,27 @@ function playAlarm(effect) {
                                         alarmplayer.playVideo();
                                         }
 }
+
+//cycle countdown
+
+function toggleCycleMode() {
+    cyclesCountUp = !cyclesCountUp;
+    if (!cyclesCountUp) {
+        initialCycles = parseInt(prompt("Enter the number of cycles:", "5")) || 5;
+    }
+    resetTimer();
+}
  
  
   
+
+function toggleCycleMode() {
+    cyclesCountUp = !cyclesCountUp;
+    if (!cyclesCountUp) {
+        initialCycles = parseInt(prompt("Enter the number of cycles:", "5")) || 5;
+    }
+    resetTimer();
+}
 
 window.onload = function () {
     loadPresets();
@@ -323,9 +347,6 @@ window.onload = function () {
     initializeTimer();
     backgroundsetter();
     profilesetter();
-    userchange();
-    //onYouTubeIframeAPIReady();
 };
-
  
  
