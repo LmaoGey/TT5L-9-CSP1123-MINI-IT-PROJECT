@@ -126,7 +126,7 @@ function timer() {
     }
 
     if (wm.innerText == 0 && ws.innerText == 0) {
-        playAlarm(videoID);
+        ;
         accumulateTimerValues();
         if (bs.innerText != 0) {
             bs.innerText = formatTime(parseInt(bs.innerText) - 1);
