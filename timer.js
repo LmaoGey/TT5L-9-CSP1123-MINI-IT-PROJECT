@@ -60,7 +60,7 @@ if (storedColour) {
     }
 }
 function playMusic(videoID) {
-    if (musicplayer && musicplayer.loadVideoById) {
+    if (musicplayer && musicplayer.hasOwnProperty('loadVideoById')) {
         musicplayer.loadVideoById(videoID);
         musicplayer.playVideo();
         localStorage.setItem('selectedMusic', videoID);
@@ -71,10 +71,10 @@ function playMusic(videoID) {
     
 
 //timer
-let workMinutes = 25;
-let breakMinutes = 5;
-let workseconds = 0;
-let breakseconds = 0;
+let workMinutes = 0;
+let breakMinutes = 0;
+let workseconds = 2;
+let breakseconds = 2;
 
 function initializeTimer() {
     wm.innerText = workMinutes < 10 ? '0' + workMinutes : workMinutes;
@@ -126,7 +126,7 @@ function timer() {
     }
 
     if (wm.innerText == 0 && ws.innerText == 0) {
-        ;
+        playAlarm(videoID);
         accumulateTimerValues();
         if (bs.innerText != 0) {
             bs.innerText = formatTime(parseInt(bs.innerText) - 1);
@@ -286,18 +286,19 @@ document.getElementById("day").innerHTML = day;
 
 
 ///alarm
+const storedEffect = localStorage.getItem('selectedAudioEffect');
 document.addEventListener("DOMContentLoaded", function() {
-    var storedEffect = localStorage.getItem('selectedAudioEffect');
+    const storedEffect = localStorage.getItem('selectedAudioEffect');
     if (!storedEffect) {
         localStorage.setItem('selectedAudioEffect', 'effect1'); // Default to Bell
         storedEffect = 'effect1';
         };
-        playAlarm(storedEffect);
+        playAlarm(videoID);
         });
         
+        var videoID;
 
 function playAlarm(effect) {
-    var videoID;
     switch (effect) {
         case 'effect0':
             videoID = ''; // No alarm
@@ -339,7 +340,10 @@ function playAlarm(effect) {
                                     if (videoID) {
                                         alarmplayer.loadVideoById(videoID);
                                         alarmplayer.playVideo();
-                                        }    setTimeout(function() {
+                                    
+                                        }  
+                                        
+                                        setTimeout(function() {
                                             alarmplayer.stopVideo();
                                         }, 4000); // 5000 milliseconds = 5 seconds
                                     
