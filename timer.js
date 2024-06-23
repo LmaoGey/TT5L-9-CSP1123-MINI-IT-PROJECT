@@ -288,15 +288,25 @@ document.getElementById("day").innerHTML = day;
 ///alarm
 const storedEffect = localStorage.getItem('selectedAudioEffect');
 document.addEventListener("DOMContentLoaded", function() {
-    const storedEffect = localStorage.getItem('selectedAudioEffect');
+    // Set the default effect if not already set
+    let storedEffect = localStorage.getItem('selectedAudioEffect');
     if (!storedEffect) {
         localStorage.setItem('selectedAudioEffect', 'effect1'); // Default to Bell
         storedEffect = 'effect1';
-        };
-        playAlarm(videoID);
-        });
-        
-        var videoID;
+    }
+
+    // Initialize the alarm player
+    if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
+        // Load the YouTube IFrame API if it's not already loaded
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    } else {
+        // YouTube IFrame API is already loaded
+        onYouTubeIframeAPIReady();
+    }
+});
 
 function playAlarm(effect) {
     switch (effect) {
