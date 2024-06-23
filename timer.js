@@ -71,10 +71,10 @@ function playMusic(videoID) {
     
 
 //timer
-let workMinutes = 0;
-let breakMinutes = 0;
-let workseconds = 2;
-let breakseconds = 2;
+let workMinutes = 25;
+let breakMinutes = 5;
+let workseconds = 0;
+let breakseconds = 0;
 
 function initializeTimer() {
     wm.innerText = workMinutes < 10 ? '0' + workMinutes : workMinutes;
@@ -144,10 +144,12 @@ function timer() {
 
         if (cyclesCountUp) {
             counter.innerText = parseInt(counter.innerText) + 1;
+            playAlarm(videoID);
         } else {
             counter.innerText = parseInt(counter.innerText) - 1;
             if (parseInt(counter.innerText) <= 0) {
                 stopTimer();
+                playAlarm(videoID);
             }
         }
 
@@ -288,22 +290,22 @@ document.getElementById("day").innerHTML = day;
 ///alarm
 const storedEffect = localStorage.getItem('selectedAudioEffect');
 document.addEventListener("DOMContentLoaded", function() {
-    // Set the default effect if not already set
+    
     let storedEffect = localStorage.getItem('selectedAudioEffect');
     if (!storedEffect) {
         localStorage.setItem('selectedAudioEffect', 'effect1'); // Default to Bell
         storedEffect = 'effect1';
     }
 
-    // Initialize the alarm player
+
     if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
-        // Load the YouTube IFrame API if it's not already loaded
+        
         var tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     } else {
-        // YouTube IFrame API is already loaded
+    
         onYouTubeIframeAPIReady();
     }
 });
